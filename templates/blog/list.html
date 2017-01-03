@@ -20,13 +20,13 @@
                 {% endfor %}
 
                 <ul class="pager">
-                    {% if posts.has_previous %}
+                    {% if page_obj.has_previous %}
                         <li class="pull-left">
-                            <a href="{{ request.path }}?page={{ posts.previous_page_number }}"><i class="fa fa-arrow-left fa-lg"></i>上一页</a></li>
+                            <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}"><i class="fa fa-arrow-left fa-lg"></i>上一页</a></li>
                     {% endif %}
-                    {% if posts.has_next %}
+                    {% if page_obj.has_next %}
                         <li class="next">
-                            <a href="{{ request.path }}?page={{ posts.next_page_number }}">下一页&nbsp;<i class="fa fa-arrow-right fa-lg"></i></a></li>
+                            <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">下一页&nbsp;<i class="fa fa-arrow-right fa-lg"></i></a></li>
                     {% endif %}
                 </ul>
             </div>

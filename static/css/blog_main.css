@@ -8614,7 +8614,7 @@ form .row:first-child .floating-label-form-group {
   color: white;
 }
 .pager {
-  margin: 20px 0 0;
+  margin: 20px 0 20px 0;
 }
 .pager li > a,
 .pager li > span {
@@ -8689,7 +8689,7 @@ body {
   padding-bottom: 16px;
 }
 #blog-detail-container p {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.7;
   color: #0f0f0f;
   padding: 5px;
