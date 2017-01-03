@@ -1,12 +1,11 @@
 from django.db import models
-from meta.models import ModelMeta
 from django.utils.translation import ugettext_lazy as _
 from redactor.fields import RedactorField
 from uuslug import uuslug
 from tagging.registry import register
 
 
-class Post(ModelMeta, models.Model):
+class Post(models.Model):
     (block, preview, publish) = xrange(3)
     POST_STARUS_CHOICES = [
         (block, _('block')),
@@ -45,9 +44,9 @@ class Post(ModelMeta, models.Model):
             self.slug = uuslug(self.title, instance=self, max_length=30)
         return super(Post, self).save(**kwargs)
 
-    _metadata = {
-        'title': 'title',
-        'description': 'content',
-    }
+    # _metadata = {
+    #     'title': 'title',
+    #     'description': 'content',
+    # }
 
 register(Post)

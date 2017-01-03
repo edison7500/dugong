@@ -47,7 +47,6 @@ INSTALLED_APPS = (
     'redactor',
     'compressor',
     'tagging',
-    'meta',
 
     'blog',
 )
