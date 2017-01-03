@@ -19,3 +19,17 @@ docker run -d -t -i \
         -p 127.0.0.1:8000:8000 dugong
 ```
 
+### Django 第三方组建
+```
+django-admin-bootstrapped==2.5.7
+django-appconf==1.0.2
+django-compressor==2.1
+django-debug-toolbar==1.6
+django-formtools==1.0
+django-simple-captcha==0.5.3
+django-wysiwyg-redactor==0.4.9.1
+djdt-flamegraph==0.2.12
+django-uuslug==1.1.8
+django-tagging==0.4.5
+django-meta==1.3.2
+```
