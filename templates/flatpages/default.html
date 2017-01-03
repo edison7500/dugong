@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+{% load flatpages %}
+{% get_flatpages as flatpages %}
+
+{% block title %}
+    <title>{{ flatpage.title }}</title>
+{% endblock %}
+
+{% block content %}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+
+{% block title %}<title>{{ object.title }}</title>{% endblock %}
+
+{% block header %}
+    <header class="intro-header" style="background-image: url('http://imgjiaxin.u.qiniudn.com/a7e9d782b98ac04fa91e39fb46ddf410.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>{{ object.title }}</h1>
+                        <span class="meta">{{ object.created_date|date:'Y-m-d' }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block container %}
+    <article>
+        <div class="container">
+            <div class="col-md-8" id="blog-detail-container">
+                {% autoescape off%}
+                    {{ object.content }}
+                {% endautoescape %}
+            </div>
+
+            <div class="col-md-4">
+
+            </div>
+        </div>
+    </article>
+
+{% endblock %}
