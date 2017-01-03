@@ -64,7 +64,8 @@ docs/_build/
 
 images/*
 
-
+# production setting
+dugong/settings/production.py
 
 log.txt
 =======
@@ -73,3 +74,7 @@ log.txt
 
 *.sqlite3
 *.rdb
+
+
+
+
