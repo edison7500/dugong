@@ -4,15 +4,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keyword" content="Python,Linux,iOS,devops,运维开发,摄影">
-    <meta name="description" content="Python, Linux, iOS, devops, Photograph">
-    <meta name="author" content="jiaxin">
+    {% include 'base/meta.html' %}
 
-    {% block  title %}<title>家欣的天空</title>{% endblock %}
-    {% block meta %}{% endblock %}
+    <title>{% block  title %}{% endblock %}家欣的天空{</title>
+{#    {% block meta %}{% endblock %}#}
 
     {% compress css %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/blog_main.css' %}" charset="utf-8" />

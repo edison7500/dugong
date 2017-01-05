@@ -30,6 +30,20 @@ urlpatterns += [
 ]
 
 
+from blog.sitemaps import PostSitemap
+sitemaps = {
+    'blog': PostSitemap,
+}
+
+from django.contrib.sitemaps import views
+from django.views.decorators.cache import cache_page
+urlpatterns += [
+    url(r'^sitemap\.xml$', cache_page(86400)(views.sitemap),
+                            {'sitemaps': sitemaps},
+                            name='post_sitemaps'),
+]
+
+
 from django.contrib.flatpages import views
 urlpatterns += [
     url(r'^pages/(?P<url>.*/?)$', views.flatpage),
