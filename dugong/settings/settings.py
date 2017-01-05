@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 Django settings for dugong project.
 
@@ -33,7 +34,7 @@ SITE_ID       = 1
 # Application definition
 
 INSTALLED_APPS = (
-    'django_admin_bootstrapped',
+    'suit',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -156,3 +157,24 @@ FILE_UPLOAD_HANDLERS   = (
 )
 
 REDACTOR_UPLOAD         = 'images/'
+
+
+'''
+    django suit config
+'''
+SUIT_CONFIG = {
+    'ADMIN_NAME': '家欣的天空',
+
+    'HEADER_DATE_FORMAT': 'Y / m / d',
+    'HEADER_TIME_FORMAT': 'H:i',
+
+    # 'MENU_EXCLUDE': ('auth',),
+
+    'LIST_PER_PAGE': 20,
+    'MENU_ICONS': {
+        'sites': 'icon-leaf',
+        'accounts': 'icon-lock',
+        'articles': 'icon-book',
+        'tagging':  'icon-tags',
+    },
+}
