@@ -14,7 +14,7 @@ class PostAdmin(admin.ModelAdmin):
 
 from django.contrib.flatpages.forms import FlatpageForm
 from django.contrib.flatpages.admin import FlatPageAdmin
-from django.contrib.flatpages.models import FlatPage
+#
 from django.db import models
 from redactor.widgets import RedactorEditor
 
@@ -47,5 +47,3 @@ class FlatPageAdmin(FlatPageAdmin):
         }),
     )
 # Re-register FlatPageAdmin
-admin.site.unregister(FlatPage)
-admin.site.register(FlatPage, FlatPageAdmin)
