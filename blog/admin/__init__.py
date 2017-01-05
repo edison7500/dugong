@@ -8,6 +8,5 @@ from blog.models import Post
 
 admin.site.register(Post, PostAdmin)
 
-
 admin.site.unregister(FlatPage)
 admin.site.register(FlatPage, FlatPageAdmin)
