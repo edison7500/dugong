@@ -60,14 +60,13 @@ log.txt
 docs/_build/
 
 # PyCharm
-.idea/
+.idea/*
 
 images/*
 
 # production setting
 dugong/settings/production.py
 
-log.txt
 =======
 # Vim stuff
 *.swp
