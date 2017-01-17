@@ -51,6 +51,7 @@ INSTALLED_APPS = (
     'tagging',
 
     'blog',
+    'articles',
 )
 
 MIDDLEWARE_CLASSES = (
