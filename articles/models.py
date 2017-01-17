@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from redactor.fields import RedactorField
 from uuslug import uuslug
@@ -37,6 +38,10 @@ class Article(models.Model):
     created_datetime    = models.DateTimeField(db_index=True, auto_now_add=True, editable=False)
     updated_datetime    = models.DateTimeField(db_index=True, auto_now=True, editable=False)
 
+    class Meta:
+        verbose_name = _('article')
+        verbose_name_plural = _('articles')
+
     def __unicode__(self):
         return self.title
 
@@ -44,6 +49,12 @@ class Article(models.Model):
         if len(self.slug) == 0:
             self.slug = uuslug(self.title, instance=self, max_length=30)
         return super(Article, self).save(**kwargs)
+
+
+class Cover(models.Model):
+    article             = models.OneToOneField(Article, related_name='cover')
+    image               = models.ImageField()
+    upload_datetime     = models.DateTimeField(db_index=True, default=timezone.now)
 
 
 register(Article)
