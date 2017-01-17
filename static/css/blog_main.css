@@ -8682,6 +8682,18 @@ body {
   font-size: 12px;
   color: #888;
 }
+#blog-slider {
+  background-color: #fff;
+  padding: 10px 5px 10px 5px;
+  border: solid 1px #ebebeb;
+}
+#blog-slider p {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px 0 5px 0;
+  margin: 5px 16px 10px 16px;
+  border-bottom: solid 1px #ebebeb;
+}
 #blog-detail-container {
   background-color: #fff;
   border: 1px solid #ebebeb;

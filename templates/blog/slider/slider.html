@@ -1,3 +1,12 @@
-<div id="slider-containter">
+{% load i18n %}
+{% load tagging_tags %}
 
+<div id="blog-slider">
+    <p>{% trans 'tags' %}</p>
+    {% tag_cloud_for_model blog.Post as tags with steps=2 min_count=10 distribution=linear %}
+    {% for tag in tags %}
+        <a href="{% url 'web_article_tag' tag.pk %}" title="{% trans tag.name %}">
+            <span class="label article-tag">{% trans tag.name %}</span>
+        </a>
+    {% endfor %}
 </div>
