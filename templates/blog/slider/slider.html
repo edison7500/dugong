@@ -7,7 +7,7 @@
     </div>
 
     <div class="post-tags">
-        <p>{% trans 'tags' %}</p>
+        <p>{% trans 'tag' %}</p>
         {% tag_cloud_for_model blog.Post as tags with steps=10 min_count=1 distribution=log %}
         {% for tag in tags %}
             <a href="#" title="{% trans tag.name %}">
