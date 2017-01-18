@@ -8,6 +8,14 @@ body {
   background-color: @body-background-color;
 }
 
+a {
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
 #blog-container{
   background-color: @blog-background-color;
   border: 1px solid #ebebeb;
@@ -61,11 +69,12 @@ body {
   padding-bottom: 16px;
 
   p{
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.7;
-    color: #0f0f0f;
+    color: @blog-content-color;
     padding: 5px;
-    margin: 0;
+    margin-top: 0px;
+    margin-bottom: 10px;
   }
   pre, code{
     margin: 10px;
@@ -74,6 +83,20 @@ body {
     color: #fff;
     a{
       color: #00b3ee;
+    }
+  }
+
+  .post-tags {
+    color: @blog-tag-color;
+    margin-top: 20px;
+    font-size: 14px;
+
+    .label-tag{
+      .label-variant(@label-color);
+      color: @blog-tag-color;
+      font-weight: normal;
+      border: solid 1px @blog-line-color;
+      margin-left: 10px;
     }
   }
 }

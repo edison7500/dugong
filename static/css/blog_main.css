@@ -8665,6 +8665,13 @@ body {
 body {
   background-color: #f8f8f8;
 }
+a {
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
 #blog-container {
   background-color: #fff;
   border: 1px solid #ebebeb;
@@ -8710,11 +8717,12 @@ body {
   padding-bottom: 16px;
 }
 #blog-detail-container p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
-  color: #0f0f0f;
+  color: #222;
   padding: 5px;
-  margin: 0;
+  margin-top: 0px;
+  margin-bottom: 10px;
 }
 #blog-detail-container pre,
 #blog-detail-container code {
@@ -8726,4 +8734,20 @@ body {
 #blog-detail-container pre a,
 #blog-detail-container code a {
   color: #00b3ee;
+}
+#blog-detail-container .post-tags {
+  color: #3e3e3e;
+  margin-top: 20px;
+  font-size: 14px;
+}
+#blog-detail-container .post-tags .label-tag {
+  background-color: #fff;
+  color: #3e3e3e;
+  font-weight: normal;
+  border: solid 1px #ebebeb;
+  margin-left: 10px;
+}
+#blog-detail-container .post-tags .label-tag[href]:hover,
+#blog-detail-container .post-tags .label-tag[href]:focus {
+  background-color: #e6e6e6;
 }

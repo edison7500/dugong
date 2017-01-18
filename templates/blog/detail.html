@@ -28,8 +28,11 @@
                 {% endautoescape %}
                 </div>
                 <div class="post-tags">
+                    <i class="fa fa-tags"></i>
                     {% for tag in object.tags %}
-                        <a href="#" title="{% trans tag.name %}">{% trans tag.name %}</a>
+                        <a href="#" title="{% trans tag.name %}">
+                            <span class="label label-tag">{% trans tag.name %}</span>
+                        </a>
                     {% endfor %}
                 </div>
             </div>
