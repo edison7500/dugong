@@ -16,6 +16,15 @@ a {
   }
 }
 
+.label-tag{
+  .label-variant(@label-color);
+  color: @blog-tag-color;
+  font-size: 14px;
+  font-weight: normal;
+  border: solid 1px @blog-line-color;
+  margin-left: 10px;
+}
+
 #blog-container{
   background-color: @blog-background-color;
   border: 1px solid #ebebeb;
@@ -57,7 +66,7 @@ a {
   .post-tags {
     margin-top: 20px;
     background-color: @blog-background-color;
-    //padding: 10px 5px 10px 5px;
+    padding-bottom: 20px;
     border: solid 1px @blog-line-color;
   }
 }
@@ -94,17 +103,12 @@ a {
 
   .post-tags {
     color: @blog-tag-color;
-    margin-top: 20px;
     font-size: 14px;
-
-    .label-tag{
-      .label-variant(@label-color);
-      color: @blog-tag-color;
-      font-weight: normal;
-      border: solid 1px @blog-line-color;
-      margin-left: 10px;
-    }
+    margin-top: 20px;
   }
 }
+
+
+
 
 

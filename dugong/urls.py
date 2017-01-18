@@ -24,7 +24,7 @@ urlpatterns += [
 
     url(r'^redactor/', include('redactor.urls')),
 
-    url(r'^$', RedirectView.as_view(url="/blog/")),
+    url(r'^$', RedirectView.as_view(url="/blog/", permanent=False)),
 
     url(r'^blog/', include('blog.urls')),
 ]

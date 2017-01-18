@@ -8,10 +8,10 @@
 
     <div class="post-tags">
         <p>{% trans 'tags' %}</p>
-        {% tag_cloud_for_model blog.Post as tags with steps=10 min_count=2 distribution=log %}
+        {% tag_cloud_for_model blog.Post as tags with steps=10 min_count=1 distribution=log %}
         {% for tag in tags %}
-            <a href="{% url 'web_article_tag' tag.pk %}" title="{% trans tag.name %}">
-                <span class="label article-tag">{% trans tag.name %}</span>
+            <a href="#" title="{% trans tag.name %}">
+                <span class="label label-tag">{% trans tag.name %}</span>
             </a>
         {% endfor %}
     </div>

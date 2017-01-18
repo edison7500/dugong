@@ -141,7 +141,6 @@ COMPRESS_PRECOMPILERS   = (
     # ('text/x-scss', 'sass --scss {infile} {outfile}'),
 )
 
-
 COMPRESS_OUTPUT_DIR     = 'release'
 COMPRESS_OFFLINE        = True
 
