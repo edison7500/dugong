@@ -16,6 +16,7 @@ body {
     color: @blog-title-color;
     &:hover,
     &:focus {
+      color: #00b3ee;
       text-decoration: underline;
     }
   };
@@ -31,9 +32,7 @@ body {
 }
 
 #blog-slider{
-  background-color: @blog-background-color;
-  padding: 10px 5px 10px 5px;
-  border: solid 1px @blog-line-color;
+
   p{
     font-size: 16px;
     font-weight: bold;
@@ -42,6 +41,16 @@ body {
     margin: 5px 16px 10px 16px;
     border-bottom: solid 1px @blog-line-color;
     //margin-bottom: 10px;
+  }
+  .latest-update {
+    background-color: @blog-background-color;
+    border: solid 1px @blog-line-color;
+  }
+  .post-tags {
+    margin-top: 20px;
+    background-color: @blog-background-color;
+    //padding: 10px 5px 10px 5px;
+    border: solid 1px @blog-line-color;
   }
 }
 
@@ -61,7 +70,10 @@ body {
   pre, code{
     margin: 10px;
     padding: 16px;
+    background-color: #000;
   }
+
+
 }
 
 

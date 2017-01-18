@@ -8675,6 +8675,7 @@ body {
 }
 #blog-container .post-title:hover,
 #blog-container .post-title:focus {
+  color: #00b3ee;
   text-decoration: underline;
 }
 #blog-container .post-subtitle {
@@ -8686,17 +8687,21 @@ body {
   font-size: 12px;
   color: #888;
 }
-#blog-slider {
-  background-color: #fff;
-  padding: 10px 5px 10px 5px;
-  border: solid 1px #ebebeb;
-}
 #blog-slider p {
   font-size: 16px;
   font-weight: bold;
   padding: 5px 0 5px 0;
   margin: 5px 16px 10px 16px;
   border-bottom: solid 1px #ebebeb;
+}
+#blog-slider .latest-update {
+  background-color: #fff;
+  border: solid 1px #ebebeb;
+}
+#blog-slider .post-tags {
+  margin-top: 20px;
+  background-color: #fff;
+  border: solid 1px #ebebeb;
 }
 #blog-detail-container {
   background-color: #fff;
@@ -8715,4 +8720,5 @@ body {
 #blog-detail-container code {
   margin: 10px;
   padding: 16px;
+  background-color: #000;
 }
