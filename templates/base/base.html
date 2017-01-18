@@ -7,7 +7,6 @@
     {% include 'base/meta.html' %}
 
     <title>{% block title %}家欣的天空{% endblock %}</title>
-{#    {% block meta %}{% endblock %}#}
 
     {% compress css %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/blog_main.css' %}" charset="utf-8" />
@@ -59,9 +58,7 @@
     </header>
     {% endblock %}
 
-
     {% block container %}{% endblock %}
-
 
     {% block footer %}
     <footer>

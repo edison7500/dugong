@@ -8716,6 +8716,13 @@ a:focus {
   padding-top: 16px;
   padding-bottom: 16px;
 }
+#blog-detail-container img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+  margin: auto;
+}
 #blog-detail-container p {
   font-size: 16px;
   line-height: 1.7;

@@ -159,6 +159,20 @@ FILE_UPLOAD_HANDLERS   = (
 
 REDACTOR_UPLOAD         = 'images/'
 
+'''
+    storage configure
+'''
+DEFAULT_FILE_STORAGE        = 'qiniustorage.backends.QiniuStorage'
+
+FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880
+IMAGE_HOST                  = '//imgjiaxin.u.qiniudn.com/'
+
+QINIU_ACCESS_KEY            = "xD6MU4_jZANfAqu9auFQm4qkSIx_ln2hIefKIFAU"
+QINIU_SECRET_KEY            = "NkTHwgTFQHFaujEB3Fo-ZC2jgf6LkjkWT0iWbwWP"
+QINIU_BUCKET_NAME           = "imgjiaxin"
+
+QINIU_BUCKET_DOMAIN         = 'imgjiaxin.u.qiniudn.com'
+QINIU_SECURE_URL            = False
 
 '''
     django suit config
