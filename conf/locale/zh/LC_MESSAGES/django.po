@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-18 23:10+0800\n"
+"POT-Creation-Date: 2017-01-18 23:25+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,13 +53,17 @@ msgstr "预览"
 msgid "title"
 msgstr "标题"
 
-#: templates/base/base.html:33
+#: templates/base/base.html:33 templates/blog/detail.html:26
 msgid "home"
 msgstr "首页"
 
 #: templates/base/base.html:36
 msgid "about"
 msgstr "关于"
+
+#: templates/blog/detail.html:30
+msgid "text"
+msgstr "正文"
 
 #: templates/blog/slider/slider.html:6
 msgid "latest-update"

@@ -29,7 +29,6 @@ class Post(models.Model):
     created_date    = models.DateTimeField(auto_now_add=True, db_index=True, editable=False)
     last_update     = models.DateTimeField(auto_now=True, db_index=True, editable=False)
 
-
     class Meta:
         ordering    = ['-created_date']
 
@@ -43,6 +42,12 @@ class Post(models.Model):
         if len(self.slug) == 0:
             self.slug = uuslug(self.title, instance=self, max_length=30)
         return super(Post, self).save(**kwargs)
+
+    @property
+    def first_tag(self):
+        if len(self.tags) > 0:
+            t = self.tags[0]
+            return t
 
     # _metadata = {
     #     'title': 'title',

@@ -21,24 +21,35 @@
 {% block container %}
     <article>
         <div class="container">
-            <div class="col-md-8" id="blog-detail-container">
-                <div class="post-content">
-                {% autoescape off%}
-                    {{ object.content }}
-                {% endautoescape %}
-                </div>
-                <div class="post-tags">
-                    <i class="fa fa-tags"></i>
-                    {% for tag in object.tags %}
-                        <a href="#" title="{% trans tag.name %}">
-                            <span class="label label-tag">{% trans tag.name %}</span>
-                        </a>
-                    {% endfor %}
-                </div>
-            </div>
+            <div class="row">
+                <ol class="post-breadcrumb">
+                    <li><a href="/blog/">{% trans 'home' %}</a></li>
+                    {% if object.first_tag %}
+                        <li><a href="#">{% trans object.first_tag.name %}</a></li>
+                    {% endif %}
+                    <li class="active">{% trans 'text' %}</li>
+                </ol>
 
-            <div class="col-md-4 hidden-xs">
-                {% include 'blog/slider/slider.html' %}
+                <div class="col-md-8" id="blog-detail-container">
+                    <div class="post-content">
+                    {% autoescape off%}
+                        {{ object.content }}
+                    {% endautoescape %}
+                    </div>
+
+                    <div class="post-tags">
+                        <i class="fa fa-tags"></i>
+                        {% for tag in object.tags %}
+                            <a href="#" title="{% trans tag.name %}">
+                                <span class="label label-tag">{% trans tag.name %}</span>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="col-md-4 hidden-xs">
+                    {% include 'blog/slider/slider.html' %}
+                </div>
             </div>
         </div>
     </article>

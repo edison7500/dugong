@@ -8684,6 +8684,27 @@ a:focus {
 .label-tag[href]:focus {
   background-color: #e6e6e6;
 }
+.post-breadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 20px;
+  list-style: none;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 14px;
+  margin: 0;
+}
+.post-breadcrumb > li {
+  display: inline-block;
+}
+.post-breadcrumb > li + li:before {
+  content: "/\00a0";
+  padding: 0 5px;
+  color: #ccc;
+}
+.post-breadcrumb > .active {
+  color: #777777;
+}
 #blog-container {
   background-color: #fff;
   border: 1px solid #ebebeb;
