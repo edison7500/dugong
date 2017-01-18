@@ -14,7 +14,7 @@
                                 {{ post.content|striptags|truncatechars:100 }}
                             </h3>
                         </a>
-                        <p class="post-meta">{{ post.created_date }}</p>
+                        <p class="post-meta">{{ post.last_update }}</p>
                     </div>
                     <hr>
                 {% endfor %}

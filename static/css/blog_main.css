@@ -8673,6 +8673,10 @@ body {
   font-size: 24px;
   color: #212121;
 }
+#blog-container .post-title:hover,
+#blog-container .post-title:focus {
+  text-decoration: underline;
+}
 #blog-container .post-subtitle {
   font-size: 16px;
   line-height: 1.7;
