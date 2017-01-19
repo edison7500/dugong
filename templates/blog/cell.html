@@ -1,0 +1,10 @@
+<div class="post-preview">
+    <a href="{{ post.get_absolute_url }}" title="{{ post.title }}">
+        <h2 class="post-title">
+            {{ post.title }}
+        </h2>
+        <h3 class="post-subtitle">{{ post.content|striptags|truncatechars:100 }}</h3>
+    </a>
+    <p class="post-meta">{{ post.last_update }}</p>
+</div>
+<hr>

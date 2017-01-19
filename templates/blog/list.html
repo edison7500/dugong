@@ -5,18 +5,19 @@
         <div class="row">
             <div class="col-md-8" id="blog-container">
                 {% for post in object_list %}
-                    <div class="post-preview">
-                        <a href="{{ post.get_absolute_url }}" title="{{ post.title }}">
-                            <h2 class="post-title">
-                                {{ post.title }}
-                            </h2>
-                            <h3 class="post-subtitle">
-                                {{ post.content|striptags|truncatechars:100 }}
-                            </h3>
-                        </a>
-                        <p class="post-meta">{{ post.last_update }}</p>
-                    </div>
-                    <hr>
+                    {% include 'blog/cell.html' with post=post %}
+{#                    <div class="post-preview">#}
+{#                        <a href="{{ post.get_absolute_url }}" title="{{ post.title }}">#}
+{#                            <h2 class="post-title">#}
+{#                                {{ post.title }}#}
+{#                            </h2>#}
+{#                            <h3 class="post-subtitle">#}
+{#                                {{ post.content|striptags|truncatechars:100 }}#}
+{#                            </h3>#}
+{#                        </a>#}
+{#                        <p class="post-meta">{{ post.last_update }}</p>#}
+{#                    </div>#}
+{#                    <hr>#}
                 {% endfor %}
 
                 <ul class="pager">
