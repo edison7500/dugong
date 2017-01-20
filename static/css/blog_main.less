@@ -70,6 +70,18 @@ a {
   .latest-update {
     background-color: @blog-background-color;
     border: solid 1px @blog-line-color;
+    .latest-list {
+      //.list-group;
+      .latest-item {
+        .list-group-item;
+        border: 0;
+        color: @blog-content-color;
+        font-size: 16px;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
   }
   .post-tags {
     margin-top: 20px;

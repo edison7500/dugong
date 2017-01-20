@@ -1,9 +1,10 @@
 {% load i18n %}
-{% load tagging_tags %}
+{% load tagging_tags post_extras %}
 
 <div id="blog-slider">
     <div class="latest-update">
         <p>{% trans 'latest-update' %}</p>
+        {% latest_update %}
     </div>
 
     <div class="post-tags">
