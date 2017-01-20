@@ -8808,6 +8808,10 @@ a:focus {
   padding-bottom: 20px;
   border: solid 1px #ebebeb;
 }
+#blog-slider .ads {
+  margin-top: 20px;
+  background-color: #fff;
+}
 #blog-detail-container {
   background-color: #fff;
   border: 1px solid #ebebeb;
