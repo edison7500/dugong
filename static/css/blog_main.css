@@ -8812,6 +8812,75 @@ a:focus {
   margin-top: 20px;
   background-color: #fff;
 }
+#blog-slider .github-project {
+  margin-top: 20px;
+  background-color: #fff;
+  border: solid 1px #ebebeb;
+}
+#blog-slider .github-project .project-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border: 0;
+  color: #222;
+  font-size: 16px;
+}
+#blog-slider .github-project .project-item:first-child {
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+#blog-slider .github-project .project-item:last-child {
+  margin-bottom: 0;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+#blog-slider .github-project .project-item.disabled,
+#blog-slider .github-project .project-item.disabled:hover,
+#blog-slider .github-project .project-item.disabled:focus {
+  background-color: #eeeeee;
+  color: #777777;
+  cursor: not-allowed;
+}
+#blog-slider .github-project .project-item.disabled .list-group-item-heading,
+#blog-slider .github-project .project-item.disabled:hover .list-group-item-heading,
+#blog-slider .github-project .project-item.disabled:focus .list-group-item-heading {
+  color: inherit;
+}
+#blog-slider .github-project .project-item.disabled .list-group-item-text,
+#blog-slider .github-project .project-item.disabled:hover .list-group-item-text,
+#blog-slider .github-project .project-item.disabled:focus .list-group-item-text {
+  color: #777777;
+}
+#blog-slider .github-project .project-item.active,
+#blog-slider .github-project .project-item.active:hover,
+#blog-slider .github-project .project-item.active:focus {
+  z-index: 2;
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #337ab7;
+}
+#blog-slider .github-project .project-item.active .list-group-item-heading,
+#blog-slider .github-project .project-item.active:hover .list-group-item-heading,
+#blog-slider .github-project .project-item.active:focus .list-group-item-heading,
+#blog-slider .github-project .project-item.active .list-group-item-heading > small,
+#blog-slider .github-project .project-item.active:hover .list-group-item-heading > small,
+#blog-slider .github-project .project-item.active:focus .list-group-item-heading > small,
+#blog-slider .github-project .project-item.active .list-group-item-heading > .small,
+#blog-slider .github-project .project-item.active:hover .list-group-item-heading > .small,
+#blog-slider .github-project .project-item.active:focus .list-group-item-heading > .small {
+  color: inherit;
+}
+#blog-slider .github-project .project-item.active .list-group-item-text,
+#blog-slider .github-project .project-item.active:hover .list-group-item-text,
+#blog-slider .github-project .project-item.active:focus .list-group-item-text {
+  color: #c7ddef;
+}
+#blog-slider .github-project .project-item:hover {
+  text-decoration: underline;
+}
 #blog-detail-container {
   background-color: #fff;
   border: 1px solid #ebebeb;

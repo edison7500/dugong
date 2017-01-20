@@ -95,6 +95,24 @@ a {
     background-color: @blog-background-color;
     //padding: 4px;
   }
+
+  .github-project{
+    margin-top: 20px;
+    background-color: @blog-background-color;
+    border: solid 1px @blog-line-color;
+    //.project-list {
+      //.list-group;
+      .project-item {
+        .list-group-item;
+        border: 0;
+        color: @blog-content-color;
+        font-size: 16px;
+        &:hover{
+          text-decoration: underline;
+        }
+      //}
+    }
+  }
 }
 
 #blog-detail-container{
