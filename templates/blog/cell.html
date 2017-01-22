@@ -5,6 +5,14 @@
         </h2>
         <h3 class="post-subtitle">{{ post.content|striptags|truncatechars:100 }}</h3>
     </a>
-    <p class="post-meta">{{ post.last_update }}</p>
+    <p class="post-meta">
+        {% for tag in post.tags %}
+            <span class="label label-tag">
+                <a href="{% url 'web_blog_tags' tag.pk %}" title="{{ tag.name }}">{{ tag.name }}</a>
+            </span>
+        {% endfor %}
+
+        <span class="updated-datetime">{{ post.last_update }}</span>
+    </p>
 </div>
 <hr>
