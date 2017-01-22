@@ -28,8 +28,8 @@ class PostTagListView(ListView):
 
     def get_queryset(self):
         thing_tag = Tag.objects.get(pk=self.tag_id)
-        # log.info(thing_tag)
-        queryset  = TaggedItem.objects.get_by_model(Post, thing_tag)
+        queryset  = TaggedItem.objects.get_by_model(Post.objects.filter(status=Post.publish),
+                                                    thing_tag)
         return queryset
 
     def get(self, request, *args, **kwargs):

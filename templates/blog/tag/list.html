@@ -1,1 +1,30 @@
 {% extends 'base/base.html' %}
+
+{% block container %}
+   <div class="container">
+        <div class="row">
+            <div class="col-md-8" id="blog-container">
+                {% for post in object_list %}
+                    {% include 'blog/cell.html' with post=post %}
+                {% endfor %}
+
+            {% include 'base/paginator.html' %}
+
+{#                <ul class="pager">#}
+{#                    {% if page_obj.has_previous %}#}
+{#                        <li class="pull-left">#}
+{#                            <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}"><i class="fa fa-arrow-left fa-lg"></i>上一页</a></li>#}
+{#                    {% endif %}#}
+{#                    {% if page_obj.has_next %}#}
+{#                        <li class="next">#}
+{#                            <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">下一页&nbsp;<i class="fa fa-arrow-right fa-lg"></i></a></li>#}
+{#                    {% endif %}#}
+{#                </ul>#}
+            </div>
+
+            <div class="col-md-4 hidden-xs">
+                {% include 'blog/slider/slider.html' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
