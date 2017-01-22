@@ -49,9 +49,4 @@ class Post(models.Model):
             t = self.tags[0]
             return t
 
-    # _metadata = {
-    #     'title': 'title',
-    #     'description': 'content',
-    # }
-
 register(Post)
