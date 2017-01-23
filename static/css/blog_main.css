@@ -8755,6 +8755,7 @@ a:focus {
   border-bottom: solid 1px #ebebeb;
 }
 #blog-slider .latest-update {
+  margin-top: 20px;
   background-color: #fff;
   border: solid 1px #ebebeb;
 }
@@ -8898,8 +8899,8 @@ a:focus {
   border: solid 1px #ebebeb;
 }
 #blog-slider .ads {
-  margin-top: 20px;
-  background-color: #fff;
+  background-color: #f8f8f8;
+  padding: auto;
 }
 #blog-slider .github-project {
   margin-top: 20px;
