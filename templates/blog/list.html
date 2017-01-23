@@ -1,4 +1,5 @@
 {% extends 'base/base.html' %}
+{% load cache %}
 
 {% block container %}
    <div class="container">
@@ -12,7 +13,9 @@
             </div>
 
             <div class="col-md-4 hidden-xs">
-                {% include 'blog/slider/slider.html' %}
+                {% cache 3600 sidebar %}
+                    {% include 'blog/slider/slider.html' %}
+                {% endcache %}
             </div>
         </div>
     </div>

@@ -7,6 +7,11 @@
         {% latest_update %}
     </div>
 
+    <div class="trending">
+        <p>相关资料</p>
+        {% trending_article object.first_tag.name %}
+    </div>
+
     <div class="post-tags">
         <p>{% trans 'tag' %}</p>
         {% tag_cloud_for_model blog.Post as tags with steps=10 min_count=1 distribution=log %}

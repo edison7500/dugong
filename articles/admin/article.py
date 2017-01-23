@@ -7,7 +7,6 @@ class CategoryAdmin(admin.ModelAdmin):
     pass
 
 
-
 class CoverInlineAdmin(admin.StackedInline):
     model = Cover
     fields      = ['image',]

@@ -98,6 +98,16 @@ DATABASES = {
     }
 }
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/tmp/django_cache',
+        'OPTIONS': {
+            'MAX_ENTRIES': 1000
+        }
+    }
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -144,7 +154,6 @@ COMPRESS_PRECOMPILERS   = (
     # ('text/x-sass', 'sass {infile} {outfile}'),
     # ('text/x-scss', 'sass --scss {infile} {outfile}'),
 )
-
 COMPRESS_OUTPUT_DIR     = 'release'
 COMPRESS_OFFLINE        = True
 

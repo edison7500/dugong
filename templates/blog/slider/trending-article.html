@@ -1,0 +1,7 @@
+<div class="list-group trending-list">
+    {% for row in posts %}
+        <a class="trending-item" href="{% url 'web_blog_detail' row.slug %}" title="{{ row.title }}">
+            {{ row.title|truncatechars:'25' }}
+        </a>
+    {% endfor %}
+</div>

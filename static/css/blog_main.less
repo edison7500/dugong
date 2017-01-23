@@ -105,6 +105,23 @@ a {
       }
     }
   }
+  .trending{
+    background-color: @blog-background-color;
+    border: solid 1px @blog-line-color;
+    margin-top: 20px;
+    .trending-list{
+      .trending-item {
+        .list-group-item;
+        border: 0;
+        color: @blog-content-color;
+        font-size: 16px;
+        &:hover{
+          //text-decoration: underline;
+          color: #00b3ee;
+        }
+      }
+    }
+  }
   .post-tags {
     margin-top: 20px;
     background-color: @blog-background-color;

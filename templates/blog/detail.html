@@ -1,5 +1,5 @@
 {% extends 'base/base.html' %}
-{% load i18n %}
+{% load i18n cache %}
 
 {% block title %}{{ object.title }}{% endblock %}
 
@@ -51,7 +51,9 @@
                 </div>
 
                 <div class="col-md-4 hidden-xs">
-                    {% include 'blog/slider/slider.html' %}
+                    {% cache 3600 slider %}
+                        {% include 'blog/slider/slider.html' %}
+                    {% endcache %}
                 </div>
             </div>
         </div>
