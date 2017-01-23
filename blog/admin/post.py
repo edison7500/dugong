@@ -12,7 +12,6 @@ class PostAdmin(admin.ModelAdmin):
     search_fields   = ('title', )
 
 
-
 from django.contrib.flatpages.forms import FlatpageForm
 from django.contrib.flatpages.admin import FlatPageAdmin
 #
