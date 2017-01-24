@@ -1,8 +1,13 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.utils.html import strip_tags
 from redactor.fields import RedactorField
 from uuslug import uuslug
 from tagging.registry import register
+
+from HTMLParser import HTMLParser
+
+h = HTMLParser()
 
 
 class Post(models.Model):
@@ -37,6 +42,10 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return "/blog/{slug}/".format(slug=self.slug)
+
+    @property
+    def digest(self):
+        return h.unescape(strip_tags(self.content))
 
     def save(self, **kwargs):
         if len(self.slug) == 0:

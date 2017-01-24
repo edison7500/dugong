@@ -21,10 +21,11 @@ class BlogDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(BlogDetailView, self).get_context_data(**kwargs)
-        # context['meta'] = {
-        #     'title': self.object.title,
-        #     # 'keyword': self.object.ta
-        # }
+        context['meta'] = {
+            'title': self.object.title,
+            'desc': (self.object.digest[:75] + '..') if len(self.object.digest) > 75 else self.object.digest
+            # 'keyword': self.object.ta
+        }
 
         return context
 
