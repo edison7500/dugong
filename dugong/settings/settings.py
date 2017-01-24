@@ -51,6 +51,7 @@ INSTALLED_APPS = (
     'tagging',
 
     'blog',
+    'books',
     'articles',
 )
 
