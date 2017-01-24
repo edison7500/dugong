@@ -19,6 +19,15 @@ class BlogDetailView(DetailView):
     template_name           = 'blog/detail.html'
     slug_field              = 'slug'
 
+    def get_context_data(self, **kwargs):
+        context = super(BlogDetailView, self).get_context_data(**kwargs)
+        # context['meta'] = {
+        #     'title': self.object.title,
+        #     # 'keyword': self.object.ta
+        # }
+
+        return context
+
 
 class PostTagListView(ListView):
     http_method_names       = ['get']
