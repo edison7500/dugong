@@ -14,9 +14,9 @@ class PostFaker(factory.django.DjangoModelFactory):
     class Meta:
         model = Post
         django_get_or_create = ('title', 'content')
-
     title                   = faker.name()
     content                 = faker.text()
+
 
 class PostModelTest(TestCase):
 
@@ -43,9 +43,12 @@ class PostViewTest(TestCase):
         self.assertEqual(res.status_code, 200)
 
     def test_post_view(self):
-        post    = Post.objects.all().last()
-        path    = reverse('web_blog_detail', args=[post.slug])
-        res     = self.client.get(path)
+        post        = Post.objects.all().last()
+        post.status = Post.publish
+        post.save()
+
+        path        = reverse('web_blog_detail', args=[post.slug])
+        res         = self.client.get(path)
         self.assertEqual(res.status_code, 200)
 
 
