@@ -4,24 +4,27 @@ import factory
 from faker import Faker
 
 from books.models import Book
+from books.schema import BookSchema
 
 # Create your tests here.
 
 
 faker = Faker()
 
+book_schema = BookSchema()
+
 
 
 class BookFaker(factory.django.DjangoModelFactory):
     class Meta:
         model = Book
-        django_get_or_create = ('title', 'desc', 'price', 'source', 'buy_link')
+        django_get_or_create = ('title', 'desc', 'asin', 'price', 'origin_link')
 
     title                   = faker.name()
     desc                    = faker.text()
     price                   = faker.random_digit()
-    source                  = faker.domain_name()
-    buy_link                = faker.url()
+    asin                    = faker.random_digit()
+    origin_link             = faker.url()
 
 
 class BookModelTest(TestCase):
@@ -32,3 +35,16 @@ class BookModelTest(TestCase):
     def test_book_class(self):
         book    = Book.objects.all().first()
         self.assertIsInstance(book, Book)
+
+
+class BookSchemaTest(TestCase):
+
+    def setUp(self):
+        BookFaker()
+
+    def test_book_model2json(self):
+        book    = Book.objects.all().first()
+        data, errors = book_schema.dumps(book)
+        assert errors is not {}
+        # print data
+
