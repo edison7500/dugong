@@ -7,8 +7,8 @@ from django.utils import timezone
 class Book(models.Model):
 
     title               = models.CharField(max_length=255, default='')
-    desc                = models.TextField()
-    brief               = models.TextField()
+    desc                = models.TextField(null=True)
+    brief               = models.TextField(null=True)
     create_datetime     = models.DateTimeField(default=timezone.now,
                                                editable=False,
                                                db_index=True)
