@@ -1,8 +1,8 @@
 from django import forms
-# from django.utils.translation import ugettext_lazy as _
-from blog.models import Post
+from books.models import Book
 
-class BlogAdminForm(forms.ModelForm):
+
+class BookAdminForm(forms.ModelForm):
 
     tags        = forms.CharField(
                     widget=forms.TextInput(attrs={'class':'form-control'}),
@@ -11,16 +11,16 @@ class BlogAdminForm(forms.ModelForm):
 
 
     def __init__(self, *args, **kwargs):
-        super(BlogAdminForm, self).__init__(*args, **kwargs)
+        super(BookAdminForm, self).__init__(*args, **kwargs)
         self.fields['tags'].initial = ','.join([ row.name for row in self.instance.tags.all()])
 
     def save(self, commit=True):
         _tags               = self.cleaned_data.get('tags')
         self.instance.tags  = _tags
-        return super(BlogAdminForm, self).save(commit)
+        return super(BookAdminForm, self).save(commit)
 
     class Meta:
-        model   = Post
+        model   = Book
         fields  = forms.ALL_FIELDS
         # labels  = {
         #     'creator': _('author'),

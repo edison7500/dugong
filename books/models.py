@@ -1,6 +1,7 @@
 from django.db import models
 # from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
+from tagging.registry import register
 # from redactor.fields import RedactorField
 
 # Create your models here.
@@ -14,12 +15,20 @@ class Book(models.Model):
                                               decimal_places=2,
                                               default=0)
     asin                = models.CharField(max_length=255, default='', editable=False)
+    origin_link         = models.URLField(max_length=255, default='')
     create_datetime     = models.DateTimeField(default=timezone.now,
                                                editable=False,
                                                db_index=True)
 
     def __unicode__(self):
         return self.title
+
+    def get_purchase_link(self):
+
+        return "{url}?tag=jiaxin05-23".format(url=self.origin_link)
+
+
+register(Book)
 
 
 class Image(models.Model):

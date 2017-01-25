@@ -1,5 +1,6 @@
 from django.contrib import admin
 from books.models import Image
+from books.admin.forms import BookAdminForm
 
 
 class BookImageInlineAdmin(admin.StackedInline):
@@ -8,5 +9,7 @@ class BookImageInlineAdmin(admin.StackedInline):
 
 
 class BookAdmin(admin.ModelAdmin):
+    form            = BookAdminForm
+    search_fields   = ['title']
 
-    inlines = [BookImageInlineAdmin,]
+    inlines         = [BookImageInlineAdmin,]
