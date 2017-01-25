@@ -44,19 +44,7 @@
 
     {% block header %}
 {#    <header class="intro-header" style="background-image: url('//imgjiaxin.u.qiniudn.com/a7e9d782b98ac04fa91e39fb46ddf410.jpg')">#}
-        <header class="intro-header" style="background-image: url('//imgjiaxin.u.qiniudn.com/eb9bd3ca8169133a5e74a6bcdb939a4b.jpg?imageView2/2/w/800/h/800/')">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                        <div class="site-heading">
-                            <h1>家欣的天空</h1>
-                            <hr class="small">
-                            <span class="subheading">Python, Linux, iOS, Photograph</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        {% include 'base/header.html' %}
     {% endblock %}
 
     {% block container %}{% endblock %}

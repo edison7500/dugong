@@ -1,4 +1,5 @@
 # from django.shortcuts import render
+from django.http import Http404
 from django.views.generic import ListView, DetailView
 from tagging.models import TaggedItem, Tag
 from blog.models import Post
@@ -18,6 +19,14 @@ class BlogDetailView(DetailView):
     model                   = Post
     template_name           = 'blog/detail.html'
     slug_field              = 'slug'
+
+    def get_queryset(self):
+        try:
+            queryset        = Post.objects.get(slug=self.get_slug_field(), status=Post.publish)
+        except Post.DoesNotExist as e:
+            raise Http404
+        return queryset
+
 
     def get_context_data(self, **kwargs):
         context = super(BlogDetailView, self).get_context_data(**kwargs)

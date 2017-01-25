@@ -28,10 +28,15 @@ class PostModelTest(TestCase):
         self.assertEqual(post.status, Post.preview)
 
 
+
 class PostViewTest(TestCase):
 
     def setUp(self):
         PostFaker()
+
+    def test_post_template(self):
+        response    = self.client.get('/blog/')
+        self.assertTemplateUsed(response, 'blog/list.html')
 
     def test_list_view(self):
         res     = self.client.get('/blog/')
