@@ -20,13 +20,11 @@ class BlogDetailView(DetailView):
     template_name           = 'blog/detail.html'
     slug_field              = 'slug'
 
-    def get_queryset(self):
-        try:
-            queryset        = Post.objects.get(slug=self.get_slug_field(), status=Post.publish)
-        except Post.DoesNotExist as e:
-            raise Http404
-        return queryset
-
+    def get_object(self, queryset=None):
+        obj = super(BlogDetailView, self).get_object(queryset)
+        if obj.status == Post.publish:
+            return obj
+        raise Http404
 
     def get_context_data(self, **kwargs):
         context = super(BlogDetailView, self).get_context_data(**kwargs)
