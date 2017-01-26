@@ -20,13 +20,18 @@ class Book(models.Model):
                                                editable=False,
                                                db_index=True)
 
+    @property
+    def image_urls(self):
+        try:
+            return [row.image.url for row in self.images.all()]
+        except Exception as e:
+            return []
+
     def __unicode__(self):
         return self.title
 
     def get_purchase_link(self):
-
         return "{url}?tag=jiaxin05-23".format(url=self.origin_link)
-
 
 register(Book)
 
