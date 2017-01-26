@@ -34,13 +34,8 @@ urlpatterns += [
 '''
     api url config
 '''
-from books.views.api import BookViewSet
-
-router = routers.DefaultRouter()
-router.register(r'books', BookViewSet)
-
 urlpatterns +=[
-    url(r'^api/', include(router.urls)),
+    url(r'^api/books/', include('books.urls')),
 ]
 
 
