@@ -13,6 +13,8 @@ class BookAdmin(admin.ModelAdmin):
     list_display    = ['title', 'price', 'asin', 'create_datetime']
     search_fields   = ['title']
 
+    ordering        = ['-create_datetime']
+
     inlines         = [BookImageInlineAdmin,]
 
     def get_image_tag(self, obj):
