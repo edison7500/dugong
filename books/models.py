@@ -9,12 +9,12 @@ from tagging.registry import register
 
 class Book(models.Model):
 
-    title               = models.CharField(max_length=255, default='')
+    title               = models.CharField(max_length=255, blank=False, null=False)
     desc                = models.TextField(null=True, blank=True)
     price               = models.DecimalField(max_digits=10,
                                               decimal_places=2,
                                               default=0)
-    asin                = models.CharField(max_length=255, default='', editable=False)
+    asin                = models.CharField(max_length=255, default='')
     origin_link         = models.URLField(max_length=255, default='')
     create_datetime     = models.DateTimeField(default=timezone.now,
                                                editable=False,
@@ -37,6 +37,9 @@ class Image(models.Model):
     create_datetime     = models.DateTimeField(default=timezone.now,
                                                editable=False,
                                                db_index=True)
+
+    def __unicode__(self):
+        return self.image.url
 
 class Purchase(models.Model):
     book                = models.ForeignKey(Book, related_name='purchases')

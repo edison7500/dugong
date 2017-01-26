@@ -16,6 +16,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic import RedirectView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from rest_framework import routers
 
 urlpatterns = staticfiles_urlpatterns()
 
@@ -27,6 +28,19 @@ urlpatterns += [
     url(r'^$', RedirectView.as_view(url="/blog/", permanent=False)),
 
     url(r'^blog/', include('blog.urls')),
+]
+
+
+'''
+    api url config
+'''
+from books.views.api import BookViewSet
+
+router = routers.DefaultRouter()
+router.register(r'books', BookViewSet)
+
+urlpatterns +=[
+    url(r'^api/', include(router.urls)),
 ]
 
 

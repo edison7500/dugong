@@ -49,6 +49,8 @@ INSTALLED_APPS = (
     'redactor',
     'compressor',
     'tagging',
+    'rest_framework',
+    'rest_framework.authtoken',
 
     'blog',
     'books',
@@ -186,6 +188,26 @@ QINIU_BUCKET_NAME           = "imgjiaxin"
 
 QINIU_BUCKET_DOMAIN         = 'imgjiaxin.u.qiniudn.com'
 QINIU_SECURE_URL            = False
+
+
+
+'''
+    rest framework
+'''
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        # 'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': [
+        # 'rest_framework.permissions.IsAuthenticated',
+        # 'rest_framework.permissions.IsAdminUser',
+        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+        'rest_framework.permissions.AllowAny',
+    ]
+}
 
 '''
     django suit config
