@@ -206,8 +206,10 @@ REST_FRAMEWORK = {
         # 'rest_framework.permissions.IsAdminUser',
         # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
         'rest_framework.permissions.AllowAny',
-    ]
+    ],
+    'PAGE_SIZE': 20
 }
+
 
 '''
     django suit config

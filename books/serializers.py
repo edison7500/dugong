@@ -2,18 +2,25 @@ from rest_framework import serializers
 from books.models import Book, Image
 
 
-class BookSerializer(serializers.ModelSerializer):
+class BookSerializer(serializers.HyperlinkedModelSerializer):
     # images          = serializers.StringRelatedField(many=True, read_only=True)
+    # url = serializers.HyperlinkedIdentityField(
+    #     view_name='books',
+    #     lookup_field='asin'
+    # )
+
     image_urls      = serializers.ListField(required=False)
 
     class Meta:
         model       = Book
-        fields      = ('title', 'desc', 'price', 'asin',
+        fields      = ('url', 'title', 'desc', 'price', 'asin',
                         'origin_link', 'create_datetime', 'image_urls')
         extra_kwargs = {
-                        'asin': {'write_only': True},
-                        # 'image_urls': {'write_only': True},
+            'asin': {'write_only': True},
+            # 'url': {'lookup_field': 'pk'}
         }
+
+
 
 
     def create(self, validated_data):

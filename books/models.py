@@ -14,7 +14,7 @@ class Book(models.Model):
     price               = models.DecimalField(max_digits=10,
                                               decimal_places=2,
                                               default=0)
-    asin                = models.CharField(max_length=255, default='')
+    asin                = models.CharField(max_length=255, unique=True, null=False)
     origin_link         = models.URLField(max_length=255, default='')
     create_datetime     = models.DateTimeField(default=timezone.now,
                                                editable=False,
