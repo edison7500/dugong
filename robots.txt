@@ -2,4 +2,4 @@ User-agent: *
 Crawl-delay: 30
 Disallow: /admin/
 Disallow: /api/
-Sitemap: http://www.guoku.com/sitemap.xml
+Sitemap: http://jiaxin.im/sitemap.xml
