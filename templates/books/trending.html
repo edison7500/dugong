@@ -8,10 +8,9 @@
                 <a class="book-image-box" href="{{ book.get_purchase_link }}" title="{{ book.titl }}" target="_blank">
                     <img src="{{ book.get_first_image_url }}" alt="{{ book.title }}" title="{{ book.title }}">
                 </a>
-{#            {{ book }}#}
                 <div class="caption">
-                    <p>{{ book.title }}</p>
-                    <p><a href="{{ book.get_purchase_link }}" class="btn btn-default" role="button">¥ {{ book.price }}</a></p>
+                    <p class="book-title">{{ book.title|truncatechars:'15' }}</p>
+                    <p><a href="{{ book.get_purchase_link }}" class="btn btn-default" role="button" target="_blank">¥ {{ book.price }}</a></p>
                 </div>
             </div>
         </div>

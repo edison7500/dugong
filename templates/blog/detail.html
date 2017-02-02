@@ -57,7 +57,9 @@
                         </div>
                     </div>
 
+{#                    {% cache 3600 object.slug %}#}
                     {% trending_books object.tags  %}
+{#                    {% endcache %}#}
 {#                    {% include 'books/trending.html' %}#}
                 </div>
 
