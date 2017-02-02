@@ -1,15 +1,12 @@
 from django.db import models
-# from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
 from tagging.registry import register
-# from redactor.fields import RedactorField
-
-# Create your models here.
+from django.utils.translation import ugettext_lazy as _
 
 
 class Book(models.Model):
 
-    title               = models.CharField(max_length=255, blank=False, null=False)
+    title               = models.CharField(_('title'), max_length=255, blank=False, null=False)
     desc                = models.TextField(null=True, blank=True)
     price               = models.DecimalField(max_digits=10,
                                               decimal_places=2,
@@ -19,6 +16,7 @@ class Book(models.Model):
     create_datetime     = models.DateTimeField(default=timezone.now,
                                                editable=False,
                                                db_index=True)
+    status              = models.BooleanField(_('status'), default=False)
 
     @property
     def image_urls(self):
