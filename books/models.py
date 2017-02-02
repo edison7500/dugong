@@ -31,6 +31,10 @@ class Book(models.Model):
     def get_purchase_link(self):
         return "{url}?tag=jiaxin05-23".format(url=self.origin_link)
 
+    def get_first_image_url(self):
+        if len(self.image_urls) > 0:
+            return self.image_urls[0]
+
 register(Book)
 
 

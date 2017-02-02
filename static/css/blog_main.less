@@ -200,9 +200,32 @@ a {
 
 
 .trending-books {
-  background-color: @blog-content-color;
-  border: solid 1px @blog-line-color;
-  margin-top: 20px;
+  //background-color: @blog-background-color;
+  //border: solid 1px @blog-line-color;
+  border-top: solid 2px #333;
+  margin-top: 40px;
+
+
+  .book-thumbnail {
+    .thumbnail;
+    -moz-box-shadow: 5px 5px 3px #bbb; /* 老的 Firefox */
+    box-shadow: 5px 5px 3px #bbb;
+    h3 {
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 14px;
+      font-style: normal;
+    }
+    .book-image-box {
+      img {
+        display: block;
+        max-width: 200px;
+        max-height: 200px;
+      }
+    }
+  }
 }
 
 

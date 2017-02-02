@@ -31,7 +31,6 @@ class BlogDetailView(DetailView):
         context['meta'] = {
             'title': self.object.title,
             'desc': (self.object.digest[:75] + '..') if len(self.object.digest) > 75 else self.object.digest
-            # 'keyword': self.object.ta
         }
 
         return context
