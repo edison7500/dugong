@@ -33,27 +33,28 @@
                     <li class="active">{% trans 'text' %}</li>
                 </ol>
 
-                <div class="col-md-8" id="blog-detail-container">
-                    <div class="post-content">
-                        <div class="ads">
-                            <iframe src="//rcm-cn.amazon-adsystem.com/e/cm?t=jiaxin05-23&o=28&p=48&l=ez&f=ifr&f=ifr" width="728" height="90" scrolling="no" marginwidth="0" marginheight="0" border="0" frameborder="0" style="border:none;max-width:800px;max-height:600px;"></iframe>
+                <div class="col-md-8" >
+                    <div id="blog-detail-container">
+                        <div class="post-content">
+                            <div class="ads">
+                                <iframe src="//rcm-cn.amazon-adsystem.com/e/cm?t=jiaxin05-23&o=28&p=48&l=ez&f=ifr&f=ifr" width="728" height="90" scrolling="no" marginwidth="0" marginheight="0" border="0" frameborder="0" style="border:none;max-width:800px;max-height:600px;"></iframe>
+                            </div>
+                            {% autoescape off%}
+                                {{ object.content }}
+                            {% endautoescape %}
                         </div>
-                        {% autoescape off%}
-                            {{ object.content }}
-                        {% endautoescape %}
-                    </div>
 
-                    <div class="meta-info">
-                        <div class="post-tags" style="float: left">
-                            <i class="fa fa-tags"></i>
-                            {% for tag in object.tags %}
-                                <a href="{% url 'web_blog_tags' tag.pk %}" title="{% trans tag.name %}">
-                                    <span class="label label-tag">{% trans tag.name %}</span>
-                                </a>
-                            {% endfor %}
+                        <div class="meta-info">
+                            <div class="post-tags">
+                                <i class="fa fa-tags"></i>
+                                {% for tag in object.tags %}
+                                    <a href="{% url 'web_blog_tags' tag.pk %}" title="{% trans tag.name %}">
+                                        <span class="label label-tag">{% trans tag.name %}</span>
+                                    </a>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
-
 
                     {% include 'books/trending.html' %}
                 </div>
