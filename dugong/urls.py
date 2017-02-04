@@ -53,6 +53,12 @@ urlpatterns += [
 ]
 
 
+from blog.feeds import PostFeeds
+urlpatterns += [
+    url(r'^feed/posts/$', PostFeeds(), name='blog-post-feed')
+]
+
+
 from django.contrib.flatpages import views
 urlpatterns += [
     url(r'^pages/(?P<url>.*/?)$', views.flatpage),
