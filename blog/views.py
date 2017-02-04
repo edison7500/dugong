@@ -22,7 +22,7 @@ class BlogDetailView(DetailView):
 
     def get_object(self, queryset=None):
         obj = super(BlogDetailView, self).get_object(queryset)
-        if obj.status == Post.publish:
+        if obj.status != Post.block:
             return obj
         raise Http404
 
