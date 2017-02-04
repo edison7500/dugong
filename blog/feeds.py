@@ -58,7 +58,7 @@ class PostsFeedGenerator(Rss201rev2Feed):
 
 class PostFeeds(Feed):
     feed_type = PostsFeedGenerator
-    title = u'图文频道>>果库|精英消费者南'
+    title = u'只做技术宅'
     link = "/blog/"
     author_email = "edison7500@gmail.com"
     feed_copyright = "since 2008 jiaxin.im All rights reserved."
