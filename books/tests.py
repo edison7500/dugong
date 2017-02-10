@@ -4,15 +4,11 @@ import factory
 from faker import Faker
 
 from books.models import Book
-from books.schema import BookSchema
 
 # Create your tests here.
 
 
 faker = Faker()
-
-book_schema = BookSchema()
-
 
 
 class BookFaker(factory.django.DjangoModelFactory):
@@ -37,14 +33,4 @@ class BookModelTest(TestCase):
         self.assertIsInstance(book, Book)
 
 
-class BookSchemaTest(TestCase):
-
-    def setUp(self):
-        BookFaker()
-
-    def test_book_model2json(self):
-        book    = Book.objects.all().first()
-        data, errors = book_schema.dumps(book)
-        assert errors is not {}
-        # print data
 

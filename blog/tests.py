@@ -28,6 +28,21 @@ class PostModelTest(TestCase):
         self.assertEqual(post.status, Post.preview)
 
 
+class PostTemplateTest(TestCase):
+
+    def setUp(self):
+        PostFaker()
+
+    def test_post_list(self):
+        response     = self.client.get('/blog/')
+        self.assertTemplateUsed(response, 'blog/list.html')
+
+    def test_post_detail(self):
+        post        = Post.objects.all().first()
+        response    = self.client.get('/blog/{slug}/'.format(slug=post.slug))
+        self.assertTemplateUsed(response, 'blog/detail.html')
+
+
 
 class PostViewTest(TestCase):
 

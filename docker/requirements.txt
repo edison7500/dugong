@@ -15,9 +15,7 @@ djangorestframework==3.5.3
 gevent==1.1.2
 greenlet==0.4.10
 gunicorn==19.6.0
-marshmallow==2.10.3
-pilkit==1.1.13
-Pillow==3.4.2
+Pillow==4.0.0
 requests==2.12.3
 six==1.10.0
 sqlparse==0.2.1
