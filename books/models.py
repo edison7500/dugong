@@ -48,5 +48,5 @@ class Image(models.Model):
     def __unicode__(self):
         return self.image.url
 
-class Purchase(models.Model):
-    book                = models.ForeignKey(Book, related_name='purchases')
+# class Purchase(models.Model):
+#     book                = models.ForeignKey(Book, related_name='purchases')
