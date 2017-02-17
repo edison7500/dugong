@@ -33,3 +33,4 @@ django-tagging==0.4.5
 
 ### 教程
 [利用 Django 建站攻略 （一）安装](http://jiaxin.im/blog/li-yong-django-jian-zhan-gong/)
+[利用 Django 建站攻略 （二）建模](http://jiaxin.im/blog/li-yong-django-jian-zhan-gon-1/)
