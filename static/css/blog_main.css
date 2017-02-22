@@ -8911,6 +8911,20 @@ a:focus {
   padding-bottom: 20px;
   border: solid 1px #ebebeb;
 }
+#blog-slider .post-tags li {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+#blog-slider .post-tags a {
+  text-align: center;
+  text-decoration: none;
+  border: solid 1px #ebebeb;
+  padding: 5px;
+}
+#blog-slider .post-tags a:hover {
+  color: #00b3ee;
+  border: solid 1px #00b3ee;
+}
 #blog-slider .ads {
   background-color: #f8f8f8;
   padding: auto;

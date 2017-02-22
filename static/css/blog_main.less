@@ -85,7 +85,6 @@ a {
         color: #00b3ee;
         border: solid 1px #00b3ee;
       }
-
     }
   }
 }
@@ -141,6 +140,27 @@ a {
     background-color: @blog-background-color;
     padding-bottom: 20px;
     border: solid 1px @blog-line-color;
+    li{
+      font-size: 12px;
+      margin-bottom: 10px;
+      //+li:before{
+      //  font-size: 14px;
+      //  font-weight: bold;
+      //  color: #888;
+      //  margin-right: 10px;
+      //  content: "\00B7";
+      //}
+    }
+    a{
+      text-align: center;
+      text-decoration: none;
+      border: solid 1px @blog-line-color;
+      padding: 5px;
+      &:hover {
+        color: #00b3ee;
+        border: solid 1px #00b3ee;
+      }
+    }
   }
 
   .ads {
