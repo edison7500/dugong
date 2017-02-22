@@ -18,6 +18,10 @@ from django.views.generic import RedirectView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from rest_framework import routers
 
+handler500 = 'views.errors.page_error'
+handler404 = 'views.errors.not_found'
+
+
 urlpatterns = staticfiles_urlpatterns()
 
 urlpatterns += [
