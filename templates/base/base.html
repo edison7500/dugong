@@ -15,31 +15,7 @@
 <body>
 
 {% block nav %}
-        <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{% url 'web_blog_list' %}">只做技术宅</a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="{% url 'web_blog_list' %}">{% trans 'home' %}</a>
-                    </li>
-                    <li>
-                        <a href="/pages/about/">{% trans 'about' %}</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+    {% include 'base/nav.html' %}
 {% endblock %}
 
     {% block header %}
@@ -58,7 +34,7 @@
             integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
             crossorigin="anonymous" charset="utf-8"></script>
         <script src="{% static 'bootstrap-3.3.7/dist/js/bootstrap.min.js' %}" charset="utf-8"></script>
-        <script src="{% static 'js/clean-blog.min.js' %}" charset="utf-8"></script>
+        <script src="{% static 'clean-blog/js/clean-blog.min.js' %}" charset="utf-8"></script>
         <script src="{% static 'js/dugong.js' %}" charset="utf-8"></script>
 
         <script>
