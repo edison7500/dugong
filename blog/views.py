@@ -10,7 +10,7 @@ class BlogListView(ListView):
     http_method_names       = ['get']
     model                   = Post
     template_name           = 'blog/list.html'
-    paginate_by             = 30
+    paginate_by             = 20
     queryset                = Post.objects.filter(status=Post.publish)
 
 
