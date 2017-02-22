@@ -8676,6 +8676,7 @@ a:focus {
 }
 .about {
   background-color: #fff;
+  border: solid 1px #ebebeb;
   padding: 16px;
   font-size: 16px;
   line-height: 1.3;
@@ -9070,4 +9071,83 @@ a.trending-books .book-thumbnail.active {
   display: block;
   max-width: 200px;
   max-height: 200px;
+}
+.dugong-addition-func {
+  float: right;
+  width: 40px;
+  position: fixed;
+  bottom: 65px;
+  right: 16px;
+  border: 1px solid #ebebeb;
+  z-index: 1000000;
+  text-align: center;
+  transition: all .5s;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+}
+.dugong-addition-func:hover {
+  opacity: 1;
+}
+.dugong-addition-func #btn-gotop {
+  display: none;
+  border-bottom: 1px solid #ebebeb;
+}
+.dugong-addition-func #btn-rss {
+  border-bottom: 1px solid #ebebeb;
+}
+.dugong-addition-func #btn-rss > a {
+  color: #333;
+}
+.dugong-addition-func #btn-rss > a:hover {
+  color: #FB6D1D;
+}
+.dugong-addition-func #btn-wechat a {
+  color: #333;
+}
+.dugong-addition-func #btn-wechat a:hover {
+  color: #2ECC40;
+}
+.dugong-addition-func #btn-wechat .qrcode-wrapper {
+  display: none;
+  position: absolute;
+  padding: 10px;
+  bottom: -16px;
+  left: -106px;
+  background-color: #fff;
+  border: solid 1px #ebebeb;
+  box-shadow: 0 0 2px #ddd;
+}
+.dugong-addition-func #btn-wechat .qrcode-wrapper > img {
+  width: 80px;
+  margin-bottom: 10px;
+}
+.dugong-addition-func #btn-wechat .qrcode-wrapper > p {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #212121;
+}
+.dugong-addition-func ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  background-color: #fff;
+}
+.dugong-addition-func ul li {
+  width: 100%;
+  height: 40px;
+}
+.dugong-addition-func ul li a {
+  display: inline-block;
+  color: #bbb;
+  font-size: 24px;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+}
+.dugong-addition-func ul li a:hover {
+  color: #333;
 }
