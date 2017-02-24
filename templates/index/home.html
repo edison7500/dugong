@@ -1,10 +1,11 @@
 {% extends 'base/base.html' %}
-{% load i18n %}
+{% load i18n cache %}
 
 {% block container %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3 category-slider">
+            <div class="col-md-3">
+                <div class="category-sidebar">
                 <ul class="list-unstyled">
                     <li class="active">
                         <a href="#" title="{% trans 'home' %}">
@@ -15,16 +16,20 @@
                             <i class="fa fa-keyboard-o"></i>&nbsp;{% trans 'blog' %}</a>
                     </li>
                 </ul>
+                </div>
             </div>
             <div class="col-md-6">
-                <div id="homepage-post">
+                <div id="homepage-latest">
+                    <p>最新更新</p>
                     {% for post in latest_posts %}
-                        {% include 'blog/cell.html' with post=post %}
+                        {% include 'index/cell.html' with post=post %}
                     {% endfor %}
                 </div>
             </div>
             <div class="col-md-3">
-
+                {% cache 3600 sidebar %}
+                    {% include 'blog/slider/slider.html' %}
+                {% endcache %}
             </div>
         </div>
         {% include 'base/goto-top.html' %}
