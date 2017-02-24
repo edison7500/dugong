@@ -6196,6 +6196,12 @@ button.close {
 #blog-detail-container .meta-info {
   margin-top: 20px;
 }
+#blog-detail-container .post-nav {
+  padding-bottom: 10px;
+}
+#blog-detail-container .post-nav i {
+  font-weight: bold;
+}
 .trending-books {
   border-top: solid 2px #333;
   margin-top: 40px;

@@ -32,6 +32,14 @@ class BlogDetailView(DetailView):
             'title': self.object.title,
             'desc': (self.object.digest[:75] + '..') if len(self.object.digest) > 75 else self.object.digest
         }
+        try:
+            context['previous'] = self.object.get_previous_by_created_date()
+        except Post.DoesNotExist as e:
+            pass
+        try:
+            context['next']     = self.object.get_next_by_created_date()
+        except Post.DoesNotExist as e:
+            pass
 
         return context
 

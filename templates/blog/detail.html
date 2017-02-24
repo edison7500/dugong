@@ -58,6 +58,22 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="post-nav">
+                            {% if previous %}
+                                <div class="previous pull-left">
+                                    <a href="{{ previous.get_absolute_url }}" title="{{ previous.title }}">
+                                        <i class="fa fa-angle-left"></i>&nbsp;(上一篇)&nbsp;{{ previous }}</a>
+                                </div>
+                            {% endif %}
+
+                            {% if next %}
+                                <div class="next pull-right">
+                                    <a href="{{ next.get_absolute_url }}" title="{{ next.title }}">
+                                        {{ next }}&nbsp;(下一篇)&nbsp;<i class="fa fa-angle-right"></i></a>
+                                </div>
+                            {% endif %}
+                    </div>
+
 
                     {% trending_books object.tags  %}
                 </div>
