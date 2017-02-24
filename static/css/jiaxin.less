@@ -37,6 +37,30 @@ footer{
   }
 }
 
+.post-meta{
+    font-size: @blog-meta-fontsize;
+    color: @blog-meta-color;
+    li{
+      font-size: 12px;
+      +li:before{
+        font-size: 14px;
+        font-weight: bold;
+        color: #888;
+        margin-right: 10px;
+        content: "\00B7";
+      }
+    }
+    a{
+      text-align: center;
+      text-decoration: none;
+      border: solid 1px @blog-line-color;
+      padding: 5px;
+      &:hover {
+        color: #00b3ee;
+        border: solid 1px #00b3ee;
+      }
+    }
+}
   .post-tags {
     margin-bottom: 20px;
     background-color: @blog-background-color;
@@ -45,13 +69,6 @@ footer{
     li{
       font-size: 12px;
       margin-bottom: 10px;
-      //+li:before{
-      //  font-size: 14px;
-      //  font-weight: bold;
-      //  color: #888;
-      //  margin-right: 10px;
-      //  content: "\00B7";
-      //}
     }
     a{
       text-align: center;

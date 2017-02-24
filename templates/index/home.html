@@ -2,17 +2,19 @@
 {% load i18n cache %}
 
 {% block container %}
+    {% url 'homepage' as index_url %}
+    {% url 'web_blog_list' as blog_url %}
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">
                 <div class="category-sidebar">
                 <ul class="list-unstyled">
-                    <li class="active">
-                        <a href="#" title="{% trans 'home' %}">
+                    <li {% ifequal request.path index_url %}class="active"{% endifequal %}>
+                        <a href="{{ index_url }}" title="{% trans 'home' %}">
                             <i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a>
                     </li>
-                    <li>
-                        <a href="#" title="{% trans 'blog' %}">
+                    <li {% ifequal request.path blog_url %}class="active"{% endifequal %}>
+                        <a href="{{ blog_url }}" title="{% trans 'blog' %}">
                             <i class="fa fa-keyboard-o"></i>&nbsp;{% trans 'blog' %}</a>
                     </li>
                 </ul>
@@ -20,15 +22,15 @@
             </div>
             <div class="col-md-6">
                 <div id="homepage-latest">
-                    <p>最新更新</p>
+                    <p class="tip">最新更新</p>
                     {% for post in latest_posts %}
                         {% include 'index/cell.html' with post=post %}
                     {% endfor %}
                 </div>
             </div>
             <div class="col-md-3">
-                {% cache 3600 sidebar %}
-                    {% include 'blog/slider/slider.html' %}
+                {% cache 3600 index_sider %}
+                    {% include 'index/right-siderbar.html' %}
                 {% endcache %}
             </div>
         </div>

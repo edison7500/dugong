@@ -30,7 +30,12 @@
   border: solid 1px #ebebeb;
 }
 #homepage-latest .tip {
+  font-size: 24px;
   color: #333;
   margin-bottom: 20px;
   border-bottom: solid 1px #ebebeb;
+}
+#homepage-latest .post-title {
+  font-size: 16px;
+  color: #333;
 }

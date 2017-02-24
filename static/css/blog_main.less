@@ -1,9 +1,10 @@
-
+@import "../bootstrap-3.3.7/less/bootstrap.less";
 //@import "mixins.less";
 //@import "../clean-blog/less/clean-blog.less";
 //@import "../less/clean-blog.less";
 
 @import "var.less";
+
 
 
 
@@ -47,30 +48,7 @@
     line-height: @blog-line-height;
     color: @blog-subtitle-color;
   }
-  .post-meta{
-    font-size: @blog-meta-fontsize;
-    color: @blog-meta-color;
-    li{
-      font-size: 12px;
-      +li:before{
-        font-size: 14px;
-        font-weight: bold;
-        color: #888;
-        margin-right: 10px;
-        content: "\00B7";
-      }
-    }
-    a{
-      text-align: center;
-      text-decoration: none;
-      border: solid 1px @blog-line-color;
-      padding: 5px;
-      &:hover {
-        color: #00b3ee;
-        border: solid 1px #00b3ee;
-      }
-    }
-  }
+
 }
 
 #blog-slider{
