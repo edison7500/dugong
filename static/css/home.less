@@ -1,0 +1,30 @@
+@import "var.less";
+
+.category-slider {
+  //margin: ;
+  //padding: 16px;
+  >ul {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    background-color: @blog-background-color;
+    border: solid 1px @blog-line-color;
+    >li {
+      padding: 5px 16px 5px 16px;
+      //margin-bottom: 10px;
+      &:hover {
+        background-color: #bbbbbb;
+      }
+      >a {
+        font-size: 16px;
+        text-align: center;
+      }
+    }
+  }
+  >ul >li.active {
+    background-color: #bbbbbb;
+  }
+  //a {
+  //  text-align: center;
+  //}
+  //box-shadow: ;
+}

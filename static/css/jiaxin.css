@@ -8669,8 +8669,28 @@ a.trending-books .book-thumbnail.active {
   max-width: 200px;
   max-height: 200px;
 }
+.category-slider > ul {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background-color: #fff;
+  border: solid 1px #ebebeb;
+}
+.category-slider > ul > li {
+  padding: 5px 16px 5px 16px;
+}
+.category-slider > ul > li:hover {
+  background-color: #bbbbbb;
+}
+.category-slider > ul > li > a {
+  font-size: 16px;
+  text-align: center;
+}
+.category-slider > ul > li.active {
+  background-color: #bbbbbb;
+}
 body {
   margin-top: 70px;
+  min-height: 600px;
   background-color: #f8f8f8;
 }
 a {
@@ -8684,6 +8704,7 @@ a:focus {
 }
 footer {
   margin-top: 40px;
+  bottom: 0;
 }
 .copyright {
   margin-top: 20px;

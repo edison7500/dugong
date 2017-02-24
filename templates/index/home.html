@@ -2,6 +2,24 @@
 
 {% block container %}
     <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 category-slider">
+                <ul class="list-unstyled">
+                    <li class="active">
+                        <a href="#">Python</a>
+                    </li>
+                    <li>
+                        <a href="#">Django</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
 
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+        {% include 'base/goto-top.html' %}
     </div>
 {% endblock %}
