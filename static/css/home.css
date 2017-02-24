@@ -6,15 +6,20 @@
 }
 .category-sidebar {
   overflow-y: scroll;
-  padding: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   background-color: #fff;
   border: solid 1px #ebebeb;
 }
 .category-sidebar > ul > li {
-  padding: 5px 0 5px 0;
+  padding: 5px 16px 5px 16px;
   margin-bottom: 10px;
 }
+.category-sidebar > ul > li:hover {
+  background-color: #bbbbbb;
+}
 .category-sidebar > ul > li > a {
+  text-decoration: none;
   font-size: 16px;
   text-align: center;
 }
