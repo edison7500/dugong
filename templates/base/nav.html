@@ -1,5 +1,6 @@
 {% load i18n %}
-        <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse">
@@ -12,12 +13,18 @@
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-left">
                     <li>
-                        <a href="{% url 'web_blog_list' %}">{% trans 'home' %}</a>
+                        <a href="{% url 'web_blog_list' %}" title="{% trans 'home' %}">
+                            <i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a>
+                    </li>
+                    <li class="active">
+                        <a href="{% url 'web_blog_list' %}" title="{% trans 'blog' %}">
+                            <i class="fa fa-keyboard-o"></i>&nbsp;{% trans 'blog' %}</a>
                     </li>
                     <li>
-                        <a href="/pages/about/">{% trans 'about' %}</a>
+                        <a href="/pages/about/" title="{% trans 'about' %}">
+                            <i class="fa fa-info"></i>&nbsp;{% trans 'about' %}</a>
                     </li>
                 </ul>
             </div>

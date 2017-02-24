@@ -9,7 +9,7 @@
     <title>{% block title %}只做技术宅 | 一个受尽折磨的攻城狮{% endblock %}</title>
 
     {% compress css %}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/blog_main.css' %}" charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/jiaxin.css' %}" charset="utf-8" />
     {% endcompress %}
 </head>
 <body>
@@ -18,10 +18,9 @@
     {% include 'base/nav.html' %}
 {% endblock %}
 
-    {% block header %}
-{#    <header class="intro-header" style="background-image: url('//imgjiaxin.u.qiniudn.com/a7e9d782b98ac04fa91e39fb46ddf410.jpg')">#}
-        {% include 'base/header.html' %}
-    {% endblock %}
+{#{% block header %}#}
+{#        {% include 'base/header.html' %}#}
+{#{% endblock %}#}
 
     {% block container %}{% endblock %}
 
@@ -34,7 +33,7 @@
             integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
             crossorigin="anonymous" charset="utf-8"></script>
         <script src="{% static 'bootstrap-3.3.7/dist/js/bootstrap.min.js' %}" charset="utf-8"></script>
-        <script src="{% static 'clean-blog/js/clean-blog.min.js' %}" charset="utf-8"></script>
+{#        <script src="{% static 'clean-blog/js/clean-blog.min.js' %}" charset="utf-8"></script>#}
         <script src="{% static 'js/dugong.js' %}" charset="utf-8"></script>
 
         <script>
