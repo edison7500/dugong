@@ -6193,9 +6193,7 @@ button.close {
 #blog-detail-container code a {
   color: #00b3ee;
 }
-#blog-detail-container .post-tags {
-  color: #3e3e3e;
-  font-size: 14px;
+#blog-detail-container .meta-info {
   margin-top: 20px;
 }
 .trending-books {

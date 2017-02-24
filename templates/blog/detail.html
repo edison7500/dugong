@@ -47,21 +47,19 @@
                         </div>
 
                         <div class="meta-info">
-                            <div class="post-tags">
-                                <i class="fa fa-tags"></i>
+                            <ul class="list-inline">
+                                <li> <i class="fa fa-tags"></i></li>
                                 {% for tag in object.tags %}
-                                    <a href="{% url 'web_blog_tags' tag.pk %}" title="{% trans tag.name %}">
-                                        <span class="label label-tag">{% trans tag.name %}</span>
-                                    </a>
+                                    <li class="post-tag">
+                                        <a href="{% url 'web_blog_tags' tag.pk %}" title="{% trans tag.name %}">
+                                            {% trans tag.name %}</a>
+                                    </li>
                                 {% endfor %}
-                            </div>
+                            </ul>
                         </div>
                     </div>
 
-{#                    {% cache 3600 object.slug %}#}
                     {% trending_books object.tags  %}
-{#                    {% endcache %}#}
-{#                    {% include 'books/trending.html' %}#}
                 </div>
 
                 <div class="col-md-4 hidden-xs">

@@ -8541,9 +8541,7 @@ button.close {
 #blog-detail-container code a {
   color: #00b3ee;
 }
-#blog-detail-container .post-tags {
-  color: #3e3e3e;
-  font-size: 14px;
+#blog-detail-container .meta-info {
   margin-top: 20px;
 }
 .trending-books {
@@ -8702,6 +8700,20 @@ footer {
   padding: 5px;
 }
 .post-tags a:hover {
+  color: #00b3ee;
+  border: solid 1px #00b3ee;
+}
+.post-tag {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.post-tag > a {
+  text-align: center;
+  text-decoration: none;
+  border: solid 1px #ebebeb;
+  padding: 5px;
+}
+.post-tag > a:hover {
   color: #00b3ee;
   border: solid 1px #00b3ee;
 }
