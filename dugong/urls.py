@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.views.generic import RedirectView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from rest_framework import routers
+from views.home import HomeView
 
 handler500 = 'views.errors.page_error'
 handler404 = 'views.errors.not_found'
@@ -29,7 +30,8 @@ urlpatterns += [
 
     url(r'^redactor/', include('redactor.urls')),
 
-    url(r'^$', RedirectView.as_view(url="/blog/", permanent=False)),
+    # url(r'^$', RedirectView.as_view(url="/blog/", permanent=False)),
+    url(r'^$', HomeView.as_view(), name='homepage'),
 
     url(r'^blog/', include('blog.urls')),
 ]
