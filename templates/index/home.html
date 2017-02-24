@@ -1,22 +1,29 @@
 {% extends 'base/base.html' %}
+{% load i18n %}
 
 {% block container %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2 category-slider">
+            <div class="col-md-3 category-slider">
                 <ul class="list-unstyled">
                     <li class="active">
-                        <a href="#">Python</a>
+                        <a href="#" title="{% trans 'home' %}">
+                            <i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a>
                     </li>
                     <li>
-                        <a href="#">Django</a>
+                        <a href="#" title="{% trans 'blog' %}">
+                            <i class="fa fa-keyboard-o"></i>&nbsp;{% trans 'blog' %}</a>
                     </li>
                 </ul>
             </div>
             <div class="col-md-6">
-
+                <div id="homepage-post">
+                    {% for post in latest_posts %}
+                        {% include 'blog/cell.html' with post=post %}
+                    {% endfor %}
+                </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
 
             </div>
         </div>

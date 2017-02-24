@@ -8670,23 +8670,28 @@ a.trending-books .book-thumbnail.active {
   max-height: 200px;
 }
 .category-slider > ul {
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding: 16px;
   background-color: #fff;
   border: solid 1px #ebebeb;
 }
 .category-slider > ul > li {
-  padding: 5px 16px 5px 16px;
-}
-.category-slider > ul > li:hover {
-  background-color: #bbbbbb;
+  padding: 5px 0 5px 0;
+  margin-bottom: 10px;
 }
 .category-slider > ul > li > a {
   font-size: 16px;
   text-align: center;
 }
 .category-slider > ul > li.active {
-  background-color: #bbbbbb;
+  border-bottom: solid 3px #333;
+}
+.category-slider > ul > li.active > a {
+  color: #333;
+}
+#homepage-post {
+  background-color: #fff;
+  padding: 16px;
+  border: solid 1px #ebebeb;
 }
 body {
   margin-top: 70px;
