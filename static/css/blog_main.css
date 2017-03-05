@@ -6193,6 +6193,11 @@ button.close {
 #blog-detail-container code a {
   color: #00b3ee;
 }
+#blog-detail-container blockquote {
+  font-size: 12px;
+  font-style: italic;
+  color: #9d9d9d;
+}
 #blog-detail-container .meta-info {
   margin-top: 20px;
 }
