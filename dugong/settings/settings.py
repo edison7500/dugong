@@ -35,7 +35,6 @@ SITE_ID       = 1
 
 INSTALLED_APPS = (
     'suit',
-    # 'bootstrap_admin',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -79,21 +78,15 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-                # 'django.template.context_processors.debug',
-                'django.template.context_processors.i18n',
-                'django.template.context_processors.media',
-                'django.template.context_processors.static',
-                'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.request'
-
+                'django.core.context_processors.static',
             ],
         },
     },
 ]
-
-BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
 
 WSGI_APPLICATION = 'dugong.wsgi.application'
 

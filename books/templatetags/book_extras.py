@@ -22,3 +22,4 @@ def trending_books(tags=None):
     # latest_obj = Post.objects.filter(status=Post.publish)[:5]
     # log.info(latest_obj)
     # return {'posts':latest_obj}
+
