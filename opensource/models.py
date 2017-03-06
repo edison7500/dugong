@@ -15,7 +15,7 @@ class Project(models.Model):
     title               = models.CharField(default='', max_length=255)
     category            = models.ForeignKey(Category, related_name='category', null=True)
     desc                = models.TextField(null=True)
-    github_url          = models.URLField(default='')
+    github_url          = models.URLField(default='', max_length=255)
     readme              = MarkdownField(null=True)
     watch               = models.PositiveIntegerField(default=0, editable=False)
     star                = models.PositiveIntegerField(default=0, editable=False)
