@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
 
     'redactor',
+    'django_markdown',
     'compressor',
     'tagging',
     'rest_framework',
@@ -54,6 +55,7 @@ INSTALLED_APPS = (
 
     'blog',
     'books',
+    'opensource',
     # 'articles',
 )
 

@@ -27,8 +27,8 @@ urlpatterns = staticfiles_urlpatterns()
 
 urlpatterns += [
     url(r'^admin/', include(admin.site.urls)),
-
     url(r'^redactor/', include('redactor.urls')),
+    url(r'^markdown/', include( 'django_markdown.urls')),
 
     # url(r'^$', RedirectView.as_view(url="/blog/", permanent=False)),
     url(r'^$', HomeView.as_view(), name='homepage'),
