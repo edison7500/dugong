@@ -8,7 +8,7 @@ django-debug-toolbar==1.6
 django-qiniu-storage==2.3.0
 django-formtools==1.0
 django-simple-captcha==0.5.3
-django-wysiwyg-redactor==0.4.9.1
+django-wysiwyg-redactor==0.5.0
 django-uuslug==1.1.8
 django-tagging==0.4.5
 djangorestframework==3.5.3
@@ -16,7 +16,7 @@ gevent==1.1.2
 greenlet==0.4.10
 gunicorn==19.6.0
 Pillow==4.0.0
-requests==2.12.3
+requests==2.13.0
 six==1.10.0
 sqlparse==0.2.1
 Unidecode==0.4.19

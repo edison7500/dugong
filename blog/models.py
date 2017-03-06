@@ -22,12 +22,12 @@ class Post(models.Model):
     slug            = models.SlugField(max_length=30, default='', unique=True, editable=False)
     content         = RedactorField(_('Text'),
                                         redactor_options={'lang'        : 'zh_cn',
-                                                          'air'         : True,
-                                                          'maxWidth'    : '500px',
-                                                          # 'plugins'     : ['inlinestyle'],
+                                                          'air'         : False,
+                                                          # 'maxWidth'    : '500px',
                                                           # 'focusEnd'    : True,
                                                           'focus'       : True,
                                                           'maxHeight'   : 400,
+                                                          'plugins'     : ['source', 'fontcolor', 'fullscreen'],
                                                           },
                                         allow_file_upload=False)
     status          = models.IntegerField(choices=POST_STARUS_CHOICES, default=preview)
