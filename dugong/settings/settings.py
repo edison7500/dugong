@@ -34,7 +34,9 @@ SITE_ID       = 1
 # Application definition
 
 INSTALLED_APPS = (
-    'suit',
+    # 'suit',
+    'jet.dashboard',
+    'jet',
 
     'django.contrib.admin',
     'django.contrib.auth',
