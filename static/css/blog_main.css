@@ -6210,6 +6210,12 @@ button.close {
 .post-nav i {
   font-weight: bold;
 }
+.post-nav .previous {
+  text-align: left;
+}
+.post-nav .next {
+  text-align: right;
+}
 .trending-books {
   border-top: solid 2px #333;
   margin-top: 40px;
