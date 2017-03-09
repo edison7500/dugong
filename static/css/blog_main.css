@@ -6205,6 +6205,7 @@ button.close {
   margin-top: 20px;
   padding-bottom: 10px;
   font-size: 16px;
+  color: #333;
 }
 .post-nav i {
   font-weight: bold;
