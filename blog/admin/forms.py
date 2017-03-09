@@ -16,8 +16,9 @@ class BlogAdminForm(forms.ModelForm):
 
     def save(self, commit=True):
         _tags               = self.cleaned_data.get('tags')
+        _obj                = super(BlogAdminForm, self).save(commit)
         self.instance.tags  = _tags
-        return super(BlogAdminForm, self).save(commit)
+        return _obj
 
     class Meta:
         model   = Post

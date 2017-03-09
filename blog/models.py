@@ -30,9 +30,9 @@ class Post(models.Model):
                                                           'plugins'     : ['source', 'fontcolor', 'fullscreen'],
                                                           },
                                         allow_file_upload=False)
-    status          = models.IntegerField(choices=POST_STARUS_CHOICES, default=preview)
-    created_date    = models.DateTimeField(auto_now_add=True, db_index=True, editable=False)
-    last_update     = models.DateTimeField(auto_now=True, db_index=True, editable=False)
+    status          = models.IntegerField(_('status'), choices=POST_STARUS_CHOICES, default=preview)
+    created_date    = models.DateTimeField(_('created_date'), auto_now_add=True, db_index=True, editable=False)
+    last_update     = models.DateTimeField(_('last_update'), auto_now=True, db_index=True, editable=False)
 
     class Meta:
         ordering    = ['-created_date']

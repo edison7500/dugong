@@ -10,6 +10,7 @@ class PostAdmin(admin.ModelAdmin):
     list_display    = ('title', 'status', 'created_date', 'last_update')
     list_filter     = ('status', )
     search_fields   = ('title', )
+    list_per_page   = 30
 
 
 from django.contrib.flatpages.forms import FlatpageForm
@@ -25,9 +26,9 @@ class FlatPageAdmin(FlatPageAdmin):
         models.TextField: {'widget': RedactorEditor(
             redactor_options={
                 'formatting': ['p', 'blockquote', 'h2', 'h3'],
-                'buttons': ['formatting', 'bold', 'italic',
-                        'deleted', 'lists', 'link', 'unorderedlist', 'orderedlist',
-                        'alignment', 'horizontalrule', 'html'],
+                # 'buttons': ['formatting', 'bold', 'italic',
+                #         'deleted', 'lists', 'link', 'unorderedlist', 'orderedlist',
+                #         'alignment', 'horizontalrule', 'html'],
                 'lang': 'zh_cn',
             },
             # attrs={}

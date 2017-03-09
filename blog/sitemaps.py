@@ -6,7 +6,7 @@ class PostSitemap(Sitemap):
 
     changefreq = "never"
     priority = 1.0
-    limit = 1000
+    limit = 500
 
     def items(self):
         return Post.objects.filter(status=Post.publish).\
