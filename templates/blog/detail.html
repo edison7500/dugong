@@ -70,14 +70,14 @@
                     </div>
                     <div class="post-nav">
                             {% if previous %}
-                                <div class="previous pull-left">
+                                <div class="previous">
                                     <a href="{{ previous.get_absolute_url }}" title="{{ previous.title }}">
                                         <i class="fa fa-angle-left"></i>&nbsp;(上一篇)&nbsp;{{ previous }}</a>
                                 </div>
                             {% endif %}
 
                             {% if next %}
-                                <div class="next pull-right">
+                                <div class="next">
                                     <a href="{{ next.get_absolute_url }}" title="{{ next.title }}">
                                         (下一篇)&nbsp;{{ next }}&nbsp;<i class="fa fa-angle-right"></i></a>
                                 </div>

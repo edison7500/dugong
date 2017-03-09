@@ -8552,6 +8552,7 @@ button.close {
 #blog-detail-container .post-nav {
   margin-top: 20px;
   padding-bottom: 10px;
+  font-size: 16px;
 }
 #blog-detail-container .post-nav i {
   font-weight: bold;

@@ -6,7 +6,7 @@
     {% url 'web_blog_list' as blog_url %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 hidden-xs">
                 <div class="category-sidebar">
                 <ul class="list-unstyled">
                     <li {% ifequal request.path index_url %}class="active"{% endifequal %}>
