@@ -6201,12 +6201,12 @@ button.close {
 #blog-detail-container .meta-info {
   margin-top: 20px;
 }
-#blog-detail-container .post-nav {
+.post-nav {
   margin-top: 20px;
   padding-bottom: 10px;
   font-size: 16px;
 }
-#blog-detail-container .post-nav i {
+.post-nav i {
   font-weight: bold;
 }
 .trending-books {
