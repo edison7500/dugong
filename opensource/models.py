@@ -12,12 +12,24 @@ class Category(models.Model):
 
 class Project(models.Model):
 
-    title               = models.CharField(default='', max_length=255)
+    # title               = models.CharField(default='', max_length=255)
+    author              = models.CharField(default='', blank=True, max_length=255)
+    name                = models.CharField(default='', blank=True, max_length=255)
     category            = models.ForeignKey(Category, related_name='category', null=True)
-    desc                = models.TextField(null=True)
+    desc                = models.TextField(null=True, blank=True)
     github_url          = models.URLField(default='', max_length=255)
-    readme              = MarkdownField(null=True)
+    readme              = MarkdownField(blank=True, null=True)
+
+    created_datetime    = models.DateTimeField(auto_now=True, db_index=True)
+
+    def __unicode__(self):
+        return "{author} / {name}".format(
+            author=self.author,
+            name=self.name,
+        )
+
+class Status(models.Model):
+    project     = models.ForeignKey(Project, related_name='github_project')
     watch               = models.PositiveIntegerField(default=0, editable=False)
     star                = models.PositiveIntegerField(default=0, editable=False)
     fork                = models.PositiveIntegerField(default=0, editable=False)
-    updated_datetime    = models.DateTimeField(auto_now=True, db_index=True)

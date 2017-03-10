@@ -1,5 +1,4 @@
 import pagan
-from PIL import ImageDraw, Image
 
 # Acquire an arbitrary string.
 inpt = 'jiaxin'

@@ -2,7 +2,6 @@ from django.views.generic import TemplateView
 from blog.models import Post
 
 
-
 class HomeView(TemplateView):
 
     template_name = "index/home.html"
