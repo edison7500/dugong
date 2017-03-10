@@ -8525,7 +8525,12 @@ button.close {
   margin-top: 0;
   margin-bottom: 5px;
 }
-#blog-detail-container li {
+#blog-detail-container ol,
+#blog-detail-container ul {
+  margin-left: 16px;
+}
+#blog-detail-container ol li,
+#blog-detail-container ul li {
   font-size: 16px;
   line-height: 1.7;
   color: #222;
