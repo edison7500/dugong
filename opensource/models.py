@@ -12,7 +12,6 @@ class Category(models.Model):
 
 class Project(models.Model):
 
-    # title               = models.CharField(default='', max_length=255)
     author              = models.CharField(default='', blank=True, max_length=255)
     name                = models.CharField(default='', blank=True, max_length=255)
     category            = models.ForeignKey(Category, related_name='category', null=True)
