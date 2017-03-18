@@ -8698,6 +8698,16 @@ footer {
   text-align: center;
   color: #bbbbbb;
 }
+.copyright a,
+.copyright a:active {
+  color: #bbb;
+}
+.copyright a:hover,
+.copyright a:active:hover,
+.copyright a:focus,
+.copyright a:active:focus {
+  color: #ffffff;
+}
 .post-meta {
   font-size: 12px;
   color: #888;

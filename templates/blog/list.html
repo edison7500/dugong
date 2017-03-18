@@ -1,9 +1,20 @@
 {% extends 'base/base.html' %}
-{% load cache %}
+{% load i18n cache %}
 
 {% block container %}
    <div class="container">
         <div class="row">
+            <ol class="post-breadcrumb">
+                <li><a href="{% url 'homepage' %}" title="{% trans 'home' %}">
+                    <i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a></li>
+{#                {% if object.first_tag %}#}
+{#                        <li>#}
+{#                            <a href="{% url 'web_blog_tags' object.first_tag.pk %}" title="{{ object.first_tag_name }}">#}
+{#                                {% trans object.first_tag.name %}</a>#}
+{#                        </li>#}
+{#                    {% endif %}#}
+                <li class="active">博客</li>
+            </ol>
             <div class="col-md-8" id="blog-container">
                 {% for post in object_list %}
                     {% include 'blog/cell.html' with post=post %}
