@@ -9,6 +9,9 @@ class Category(models.Model):
     title               = models.CharField(null=True, unique=True, max_length=50)
     created_datetime    = models.DateTimeField(default=timezone.now)
 
+    def __unicode__(self):
+        return self.title
+
 
 class Project(models.Model):
 
@@ -28,7 +31,7 @@ class Project(models.Model):
         )
 
 class Status(models.Model):
-    project     = models.ForeignKey(Project, related_name='github_project')
+    project             = models.ForeignKey(Project, related_name='github_project')
     watch               = models.PositiveIntegerField(default=0, editable=False)
     star                = models.PositiveIntegerField(default=0, editable=False)
     fork                = models.PositiveIntegerField(default=0, editable=False)
