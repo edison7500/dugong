@@ -1,11 +1,7 @@
 @import "../bootstrap-3.3.7/less/bootstrap.less";
 @import "var.less";
 
-
-#blog-container{
-  background-color: @blog-background-color;
-  border: 1px solid #ebebeb;
-  .post-title{
+.post-title{
     font-size: @blog-title-font;
     color: @blog-title-color;
     &:hover,
@@ -13,12 +9,16 @@
       color: #00b3ee;
       text-decoration: underline;
     }
-  };
-  .post-subtitle{
+};
+.post-subtitle{
     font-size: @blog-subtitle-fontsize;
     line-height: @blog-line-height;
     color: @blog-subtitle-color;
-  }
+}
+
+#blog-container{
+  background-color: @blog-background-color;
+  border: 1px solid #ebebeb;
 
 }
 

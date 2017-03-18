@@ -8268,23 +8268,23 @@ button.close {
   overflow: visible;
   clip: auto;
 }
-#blog-container {
-  background-color: #fff;
-  border: 1px solid #ebebeb;
-}
-#blog-container .post-title {
+.post-title {
   font-size: 24px;
   color: #212121;
 }
-#blog-container .post-title:hover,
-#blog-container .post-title:focus {
+.post-title:hover,
+.post-title:focus {
   color: #00b3ee;
   text-decoration: underline;
 }
-#blog-container .post-subtitle {
+.post-subtitle {
   font-size: 16px;
   line-height: 1.5;
   color: #757575;
+}
+#blog-container {
+  background-color: #fff;
+  border: 1px solid #ebebeb;
 }
 #blog-slider p {
   font-size: 16px;
@@ -8660,6 +8660,14 @@ a.trending-books .book-thumbnail.active {
 #homepage-latest .post-title {
   font-size: 16px;
   color: #333;
+}
+.post-preview {
+  border-bottom: solid 1px #ebebeb;
+  margin-bottom: 10px;
+}
+.post-preview:last-child {
+  margin-bottom: 0px;
+  border-bottom: solid 0px;
 }
 body {
   margin-top: 70px;

@@ -44,3 +44,11 @@
   font-size: 16px;
   color: #333;
 }
+.post-preview {
+  border-bottom: solid 1px #ebebeb;
+  margin-bottom: 10px;
+}
+.post-preview:last-child {
+  margin-bottom: 0px;
+  border-bottom: solid 0px;
+}

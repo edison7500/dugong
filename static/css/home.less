@@ -10,15 +10,11 @@
 
 .category-sidebar {
   overflow-y: scroll;
-  //padding: 16px;
   padding-top: 16px;
   padding-bottom: 16px;
   background-color: @blog-background-color;
   border: solid 1px @blog-line-color;
   >ul {
-    //padding-left: 16px;
-    //padding-right: 16px;
-
     >li {
       padding: 5px 16px 5px 16px;
       margin-bottom: 10px;
@@ -56,5 +52,14 @@
   .post-title {
     font-size: 16px;
     color: #333;
+  }
+}
+
+.post-preview{
+  border-bottom: solid 1px @blog-line-color;
+  margin-bottom: 10px;
+  &:last-child {
+    margin-bottom: 0px;
+    border-bottom: solid 0px;
   }
 }
