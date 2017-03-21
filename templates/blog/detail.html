@@ -55,20 +55,24 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="post-nav">
-                            {% if previous %}
+                    <div class="row post-nav">
+                        <div class="col-sm-6">
+                        {% if previous %}
                                 <div class="previous">
-                                    <a href="{{ previous.get_absolute_url }}" title="{{ previous.title }}">
-                                        <i class="fa fa-angle-left"></i>&nbsp;(上一篇)&nbsp;{{ previous }}</a>
+                                    <a class="btn btn-default" href="{{ previous.get_absolute_url  }}" title="{{ previous.title }}"><i class="fa fa-angle-left"></i>&nbsp;上一篇</a>
                                 </div>
+                            <a class="pull-left" href="{{ previous.get_absolute_url }}" title="{{ previous.title }}">{{ previous }}</a>
                             {% endif %}
+                        </div>
 
+                        <div class="col-sm-6">
                             {% if next %}
                                 <div class="next">
-                                    <a href="{{ next.get_absolute_url }}" title="{{ next.title }}">
-                                        (下一篇)&nbsp;{{ next }}&nbsp;<i class="fa fa-angle-right"></i></a>
+                                    <a class="btn btn-default" href="{{ next.get_absolute_url }}" title="{{ next.title }}">下一篇&nbsp;<i class="fa fa-angle-right"></i></a>
                                 </div>
+                                <a class="pull-right" href="{{ next.get_absolute_url }}" title="{{ next.title }}">{{ next }}</a>
                             {% endif %}
+                        </div>
                     </div>
 
                     {% trending_books object.tags  %}
