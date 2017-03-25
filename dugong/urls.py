@@ -44,6 +44,7 @@ urlpatterns += [
 '''
 urlpatterns +=[
     url(r'^api/books/', include('books.urls')),
+    url(r'^api/opensource/', include('opensource.urls.api')),
 ]
 
 

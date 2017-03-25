@@ -6,3 +6,4 @@ class ProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model   = Project
+        fields  = ('author', 'name', 'desc', 'github_url', 'readme')

@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     'django_markdown',
     'compressor',
     'tagging',
+    'haystack',
     'rest_framework',
     'rest_framework.authtoken',
 
@@ -225,10 +226,9 @@ JET_SIDE_MENU_COMPACT   = True
 ''' django haystack
 
 '''
-import os
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
-        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+        'PATH': os.path.join(os.path.dirname(__file__), '../whoosh_index'),
     },
 }
