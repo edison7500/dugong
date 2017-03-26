@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django_markdown.models import MarkdownField
 
+from hashlib import md5
 # Create your models here.
 
 
@@ -21,14 +22,20 @@ class Project(models.Model):
     desc                = models.TextField(null=True, blank=True)
     github_url          = models.URLField(default='', max_length=255)
     readme              = MarkdownField(blank=True, null=True)
-
     created_datetime    = models.DateTimeField(auto_now=True, db_index=True)
+
+    identified_code     = models.CharField(null=True, blank=True, max_length=64, unique=True)
 
     def __unicode__(self):
         return "{author} / {name}".format(
             author=self.author,
             name=self.name,
         )
+
+    def save(self, *args, **kwargs):
+        if self.identified_code is None:
+            self.identified_code = md5(self.github_url).hexdigest()
+            super(Project, self).save(*args, **kwargs)
 
 
 class Status(models.Model):

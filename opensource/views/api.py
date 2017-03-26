@@ -7,3 +7,10 @@ class OpenSourceListAPIView(generics.ListCreateAPIView):
     model               = Project
     queryset            = Project.objects.all()
     serializer_class    = ProjectSerializer
+
+
+class OpenSourceDetailAPIView(generics.RetrieveUpdateAPIView):
+    model               = Project
+    queryset            = Project.objects.all()
+    serializer_class    = ProjectSerializer
+    lookup_field        = 'identified_code'

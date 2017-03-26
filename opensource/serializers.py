@@ -9,8 +9,11 @@ from opensource.models import Project, Status
 
 
 class ProjectSerializer(serializers.ModelSerializer):
+    url     = serializers.HyperlinkedIdentityField(view_name='open-source-api-detail',
+                                                   lookup_field='identified_code')
 
     class Meta:
         model   = Project
-        fields  = ('author', 'name', 'desc',
+        fields  = ('url', 'author', 'name', 'desc',
                    'github_url', 'readme')
+
