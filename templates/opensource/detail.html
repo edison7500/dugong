@@ -15,7 +15,7 @@
                 </ol>
 
                 <div id="project">
-                    <h2>{{ project.author }} / {{ project.name }}</h2>
+                    <h2><i class="fa fa-github" aria-hidden="true"></i>&nbsp;{{ project.author }} / {{ project.name }}</h2>
                     <div class="media" style="padding: 16px">
                         <div class="media-left">
 
@@ -36,6 +36,7 @@
                 </div>
             </div>
         </div>
+        {% include 'base/goto-top.html' %}
     </div>
 
 {% endblock %}

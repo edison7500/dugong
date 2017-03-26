@@ -46,9 +46,10 @@ class Project(models.Model):
 
 class Status(models.Model):
     project             = models.ForeignKey(Project, related_name='github_status')
-    watch               = models.PositiveIntegerField(default=0, editable=False)
-    star                = models.PositiveIntegerField(default=0, editable=False)
-    fork                = models.PositiveIntegerField(default=0, editable=False)
+    watch               = models.PositiveIntegerField(default=0)
+    star                = models.PositiveIntegerField(default=0)
+    fork                = models.PositiveIntegerField(default=0)
+    datetime            = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
 
     def __unicode__(self):
         return "Watch {watch} / Star {star} / Fork {fork}".format(
