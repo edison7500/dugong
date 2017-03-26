@@ -78,3 +78,5 @@ dugong/settings/production.py
 
 
 templates/articles/
+dugong/whoosh_index/
+

@@ -10,8 +10,8 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class ProjectAdmin(admin.ModelAdmin):
+    list_display = ('author', 'name', 'desc', 'github_url')
 
-    pass
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Project, ProjectAdmin)
