@@ -29,13 +29,14 @@ urlpatterns += [
     url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
     url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^redactor/', include('redactor.urls')),
+    # url(r'^redactor/', include('redactor.urls')),
     url(r'^markdown/', include( 'django_markdown.urls')),
 
     # url(r'^$', RedirectView.as_view(url="/blog/", permanent=False)),
     url(r'^$', HomeView.as_view(), name='homepage'),
 
     url(r'^blog/', include('blog.urls')),
+    url(r'^project/', include('opensource.urls.web'))
 ]
 
 

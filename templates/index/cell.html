@@ -1,21 +1,21 @@
 <div class="post-preview">
-    <a href="{{ post.get_absolute_url }}" title="{{ post.title }}">
+{#    <a href="{{ post.get_absolute_url }}" title="{{ post.title }}">#}
         <h2 class="post-title">
-            {{ post.title }}
+           {{ project.name }}
         </h2>
 {#        <h3 class="post-subtitle">{{ post.content|striptags|truncatechars:100 }}</h3>#}
-    </a>
-    <div class="post-meta">
-        <ul class="list-inline">
-        {% for tag in post.tags %}
-            <li>
-                <a href="{% url 'web_blog_tags' tag.pk %}" title="{{ tag.name }}">
-                    {{ tag.name }}
-                </a>
-            </li>
-        {% endfor %}
-        <li class="updated-datetime">{{ post.last_update }}</li>
-        </ul>
-    </div>
+{#    </a>#}
+{#    <div class="post-meta">#}
+{#        <ul class="list-inline">#}
+{#        {% for tag in post.tags %}#}
+{#            <li>#}
+{#                <a href="{% url 'web_blog_tags' tag.pk %}" title="{{ tag.name }}">#}
+{#                    {{ tag.name }}#}
+{#                </a>#}
+{#            </li>#}
+{#        {% endfor %}#}
+{#        <li class="updated-datetime">{{ post.last_update }}</li>#}
+{#        </ul>#}
+{#    </div>#}
 </div>
 {#<hr>#}

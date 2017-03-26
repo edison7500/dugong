@@ -28,9 +28,9 @@
             </div>
             <div class="col-md-6">
                 <div id="homepage-latest">
-                    <p class="tip">最新更新</p>
-                    {% for post in latest_posts %}
-                        {% include 'index/cell.html' with post=post %}
+                    <p class="tip">100 个最热门的 Python 项目 </p>
+                    {% for project in projects %}
+                        {% include 'index/cell.html' with project=project %}
                     {% endfor %}
                 </div>
             </div>

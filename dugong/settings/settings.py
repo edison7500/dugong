@@ -232,3 +232,14 @@ HAYSTACK_CONNECTIONS = {
         'PATH': os.path.join(os.path.dirname(__file__), '../whoosh_index'),
     },
 }
+
+''' django mark-down
+
+'''
+MARKDOWN_EDITOR_SKIN = 'markitup'
+MARKDOWN_EXTENSIONS = 'extra', 'codehilite'
+MARKDOWN_EXTENSION_CONFIGS = {
+    'codehilite': {
+        'linenums': False,
+    }
+}

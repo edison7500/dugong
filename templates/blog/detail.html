@@ -1,6 +1,7 @@
 {% extends 'base/base.html' %}
 {% load i18n cache %}
 {% load book_extras %}
+{% load django_markdown %}
 
 {% block title %}{{ object.title }}{% endblock %}
 
@@ -39,7 +40,7 @@
                     <div id="blog-detail-container">
                         <div class="post-content">
                             {% autoescape off%}
-                                {{ object.content|safe }}
+                                {{ object.content|safe|markdown }}
                             {% endautoescape %}
                         </div>
 

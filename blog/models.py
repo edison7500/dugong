@@ -6,6 +6,7 @@ from uuslug import uuslug
 from tagging.registry import register
 
 from HTMLParser import HTMLParser
+from django_markdown.models import MarkdownField
 
 h = HTMLParser()
 
@@ -20,16 +21,17 @@ class Post(models.Model):
 
     title           = models.CharField(_('title'), max_length=255)
     slug            = models.SlugField(max_length=30, default='', unique=True, editable=False)
-    content         = RedactorField(_('Text'),
-                                        redactor_options={'lang'        : 'zh_cn',
-                                                          'air'         : False,
-                                                          # 'maxWidth'    : '500px',
-                                                          # 'focusEnd'    : True,
-                                                          'focus'       : True,
-                                                          'maxHeight'   : 400,
-                                                          'plugins'     : ['source', 'fontcolor', 'fullscreen'],
-                                                          },
-                                        allow_file_upload=False)
+    content         = MarkdownField()
+    # content         = RedactorField(_('Text'),
+    #                                     redactor_options={'lang'        : 'zh_cn',
+    #                                                       'air'         : False,
+    #                                                       # 'maxWidth'    : '500px',
+    #                                                       # 'focusEnd'    : True,
+    #                                                       'focus'       : True,
+    #                                                       'maxHeight'   : 400,
+    #                                                       'plugins'     : ['source', 'fontcolor', 'fullscreen'],
+    #                                                       },
+    #                                     allow_file_upload=False)
     status          = models.IntegerField(_('status'), choices=POST_STARUS_CHOICES, default=preview)
     created_date    = models.DateTimeField(_('created_date'), auto_now_add=True, db_index=True, editable=False)
     last_update     = models.DateTimeField(_('last_update'), auto_now=True, db_index=True, editable=False)
