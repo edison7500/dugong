@@ -31,7 +31,7 @@ class Project(models.Model):
         )
 
 class Status(models.Model):
-    project             = models.ForeignKey(Project, related_name='github_project')
+    project             = models.ForeignKey(Project, related_name='github_status')
     watch               = models.PositiveIntegerField(default=0, editable=False)
     star                = models.PositiveIntegerField(default=0, editable=False)
     fork                = models.PositiveIntegerField(default=0, editable=False)
