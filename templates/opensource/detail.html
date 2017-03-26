@@ -4,8 +4,23 @@
 {% block container %}
 
     <div class="container">
+        <h1 class="sr-only">{{ project }}</h1>
         <div class="row">
             <div class="col-sm-8">
+                <div id="project">
+                    <h2>{{ project.author }} / {{ project.name }}</h2>
+                    <div class="media" style="padding: 16px">
+                        <div class="media-left">
+
+                        </div>
+                        <div class="media-body">
+                            <a target="_blank" href="{{ project.github_url }}" title="{{ project }}">
+                                <h3 class="media-heading" >{{ project }}</h3>
+                            </a>
+                            {{ project.desc }}
+                        </div>
+                    </div>
+                </div>
                 <div id="readme">
                     <h3><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;README</h3>
                     <article>
