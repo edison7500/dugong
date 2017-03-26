@@ -52,3 +52,34 @@
   margin-bottom: 0px;
   border-bottom: solid 0px;
 }
+#readme {
+  border: 1px solid #ebebeb;
+  border-radius: 4px;
+  font-size: 16px;
+}
+#readme h3 {
+  background-color: #f6f8fa;
+  margin: 0;
+  padding: 10px;
+  font-size: 14px;
+  line-height: 1.3;
+  border-bottom: 1px solid #ebebeb;
+}
+#readme article {
+  margin-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#readme ul {
+  padding-left: 20px;
+}
+#readme a,
+#readme a.active {
+  color: #2aabd2;
+}
+#readme a:hover,
+#readme a.active:hover,
+#readme a:focus,
+#readme a.active:focus {
+  color: #1f7e9b;
+}

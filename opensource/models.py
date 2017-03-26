@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from django_markdown.models import MarkdownField
+from django.core.urlresolvers import reverse
+
 
 from hashlib import md5
 # Create your models here.
@@ -24,13 +26,17 @@ class Project(models.Model):
     readme              = MarkdownField(blank=True, null=True)
     created_datetime    = models.DateTimeField(auto_now=True, db_index=True)
 
-    identified_code     = models.CharField(null=True, blank=True, max_length=64, unique=True)
+    identified_code     = models.CharField(null=True, blank=True, max_length=32, unique=True)
 
     def __unicode__(self):
-        return "{author} / {name}".format(
+        return "{author}/{name}".format(
             author=self.author,
             name=self.name,
         )
+
+    def get_absolute_url(self):
+        return reverse('web-project-detail', args=[self.identified_code, ])
+
 
     def save(self, *args, **kwargs):
         if self.identified_code is None:
