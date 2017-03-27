@@ -1,5 +1,7 @@
 from django.conf.urls import url
-from opensource.views.api import OpenSourceListAPIView, OpenSourceDetailAPIView, OpenSourceStatusListView
+from opensource.views.api import OpenSourceListAPIView, \
+    OpenSourceDetailAPIView, \
+    OpenSourceStatusListView
 
 
 urlpatterns =[

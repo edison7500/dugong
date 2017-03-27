@@ -1,13 +1,20 @@
 from rest_framework import generics
+from rest_framework.pagination import PageNumberPagination
+
 from opensource.models import Project, Status
 from opensource.serializers import ProjectSerializer, StatusSerializer
 
+class StandardResultsSetPagination(PageNumberPagination):
+    page_size = 10
+    page_size_query_param = 'size'
+    max_page_size = 100
 
 
 class OpenSourceListAPIView(generics.ListCreateAPIView):
     model               = Project
     queryset            = Project.objects.all()
     serializer_class    = ProjectSerializer
+    pagination_class    = StandardResultsSetPagination
 
 
 class OpenSourceDetailAPIView(generics.RetrieveUpdateAPIView):
