@@ -270,3 +270,30 @@ footer{
     .box-shadow(none);
   }
 }
+
+#search-results {
+  background-color: #fff;
+  border: solid 1px #ebebeb;
+  .result-cell {
+    &:first-child {
+      margin-top: 10px;
+    }
+    border-bottom: solid 1px #ebebeb;
+    &:last-child {
+      border-bottom: 0px;
+      margin-bottom: 10px;
+    }
+
+    .project-title {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    .project-meta {
+      margin-top: 5px;
+      font-size: 14px;
+      color: lighten(#333, 13%);
+    }
+
+  }
+}

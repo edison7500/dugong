@@ -8696,9 +8696,7 @@ a.trending-books .book-thumbnail.active {
   border-bottom: 1px solid #ebebeb;
 }
 #readme article {
-  padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 20px;
   background-color: #fff;
 }
 #readme ul {
@@ -9035,4 +9033,28 @@ footer {
     -webkit-box-shadow: none;
     box-shadow: none;
   }
+}
+#search-results {
+  background-color: #fff;
+  border: solid 1px #ebebeb;
+}
+#search-results .result-cell {
+  border-bottom: solid 1px #ebebeb;
+}
+#search-results .result-cell:first-child {
+  margin-top: 10px;
+}
+#search-results .result-cell:last-child {
+  border-bottom: 0px;
+  margin-bottom: 10px;
+}
+#search-results .result-cell .project-title {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+}
+#search-results .result-cell .project-meta {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #545454;
 }
