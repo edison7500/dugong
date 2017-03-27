@@ -1,5 +1,7 @@
 from rest_framework import generics
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.filters import OrderingFilter
+from django_filters.rest_framework import DjangoFilterBackend
 
 from opensource.models import Project, Status
 from opensource.serializers import ProjectSerializer, StatusSerializer
@@ -15,6 +17,9 @@ class OpenSourceListAPIView(generics.ListCreateAPIView):
     queryset            = Project.objects.all()
     serializer_class    = ProjectSerializer
     pagination_class    = StandardResultsSetPagination
+    filter_backends     = (OrderingFilter, DjangoFilterBackend, )
+    ordering_fields     = ('created_datetime', )
+    filter_fields       = ('display', )
 
 
 class OpenSourceDetailAPIView(generics.RetrieveUpdateAPIView):

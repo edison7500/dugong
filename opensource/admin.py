@@ -12,6 +12,7 @@ class CategoryAdmin(admin.ModelAdmin):
 class ProjectAdmin(admin.ModelAdmin):
     list_display    = ('author', 'name', 'desc', 'github_url')
     search_fields   = ('author', 'name', )
+    list_filter     = ('display', )
 
 
 admin.site.register(Category, CategoryAdmin)

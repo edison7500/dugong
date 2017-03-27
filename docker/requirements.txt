@@ -13,6 +13,7 @@ django-uuslug==1.1.8
 django-tagging==0.4.5
 django-markdown==0.8.4
 djangorestframework==3.5.3
+django-filter==1.0.1
 feedparser==5.2.1
 gevent==1.1.2
 greenlet==0.4.10

@@ -97,3 +97,10 @@ class Status(models.Model):
             star=self.star,
             fork=self.fork,
         )
+
+class PostProject(models.Model):
+    category    = models.ForeignKey(Category, )
+    url         = models.URLField(max_length=255, blank=True)
+
+    # class Meta:
+        # db_table
