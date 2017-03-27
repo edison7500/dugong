@@ -3,6 +3,7 @@ from django.utils import timezone
 from django_markdown.models import MarkdownField
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+from django.core.exceptions import ObjectDoesNotExist
 
 
 from hashlib import md5
@@ -40,6 +41,36 @@ class Project(models.Model):
             name=self.name,
         )
 
+    @property
+    def latest_star(self):
+        _star   = 0
+        try:
+            stats  = self.github_status.last()
+            _star   = stats.star
+        except ObjectDoesNotExist as e:
+            pass
+        return _star
+
+    @property
+    def latest_watch(self):
+        _watch      = 0
+        try:
+            stats   = self.github_status.last()
+            _watch  = stats.watch
+        except ObjectDoesNotExist as e:
+            pass
+        return _watch
+
+    @property
+    def latest_fork(self):
+        _fork       = 0
+        try:
+            stats   = self.github_status.last()
+            _fork   = stats.fork
+        except ObjectDoesNotExist as e:
+            pass
+        return _fork
+
     def get_absolute_url(self):
         return reverse('web-project-detail', args=[self.identified_code, ])
 
@@ -56,6 +87,9 @@ class Status(models.Model):
     star                = models.PositiveIntegerField(default=0)
     fork                = models.PositiveIntegerField(default=0)
     datetime            = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
+
+    class Meta:
+        ordering    = ('-datetime', )
 
     def __unicode__(self):
         return "Watch {watch} / Star {star} / Fork {fork}".format(

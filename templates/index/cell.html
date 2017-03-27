@@ -1,10 +1,14 @@
-<div class="post-preview">
-    <a href="{{ project.get_absolute_url }}" title="{{ project }}" target="_blank">
-        <h2 class="post-title">
-           {{ project.name }}
-        </h2>
-    </a>
-    <div class="post-meta">
-        <p>{{ project.desc|striptags }}</p>
+<div class="media">
+    <div class="media-left">
+        <i class="fa fa-star" style="font-size: 24px;"></i>{{ project.star }}
+    </div>
+    <div class="media-body" style="margin-left: 20px">
+        <a href="{{ project.url }}" title="{{ project }}" target="_blank">
+            <h4 class="media-heading">
+            {{ project.name }}
+            </h4>
+        </a>
+        <p class="post-meta">{{ project.desc|striptags }}</p>
     </div>
 </div>
+<hr >

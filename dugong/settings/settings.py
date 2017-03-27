@@ -230,8 +230,13 @@ HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
         'PATH': os.path.join(os.path.dirname(__file__), '../whoosh_index'),
+        'STORAGE': 'file',
+        # 'POST_LIMIT': 128 * 1024 * 1024,
+        'INCLUDE_SPELLING': True,
+        'BATCH_SIZE': 100,
     },
 }
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 100
 
 ''' django mark-down
 
