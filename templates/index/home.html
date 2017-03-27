@@ -4,29 +4,9 @@
 {% block container %}
     {% url 'homepage' as index_url %}
     {% url 'web_blog_list' as blog_url %}
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
-            <div class="col-md-3 hidden-xs">
-                <div class="category-sidebar">
-                <ul class="list-unstyled">
-                    <li {% ifequal request.path index_url %}class="active"{% endifequal %}>
-                        <a href="{{ index_url }}" title="{% trans 'home' %}">
-                            <i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a>
-                    </li>
-                    <li {% ifequal request.path blog_url %}class="active"{% endifequal %}>
-                        <a href="{{ blog_url }}" title="{% trans 'blog' %}">
-                            <i class="fa fa-keyboard-o"></i>&nbsp;{% trans 'blog' %}</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'web_blog_tags' 2 %}" title="apache"><i class="icon-python"></i>&nbsp;Python</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'web_blog_tags' 16 %}" title="apache"><i class="icon-apache"></i>&nbsp;Apache</a>
-                    </li>
-                </ul>
-                </div>
-            </div>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div id="homepage-latest">
                     <p class="tip">100 个最热门的 Python 项目 </p>
                     {% for project in projects %}
@@ -34,7 +14,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 {% cache 3600 index_sider %}
                     {% include 'index/right-siderbar.html' %}
                 {% endcache %}

@@ -103,3 +103,9 @@
 .project-content h3.project-title {
   margin-bottom: 20px;
 }
+.project-content .project-desc {
+  font-size: 14px;
+  color: #545454;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}

@@ -8720,6 +8720,12 @@ a.trending-books .book-thumbnail.active {
 .project-content h3.project-title {
   margin-bottom: 20px;
 }
+.project-content .project-desc {
+  font-size: 14px;
+  color: #545454;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
 body {
   margin-top: 70px;
   min-height: 600px;
