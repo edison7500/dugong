@@ -3,8 +3,7 @@ from django.utils import timezone
 from django_markdown.models import MarkdownField
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
-from django.core.exceptions import ObjectDoesNotExist
-
+# from django.core.exceptions import ObjectDoesNotExist
 
 from hashlib import md5
 # Create your models here.
@@ -51,7 +50,7 @@ class Project(models.Model):
         try:
             stats  = self.github_status.last()
             _star   = stats.star
-        except ObjectDoesNotExist as e:
+        except Exception as e:
             pass
         return _star
 
@@ -61,7 +60,7 @@ class Project(models.Model):
         try:
             stats   = self.github_status.last()
             _watch  = stats.watch
-        except ObjectDoesNotExist as e:
+        except Exception as e:
             pass
         return _watch
 
@@ -71,7 +70,7 @@ class Project(models.Model):
         try:
             stats   = self.github_status.last()
             _fork   = stats.fork
-        except ObjectDoesNotExist as e:
+        except Exception as e:
             pass
         return _fork
 
@@ -104,7 +103,8 @@ class Status(models.Model):
 
 class PostProject(models.Model):
     category    = models.ForeignKey(Category, )
-    url         = models.URLField(max_length=255, blank=True)
+    url         = models.URLField(max_length=255, blank=True, unique=True)
+    status      = models.BooleanField(default=True)
 
     def __unicode__(self):
         return self.url
