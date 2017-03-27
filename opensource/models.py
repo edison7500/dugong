@@ -98,9 +98,11 @@ class Status(models.Model):
             fork=self.fork,
         )
 
-class PostProject(models.Model):
-    category    = models.ForeignKey(Category, )
-    url         = models.URLField(max_length=255, blank=True)
-
+# class PostProject(models.Model):
+#     category    = models.ForeignKey(Category, )
+#     url         = models.URLField(max_length=255, blank=True)
+#
+#     def __unicode__(self):
+#         return self.url
     # class Meta:
         # db_table

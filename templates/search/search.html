@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+
+{% block container %}
+
+{#    {{ query }}#}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+            {% for result in page_obj.object_list %}
+                {% include 'search/cell.html' with row=result %}
+{#                {{ result.name }}#}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
