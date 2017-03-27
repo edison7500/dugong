@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django_markdown.models import MarkdownField
 from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext_lazy as _
 
 
 from hashlib import md5
@@ -25,8 +26,13 @@ class Project(models.Model):
     github_url          = models.URLField(default='', max_length=255)
     readme              = MarkdownField(blank=True, null=True)
     created_datetime    = models.DateTimeField(auto_now=True, db_index=True)
+    display             = models.BooleanField(default=False)
 
     identified_code     = models.CharField(null=True, blank=True, max_length=32, unique=True)
+
+    class Meta:
+        verbose_name        = _('project')
+        verbose_name_plural = _('projects')
 
     def __unicode__(self):
         return "{author}/{name}".format(
