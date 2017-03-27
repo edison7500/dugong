@@ -108,12 +108,14 @@ DATABASES = {
 
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': '/tmp/django_cache',
+        'BACKEND': 'diskcache.DjangoCache',
+        'LOCATION': '/tmp/dugong_cache',
+        'SHARDS': 4,
+        'DATABASE_TIMEOUT': 1.0,
         'OPTIONS': {
-            'MAX_ENTRIES': 1000
-        }
-    }
+            'size_limit': 2 ** 32  # 4 gigabytes
+        },
+    },
 }
 
 
