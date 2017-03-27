@@ -9058,3 +9058,14 @@ footer {
   font-size: 14px;
   color: #545454;
 }
+#search-results .result-cell .highlighted {
+  color: red;
+}
+.tips {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.tips em {
+  color: red;
+  font-style: normal;
+}

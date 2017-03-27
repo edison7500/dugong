@@ -1,8 +1,9 @@
-
+{% load highlight %}
 
 <div class="result-cell">
     <a href="{{ row.url }}" title="{{ row.author }} / {{ row.name }}" target="_blank">
-        <h4 class="project-title">{{ row.author }} / {{ row.name }}</h4>
+{#        <h4 class="project-title">{{ row.author }} / {{ row.name }}</h4>#}
+        <h4 class="project-title">{% highlight row.author with query %} / {% highlight row.name with query max_length 200 %}</h4>
     </a>
 
     <div class="btn-group" role="group">
@@ -18,7 +19,6 @@
         <button type="button" class="btn btn-sm btn-default">{{ row.fork }}</button>
     </div>
 
-    <p class="project-meta">{{ row.desc }}</p>
-
+    <p class="project-meta">{% highlight row.desc with query %}</p>
 
 </div>

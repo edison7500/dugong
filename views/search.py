@@ -10,5 +10,4 @@ class ProjectSearchView(SearchView):
 
     def get_context_data(self, **kwargs):
         _context     = super(ProjectSearchView, self).get_context_data(**kwargs)
-        print _context.keys()
         return _context
