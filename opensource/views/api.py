@@ -3,8 +3,8 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 
-from opensource.models import Project, Status
-from opensource.serializers import ProjectSerializer, StatusSerializer
+from opensource.models import Project, Status, PostProject
+from opensource.serializers import ProjectSerializer, StatusSerializer, PostProjectSerializer
 
 class StandardResultsSetPagination(PageNumberPagination):
     page_size = 10
@@ -42,3 +42,9 @@ class OpenSourceStatusListView(generics.ListCreateAPIView):
         self.pid = kwargs.pop('pid', None)
         assert self.pid is not None
         return super(OpenSourceStatusListView, self).get(request, *args, **kwargs)
+
+
+class PostProjectListAPIView(generics.ListAPIView):
+    model               = PostProject
+    queryset            = PostProject.objects.all()
+    serializer_class    = PostProjectSerializer

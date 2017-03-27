@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-24 14:47+0800\n"
+"POT-Creation-Date: 2017-03-27 19:58+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,64 +17,88 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: blog/admin/post.py:40
+#: blog/admin/post.py:41
 msgid "Advanced options"
 msgstr "高级选项"
 
-#: blog/models.py:16
+#: blog/models.py:17
 msgid "block"
 msgstr "封锁"
 
-#: blog/models.py:17
+#: blog/models.py:18
 msgid "preview"
 msgstr "预览"
 
-#: blog/models.py:18
+#: blog/models.py:19
 msgid "publish"
 msgstr "发布"
 
-#: blog/models.py:21 books/models.py:9
+#: blog/models.py:22 books/models.py:9
 msgid "title"
 msgstr "标题"
 
-#: blog/models.py:23
-msgid "Text"
-msgstr "正文"
+#: blog/models.py:35 books/models.py:19
+msgid "status"
+msgstr "状态"
+
+#: blog/models.py:36
+msgid "created_date"
+msgstr "创建日期"
+
+#: blog/models.py:37
+#, fuzzy
+#| msgid "latest-update"
+msgid "last_update"
+msgstr "最近更新"
 
 #: books/admin/book.py:14
 msgid "mark selected articles as published"
 msgstr ""
 
-#: books/models.py:19
-msgid "status"
-msgstr "状态"
+#: opensource/models.py:21
+msgid "category"
+msgstr "分类"
 
-#: templates/base/nav.html:20 templates/base/nav.html.py:21
-#: templates/blog/detail.html:28 templates/index/home.html:10
-#: templates/index/home.html.py:11
+#: opensource/models.py:22
+msgid "categories"
+msgstr "分类"
+
+#: opensource/models.py:39
+msgid "project"
+msgstr "项目"
+
+#: opensource/models.py:40
+msgid "projects"
+msgstr "项目"
+
+#: templates/base/nav.html:28 templates/base/nav.html.py:29
+#: templates/blog/detail.html:29 templates/blog/list.html:8
+#: templates/blog/list.html.py:9 templates/opensource/detail.html:13
 msgid "home"
 msgstr "首页"
 
-#: templates/base/nav.html:24 templates/base/nav.html.py:25
-#: templates/index/home.html:14 templates/index/home.html.py:15
+#: templates/base/nav.html:32 templates/base/nav.html.py:33
 msgid "blog"
 msgstr "博客"
 
-#: templates/base/nav.html:31 templates/base/nav.html.py:32
+#: templates/base/nav.html:36 templates/base/nav.html.py:37
 msgid "about"
 msgstr "关于"
 
-#: templates/blog/detail.html:35
+#: templates/blog/detail.html:36
 msgid "text"
 msgstr "正文"
 
-#: templates/blog/slider/slider.html:13
+#: templates/blog/slider/slider.html:12
 msgid "latest-update"
 msgstr "最近更新"
 
-#: templates/blog/slider/slider.html:23
+#: templates/blog/slider/slider.html:22 templates/index/right-siderbar.html:13
 msgid "tag"
 msgstr "标签"
+
+#~ msgid "Text"
+#~ msgstr "正文"
 
 #~ msgid "draft"
 #~ msgstr "草稿"

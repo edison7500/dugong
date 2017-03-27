@@ -17,6 +17,10 @@ class Category(models.Model):
     def __unicode__(self):
         return self.title
 
+    class Meta:
+        verbose_name        = _('category')
+        verbose_name_plural = _('categories')
+
 
 class Project(models.Model):
 
@@ -27,7 +31,7 @@ class Project(models.Model):
     github_url          = models.URLField(default='', max_length=255)
     readme              = MarkdownField(blank=True, null=True)
     created_datetime    = models.DateTimeField(auto_now=True, db_index=True)
-    display             = models.BooleanField(default=False)
+    display             = models.BooleanField(default=True)
 
     identified_code     = models.CharField(null=True, blank=True, max_length=32, unique=True)
 
@@ -104,5 +108,6 @@ class PostProject(models.Model):
 
     def __unicode__(self):
         return self.url
+
     class Meta:
         db_table    = 'post_project'

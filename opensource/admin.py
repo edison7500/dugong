@@ -1,5 +1,5 @@
 from django.contrib import admin
-from opensource.models import Project, Category, Status
+from opensource.models import Project, Category, Status, PostProject
 
 # Register your models here.
 
@@ -15,5 +15,10 @@ class ProjectAdmin(admin.ModelAdmin):
     list_filter     = ('display', )
 
 
+class PostPorjectAdmin(admin.ModelAdmin):
+    list_display    = ('url', 'category')
+
+
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Project, ProjectAdmin)
+admin.site.register(PostProject, PostPorjectAdmin)
