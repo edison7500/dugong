@@ -1,6 +1,6 @@
 from haystack.forms import SearchForm
 from haystack.generic_views import SearchView
-from haystack.query import SearchQuerySet
+# from haystack.query import SearchQuerySet
 
 
 class ProjectSearchView(SearchView):
