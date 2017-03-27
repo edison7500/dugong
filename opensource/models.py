@@ -24,8 +24,8 @@ class Category(models.Model):
 
 class Project(models.Model):
 
-    author              = models.CharField(default='', blank=True, max_length=255)
-    name                = models.CharField(default='', blank=True, max_length=255)
+    author              = models.CharField(blank=True, max_length=255)
+    name                = models.CharField(blank=True, max_length=255)
     category            = models.ForeignKey(Category, related_name='category', null=True)
     desc                = models.TextField(null=True, blank=True)
     github_url          = models.URLField(default='', max_length=255)
