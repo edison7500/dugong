@@ -96,3 +96,10 @@
 #readme a.active:focus {
   color: #1f7e9b;
 }
+.project-content {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.project-content h3.project-title {
+  margin-bottom: 20px;
+}

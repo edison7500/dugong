@@ -14,8 +14,11 @@
 ### Docker launcher
 ```
 docker run -d -t -i \
+        --name dugong \
         -v /data/www/dugong/:/data/www/dugong/ \
         -v /data/www/static/:/data/www/static/ \
+        -v /data/www/whoosh_index/:/data/www/whoosh_index \
+        -v /tmp:/tmp \
         -p 127.0.0.1:8000:8000 dugong
 ```
 
