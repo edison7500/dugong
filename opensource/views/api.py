@@ -9,7 +9,7 @@ from opensource.serializers import ProjectSerializer, StatusSerializer, PostProj
 class StandardResultsSetPagination(PageNumberPagination):
     page_size = 10
     page_size_query_param = 'size'
-    max_page_size = 100
+    max_page_size = 500
 
 
 class OpenSourceListAPIView(generics.ListCreateAPIView):
