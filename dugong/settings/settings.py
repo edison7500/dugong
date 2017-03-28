@@ -35,8 +35,8 @@ SITE_ID       = 1
 
 INSTALLED_APPS = (
     # 'suit',
-    'jet.dashboard',
-    'jet',
+    # 'jet.dashboard',
+    # 'jet',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -48,7 +48,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'django.contrib.sitemaps',
 
-    'redactor',
+    # 'redactor',
     'django_markdown',
     'compressor',
     'tagging',
@@ -218,12 +218,6 @@ REST_FRAMEWORK = {
 }
 
 
-'''
-    django jet config
-'''
-JET_DEFAULT_THEME       = 'light-gray'
-JET_SIDE_MENU_COMPACT   = True
-
 
 ''' django haystack
 
@@ -238,7 +232,7 @@ HAYSTACK_CONNECTIONS = {
         'BATCH_SIZE': 100,
     },
 }
-HAYSTACK_SEARCH_RESULTS_PER_PAGE = 100
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
 
 ''' django mark-down
 
