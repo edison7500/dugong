@@ -123,6 +123,8 @@ CACHES = {
     },
 }
 
+CACHE_COUNT_TIMEOUT = 60 
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/

@@ -9,11 +9,13 @@ from HTMLParser import HTMLParser
 from django_markdown.models import MarkdownField
 from markdown import markdown
 
+from caching.base import CachingManager, CachingMixin
+
 
 h = HTMLParser()
 
 
-class Post(models.Model):
+class Post(CachingMixin, models.Model):
     (block, preview, publish) = xrange(3)
     POST_STARUS_CHOICES = [
         (block, _('block')),
@@ -37,6 +39,8 @@ class Post(models.Model):
     status          = models.IntegerField(_('status'), choices=POST_STARUS_CHOICES, default=preview)
     created_date    = models.DateTimeField(_('created_date'), auto_now_add=True, db_index=True, editable=False)
     last_update     = models.DateTimeField(_('last_update'), auto_now=True, db_index=True, editable=False)
+
+    objects         = CachingManager()
 
     class Meta:
         ordering    = ['-created_date']
