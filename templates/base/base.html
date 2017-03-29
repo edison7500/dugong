@@ -2,7 +2,7 @@
 {% load compress %}
 
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+<html lang="zh-Hans">
 <head>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -16,10 +16,8 @@
     <title>{% block title %}只做技术宅 | 架构师实战 | 一个受尽折磨的攻城狮{% endblock %}</title>
 
     {% compress css %}
-{#        <link rel="stylesheet" type="text/css" href="{% static 'font-mfizz/icon.css' %}" charset="utf-8"/>#}
         <link rel="stylesheet" type="text/css" href="{% static 'css/jiaxin.css' %}" charset="utf-8" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/pygments.css' %}" charset="utf-8" />
-
     {% endcompress %}
 </head>
 <body>

@@ -6187,6 +6187,10 @@ button.close {
   line-height: 1.7;
   color: #222;
 }
+#blog-detail-container pre,
+#blog-detail-container code {
+  font-size: 12px;
+}
 #blog-detail-container blockquote {
   font-size: 12px;
   font-style: italic;
