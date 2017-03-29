@@ -27,8 +27,9 @@ class BlogAdminForm(forms.ModelForm):
         #     'creator': _('author'),
         # }
         # widgets = {
-        #     'title': forms.TextInput(attrs={'class':'form-control'}),
-        #     'status': forms.Select(attrs={'class':'form-control'}),
+        #     'content';
+            # 'title': forms.TextInput(attrs={'class':'form-control'}),
+            # 'status': forms.Select(attrs={'class':'form-control'}),
         # }
 
 

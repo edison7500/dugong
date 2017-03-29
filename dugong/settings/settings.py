@@ -50,6 +50,7 @@ INSTALLED_APPS = (
 
     # 'redactor',
     'django_markdown',
+    # 'pygments',
     'compressor',
     'tagging',
     'haystack',
@@ -237,7 +238,7 @@ HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
 ''' django mark-down
 
 '''
-MARKDOWN_EDITOR_SKIN = 'markitup'
+MARKDOWN_EDITOR_SKIN = 'simple'
 MARKDOWN_EXTENSIONS = 'extra', 'codehilite'
 MARKDOWN_EXTENSION_CONFIGS = {
     'codehilite': {

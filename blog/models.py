@@ -7,6 +7,8 @@ from tagging.registry import register
 
 from HTMLParser import HTMLParser
 from django_markdown.models import MarkdownField
+from markdown import markdown
+
 
 h = HTMLParser()
 
@@ -47,7 +49,8 @@ class Post(models.Model):
 
     @property
     def digest(self):
-        return h.unescape(strip_tags(self.content))
+        _content    = markdown(self.content)
+        return h.unescape(strip_tags(_content))
 
     def save(self, **kwargs):
         if len(self.slug) == 0:

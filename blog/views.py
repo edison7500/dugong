@@ -3,6 +3,7 @@ from django.http import Http404
 from django.views.generic import ListView, DetailView
 from tagging.models import TaggedItem, Tag
 from blog.models import Post
+from markdown import markdown
 
 # Create your views here.
 
@@ -21,7 +22,8 @@ class BlogDetailView(DetailView):
     slug_field              = 'slug'
 
     def get_object(self, queryset=None):
-        obj = super(BlogDetailView, self).get_object(queryset)
+        obj             = super(BlogDetailView, self).get_object(queryset)
+        # obj.content     = markdown(obj.content,)
         if obj.status != Post.block:
             return obj
         raise Http404
