@@ -32,6 +32,9 @@ django-simple-captcha==0.5.3
 django-wysiwyg-redactor==0.4.9.1
 django-uuslug==1.1.8
 django-tagging==0.4.5
+Whoosh==2.7.4
+django-haystack==2.6.0
+diskcache==2.3.0
 ```
 
 ### 教程

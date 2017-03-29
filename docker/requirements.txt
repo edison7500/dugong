@@ -1,7 +1,6 @@
 crcmod==1.7
 qiniu==7.1.0
 Django==1.8.15
-django-jet==1.0.4
 django-appconf==1.0.2
 django-compressor==2.1
 django-debug-toolbar==1.6
@@ -14,7 +13,6 @@ django-tagging==0.4.5
 django-markdown==0.8.4
 djangorestframework==3.5.3
 django-filter==1.0.1
-feedparser==5.2.1
 gevent==1.1.2
 greenlet==0.4.10
 gunicorn==19.6.0
