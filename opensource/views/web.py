@@ -11,4 +11,16 @@ class ProjectDetailView(DetailView):
     context_object_name = 'project'
     # query_pk_and_slug =
 
+    def get_context_data(self, **kwargs):
+        _context    = super(ProjectDetailView, self).get_context_data(**kwargs)
+        _context.update({
+            'meta': {
+                'author': self.object.author,
+                'desc': "{author} - {desc}".format(author=self.object.author,
+                                                   desc=self.object.desc.replace('\n', '')),
+            }
+        })
+
+        return _context
+
 
