@@ -3,8 +3,9 @@ from django.utils import timezone
 from django_markdown.models import MarkdownField
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
-# from django.core.exceptions import ObjectDoesNotExist
 
+
+from caching.base import CachingManager, CachingMixin
 from hashlib import md5
 # Create your models here.
 
@@ -21,7 +22,7 @@ class Category(models.Model):
         verbose_name_plural = _('categories')
 
 
-class Project(models.Model):
+class Project(CachingMixin, models.Model):
 
     author              = models.CharField(blank=True, max_length=255)
     name                = models.CharField(blank=True, max_length=255)
@@ -33,6 +34,8 @@ class Project(models.Model):
     display             = models.BooleanField(default=True)
 
     identified_code     = models.CharField(null=True, blank=True, max_length=32, unique=True)
+
+    objects             = CachingManager()
 
     class Meta:
         verbose_name        = _('project')

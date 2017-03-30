@@ -123,7 +123,7 @@ CACHES = {
     },
 }
 
-CACHE_COUNT_TIMEOUT = 60 
+CACHE_COUNT_TIMEOUT = 60
 
 
 # Internationalization
@@ -248,6 +248,6 @@ MARKDOWN_EDITOR_SKIN = 'simple'
 MARKDOWN_EXTENSIONS = 'extra', 'codehilite'
 MARKDOWN_EXTENSION_CONFIGS = {
     'codehilite': {
-        'linenums': False,
+        'linenums': True,
     }
 }
