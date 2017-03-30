@@ -1,3 +1,5 @@
+# coding=utf-8
+
 from django.views.generic import DetailView
 from opensource.models import Project
 
@@ -17,7 +19,7 @@ class ProjectDetailView(DetailView):
             'meta': {
                 'author': self.object.author,
                 'desc': "{author} - {desc}".format(author=self.object.author,
-                                                   desc=self.object.desc.replace('\n', '')),
+                                                   desc=self.object.desc.encode('utf8')),
             }
         })
 
