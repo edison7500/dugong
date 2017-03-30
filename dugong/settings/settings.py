@@ -76,8 +76,6 @@ MIDDLEWARE_CLASSES = (
     'htmlmin.middleware.MarkRequestMiddleware',
 )
 
-HTML_MINIFY = True
-
 ROOT_URLCONF = 'dugong.urls'
 
 TEMPLATES = [
@@ -160,14 +158,16 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
-STATIC_URL               = '/static/'
+STATIC_URL              = '/static/'
 STATIC_ROOT             = '/tmp/static/'
+
+HTML_MINIFY             = True
 
 
 COMPRESS_ENABLED        = False
 COMPRESS_PRECOMPILERS   = (
     # ('text/coffeescript', 'coffee --compile --stdio'),
-    ('text/less', 'lessc {infile} {outfile}'),
+    ('text/less', '/usr/local/bin/lessc {infile} {outfile}'),
     # ('text/x-sass', 'sass {infile} {outfile}'),
     # ('text/x-scss', 'sass --scss {infile} {outfile}'),
 )
