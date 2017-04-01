@@ -8692,6 +8692,9 @@ a.trending-books .book-thumbnail.active {
   padding: 20px;
   background-color: #fff;
 }
+#readme article img {
+  margin: auto;
+}
 #readme ul {
   padding-left: 20px;
 }
@@ -8951,6 +8954,9 @@ footer {
   margin-top: 8px;
   margin-bottom: 8px;
 }
+.search-form button {
+  border-radius: 0;
+}
 @media (min-width: 768px) {
   .search-form .form-group {
     display: inline-block;
@@ -9003,10 +9009,13 @@ footer {
 }
 .search-form .form-group {
   width: 400px;
+  height: 34px;
 }
 @media (max-width: 767px) {
   .search-form .form-group {
     margin-bottom: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
   }
   .search-form .form-group:last-child {
     margin-bottom: 0;

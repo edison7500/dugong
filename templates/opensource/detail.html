@@ -9,8 +9,7 @@
     <div class="container">
         <h1 class="sr-only">{{ project }}</h1>
         <div class="row">
-
-            <div class="col-sm-offset-2 col-sm-8">
+            <div class="col-sm-offset-1 col-sm-10">
                 <ol class="breadcrumb">
                     <li><a href="{% url 'homepage' %}" title="{% trans 'home' %}"><i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a></li>
                     <li class="active">{{ project.name }}</li>
@@ -42,7 +41,9 @@
                 <div id="readme">
                     <h3><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;README</h3>
                     <article>
-                        {{ project.readme|safe|escape }}
+                        {% autoescape off %}
+                        {{ project.readme|safe }}
+                        {% endautoescape %}
                     </article>
                 </div>
             </div>

@@ -82,6 +82,9 @@
   padding: 20px;
   background-color: #fff;
 }
+#readme article img {
+  margin: auto;
+}
 #readme ul {
   padding-left: 20px;
 }

@@ -34,9 +34,6 @@ SITE_ID       = 1
 # Application definition
 
 INSTALLED_APPS = (
-    # 'suit',
-    # 'jet.dashboard',
-    # 'jet',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -62,6 +59,8 @@ INSTALLED_APPS = (
     'opensource',
     # 'articles',
 )
+
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
