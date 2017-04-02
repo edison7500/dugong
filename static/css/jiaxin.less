@@ -247,20 +247,22 @@ footer{
 
   .form-group {
     width: 400px;
-    height: 34px;
     @media (max-width: @grid-float-breakpoint-max) {
       margin-bottom: 5px;
-      padding-top: 2px;
-      padding-bottom: 2px;
-
       &:last-child {
         margin-bottom: 0;
       }
+    }
+    input {
+      padding-top: 4px;
+      padding-bottom: 4px;
+      padding-left: 5px;
     }
   }
   .search-control {
     width: 100%;
   }
+
 
   // Vertically center in expanded, horizontal navbar
   .navbar-vertical-align(@input-height-base);
