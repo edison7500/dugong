@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.flatpages',
     'django.contrib.sitemaps',
+    # 'django_comments',
 
     # 'redactor',
     'django_markdown',
