@@ -4,7 +4,6 @@ from django_markdown.models import MarkdownField
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
-
 from caching.base import CachingManager, CachingMixin
 from hashlib import md5
 # Create your models here.
@@ -84,15 +83,17 @@ class Project(CachingMixin, models.Model):
     def save(self, *args, **kwargs):
         if self.identified_code is None:
             self.identified_code = md5(self.github_url).hexdigest()
-            super(Project, self).save(*args, **kwargs)
+        super(Project, self).save(*args, **kwargs)
 
 
-class Status(models.Model):
+class Status(CachingMixin, models.Model):
     project             = models.ForeignKey(Project, related_name='github_status')
     watch               = models.PositiveIntegerField(default=0)
     star                = models.PositiveIntegerField(default=0)
     fork                = models.PositiveIntegerField(default=0)
     datetime            = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
+
+    objects             = CachingManager()
 
     class Meta:
         ordering    = ('-datetime', )

@@ -43,12 +43,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
-    'django.contrib.sitemaps',
-    # 'django_comments',
 
-    # 'redactor',
+    'django.contrib.sitemaps',
     'django_markdown',
-    # 'pygments',
     'compressor',
     'tagging',
     'haystack',
