@@ -8,6 +8,7 @@ class ProjectIndex(indexes.SearchIndex, indexes.Indexable):
     name        = indexes.CharField(model_attr='name')
     desc        = indexes.CharField(model_attr='desc')
     url         = indexes.CharField(model_attr='get_absolute_url')
+    display     = indexes.BooleanField(model_attr='display')
     star        = indexes.IntegerField(model_attr='latest_star')
     watch       = indexes.IntegerField(model_attr='latest_watch')
     fork        = indexes.IntegerField(model_attr='latest_fork')
@@ -16,4 +17,4 @@ class ProjectIndex(indexes.SearchIndex, indexes.Indexable):
         return Project
 
     def index_queryset(self, using=None):
-        return self.get_model().objects.filter(display=True)
+        return self.get_model().objects.all()

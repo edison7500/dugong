@@ -11,5 +11,5 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         _context    = super(HomeView, self).get_context_data(**kwargs)
-        _context['projects']    = SearchQuerySet().order_by('-star')[:100]
+        _context['projects']    = SearchQuerySet().filter(display=True).order_by('-star')[:100]
         return _context
