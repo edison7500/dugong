@@ -42,7 +42,8 @@ from views.search import ProjectSearchView
 
 urlpatterns += [
     # url(r'^search/', include('haystack.urls')),
-    url(r'^search/?$', ProjectSearchView.as_view(), name='project-search-view')
+    url(r'^search/autocomplete/?$', 'views.search.autocomplete', name='search-autocomplete'),
+    url(r'^search/?$', ProjectSearchView.as_view(), name='project-search-view'),
 ]
 
 

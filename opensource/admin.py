@@ -14,7 +14,7 @@ class ProjectAdmin(admin.ModelAdmin):
     list_display_links  = ('name', )
     search_fields       = ('author', 'name', )
     list_filter         = ('display', )
-    fields              = (('author', 'name'), 'display', 'readme')
+    fields              = (('author', 'name'), 'display', 'category', 'readme')
     list_per_page       = 30
 
 

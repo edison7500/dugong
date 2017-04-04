@@ -26,16 +26,17 @@
                 return false;
             });
         },
+        
 
-        // showWeixin: function(){
-        //     var $weixinBtn = $("#btn-wechat >a");
-        //     $weixinBtn.find('.fa-weixin').mouseover(function(){
-        //         $weixinBtn.find('div').fadeIn();
-        //     });
-        //     $weixinBtn.find('.fa-weixin').mouseout(function(){
-        //         $weixinBtn.find('div').fadeOut();
-        //     });
-        // },
+        showWeixin: function(){
+            var $weixinBtn = $("#btn-wechat >a");
+            $weixinBtn.find('.fa-weixin').mouseover(function(){
+                $weixinBtn.find('div').fadeIn();
+            });
+            $weixinBtn.find('.fa-weixin').mouseout(function(){
+                $weixinBtn.find('div').fadeOut();
+            });
+        },
         //
         // refreshCaptcha: function () {
         //     $('img.captcha').on('click', function(){
@@ -54,7 +55,8 @@
     (function init() {
         utils.handlePageScroll();
         utils.gotop();
-        // utils.showWeixin();
+        // utils.autocomplete();
+        utils.showWeixin();
         // utils.refreshCaptcha();
     })();
 
