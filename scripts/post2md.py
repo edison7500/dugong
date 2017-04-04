@@ -7,7 +7,7 @@ import html2text
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(BASE_DIR)
-os.environ['DJANGO_SETTINGS_MODULE'] = 'dugong.settings.stage'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'dugong.settings.production'
 django.setup()
 
 
