@@ -6,6 +6,7 @@ from django.utils.encoding import smart_str
 from django.utils.html import strip_tags, escape
 from django.utils.translation import gettext_lazy as _
 from django.utils.feedgenerator import Rss201rev2Feed
+from django_markdown.utils import markdown
 
 from blog.models import Post
 
@@ -62,7 +63,7 @@ class PostFeeds(Feed):
     link = "/blog/"
     author_email = "edison7500@gmail.com"
     feed_copyright = "since 2008 jiaxin.im All rights reserved."
-    description = '技术宅的天下，python，django，scrapy，ios'
+    description = 'Python观察员，python，django，scrapy，ios'
 
     # description_template = "web/feeds/article_description.html"
 
@@ -86,7 +87,7 @@ class PostFeeds(Feed):
         return item.last_update
 
     def item_description(self, item):
-        content = strip_tags(item.content)
+        content = strip_tags(markdown(item.content))
         # content = strip_tags(item.article.bleached_content)
         desc = content.split(u'。')
         # return "<![CDATA[%s]]>" % (desc[0] + u'。')
@@ -94,6 +95,6 @@ class PostFeeds(Feed):
 
     def item_extra_kwargs(self, item):
         extra = {
-                'content_encoded': ("<![CDATA[%s]]>" % smart_str(item.content)),
+                'content_encoded': ("<![CDATA[%s]]>" % smart_str(markdown(item.content))),
                 }
         return extra
