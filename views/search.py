@@ -16,7 +16,7 @@ class ProjectSearchView(SearchView):
 
 
 def autocomplete(request):
-    if request.is_ajac():
-        sqs         = SearchQuerySet().autocomplete(name_auto=request.GET.get('q', ''))[:5]
-        suggestions = [result.title for result in sqs]
+    if request.is_ajax():
+        sqs         = SearchQuerySet().autocomplete(name_auto=request.GET.get('term', ''))[:5]
+        suggestions = [result.name for result in sqs]
         return JsonResponse(data={'results':suggestions})

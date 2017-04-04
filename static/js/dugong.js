@@ -26,7 +26,7 @@
                 return false;
             });
         },
-        
+
 
         showWeixin: function(){
             var $weixinBtn = $("#btn-wechat >a");
@@ -58,6 +58,23 @@
         // utils.autocomplete();
         utils.showWeixin();
         // utils.refreshCaptcha();
+        $("#autocomplete").autocomplete({
+            minLength:1,
+            scroll: true,
+            max:5,
+            deferRequestBy: 5,
+            noCache: true,
+            source: function(request, response){
+                $.ajax({
+                    url: '/search/autocomplete',
+                    dataType: 'json',
+                    data: request,
+                    success: function(data) {
+                        response( data.results );
+                    }
+                })
+            }
+        })
     })();
 
 }(jQuery, document, window));

@@ -8953,6 +8953,7 @@ footer {
 }
 .search-form button {
   border-radius: 0;
+  border-left: 0px;
 }
 @media (min-width: 768px) {
   .search-form .form-group {
@@ -9022,6 +9023,7 @@ footer {
 }
 .search-form .search-control {
   width: 100%;
+  height: 34px;
 }
 @media (min-width: 768px) {
   .search-form {
