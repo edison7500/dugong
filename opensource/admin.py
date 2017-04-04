@@ -15,8 +15,7 @@ class ProjectAdmin(admin.ModelAdmin):
     search_fields       = ('author', 'name', )
     list_filter         = ('display', )
     fields              = (('author', 'name'), 'display', 'readme')
-
-    # def sa
+    list_per_page       = 30
 
 
 class PostPorjectAdmin(admin.ModelAdmin):
