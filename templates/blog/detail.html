@@ -3,7 +3,7 @@
 {% load book_extras %}
 {% load django_markdown %}
 
-{% block title %}{{ object.title }}{% endblock %}
+{% block title %}{{ meta.title }}{% endblock %}
 
 {% block header %}
 {#    <header class="intro-header" style="background-image: url('http://imgjiaxin.u.qiniudn.com/a7e9d782b98ac04fa91e39fb46ddf410.jpg?imageView2/2/w/800/h/800/')">#}
@@ -24,39 +24,40 @@
 {% block container %}
     <article>
         <div class="container">
+            <h1 class="sr-only">{{ object.title }}</h1>
             <div class="row">
                 <ol class="post-breadcrumb">
-                    <li><a href="{% url 'homepage' %}" title="{% trans 'home' %}">{% trans 'home' %}</a></li>
-                    {% if object.first_tag %}
-                        <li>
-                            <a href="{% url 'web_blog_tags' object.first_tag.pk %}" title="{{ object.first_tag_name }}">
-                                {% trans object.first_tag.name %}</a>
-                        </li>
-                    {% endif %}
-                    <li class="active">{% trans 'text' %}</li>
+                    <li><a href="{% url 'homepage' %}" title="{% trans 'home' %}"><i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a></li>
+                    <li><a href="{% url 'web_blog_list' %}" title="{% trans 'blog' %}"><i class="fa fa-keyboard-o"></i>&nbsp;{% trans 'blog' %}</a></li>
+{#                    {% if object.first_tag %}#}
+{#                        <li>#}
+{#                            <a href="{% url 'web_blog_tags' object.first_tag.pk %}" title="{{ object.first_tag_name }}">#}
+{#                                {% trans object.first_tag.name %}</a>#}
+{#                        </li>#}
+{#                    {% endif %}#}
+                    <li class="active">{{ object.title }}</li>
                 </ol>
 
-                <div class="col-md-8" >
+                <div class="col-md-8">
                     <div id="blog-detail-container">
                         <div class="post-content">
-                            {% autoescape off%}
-                                {{ object.content|safe|markdown }}
-                            {% endautoescape %}
+                            {{ object.content|markdown|safe }}
                         </div>
 
-                        <div class="meta-info">
-                            <ul class="list-inline">
-                                <li> <i class="fa fa-tags"></i></li>
-                                {% for tag in object.tags %}
-                                    <li class="post-tag">
-                                        <a href="{% url 'web_blog_tags' tag.pk %}" title="{% trans tag.name %}">
-                                            {% trans tag.name %}</a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
+                    <div class="meta-info">
+                        <ul class="list-inline">
+                            <li> <i class="fa fa-tags"></i></li>
+                            {% for tag in object.tags %}
+                                <li class="post-tag">
+                                    <a href="{% url 'web_blog_tags' tag.pk %}" title="{% trans tag.name %}">
+                                        {% trans tag.name %}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+{#                        <span class="pull-right"><i class="fa fa-clock-o"></i>&nbsp;{{ object.created_date|date:'Y-m-d' }}</span>#}
                     </div>
-                    <div class="row post-nav">
+                    </div>
+                         <div class="row post-nav">
                         <div class="col-sm-6">
                         {% if previous %}
                                 <div class="previous">

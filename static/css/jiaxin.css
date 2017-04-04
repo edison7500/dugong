@@ -8535,9 +8535,9 @@ button.close {
   line-height: 1.7;
   color: #222;
 }
-#blog-detail-container pre,
-#blog-detail-container code {
-  font-size: 12px;
+#blog-detail-container .codehilitetable pre,
+#blog-detail-container .codehilitetable code {
+  font-size: 10px;
 }
 #blog-detail-container blockquote {
   font-size: 12px;

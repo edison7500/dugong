@@ -1,9 +1,10 @@
+# coding=utf-8
 # from django.shortcuts import render
 from django.http import Http404
 from django.views.generic import ListView, DetailView
 from tagging.models import TaggedItem, Tag
 from blog.models import Post
-from markdown import markdown
+# from markdown import markdown
 
 # Create your views here.
 
@@ -23,7 +24,6 @@ class BlogDetailView(DetailView):
 
     def get_object(self, queryset=None):
         obj             = super(BlogDetailView, self).get_object(queryset)
-        # obj.content     = markdown(obj.content,)
         if obj.status != Post.block:
             return obj
         raise Http404
@@ -31,8 +31,8 @@ class BlogDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(BlogDetailView, self).get_context_data(**kwargs)
         context['meta'] = {
-            'title': self.object.title,
-            'desc': (self.object.digest[:75] + '..') if len(self.object.digest) > 75 else self.object.digest
+            'title': u"{title} | Python观察员".format(title=self.object.title),
+            'desc': (self.object.digest[:75] + '...') if len(self.object.digest) > 75 else self.object.digest
         }
         try:
             context['previous'] = self.object.get_previous_by_created_date()

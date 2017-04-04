@@ -11,7 +11,7 @@ COPY		gunicorn /etc/default/gunicorn
 COPY        supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN         pip install -r /tmp/requirements.txt
-VOLUME		["/data/www/dugong", "/data/www/static"]
+VOLUME		["/data/www/dugong", "/data/www/static", "/data/www/whoosh_index"]
 WORKDIR     /data/www/dugong
 EXPOSE 		8000
 CMD         ["/usr/bin/supervisord"]
