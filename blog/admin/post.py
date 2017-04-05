@@ -17,23 +17,24 @@ from django.contrib.flatpages.forms import FlatpageForm
 from django.contrib.flatpages.admin import FlatPageAdmin
 #
 from django.db import models
-from redactor.widgets import RedactorEditor
+
+# from redactor.widgets import RedactorEditor
 
 # Define a new FlatPageAdmin
 class FlatPageAdmin(FlatPageAdmin):
     form = FlatpageForm
-    formfield_overrides = {
-        models.TextField: {'widget': RedactorEditor(
-            redactor_options={
-                'formatting': ['p', 'blockquote', 'h2', 'h3'],
-                # 'buttons': ['formatting', 'bold', 'italic',
-                #         'deleted', 'lists', 'link', 'unorderedlist', 'orderedlist',
-                #         'alignment', 'horizontalrule', 'html'],
-                'lang': 'zh_cn',
-            },
-            # attrs={}
-        )},
-    }
+    # formfield_overrides = {
+    #     models.TextField: {'widget': RedactorEditor(
+    #         redactor_options={
+    #             'formatting': ['p', 'blockquote', 'h2', 'h3'],
+    #             # 'buttons': ['formatting', 'bold', 'italic',
+    #             #         'deleted', 'lists', 'link', 'unorderedlist', 'orderedlist',
+    #             #         'alignment', 'horizontalrule', 'html'],
+    #             'lang': 'zh_cn',
+    #         },
+    #         # attrs={}
+    #     )},
+    # }
 
 
     fieldsets = (

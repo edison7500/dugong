@@ -258,4 +258,6 @@ MARKDOWN_EXTENSION_CONFIGS = {
 '''
     silk
 '''
-SILKY_PYTHON_PROFILER = True
+SILKY_PYTHON_PROFILER   = True
+SILKY_META              = True
+SILKY_PERMISSIONS       = lambda user: user.is_superuser

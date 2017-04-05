@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils.html import strip_tags
-from redactor.fields import RedactorField
 from uuslug import uuslug
 from tagging.registry import register
 
