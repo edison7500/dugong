@@ -1,6 +1,8 @@
 # coding=utf-8
 
 from django.views.generic import DetailView
+from silk.profiling.profiler import silk_profile
+
 from opensource.models import Project
 
 
@@ -22,7 +24,9 @@ class ProjectDetailView(DetailView):
                                                    desc=self.object.desc.encode('utf8')),
             }
         })
-
         return _context
 
+    @silk_profile(name='Project Detail View')
+    def get(self, request, *args, **kwargs):
+        return super(ProjectDetailView, self).get(request, *args, **kwargs)
 

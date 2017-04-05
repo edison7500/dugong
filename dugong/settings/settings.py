@@ -52,10 +52,13 @@ INSTALLED_APPS = (
     'rest_framework',
     'rest_framework.authtoken',
 
+
     'blog',
     'books',
     'opensource',
     # 'articles',
+
+    'silk',
 )
 
 
@@ -71,6 +74,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
     'htmlmin.middleware.HtmlMinifyMiddleware',
     'htmlmin.middleware.MarkRequestMiddleware',
+
+    'silk.middleware.SilkyMiddleware',
 )
 
 ROOT_URLCONF = 'dugong.urls'
@@ -248,3 +253,9 @@ MARKDOWN_EXTENSION_CONFIGS = {
         'linenums': True,
     }
 }
+
+
+'''
+    silk
+'''
+SILKY_PYTHON_PROFILER = True

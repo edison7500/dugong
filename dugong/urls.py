@@ -38,6 +38,9 @@ urlpatterns += [
     url(r'^$', HomeView.as_view(), name='homepage'),
 ]
 
+# silk
+urlpatterns += [url(r'^silk/', include('silk.urls', namespace='silk'))]
+
 from views.search import ProjectSearchView
 
 urlpatterns += [
