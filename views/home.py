@@ -12,7 +12,8 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         _context    = super(HomeView, self).get_context_data(**kwargs)
 
-        _context['projects']    = SearchQuerySet().filter(display=True, category=1).order_by('-star')[:100]
+        _context['projects']    = SearchQuerySet().filter_and(display=True,
+                                                          category='python').order_by('-star')[:100]
         return _context
 
     @silk_profile(name='HomePage View')

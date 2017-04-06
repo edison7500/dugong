@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django.utils.html import strip_tags
 from uuslug import uuslug
@@ -12,6 +13,7 @@ from caching.base import CachingManager, CachingMixin
 
 
 h = HTMLParser()
+
 
 
 class Post(CachingMixin, models.Model):
@@ -57,3 +59,9 @@ class Post(CachingMixin, models.Model):
             return t
 
 register(Post)
+
+
+class PostImage(models.Model):
+    post                = models.ForeignKey(Post, related_name='images')
+    image               = models.ImageField(upload_to='post/images')
+    uploaded_datetime   = models.DateTimeField(default=timezone.now)
