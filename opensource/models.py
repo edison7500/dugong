@@ -76,6 +76,24 @@ class Project(CachingMixin, models.Model):
             pass
         return _fork
 
+    def get_subscription(self):
+        return "https://github.com/{author}/{name}/subscription".format(
+            author=self.author,
+            name=self.name,
+        )
+
+    def get_star(self):
+        return "https://github.com/{author}/{name}".format(
+            author=self.author,
+            name=self.name
+        )
+
+    def get_fork(self):
+        return "https://github.com/{author}/{name}/fork".format(
+            author=self.author,
+            name=self.name
+        )
+
     def get_absolute_url(self):
         return reverse('web-project-detail', args=[self.identified_code, ])
 
