@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
+from django_markdown.widgets import AdminMarkdownWidget
 
 from blog.admin.forms import BlogAdminForm
 
@@ -23,7 +24,8 @@ from django.db import models
 # Define a new FlatPageAdmin
 class FlatPageAdmin(FlatPageAdmin):
     form = FlatpageForm
-    # formfield_overrides = {
+    formfield_overrides = {
+        models.TextField: {'widget': AdminMarkdownWidget}
     #     models.TextField: {'widget': RedactorEditor(
     #         redactor_options={
     #             'formatting': ['p', 'blockquote', 'h2', 'h3'],
@@ -34,7 +36,7 @@ class FlatPageAdmin(FlatPageAdmin):
     #         },
     #         # attrs={}
     #     )},
-    # }
+    }
 
 
     fieldsets = (
