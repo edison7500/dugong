@@ -12,7 +12,7 @@
 * *django-1.8.15* [相关文档](https://docs.djangoproject.com/en/1.8/)
 
 ### Docker launcher
-```
+~~~~.shell
 docker run -d -t -i \
         --name dugong \
         -v /data/www/dugong/:/data/www/dugong/ \
@@ -20,7 +20,7 @@ docker run -d -t -i \
         -v /data/www/whoosh_index/:/data/www/whoosh_index \
         -v /tmp:/tmp \
         -p 127.0.0.1:8000:8000 dugong
-```
+~~~~
 
 ### Django 第三方组建
 ```
