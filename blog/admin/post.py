@@ -3,7 +3,12 @@ from django.utils.translation import ugettext_lazy as _
 from django_markdown.widgets import AdminMarkdownWidget
 
 from blog.admin.forms import BlogAdminForm
+from blog.models import PostImage
 
+
+class PostImageInlineAdmin(admin.StackedInline):
+    model = PostImage
+    extra = 1
 
 class PostAdmin(admin.ModelAdmin):
     form = BlogAdminForm
@@ -12,6 +17,10 @@ class PostAdmin(admin.ModelAdmin):
     list_filter     = ('status', )
     search_fields   = ('title', )
     list_per_page   = 30
+    inlines         = (PostImageInlineAdmin, )
+
+class PostImageAdmin(admin.ModelAdmin):
+    list_display    = ('image',)
 
 
 from django.contrib.flatpages.forms import FlatpageForm

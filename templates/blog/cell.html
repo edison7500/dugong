@@ -14,7 +14,7 @@
                 </a>
             </li>
         {% endfor %}
-        <li class="updated-datetime">{{ post.last_update }}</li>
+        <li class="updated-datetime">{{ post.created_date|date:"Y-m-d" }}</li>
         </ul>
     </div>
 </div>

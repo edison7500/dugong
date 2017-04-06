@@ -247,11 +247,12 @@ HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
 
 '''
 MARKDOWN_EDITOR_SKIN = 'simple'
-MARKDOWN_EXTENSIONS = 'extra', 'codehilite'
+MARKDOWN_EXTENSIONS = ['extra', 'codehilite', 'tables', 'fenced_code']
 MARKDOWN_EXTENSION_CONFIGS = {
     'codehilite': {
-        'linenums': True,
-    }
+        'linenums': False,
+    },
+    'encoding':"utf-8",
 }
 
 
