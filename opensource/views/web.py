@@ -20,8 +20,8 @@ class ProjectDetailView(DetailView):
         _context.update({
             'meta': {
                 'author': self.object.author,
-                'desc': "{author} - {desc}".format(author=self.object.author,
-                                                   desc=self.object.desc.encode('utf8')),
+                # 'desc': "{author} - {desc}".format(author=self.object.author,
+                #                                    desc=self.object.desc.encode('utf8')),
             }
         })
         return _context

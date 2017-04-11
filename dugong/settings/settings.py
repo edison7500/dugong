@@ -263,4 +263,5 @@ SILKY_AUTHENTICATION    = True  # User must login
 SILKY_AUTHORISATION     = True  # User must have permissions
 SILKY_PYTHON_PROFILER   = True
 SILKY_META              = True
+SILKY_INTERCEPT_PERCENT = 25
 SILKY_PERMISSIONS       = lambda user: user.is_superuser

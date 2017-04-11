@@ -49,12 +49,11 @@
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
+
                 <div id="readme">
                     <h3><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;README</h3>
                     <article>
-                        {% autoescape off %}
-                        {{ project.readme|safe }}
-                        {% endautoescape %}
+                        {{ project.html_content }}
                     </article>
                 </div>
             </div>

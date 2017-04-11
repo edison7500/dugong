@@ -7,6 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 from caching.base import CachingManager, CachingMixin
 from hashlib import md5
 # Create your models here.
+from django_markdown.utils import markdown
 
 
 class Category(models.Model):
@@ -75,6 +76,9 @@ class Project(CachingMixin, models.Model):
         except Exception as e:
             pass
         return _fork
+
+    def html_content(self):
+        return markdown(self.readme)
 
     def get_subscription(self):
         return "https://github.com/{author}/{name}/subscription".format(
