@@ -13,6 +13,7 @@ from datetime import timedelta
 from datetime import datetime
 
 import pygal
+from pygal.style import DarkSolarizedStyle
 
 
 class ProjectDetailView(DetailView):
@@ -26,19 +27,22 @@ class ProjectDetailView(DetailView):
         _context    = super(ProjectDetailView, self).get_context_data(**kwargs)
 
         _status     = Status.objects.filter(project=self.object,
-                                            datetime__gte=datetime.now() - timedelta(30)
+                                            datetime__gte=datetime.now() - timedelta(15)
                                             )
-        line_chat           = pygal.Line()
+        line_chat           = pygal.Line(x_label_rotation=20, width=600, height=300, pretty_print=True,
+                                         interpolate='cubic', style=DarkSolarizedStyle)
+        line_chat.human_readable    = True
         line_chat.x_labels  = map(lambda x: x.datetime.strftime("%Y-%m-%d"), _status)
-        line_chat.title     = self.object
+        line_chat.add('star', map(lambda x: x.star, _status))
+        # line_chat.add('watch', map(lambda x: x.watch, _status))
+        # line_chat.add('fork', map(lambda x: x.fork, _status))
+        line_chat.title     = self.object.name
 
         _context.update({
             'meta': {
                 'author': self.object.author,
-                # 'desc': "{author} - {desc}".format(author=self.object.author,
-                #                                    desc=self.object.desc.encode('utf8')),
             },
-            'chat': line_chat,
+            'chat': line_chat.render(show_dots=True),
         })
         return _context
 
