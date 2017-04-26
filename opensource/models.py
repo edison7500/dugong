@@ -118,7 +118,7 @@ class Status(CachingMixin, models.Model):
     objects             = CachingManager()
 
     class Meta:
-        ordering    = ('datetime', )
+        ordering    = ('-datetime', )
 
     def __unicode__(self):
         return "Watch {watch} / Star {star} / Fork {fork}".format(

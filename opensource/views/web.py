@@ -28,7 +28,7 @@ class ProjectDetailView(DetailView):
 
         _status     = Status.objects.filter(project=self.object,
                                             datetime__gte=datetime.now() - timedelta(15)
-                                            )
+                                            ).order_by('datetime')
         line_chat           = pygal.Line(x_label_rotation=20, width=600, height=300, pretty_print=True,
                                          interpolate='cubic', style=DarkSolarizedStyle)
         line_chat.human_readable    = True
