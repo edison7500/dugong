@@ -14,9 +14,9 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from django.views.generic import RedirectView
+# from django.views.generic import RedirectView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from rest_framework import routers
+# from rest_framework import routers
 from views.home import HomeView
 
 handler500 = 'views.errors.page_error'
@@ -29,10 +29,8 @@ urlpatterns += [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^markdown/', include( 'django_markdown.urls')),
 
-
     url(r'^blog/', include('blog.urls')),
     url(r'^project/', include('opensource.urls.web')),
-    # url(r'^comments/', include('django_comments.urls')),
 
     # home page
     url(r'^$', HomeView.as_view(), name='homepage'),

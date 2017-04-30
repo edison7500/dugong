@@ -38,13 +38,12 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    # 'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
-
     'django.contrib.sitemaps',
+
     'django_markdown',
     'compressor',
     'tagging',
@@ -52,12 +51,9 @@ INSTALLED_APPS = (
     'rest_framework',
     'rest_framework.authtoken',
 
-
     'blog',
     'books',
     'opensource',
-    # 'articles',
-
     'silk',
 )
 
@@ -252,7 +248,7 @@ MARKDOWN_EXTENSION_CONFIGS = {
     'codehilite': {
         'linenums': False,
     },
-    'encoding':"utf-8",
+    'encoding': "utf-8",
 }
 
 
