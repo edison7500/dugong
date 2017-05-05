@@ -51,7 +51,7 @@ class Project(CachingMixin, models.Model):
     def latest_star(self):
         _star   = 0
         try:
-            stats  = self.github_status.last()
+            stats  = self.github_status.first()
             _star   = stats.star
         except Exception as e:
             pass
@@ -61,7 +61,7 @@ class Project(CachingMixin, models.Model):
     def latest_watch(self):
         _watch      = 0
         try:
-            stats   = self.github_status.last()
+            stats   = self.github_status.first()
             _watch  = stats.watch
         except Exception as e:
             pass
@@ -71,7 +71,7 @@ class Project(CachingMixin, models.Model):
     def latest_fork(self):
         _fork       = 0
         try:
-            stats   = self.github_status.last()
+            stats   = self.github_status.first()
             _fork   = stats.fork
         except Exception as e:
             pass
