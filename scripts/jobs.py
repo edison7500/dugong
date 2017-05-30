@@ -5,7 +5,7 @@ from apscheduler.executors.pool import ProcessPoolExecutor
 from apscheduler.schedulers.background import BackgroundScheduler
 import requests
 
-SPIDER_URL  = 'http://10.0.0.245:6800/schedule.json'
+SPIDER_URL  = 'http://127.0.0.1:6800/schedule.json'
 
 def check_github():
     '''
@@ -58,8 +58,15 @@ if __name__ == '__main__':
                     executors=executors,
                     job_defaults=job_defaults)
 
+
+    # print jobs
+    # if len(jobs) == 0:
     scheduler.add_job(check_github, 'cron', hour='*/4', id='github')
     scheduler.add_job(check_project_state, 'cron', hour='2', id='pstats')
+
+    scheduler.remove_job(job_id='github')
+    scheduler.remove_job(job_id='pstats')
+
     scheduler.start()
     print('Press Ctrl+{0} to exit'.format('Break' if os.name == 'nt' else 'C'))
 
