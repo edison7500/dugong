@@ -53,8 +53,6 @@ coverage.xml
 # Django stuff:
 *.log
 *.pot
-spider/log.txt
-log.txt
 
 # Sphinx documentation
 docs/_build/
@@ -75,8 +73,5 @@ dugong/settings/production.py
 *.rdb
 
 
-
-
-templates/articles/
 dugong/whoosh_index/
 
