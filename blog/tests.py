@@ -27,6 +27,11 @@ class PostModelTest(TestCase):
         post    = Post.objects.all().last()
         self.assertEqual(post.status, Post.preview)
 
+    def test_model_can_delete_post(self):
+        post = Post.objects.all()
+        post.delete()
+        self.assertEqual(0, post.count())
+
 
 class PostTemplateTest(TestCase):
 

@@ -3,7 +3,7 @@ from django.test import TestCase
 import factory
 from faker import Faker
 
-from books.models import Book
+from books.models import Book, Image
 
 # Create your tests here.
 
@@ -31,6 +31,11 @@ class BookModelTest(TestCase):
     def test_book_class(self):
         book    = Book.objects.all().first()
         self.assertIsInstance(book, Book)
+
+    def test_model_can_delete_book(self):
+        books = Book.objects.all()
+        books.delete()
+        self.assertEqual(0, books.count())
 
 
 
