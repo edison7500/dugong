@@ -69,6 +69,11 @@ class Project(CachingMixin, models.Model):
         return _watch
 
     @property
+    def latest_30_day_star(self):
+
+        return 0
+
+    @property
     def latest_fork(self):
         _fork       = 0
         try:
@@ -114,7 +119,6 @@ class Status(CachingMixin, models.Model):
     star                = models.PositiveIntegerField(default=0)
     fork                = models.PositiveIntegerField(default=0)
     datetime            = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
-
     objects             = DataFrameManager()
 
     class Meta:
