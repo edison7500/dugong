@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta
 from django.db import models
 from django.utils import timezone
 from django_markdown.models import MarkdownField
@@ -48,6 +49,11 @@ class Project(CachingMixin, models.Model):
             name=self.name,
         )
 
+    def _stats_df(self):
+        return self.github_status\
+            .filter(datetime__gte=datetime.now() - timedelta(31)).order_by('datetime')\
+                                    .to_dataframe(index='datetime')
+
     @property
     def latest_star(self):
         _star   = 0
@@ -70,8 +76,7 @@ class Project(CachingMixin, models.Model):
 
     @property
     def latest_30_day_star(self):
-
-        return 0
+        return self._stats_df().star.diff().sum()
 
     @property
     def latest_fork(self):

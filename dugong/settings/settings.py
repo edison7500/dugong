@@ -56,7 +56,7 @@ INSTALLED_APPS = (
     'blog',
     'books',
     'opensource',
-    # 'silk',
+    'silk',
 )
 
 
@@ -73,7 +73,7 @@ MIDDLEWARE_CLASSES = (
     'htmlmin.middleware.HtmlMinifyMiddleware',
     'htmlmin.middleware.MarkRequestMiddleware',
 
-    # 'silk.middleware.SilkyMiddleware',
+    'silk.middleware.SilkyMiddleware',
 )
 
 ROOT_URLCONF = 'dugong.urls'

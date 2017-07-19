@@ -3,8 +3,8 @@ from fabric.api import local
 from fabric.contrib.project import rsync_project
 from fabric.api import run, env
 
-# env.hosts = ['jiaxin.im',]
-env.hosts = ['67.207.85.65',]
+env.hosts = ['jiaxin.im',]
+# env.hosts = ['67.207.85.65',]
 env.user = "jiaxin"
 
 

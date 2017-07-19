@@ -5,10 +5,6 @@ from silk.profiling.profiler import silk_profile
 
 from opensource.models import Project, Status
 
-# from django.utils.log import getLogger
-
-# log = getLogger('django')
-
 from datetime import timedelta
 from datetime import datetime
 
@@ -43,8 +39,8 @@ class ProjectDetailView(DetailView):
         df = stats.to_dataframe(index='datetime')
 
         line_chat = pygal.Line(x_label_rotation=90,
-                               width=600, height=300,
-                               pretty_print=True,
+                                width=600, height=300,
+                                pretty_print=True,
                                 interpolate='cubic', style=DarkSolarizedStyle)
         line_chat.human_readable = True
         line_chat.x_labels = map(lambda x: x.datetime.strftime("%Y-%m-%d"), stats[1:])
