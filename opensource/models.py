@@ -8,6 +8,7 @@ from caching.base import CachingManager, CachingMixin
 from hashlib import md5
 # Create your models here.
 from django_markdown.utils import markdown
+from django_pandas.managers import DataFrameManager
 
 
 class Category(models.Model):
@@ -101,7 +102,6 @@ class Project(CachingMixin, models.Model):
     def get_absolute_url(self):
         return reverse('web-project-detail', args=[self.identified_code, ])
 
-
     def save(self, *args, **kwargs):
         if self.identified_code is None:
             self.identified_code = md5(self.github_url).hexdigest()
@@ -115,7 +115,7 @@ class Status(CachingMixin, models.Model):
     fork                = models.PositiveIntegerField(default=0)
     datetime            = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
 
-    objects             = CachingManager()
+    objects             = DataFrameManager()
 
     class Meta:
         ordering    = ('-datetime', )

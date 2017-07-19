@@ -45,7 +45,7 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
 
     'django_markdown',
-    'bootstrap3',
+    # 'bootstrap3',
     'compressor',
     'tagging',
     'haystack',
