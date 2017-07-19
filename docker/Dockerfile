@@ -13,6 +13,7 @@ COPY        supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN         pip install -r /tmp/requirements.txt
 VOLUME		["/data/www/dugong", "/data/www/static", "/data/www/whoosh_index"]
 WORKDIR     /data/www/dugong
+ENV         DJANGO_SETTINGS_MODULE 'dugong.settings.production'
 EXPOSE 		8000
 CMD         ["/usr/bin/supervisord"]
 

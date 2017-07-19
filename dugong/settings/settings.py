@@ -51,6 +51,7 @@ INSTALLED_APPS = (
     'haystack',
     'rest_framework',
     'rest_framework.authtoken',
+    'django_extensions',
 
     'blog',
     'books',
@@ -262,3 +263,7 @@ SILKY_PYTHON_PROFILER   = True
 SILKY_META              = True
 SILKY_INTERCEPT_PERCENT = 25
 SILKY_PERMISSIONS       = lambda user: user.is_superuser
+
+
+# django extensions
+SHELL_PLUS = 'ptpython'
