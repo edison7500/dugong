@@ -15,7 +15,9 @@ class ProjectIndex(indexes.SearchIndex, indexes.Indexable):
     watch       = indexes.IntegerField(model_attr='latest_watch')
     fork        = indexes.IntegerField(model_attr='latest_fork')
 
-    latest_30_day_star = indexes.IntegerField(model_attr='latest_30_day_star')
+    latest_30_day_star = indexes.IntegerField(default=0, stored=True)
+    latest_30_day_fork = indexes.IntegerField(default=0, stored=True)
+    latest_30_day_watch = indexes.IntegerField(default=0, stored=True)
 
     name_auto   = indexes.EdgeNgramField(model_attr='name')
 
@@ -24,3 +26,15 @@ class ProjectIndex(indexes.SearchIndex, indexes.Indexable):
 
     def index_queryset(self, using=None):
         return self.get_model().objects.all()
+
+    def prepare_latest_30_day_star(self, obj):
+        star_sum = obj.stats_df().star.diff().fillna(0).sum()
+        return int(star_sum)
+
+    def prepare_latest_30_day_fork(self, obj):
+        fork_sum = obj.stats_df().fork.diff().fillna(0).sum()
+        return int(fork_sum)
+    #
+    def prepare_latest_30_day_watch(self, obj):
+        watch_sum = obj.stats_df().watch.diff().fillna(0).sum()
+        return int(watch_sum)

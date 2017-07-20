@@ -49,7 +49,7 @@ class Project(CachingMixin, models.Model):
             name=self.name,
         )
 
-    def _stats_df(self):
+    def stats_df(self):
         return self.github_status\
             .filter(datetime__gte=datetime.now() - timedelta(31)).order_by('datetime')\
                                     .to_dataframe(index='datetime')
@@ -74,9 +74,9 @@ class Project(CachingMixin, models.Model):
             pass
         return _watch
 
-    @property
-    def latest_30_day_star(self):
-        return self._stats_df().star.diff().sum()
+    # @property
+    # def latest_30_day_star(self):
+    #     return self._stats_df().star.diff().sum()
 
     @property
     def latest_fork(self):
