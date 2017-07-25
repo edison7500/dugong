@@ -1,6 +1,10 @@
 <div class="media">
     <div class="media-left">
-        <i class="fa fa-star" style="font-size: 24px;"></i>{{ project.star }}
+        {% if month %}
+            <i class="fa fa-star" style="font-size: 24px;"></i>{{ project.latest__day_star }}
+        {% else %}
+            <i class="fa fa-star" style="font-size: 24px;"></i>{{ project.latest_7_day_star }}
+        {% endif %}
     </div>
     <div class="media-body" style="margin-left: 20px">
         <a href="{{ project.url }}" title="{{ project.author }} / {{ project.name }}" target="_blank">
