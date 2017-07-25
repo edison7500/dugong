@@ -1,9 +1,9 @@
 <div class="media">
     <div class="media-left">
         {% if month %}
-            <i class="fa fa-star" style="font-size: 24px;"></i>{{ project.latest__day_star }}
+            <i class="fa fa-star" style="font-size: 12px;"></i>{{ project.latest_30_day_star }}
         {% else %}
-            <i class="fa fa-star" style="font-size: 24px;"></i>{{ project.latest_7_day_star }}
+            <i class="fa fa-star" style="font-size: 12px;"></i>{{ project.latest_7_day_star }}
         {% endif %}
     </div>
     <div class="media-body" style="margin-left: 20px">
