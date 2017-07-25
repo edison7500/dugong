@@ -49,9 +49,9 @@ class Project(CachingMixin, models.Model):
             name=self.name,
         )
 
-    def stats_df(self):
+    def stats_df(self, days=31):
         return self.github_status\
-            .filter(datetime__gte=datetime.now() - timedelta(31)).order_by('datetime')\
+            .filter(datetime__gte=datetime.now() - timedelta(days)).order_by('datetime')\
                                     .to_dataframe(index='datetime')
 
     @property
