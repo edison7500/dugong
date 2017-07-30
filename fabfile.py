@@ -1,9 +1,10 @@
 import os
 from fabric.api import local
+from fabric.context_managers import cd
 from fabric.contrib.project import rsync_project
 from fabric.api import run, env
 
-env.hosts = ['jiaxin.im', '47.91.130.68']
+env.hosts = ['47.91.130.68', ]
 # env.hosts = ['67.207.85.65',]
 # env.hosts = ['47.91.130.68',]
 env.user = "jiaxin"
@@ -21,6 +22,19 @@ def deploy_python():
         delete=True,
     )
 
+def deploy_static():
+    with cd("/data/www/dugong/"):
+        run("/home/jiaxin/.virtualenvs/dugong/bin/python manage.py "
+            "collectstatic --noinput --settings=dugong.settings.production")
+        run("/home/jiaxin/.virtualenvs/dugong/bin/python manage.py "
+            "compress --settings=dugong.settings.production")
+
+def reload_server():
+    run("sudo supervisorctl reload dugong")
+
+
+
 def deploy():
     test_blog()
+    deploy_static()
     deploy_python()
