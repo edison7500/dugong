@@ -14,5 +14,7 @@ data = res.json()
 
 results = data.get('results', None)
 
-for row in results:
-    print(row['github_url'])
+
+def generator_author():
+    for row in results:
+        yield row['author']

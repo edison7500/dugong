@@ -21,7 +21,8 @@ class ProjectAdmin(admin.ModelAdmin):
 
 
 class PostPorjectAdmin(admin.ModelAdmin):
-    list_display    = ('url', 'category')
+    list_display = ('url', 'category')
+    search_fields = ['url', ]
 
 
 admin.site.register(Author, AuthorAdmin)
