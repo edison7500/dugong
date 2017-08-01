@@ -24,6 +24,19 @@ class Category(models.Model):
         verbose_name_plural = _('categories')
 
 
+class Author(CachingMixin, models.Model):
+    author = models.CharField(blank=True, max_length=128)
+    url = models.URLField(blank=True, max_length=255)
+    created = models.DateTimeField(default=timezone.now, db_index=True)
+
+    def __unicode__(self):
+        return self.author
+
+    class Meta:
+        verbose_name        = _('author')
+        verbose_name_plural = _('authors')
+
+
 class Project(CachingMixin, models.Model):
 
     author              = models.CharField(blank=True, max_length=255)
