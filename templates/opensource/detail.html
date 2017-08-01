@@ -39,24 +39,25 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="row">
-                <div class="col-sm-offset-1 col-sm-10">
-                    {% autoescape off %}
-                        {{ chart }}
-                    {% endautoescape %}
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-offset-1 col-sm-10" id="readme">
-                    <h3><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;README</h3>
-                    <article>
-                        {{ project.html_content }}
-                    </article>
-                </div>
+        <div class="row">
+            <div class="col-sm-offset-1 col-sm-10">
+                {% autoescape off %}
+                    {{ chart }}
+                {% endautoescape %}
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-sm-offset-1 col-sm-10" id="readme">
+                <h3><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;README</h3>
+                <article>
+                    {{ project.html_content }}
+                </article>
+            </div>
+        </div>
+
         {% include 'base/goto-top.html' %}
     </div>
 
