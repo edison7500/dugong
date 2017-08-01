@@ -25,7 +25,7 @@ class Category(models.Model):
 
 
 class Author(CachingMixin, models.Model):
-    author = models.CharField(blank=True, max_length=128)
+    author = models.CharField(blank=True, max_length=128, unique=True)
     url = models.URLField(blank=True, max_length=255)
     created = models.DateTimeField(default=timezone.now, db_index=True)
 
