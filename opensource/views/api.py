@@ -3,14 +3,26 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 
-from opensource.models import Project, Status, PostProject
-from opensource.serializers import ProjectSerializer, StatusSerializer, PostProjectSerializer
+from opensource.models import Project, Status, PostProject, Author
+from opensource.serializers import (AuthorSerializer,
+                                    ProjectSerializer,
+                                    StatusSerializer,
+                                    PostProjectSerializer)
 
 
 class StandardResultsSetPagination(PageNumberPagination):
     page_size = 10
     page_size_query_param = 'size'
     max_page_size = 500
+
+
+class AuthorListView(generics.ListCreateAPIView):
+    model = Author
+    queryset = Author.objects.all()
+    serializer_class = AuthorSerializer
+    pagination_class = StandardResultsSetPagination
+    filter_backends = (OrderingFilter, DjangoFilterBackend, )
+    ordering_fields = ('created',)
 
 
 class OpenSourceListAPIView(generics.ListCreateAPIView):

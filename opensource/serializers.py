@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from opensource.models import Project, Status, PostProject
+from opensource.models import Project, Status, PostProject, Author
 
 
 class StatusSerializer(serializers.ModelSerializer):
@@ -7,6 +7,12 @@ class StatusSerializer(serializers.ModelSerializer):
     class Meta:
         model   = Status
         fields  = ('watch', 'star', 'fork', 'project', 'datetime')
+
+
+class AuthorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Author
+        fields = ('author', 'url', 'created')
 
 
 class ProjectSerializer(serializers.ModelSerializer):
