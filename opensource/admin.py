@@ -1,8 +1,10 @@
 from django.contrib import admin
-from opensource.models import Project, Category, Status, PostProject
+from opensource.models import Project, Category, Author, PostProject
 
 # Register your models here.
 
+class AuthorAdmin(admin.ModelAdmin):
+    pass
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -22,6 +24,7 @@ class PostPorjectAdmin(admin.ModelAdmin):
     list_display    = ('url', 'category')
 
 
+admin.site.register(Author, AuthorAdmin)
 admin.site.register(PostProject, PostPorjectAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Project, ProjectAdmin)
