@@ -6,6 +6,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from opensource.models import Project, Status, PostProject
 from opensource.serializers import ProjectSerializer, StatusSerializer, PostProjectSerializer
 
+
 class StandardResultsSetPagination(PageNumberPagination):
     page_size = 10
     page_size_query_param = 'size'
