@@ -56,6 +56,7 @@ INSTALLED_APPS = (
     'blog',
     'books',
     'opensource',
+    'tutorials',
     'silk',
 )
 

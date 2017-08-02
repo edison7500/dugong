@@ -13,6 +13,7 @@ class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
         fields = ('author', 'url', 'created')
+        read_only_fields = ('created', )
 
 
 class ProjectSerializer(serializers.ModelSerializer):
