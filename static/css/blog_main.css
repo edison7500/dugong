@@ -6083,11 +6083,6 @@ button.close {
 #blog-slider .trending .trending-list .trending-item:hover {
   color: #00b3ee;
 }
-#blog-slider .ads {
-  background-color: #f8f8f8;
-  padding: auto;
-  margin-bottom: 20px;
-}
 #blog-slider .github-project {
   margin-bottom: 20px;
   background-color: #fff;
@@ -6162,6 +6157,16 @@ button.close {
   border: 1px solid #ebebeb;
   padding: 16px;
 }
+#blog-detail-container a,
+#blog-detail-container a.active {
+  color: #2aabd2;
+}
+#blog-detail-container a:hover,
+#blog-detail-container a.active:hover,
+#blog-detail-container a:focus,
+#blog-detail-container a.active:focus {
+  color: #1f7e9b;
+}
 #blog-detail-container img {
   display: block;
   max-width: 100%;
@@ -6180,6 +6185,7 @@ button.close {
 #blog-detail-container ol,
 #blog-detail-container ul {
   margin-left: 16px;
+  padding: 0;
 }
 #blog-detail-container ol li,
 #blog-detail-container ul li {

@@ -23,7 +23,6 @@
 }
 
 #blog-slider{
-
   p{
     font-size: 16px;
     font-weight: bold;
@@ -69,13 +68,6 @@
     }
   }
 
-
-  .ads {
-    background-color: @body-background-color;
-    padding: auto;
-    margin-bottom: 20px;
-  }
-
   .github-project{
     margin-bottom: 20px;
     background-color: @blog-background-color;
@@ -98,6 +90,14 @@
   padding: 16px;
   //padding-top: 16px;
   //padding-bottom: 16px;
+  a, a.active {
+    color: #2aabd2;
+    &:hover,
+    &:focus {
+      color: darken(#2aabd2, 13%);
+    }
+  }
+
   img {
     .img-responsive;
     width: 100%;
@@ -114,6 +114,7 @@
   }
   ol, ul {
     margin-left: 16px;
+    padding: 0;
     li {
       font-size: 16px;
       line-height: 1.7;
