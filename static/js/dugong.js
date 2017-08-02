@@ -74,7 +74,8 @@
                     }
                 })
             }
-        })
+        });
+        $(".content img").addClass('img-responsive');
     })();
 
 }(jQuery, document, window));
