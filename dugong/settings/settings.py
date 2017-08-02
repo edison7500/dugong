@@ -267,3 +267,6 @@ SILKY_PERMISSIONS       = lambda user: user.is_superuser
 
 # django extensions
 SHELL_PLUS = 'ptpython'
+
+
+BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
