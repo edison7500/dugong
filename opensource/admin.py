@@ -4,11 +4,14 @@ from opensource.models import Project, Category, Author, PostProject
 # Register your models here.
 
 class AuthorAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('author', 'url')
+    list_per_page = 30
+    search_fields = ['author', ]
 
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('title', )
+    list_per_page = 30
 
 
 class ProjectAdmin(admin.ModelAdmin):
