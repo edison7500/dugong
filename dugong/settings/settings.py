@@ -34,7 +34,7 @@ SITE_ID       = 1
 # Application definition
 
 INSTALLED_APPS = (
-
+    'bootstrap_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,7 +43,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.flatpages',
     'django.contrib.sitemaps',
-
     'django_markdown',
     # 'bootstrap3',
     'compressor',
