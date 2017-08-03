@@ -22,6 +22,7 @@ django-uuslug==1.1.8
 djangorestframework==3.6.3
 django-pandas==0.4.4
 django-extensions==1.8.1
+django-nose==1.4.4
 bootstrap-admin==0.3.7.1
 
 ptpython==0.39
