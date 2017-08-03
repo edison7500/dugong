@@ -74,4 +74,4 @@ dugong/settings/production.py
 
 
 dugong/whoosh_index/
-
+.idea

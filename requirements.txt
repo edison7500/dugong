@@ -51,7 +51,7 @@ numpy==1.13.1
 olefile==0.44
 pandas==0.20.3
 paramiko==2.1.2
-Pillow==4.1.1
+Pillow==4.2.1
 prompt-toolkit==1.0.14
 ptpython==0.39
 pyasn1==0.2.3
