@@ -31,7 +31,8 @@ class ProjectDetailView(DetailView):
             'meta': {
                 'author': self.object.author,
             },
-            'chart': chart.render(show_dots=True),
+            # 'chart': chart.render(show_dots=True),
+            'chart': chart.render_data_uri(show_dots=True),
         })
         return _context
 

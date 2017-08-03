@@ -25,11 +25,11 @@
                         <div class="btn-group" role="group">
                             <a href="{{ project.get_subscription }}" class="btn btn-sm btn-default"><i class="fa fa-eye"></i></a>
                             <button type="button" class="btn btn-sm btn-default">{{ project.latest_watch }}</button>
-                        </div>
+                        </div>&nbsp;
                         <div class="btn-group" role="group">
                             <a href="{{ project.get_star }}" type="button" class="btn btn-sm btn-default"><i class="fa fa-star"></i></a>
                             <button type="button" class="btn btn-sm btn-default">{{ project.latest_star }}</button>
-                        </div>
+                        </div>&nbsp;
                         <div class="btn-group" role="group">
                             <a href="{{ project.get_fork }}" type="button" class="btn btn-sm btn-default"><i class="fa fa-code-fork"></i></a>
                             <button type="button" class="btn btn-sm btn-default">{{ project.latest_fork }}</button>
@@ -43,9 +43,7 @@
 
         <div class="row">
             <div class="col-sm-offset-1 col-sm-10">
-                {% autoescape off %}
-                    {{ chart }}
-                {% endautoescape %}
+                <embed type="image/svg+xml" src= {{ chart|safe }} />
             </div>
         </div>
 

@@ -8684,6 +8684,7 @@ a.trending-books .book-thumbnail.active {
 #readme {
   border: 1px solid #ebebeb;
   border-radius: 4px;
+  padding: 16px;
   font-size: 16px;
 }
 #readme h3 {
@@ -8695,7 +8696,6 @@ a.trending-books .book-thumbnail.active {
   border-bottom: 1px solid #ebebeb;
 }
 #readme article {
-  padding: 20px;
   background-color: #fff;
 }
 #readme ul {
