@@ -28,6 +28,7 @@ urlpatterns = staticfiles_urlpatterns()
 urlpatterns += [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^markdown/', include( 'django_markdown.urls')),
+    url(r'^comments/', include('django_comments.urls')),
 
     url(r'^blog/', include('blog.urls')),
     url(r'^project/', include('opensource.urls.web')),

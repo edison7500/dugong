@@ -1,12 +1,11 @@
 {% extends 'base/base.html' %}
 {% load i18n cache %}
-{% load django_markdown %}
+{% load django_markdown comments %}
 {% load book_extras %}
 
 {% block title %}{{ meta.title }}{% endblock %}
 
 {% block header %}
-{#    <header class="intro-header" style="background-image: url('http://imgjiaxin.u.qiniudn.com/a7e9d782b98ac04fa91e39fb46ddf410.jpg?imageView2/2/w/800/h/800/')">#}
     <header class="intro-header" style="background-image: url('//imgjiaxin.u.qiniudn.com/eb9bd3ca8169133a5e74a6bcdb939a4b.jpg?imageView2/2/w/800/h/800/')">
         <div class="container">
             <div class="row">
@@ -70,6 +69,20 @@
                             {% endif %}
                         </div>
                     </div>
+
+                    {% get_comment_form for post as form %}
+                    <div class="">
+  <form class="fo" action="{% comment_form_target %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <tr>
+      <td colspan="2">
+        <input type="submit" name="submit" value="Post">
+        <input type="submit" name="preview" value="Preview">
+      </td>
+    </tr>
+  </form>
+</div>
 
                     {% trending_books object.tags  %}
                 </div>
