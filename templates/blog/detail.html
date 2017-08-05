@@ -70,21 +70,36 @@
                         </div>
                     </div>
 
-                    {% get_comment_form for post as form %}
-                    <div class="">
-  <form class="fo" action="{% comment_form_target %}" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <tr>
-      <td colspan="2">
-        <input type="submit" name="submit" value="Post">
-        <input type="submit" name="preview" value="Preview">
-      </td>
-    </tr>
-  </form>
-</div>
+                    <div class="row">
+                        <div class="col-sm-12" style="margin-top: 20px;">
+                        {% get_comment_form for object as form %}
+                            {% if user.is_authenticated %}
+                        <form class="form-horizontal" style="padding: 16px; background-color: #fff; border: #ebebeb solid 1px; " action="{% comment_form_target %}" method="post">
+                        {% csrf_token %}
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        {{ form.comment }}
+                                    </div>
+                                </div>
+                                {{ form.honeypot }}
+                                {{ form.object_pk }}
+                                {{ form.content_type }}
+                                {{ form.timestamp }}
+                                {{ form.security_hash }}
+                                <input type="hidden" name="next" value="{% url 'web_blog_detail' object.slug %}" />
+                            </fieldset>
+                            <button class="btn btn-primary" type="submit" name="submit">评论</button>
+                        </form>
+                            {% else %}
 
-                    {% trending_books object.tags  %}
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        {% trending_books object.tags  %}
+                    </div>
                 </div>
 
                 <div class="col-md-4 hidden-xs">
