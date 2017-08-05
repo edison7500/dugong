@@ -8559,6 +8559,10 @@ textarea#id_comment {
   border: 1px solid #ebebeb;
   padding: 16px;
 }
+#blog-detail-container .title {
+  font-size: 36px;
+  margin-top: 0px;
+}
 #blog-detail-container a,
 #blog-detail-container a.active {
   color: #2aabd2;
@@ -8608,7 +8612,7 @@ textarea#id_comment {
   margin-top: 20px;
 }
 .post-nav {
-  margin-top: 20px;
+  margin-top: 10px;
   padding-bottom: 10px;
   font-size: 16px;
   color: #333;

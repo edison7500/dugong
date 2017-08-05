@@ -22,7 +22,7 @@
 
 {% block container %}
         <div class="container">
-            <h1 class="sr-only">{{ object.title }}</h1>
+{#            <h1 class="sr-only">{{ object.title }}</h1>#}
             <div class="row">
                 <ol class="post-breadcrumb">
                     <li><a href="{% url 'homepage' %}" title="{% trans 'home' %}"><i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a></li>
@@ -30,9 +30,15 @@
                     <li class="active">{{ object.title }}</li>
                 </ol>
 
-                <div class="col-md-8">
-                    <div id="blog-detail-container">
-                        <h2 class="post-title">{{ object.title }}</h2>
+                <div class="col-md-8" id="blog-detail-container" >
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1 class="title">{{ object.title }}</h1>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                    <div class="col-sm-12">
                         <div class="post-content">
                             {{ object.content|markdown_safe }}
                         </div>
@@ -46,8 +52,8 @@
                                     </li>
                                 {% endfor %}
                             </ul>
-{#                        <span class="pull-right"><i class="fa fa-clock-o"></i>&nbsp;{{ object.created_date|date:'Y-m-d' }}</span>#}
                         </div>
+                    </div>
                     </div>
 
                     <div class="row post-nav">
@@ -56,7 +62,7 @@
                                 <div class="previous">
                                     <a class="btn btn-default" href="{{ previous.get_absolute_url  }}" title="{{ previous.title }}"><i class="fa fa-angle-left"></i>&nbsp;上一篇</a>
                                 </div>
-                            <a class="pull-left" href="{{ previous.get_absolute_url }}" title="{{ previous.title }}">{{ previous }}</a>
+{#                            <a class="pull-left" href="{{ previous.get_absolute_url }}" title="{{ previous.title }}">{{ previous }}</a>#}
                             {% endif %}
                         </div>
 
@@ -65,14 +71,30 @@
                                 <div class="next">
                                     <a class="btn btn-default" href="{{ next.get_absolute_url }}" title="{{ next.title }}">下一篇&nbsp;<i class="fa fa-angle-right"></i></a>
                                 </div>
-                                <a class="pull-right" href="{{ next.get_absolute_url }}" title="{{ next.title }}">{{ next }}</a>
+{#                                <a class="pull-right" href="{{ next.get_absolute_url }}" title="{{ next.title }}">{{ next }}</a>#}
                             {% endif %}
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-12" style="margin-top: 20px;">
+                        {% get_comment_count for object as comment_count %}
+                        {% get_comment_list for object as comment_list %}
                         {% get_comment_form for object as form %}
+                        <div class="col-sm-12" style="margin-top: 20px;">
+                            {% for comment in comment_list %}
+                                <div class="media" style="background-color: #fff; padding: 16px;">
+{#                                    <div class="media-left">#}
+{#                                        <a href="#">#}
+{#                                            <img class="media-object" src="..." alt="...">#}
+{#                                        </a>#}
+{#                                    </div>#}
+                                    <div class="media-body">
+                                        <h4 class="media-heading">{{ comment.user }}</h4>
+                                        <p>{{ comment.comment }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
                             {% if user.is_authenticated %}
                         <form class="form-horizontal" style="padding: 16px; background-color: #fff; border: #ebebeb solid 1px; " action="{% comment_form_target %}" method="post">
                         {% csrf_token %}
