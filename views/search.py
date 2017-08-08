@@ -15,9 +15,9 @@ class ProjectSearchView(SearchView):
         _context     = super(ProjectSearchView, self).get_context_data(**kwargs)
         return _context
 
-    @silk_profile(name='Search View')
-    def get(self, request, *args, **kwargs):
-        return super(ProjectSearchView, self).get(request, *args, **kwargs)
+    # @silk_profile(name='Search View')
+    # def get(self, request, *args, **kwargs):
+    #     return super(ProjectSearchView, self).get(request, *args, **kwargs)
 
 
 @silk_profile(name='autocomplete view')
