@@ -53,6 +53,11 @@ INSTALLED_APPS = (
     'rest_framework.authtoken',
     'django_extensions',
 
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
+
     'blog',
     'books',
     'opensource',
@@ -82,8 +87,7 @@ ROOT_URLCONF = 'dugong.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, '../templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, '../templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -226,7 +230,6 @@ REST_FRAMEWORK = {
 }
 
 
-
 ''' django haystack
 
 '''
@@ -271,3 +274,23 @@ SHELL_PLUS = 'ptpython'
 
 
 BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
+
+
+
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'SCOPE': [
+            'user',
+            'repo',
+            'read:org',
+        ],
+    }
+}

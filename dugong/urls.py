@@ -33,6 +33,7 @@ urlpatterns += [
     url(r'^blog/', include('blog.urls')),
     url(r'^project/', include('opensource.urls.web')),
 
+    url(r'^accounts/', include('allauth.urls')),
     # home page
     url(r'^$', HomeView.as_view(), name='homepage'),
 ]
