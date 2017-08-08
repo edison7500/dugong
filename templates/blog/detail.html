@@ -43,19 +43,18 @@
                             {{ object.content|markdown_safe }}
                         </div>
                     </div>
-{#                        <div class="meta-info">#}
-{#                            <ul class="list-inline">#}
-{#                                {% for tag in object.tags %}#}
-{#                                    <li class="post-tag">#}
-{#                                        <a href="{% url 'web_blog_tags' tag.pk %}" title="{% trans tag.name %}">#}
-{#                                            {% trans tag.name %}</a>#}
-{#                                    </li>#}
-{#                                {% endfor %}#}
-{#                            </ul>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                    </div>#}
-{#                </div>#}
+
+                    <div class="row meta-info">
+                        <ul class="list-inline" style="margin-left: 0;">
+                            {% for tag in object.tags %}
+                                <li class="post-tag">
+                                    <a href="{% url 'web_blog_tags' tag.pk %}" title="{% trans tag.name %}">
+                                        {% trans tag.name %}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
                     <div class="row post-nav">
                         <div class="col-sm-6">
                         {% if previous %}
@@ -76,52 +75,53 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        {% get_comment_count for object as comment_count %}
-                        {% get_comment_list for object as comment_list %}
-                        {% get_comment_form for object as form %}
-                        <div class="col-sm-12" style="margin-top: 20px;">
-                            {% for comment in comment_list %}
-                                <div class="media" style="background-color: #fff; padding: 16px;">
+
+{#                    <div class="row">#}
+{#                        {% get_comment_count for object as comment_count %}#}
+{#                        {% get_comment_list for object as comment_list %}#}
+{#                        {% get_comment_form for object as form %}#}
+{#                        <div class="col-sm-12" style="margin-top: 20px;">#}
+{#                            {% for comment in comment_list %}#}
+{#                                <div class="media" style="background-color: #fff; padding: 16px;">#}
 {#                                    <div class="media-left">#}
 {#                                        <a href="#">#}
 {#                                            <img class="media-object" src="..." alt="...">#}
 {#                                        </a>#}
 {#                                    </div>#}
-                                    <div class="media-body">
-                                        <h4 class="media-heading">{{ comment.user }}</h4>
-                                        <p>{{ comment.comment }}</p>
-                                    </div>
-                                </div>
-                            {% endfor %}
+{#                                    <div class="media-body">#}
+{#                                        <h4 class="media-heading">{{ comment.user }}</h4>#}
+{#                                        <p>{{ comment.comment }}</p>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            {% endfor %}#}
+{##}
+{#                            {% if user.is_authenticated %}#}
+{#                        <form class="form-horizontal" style="padding: 16px; background-color: #fff; border: #ebebeb solid 1px; " action="{% comment_form_target %}" method="post">#}
+{#                        {% csrf_token %}#}
+{#                            <fieldset>#}
+{#                                <div class="form-group">#}
+{#                                    <div class="col-sm-12">#}
+{#                                        {{ form.comment }}#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                {{ form.honeypot }}#}
+{#                                {{ form.object_pk }}#}
+{#                                {{ form.content_type }}#}
+{#                                {{ form.timestamp }}#}
+{#                                {{ form.security_hash }}#}
+{#                                <input type="hidden" name="next" value="{% url 'web_blog_detail' object.slug %}" />#}
+{#                            </fieldset>#}
+{#                            <button class="btn btn-primary" type="submit" name="submit">评论</button>#}
+{#                        </form>#}
+{#                            {% else %}#}
+{##}
+{#                            {% endif %}#}
+{#                        </div>#}
+{#                    </div>#}
 
-                            {% if user.is_authenticated %}
-                        <form class="form-horizontal" style="padding: 16px; background-color: #fff; border: #ebebeb solid 1px; " action="{% comment_form_target %}" method="post">
-                        {% csrf_token %}
-                            <fieldset>
-                                <div class="form-group">
-                                    <div class="col-sm-12">
-                                        {{ form.comment }}
-                                    </div>
-                                </div>
-                                {{ form.honeypot }}
-                                {{ form.object_pk }}
-                                {{ form.content_type }}
-                                {{ form.timestamp }}
-                                {{ form.security_hash }}
-                                <input type="hidden" name="next" value="{% url 'web_blog_detail' object.slug %}" />
-                            </fieldset>
-                            <button class="btn btn-primary" type="submit" name="submit">评论</button>
-                        </form>
-                            {% else %}
-
-                            {% endif %}
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        {% trending_books object.tags  %}
-                    </div>
+{#                    <div class="row">#}
+{#                        {% trending_books object.tags  %}#}
+{#                    </div>#}
                 </div>
 
                 <div class="col-md-4 hidden-xs">
@@ -130,6 +130,11 @@
                     {% endcache %}
                 </div>
             </div>
+
+            <div class="row">
+                {% trending_books object.tags  %}
+            </div>
+
             {% include 'base/goto-top.html' %}
         </div>
 

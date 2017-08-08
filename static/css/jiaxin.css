@@ -8609,7 +8609,7 @@ textarea#id_comment {
   color: #9d9d9d;
 }
 #blog-detail-container .meta-info {
-  margin-top: 20px;
+  margin-top: 40px;
 }
 .post-nav {
   margin-top: 10px;
@@ -8877,6 +8877,7 @@ footer {
 .post-tag > a {
   text-align: center;
   text-decoration: none;
+  font-weight: bold;
   border: solid 1px #ebebeb;
   padding: 5px;
 }
