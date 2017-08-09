@@ -285,6 +285,8 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+
 SOCIALACCOUNT_PROVIDERS = {
     'github': {
         'SCOPE': [
