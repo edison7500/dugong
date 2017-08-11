@@ -1,42 +1,46 @@
+<!DOCTYPE html>
 {% load staticfiles i18n %}
 {% load compress %}
+{% load bootstrap3 %}
+<html{% if LANGUAGE_CODE %} lang="{{ LANGUAGE_CODE }}"{% endif %}>
 
-<!DOCTYPE html>
-<html lang="zh-Hans">
 <head>
-    {% include 'base/meta.html' %}
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block bootstrap3_title %}Python 观察员 | 架构师实战 | 一个受尽折磨的攻城狮{% endblock %}</title>
+{#    {% bootstrap_css %}#}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% if 'javascript_in_head'|bootstrap_setting %}{% bootstrap_javascript jquery=True %}{% endif %}
+    {% block bootstrap3_extra_head %}
 
-    <title>{% block title %}Python 观察员 | 架构师实战 | 一个受尽折磨的攻城狮{% endblock %}</title>
-
-    {% compress css %}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/jiaxin.css' %}" charset="utf-8" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/pygments.css' %}" charset="utf-8" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/jquery-ui.min.css' %}" charset="utf-8" />
-    {% endcompress %}
+        {% compress css %}
+            <link rel="stylesheet" type="text/css" href="{% static 'css/jiaxin.css' %}" charset="utf-8" />
+            <link rel="stylesheet" type="text/css" href="{% static 'css/pygments.css' %}" charset="utf-8" />
+            <link rel="stylesheet" type="text/css" href="{% static 'css/jquery-ui.min.css' %}" charset="utf-8" />
+        {% endcompress %}
+    {% endblock %}
 </head>
+
 <body>
-
-{% block nav %}
-    {% include 'base/nav.html' %}
-{% endblock %}
-
-{#{% block header %}#}
-{#        {% include 'base/header.html' %}#}
-{#{% endblock %}#}
+{% block bootstrap3_content %}
+    {% block nav %}{% include 'base/nav.html' %}{% endblock %}
 
     {% block container %}{% endblock %}
 
-    {% block footer %}
-        {% include 'base/footer.html' %}
-    {% endblock %}
+    {% block footer %}{% include 'base/footer.html' %}{% endblock %}
+{% endblock %}
 
+
+{% if not 'javascript_in_head'|bootstrap_setting %}{% bootstrap_javascript jquery=True %}{% endif %}
+{% block bootstrap3_extra_script %}
     {% compress js %}
-        <script src="{% static 'js/jquery-1.12.4.js' %}"
-            integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
-            crossorigin="anonymous" charset="utf-8"></script>
         <script src="{% static 'js/jquery-ui.min.js' %}" charset="UTF-8"></script>
-        <script src="{% static 'bootstrap-3.3.7/dist/js/bootstrap.min.js' %}" charset="utf-8"></script>
-{#        <script src="{% static 'clean-blog/js/clean-blog.min.js' %}" charset="utf-8"></script>#}
         <script src="{% static 'js/dugong.js' %}" charset="utf-8"></script>
 
         <script>
@@ -58,11 +62,7 @@
                 s.parentNode.insertBefore(hm, s);
             })();
         </script>
-{#        <script>#}
-{#            $(".content img").addClass('img-responsive');#}
-{#        </script>#}
     {% endcompress %}
-
-    {% block ext_js %}{% endblock %}
+{% endblock %}
 </body>
 </html>
