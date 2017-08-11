@@ -5,8 +5,6 @@
 
 {% block title %}{% trans "Sign In" %}{% endblock %}
 
-
-
 {% block container %}
 {#    {% get_providers as socialaccount_providers %}#}
     <div class="container">
@@ -16,9 +14,9 @@
 
         <div class="row">
             <div class="col-sm-offset-4 col-sm-4" style="background-color: #fff;">
-            <form class="form-horizontal" style="padding: 16px;" method="POST" action="{% url 'account_login' %}">
-                {% csrf_token %}
-                <fieldset style="margin-bottom: 20px;">
+                <form class="form-horizontal" style="padding: 16px;" method="POST" action="{% url 'account_login' %}">
+                    {% csrf_token %}
+                    <fieldset style="margin-bottom: 20px;">
                     {% for field in form %}
                         {% ifequal field.name "remember"  %}
                             <div class="checkbox">
@@ -33,11 +31,11 @@
                     {% if redirect_field_value %}
                         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                     {% endif %}
-                </fieldset>
-                <button class="btn btn-primary" type="submit">{% trans "Sign In" %}</button>
-            </form>
+                    </fieldset>
+                    <button class="btn btn-primary" type="submit">{% trans "Sign In" %}</button>
+                </form>
                 <hr>
-                <ul class="list-unstyled">
+                <ul class="list-unstyled" style="padding-left: 16px; padding-right: 16px;">
                 {% include "account/provider_list.html" with process="login" %}
                 </ul>
             </div>

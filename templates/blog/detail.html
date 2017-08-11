@@ -95,7 +95,8 @@
 {#                                </div>#}
 {#                            {% endfor %}#}
 {##}
-{#                            {% if user.is_authenticated %}#}
+{#                    {% if user.is_authenticated %}#}
+{#                        <div class="col-sm-12">#}
 {#                        <form class="form-horizontal" style="padding: 16px; background-color: #fff; border: #ebebeb solid 1px; " action="{% comment_form_target %}" method="post">#}
 {#                        {% csrf_token %}#}
 {#                            <fieldset>#}
@@ -113,15 +114,10 @@
 {#                            </fieldset>#}
 {#                            <button class="btn btn-primary" type="submit" name="submit">评论</button>#}
 {#                        </form>#}
-{#                            {% else %}#}
-{##}
-{#                            {% endif %}#}
 {#                        </div>#}
-{#                    </div>#}
-
-{#                    <div class="row">#}
-{#                        {% trending_books object.tags  %}#}
-{#                    </div>#}
+{#                    {% else %}#}
+{#                        <a class="btn btn-primary" href="" title="{% trans 'Sign In' %}">{% trans "Sign In" %}</a>#}
+{#                    {% endif %}#}
                 </div>
 
                 <div class="col-md-4 hidden-xs">
