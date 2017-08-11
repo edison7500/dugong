@@ -14,10 +14,10 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-# from django.views.generic import RedirectView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-# from rest_framework import routers
 from views.home import HomeView
+from allauth.account.views import LoginView
+
 
 handler500 = 'views.errors.page_error'
 handler404 = 'views.errors.not_found'
@@ -37,6 +37,11 @@ urlpatterns += [
     # home page
     url(r'^$', HomeView.as_view(), name='homepage'),
 ]
+
+
+# urlpatterns += [
+    # url(r'^login', LoginView.as_view())
+# ]
 
 # silk
 urlpatterns += [url(r'^silk/', include('silk.urls', namespace='silk'))]

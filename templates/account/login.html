@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block title %}{% trans "Sign In" %}{% endblock %}
+
+
+
+{% block container %}
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center">{% trans "Sign In" %}</h1>
+        </div>
+
+        <div class="row">
+{#            {% get_providers as socialaccount_providers %}#}
+            <div class="col-sm-offset-4 col-sm-4" style="background-color: #fff;">
+            <form class="form-horizontal" style="padding: 16px;" method="POST" action="{% url 'account_login' %}">
+                {% csrf_token %}
+{#                {{ form.as_p }}#}
+                <fieldset style="margin-bottom: 20px;">
+                    {% for field in form %}
+                        {% ifequal field.name "remember"  %}
+                            <div class="form-group">
+                                <div class="col-sm-2">
+                                {{ field }}
+                                </div>
+                                <label class="col-sm-10 control-label">{{ field.label }}</label>
+                            </div>
+                        {% else %}
+{#                        {% if field. %}#}
+                        <div class="form-group">
+                            {{ field }}
+                        </div>
+                        {% endifequal %}
+                    {% endfor %}
+                    {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% endif %}
+                </fieldset>
+{#                <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>#}
+                <button class="btn btn-primary" type="submit">{% trans "Sign In" %}</button>
+            </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block footer %}
+{#        {% include 'base/footer.html' %}#}
+{% endblock %}

@@ -75,7 +75,7 @@
                 })
             }
         });
-        // $("p >img").addClass('img-responsive');
+        $("fieldset >div.form-group >input").addClass("form-control");
     })();
 
 }(jQuery, document, window));
