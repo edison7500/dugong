@@ -8738,7 +8738,7 @@ a.trending-books .book-thumbnail.active {
 body {
   margin-top: 70px;
   min-height: 600px;
-  background-color: #f8f8f8;
+  background-color: #eee;
 }
 a,
 a.active {
@@ -8840,7 +8840,7 @@ footer {
   list-style: none;
   background-color: #f5f5f5;
   border-radius: 4px;
-  background-color: #f8f8f8;
+  background-color: #eee;
   font-size: 16px;
   margin: 0;
 }
