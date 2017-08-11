@@ -8,12 +8,11 @@
 {% block container %}
 {#    {% get_providers as socialaccount_providers %}#}
     <div class="container">
+{#        <div class="row">#}
+{#        </div>#}
         <div class="row">
-            <h1 class="text-center">{% trans "Sign In" %}</h1>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-offset-4 col-sm-4" style="background-color: #fff;">
+            <div class="col-sm-offset-4 col-sm-4" style="background-color: #fff; margin-top: 40px;">
+                <h1 class="text-center">{% trans "Sign In" %}</h1>
                 <form class="form-horizontal" style="padding: 16px;" method="POST" action="{% url 'account_login' %}">
                     {% csrf_token %}
                     <fieldset style="margin-bottom: 20px;">
@@ -32,10 +31,12 @@
                         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                     {% endif %}
                     </fieldset>
-                    <button class="btn btn-primary" type="submit">{% trans "Sign In" %}</button>
+                    <div class="form-group text-center">
+                        <button class="btn btn-primary" type="submit">{% trans "Sign In" %}</button>
+                    </div>
                 </form>
-                <hr>
-                <ul class="list-unstyled" style="padding-left: 16px; padding-right: 16px;">
+{#                <hr>#}
+                <ul class="list-unstyled" style="padding-left: 16px; padding-right: 16px;padding-top: 16px;border-top: #ebebeb solid 1px;">
                 {% include "account/provider_list.html" with process="login" %}
                 </ul>
             </div>

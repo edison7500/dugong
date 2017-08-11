@@ -1,4 +1,5 @@
 # 概览
+[![Build Status](https://travis-ci.org/edison7500/dugong.svg?branch=master)](https://travis-ci.org/edison7500/dugong)
 
 ### 系统环境
 * Ubuntu
