@@ -60,7 +60,6 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.github',
 
     'blog',
-    'books',
     'opensource',
     'tutorials',
     # 'silk',

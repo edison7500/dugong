@@ -6160,19 +6160,8 @@ button.close {
   border: 1px solid #ebebeb;
   padding: 16px;
 }
-#blog-detail-container .title {
-  font-size: 36px;
-  margin-top: 0px;
-}
-#blog-detail-container a,
-#blog-detail-container a.active {
-  color: #2aabd2;
-}
-#blog-detail-container a:hover,
-#blog-detail-container a.active:hover,
-#blog-detail-container a:focus,
-#blog-detail-container a.active:focus {
-  color: #1f7e9b;
+#blog-detail-container pre {
+  background-color: #ffffcc;
 }
 #blog-detail-container img {
   display: block;
@@ -6180,37 +6169,6 @@ button.close {
   height: auto;
   width: 100%;
   margin: auto;
-}
-#blog-detail-container p {
-  font-size: 16px;
-  line-height: 1.3;
-  color: #222;
-  padding: 5px;
-  margin-top: 0;
-  margin-bottom: 5px;
-}
-#blog-detail-container ol,
-#blog-detail-container ul {
-  margin-left: 16px;
-  padding: 0;
-}
-#blog-detail-container ol li,
-#blog-detail-container ul li {
-  font-size: 16px;
-  line-height: 1.7;
-  color: #222;
-}
-#blog-detail-container .codehilitetable pre,
-#blog-detail-container .codehilitetable code {
-  font-size: 10px;
-}
-#blog-detail-container blockquote {
-  font-size: 12px;
-  font-style: italic;
-  color: #9d9d9d;
-}
-#blog-detail-container .meta-info {
-  margin-top: 40px;
 }
 .post-nav {
   margin-top: 10px;

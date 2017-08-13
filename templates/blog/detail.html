@@ -1,24 +1,8 @@
 {% extends 'base/base.html' %}
 {% load i18n cache %}
 {% load django_markdown comments %}
-{% load book_extras %}
 
 {% block title %}{{ meta.title }}{% endblock %}
-
-{% block header %}
-    <header class="intro-header" style="background-image: url('//imgjiaxin.u.qiniudn.com/eb9bd3ca8169133a5e74a6bcdb939a4b.jpg?imageView2/2/w/800/h/800/')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="post-heading">
-                        <h1>{{ object.title }}</h1>
-                        <span class="meta">{{ object.created_date }}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-{% endblock %}
 
 {% block container %}
         <div class="container">
@@ -39,21 +23,21 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-12 post-content">
+                        <div class="col-sm-12">
                             {{ object.content|markdown_safe }}
                         </div>
                     </div>
 
-                    <div class="row meta-info">
-                        <ul class="list-inline" style="margin-left: 0;">
-                            {% for tag in object.tags %}
-                                <li class="post-tag">
-                                    <a href="{% url 'web_blog_tags' tag.pk %}" title="{% trans tag.name %}">
-                                        {% trans tag.name %}</a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+{#                    <div class="row meta-info">#}
+{#                        <ul class="list-inline" style="margin-left: 0;">#}
+{#                            {% for tag in object.tags %}#}
+{#                                <li class="post-tag">#}
+{#                                    <a href="{% url 'web_blog_tags' tag.pk %}" title="{% trans tag.name %}">#}
+{#                                        {% trans tag.name %}</a>#}
+{#                                </li>#}
+{#                            {% endfor %}#}
+{#                        </ul>#}
+{#                    </div>#}
 
                     <div class="row post-nav">
                         <div class="col-sm-6">
@@ -74,31 +58,6 @@
                             {% endif %}
                         </div>
                     </div>
-
-{#                    <div class="row">#}
-{#                        {% get_comment_list for object as comment_list %}#}
-{#                        <div class="col-sm-12">#}
-{#                            {% for comment in comment_list %}#}
-{#                                {{ comment }}#}
-{#                                <div class="media" style="background-color: #fff; padding: 16px;">#}
-{#                                    <div class="media-body">#}
-{#                                        <span>{{ comment.user }}</span>#}
-{#                                        <p>{{ comment.comment }}</p>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            {% endfor %}#}
-{#                        </div>#}
-{#                    </div>#}
-{##}
-{#                    <div class="row">#}
-{#                        {% if user.is_authenticated %}#}
-{##}
-{#                        {% else %}#}
-{#                            <div class="text-center">#}
-{#                                <a class="btn btn-primary" href="{% url 'account_login' %}">{% trans 'Sign In' %}</a>#}
-{#                            </div>#}
-{#                        {% endif %}#}
-{#                    </div>#}
                 </div>
 
                 <div class="col-md-4 hidden-xs">
@@ -108,9 +67,9 @@
                 </div>
             </div>
 
-            <div class="row">
-                {% trending_books object.tags  %}
-            </div>
+{#            <div class="row">#}
+{#                {% trending_books object.tags  %}#}
+{#            </div>#}
 
             {% include 'base/goto-top.html' %}
         </div>
