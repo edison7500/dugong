@@ -8614,8 +8614,9 @@ button.close {
   border-bottom: 1px solid #ebebeb;
 }
 #readme {
+  background: #3e3e3e;
   border: 1px solid #ebebeb;
-  border-radius: 4px;
+  border-radius: 0px;
   padding: 16px;
   font-size: 16px;
 }
@@ -8628,7 +8629,11 @@ button.close {
   border-bottom: 1px solid #ebebeb;
 }
 #readme article {
+  padding: 16px;
   background-color: #fff;
+  -moz-box-shadow: 1px 1px 1px #bbb;
+  /* 老的 Firefox */
+  box-shadow: 1px 1px 1px #bbb;
 }
 #readme ul {
   padding-left: 20px;
@@ -8642,6 +8647,9 @@ button.close {
 #readme a:focus,
 #readme a.active:focus {
   color: #1f7e9b;
+}
+#readme pre {
+  background-color: #ffffcc;
 }
 .project-content {
   margin: 0px;

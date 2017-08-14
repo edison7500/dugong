@@ -15,7 +15,6 @@ from caching.base import CachingManager, CachingMixin
 h = HTMLParser()
 
 
-
 class Post(CachingMixin, models.Model):
     (block, preview, publish) = range(3)
     POST_STARUS_CHOICES = [
