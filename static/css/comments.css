@@ -1,9 +1,3 @@
-hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: 0;
-  border-top: 1px solid #FFFFFF;
-}
 .blog-comment::before,
 .blog-comment::after,
 .blog-comment-form::before,
@@ -11,6 +5,12 @@ hr {
   content: "";
   display: table;
   clear: both;
+}
+.blog-comment hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #FFFFFF;
 }
 .blog-comment ul {
   list-style-type: none;

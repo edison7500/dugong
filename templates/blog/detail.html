@@ -50,9 +50,9 @@
                         {% get_comment_list for object as comment_list %}
                         <div class="col-sm-12">
                             <div class="blog-comment">
-                            <h3 class="text-success">{% trans 'comments' %}&nbsp;{{ comment_count }}</h3>
-                            <hr>
-                            <ul class="comments">
+                                <h3 class="text-success">{% trans 'comments' %}&nbsp;{{ comment_count }}</h3>
+                                <hr>
+                                <ul class="comments">
                                 {% for comment in comment_list %}
                                     <li class="clearfix">
                                         <img src="{% gravatar_url comment.user.email 65 %}" class="avatar" alt="">
@@ -62,7 +62,7 @@
                                         </div>
                                     </li>
                                 {% endfor %}
-                            </ul>
+                                </ul>
                             </div>
                         </div>
 
