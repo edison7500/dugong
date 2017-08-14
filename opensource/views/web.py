@@ -1,12 +1,12 @@
 # coding=utf-8
 
+from datetime import timedelta
+from datetime import datetime
 from django.views.generic import DetailView
-from silk.profiling.profiler import silk_profile
+# from silk.profiling.profiler import silk_profile
 
 from opensource.models import Project, Status
 
-from datetime import timedelta
-from datetime import datetime
 
 import pygal
 from pygal.style import DarkSolarizedStyle
@@ -54,7 +54,7 @@ class ProjectDetailView(DetailView):
         line_chat.title = self.object.name
         return line_chat
 
-    @silk_profile(name='Project Detail View')
-    def get(self, request, *args, **kwargs):
-        return super(ProjectDetailView, self).get(request, *args, **kwargs)
+    # @silk_profile(name='Project Detail View')
+    # def get(self, request, *args, **kwargs):
+    #     return super(ProjectDetailView, self).get(request, *args, **kwargs)
 

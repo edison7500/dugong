@@ -305,9 +305,7 @@ img {
 .thumbnail > img,
 .thumbnail a > img,
 .carousel-inner > .item > img,
-.carousel-inner > .item > a > img,
-.trending-books .book-thumbnail > img,
-.trending-books .book-thumbnail a > img {
+.carousel-inner > .item > a > img {
   display: block;
   max-width: 100%;
   height: auto;
@@ -8518,6 +8516,22 @@ button.close {
   width: 100%;
   margin: auto;
 }
+#blog-detail-container ol,
+#blog-detail-container ul {
+  margin-left: 16px;
+  padding: 0;
+}
+#blog-detail-container ol li,
+#blog-detail-container ul li {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #222;
+}
+#blog-detail-container blockquote {
+  font-size: 12px;
+  font-style: italic;
+  color: #9d9d9d;
+}
 .post-nav {
   margin-top: 10px;
   padding-bottom: 10px;
@@ -8532,52 +8546,6 @@ button.close {
 }
 .post-nav .next {
   text-align: right;
-}
-.trending-books {
-  border-top: solid 2px #333;
-  margin-top: 40px;
-}
-.trending-books .book-thumbnail {
-  display: block;
-  padding: 4px;
-  margin-bottom: 20px;
-  line-height: 1.42857143;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  -webkit-transition: border 0.2s ease-in-out;
-  -o-transition: border 0.2s ease-in-out;
-  transition: border 0.2s ease-in-out;
-  -moz-box-shadow: 5px 5px 3px #bbb;
-  /* 老的 Firefox */
-  box-shadow: 5px 5px 3px #bbb;
-}
-.trending-books .book-thumbnail > img,
-.trending-books .book-thumbnail a > img {
-  margin-left: auto;
-  margin-right: auto;
-}
-a.trending-books .book-thumbnail:hover,
-a.trending-books .book-thumbnail:focus,
-a.trending-books .book-thumbnail.active {
-  border-color: #337ab7;
-}
-.trending-books .book-thumbnail .caption {
-  padding: 9px;
-  color: #333333;
-}
-.trending-books .book-thumbnail h3 {
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-.trending-books .book-thumbnail p {
-  font-size: 14px;
-  font-style: normal;
-}
-.trending-books .book-thumbnail .book-image-box img {
-  display: block;
-  max-width: 200px;
-  max-height: 200px;
 }
 @media (min-width: 800px) {
   .category-sidebar {

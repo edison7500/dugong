@@ -2,7 +2,7 @@
 # from django.shortcuts import render
 from django.http import Http404
 from django.views.generic import ListView, DetailView
-from silk.profiling.profiler import silk_profile
+# from silk.profiling.profiler import silk_profile
 from tagging.models import TaggedItem, Tag
 from blog.models import Post
 # from markdown import markdown
@@ -46,9 +46,9 @@ class BlogDetailView(DetailView):
 
         return context
 
-    @silk_profile(name='View Blog Post')
-    def get(self, request, *args, **kwargs):
-        return super(BlogDetailView, self).get(request, *args, **kwargs)
+    # @silk_profile(name='View Blog Post')
+    # def get(self, request, *args, **kwargs):
+    #     return super(BlogDetailView, self).get(request, *args, **kwargs)
 
 
 class PostTagListView(ListView):

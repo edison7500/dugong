@@ -1,8 +1,5 @@
 from django.views.generic import TemplateView
-# from blog.models import Post
-# from opensource.models import Project, Category
 from haystack.query import SearchQuerySet
-from silk.profiling.profiler import silk_profile
 
 
 class HomeView(TemplateView):
@@ -17,6 +14,6 @@ class HomeView(TemplateView):
                                                            category='python').order_by('-latest_30_day_star')[:20]
         return _context
 
-    @silk_profile(name='HomePage View')
-    def get(self, request, *args, **kwargs):
-        return super(HomeView, self).get(request, *args, **kwargs)
+    # @silk_profile(name='HomePage View')
+    # def get(self, request, *args, **kwargs):
+    #     return super(HomeView, self).get(request, *args, **kwargs)
