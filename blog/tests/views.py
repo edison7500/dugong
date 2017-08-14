@@ -1,36 +1,8 @@
-from django.test import TestCase
 from django.core.urlresolvers import reverse
+from django.test import TestCase
 
-import factory
-from faker import Faker
-
-from django.contrib.auth.models import User
 from blog.models import Post
-# Create your tests here.
-faker = Faker()
-
-
-class PostFaker(factory.django.DjangoModelFactory):
-    class Meta:
-        model = Post
-        django_get_or_create = ('title', 'content')
-    title                   = faker.name()
-    content                 = faker.text()
-
-
-class PostModelTest(TestCase):
-
-    def setUp(self):
-        PostFaker()
-
-    def test_post_default_status(self):
-        post    = Post.objects.all().last()
-        self.assertEqual(post.status, Post.preview)
-
-    def test_model_can_delete_post(self):
-        post = Post.objects.all()
-        post.delete()
-        self.assertEqual(0, post.count())
+from blog.tests.post_facker import PostFaker
 
 
 class PostTemplateTest(TestCase):
@@ -70,6 +42,3 @@ class PostViewTest(TestCase):
         path        = reverse('web_blog_detail', args=[post.slug])
         res         = self.client.get(path)
         self.assertEqual(res.status_code, 200)
-
-
-

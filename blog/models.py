@@ -17,7 +17,7 @@ h = HTMLParser()
 
 
 class Post(CachingMixin, models.Model):
-    (block, preview, publish) = xrange(3)
+    (block, preview, publish) = range(3)
     POST_STARUS_CHOICES = [
         (block, _('block')),
         (preview, _('preview')),
