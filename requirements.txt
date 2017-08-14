@@ -20,7 +20,7 @@ django-debug-toolbar==1.6
 django-extensions==1.8.1
 django-filter==1.0.1
 django-formtools==1.0
-django-gravatar==0.1.0
+django-gravatar2==1.4.2
 django-haystack==2.6.0
 django-htmlmin==0.10.0
 django-markdown==0.8.4
