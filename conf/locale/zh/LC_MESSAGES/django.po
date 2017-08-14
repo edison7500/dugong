@@ -105,3 +105,6 @@ msgstr "标签"
 
 #~ msgid "article"
 #~ msgstr "文章"
+
+msgid "comments"
+msgstr "评论"
