@@ -8669,8 +8669,8 @@ button.close {
   clear: both;
 }
 .blog-comment hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 10px;
   border: 0;
   border-top: 1px solid #FFFFFF;
 }
@@ -8721,8 +8721,6 @@ button.close {
   margin-left: 85px;
 }
 .blog-comment-form {
-  padding-left: 15%;
-  padding-right: 15%;
   padding-top: 40px;
 }
 .blog-comment h3,
