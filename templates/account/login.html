@@ -1,50 +1,30 @@
 {% extends 'base/base.html' %}
-
 {% load i18n %}
+{% load gravatar bootstrap3 %}
 {% load account socialaccount %}
 
 {% block title %}{% trans "Sign In" %}{% endblock %}
 
 {% block container %}
-{#    {% get_providers as socialaccount_providers %}#}
     <div class="container">
-{#        <div class="row">#}
-{#        </div>#}
-        <div class="row">
-            <div class="col-sm-offset-4 col-sm-4" style="background-color: #fff; margin-top: 40px;">
-                <h1 class="text-center">{% trans "Sign In" %}</h1>
-                <form class="form-horizontal" style="padding: 16px;" method="POST" action="{% url 'account_login' %}">
-                    {% csrf_token %}
-                    <fieldset style="margin-bottom: 20px;">
-                    {% for field in form %}
-                        {% ifequal field.name "remember"  %}
-                            <div class="checkbox">
-                                <label>{{ field }}&nbsp;{{ field.label }}</label>
-                            </div>
-                        {% else %}
-                        <div class="form-group">
-                            {{ field }}
-                        </div>
-                        {% endifequal %}
-                    {% endfor %}
-                    {% if redirect_field_value %}
-                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                    {% endif %}
-                    </fieldset>
-                    <div class="form-group text-center">
-                        <button class="btn btn-primary" type="submit">{% trans "Sign In" %}</button>
-                    </div>
-                </form>
-{#                <hr>#}
-                <ul class="list-unstyled" style="padding-left: 16px; padding-right: 16px;padding-top: 16px;border-top: #ebebeb solid 1px;">
+        <div class="card card-container">
+            <img id="profile-img" class="profile-img-card" src="{% gravatar_url 'example@jiaxin.im' 80 %}">
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin" method="POST" action="{% url 'account_login' %}">
+                {% csrf_token %}
+                <fieldset>
+                {% for field in form %}
+                    {% bootstrap_field field show_label=False %}
+                {% endfor %}
+                </fieldset>
+                <button class="btn btn-lg btn-success btn-block btn-signin" type="submit">{% trans 'Sign In' %}</button>
+            </form><!-- /form -->
+            <ul class="list-unstyled" style="padding-left: 16px; padding-right: 16px;padding-top: 16px;border-top: #ebebeb solid 1px;">
                 {% include "account/provider_list.html" with process="login" %}
-                </ul>
-            </div>
+            </ul>
         </div>
+
+
     </div>
 {% endblock %}
-
-
-{% block footer %}
-{#        {% include 'base/footer.html' %}#}
-{% endblock %}
+{% block footer %}{% endblock %}
