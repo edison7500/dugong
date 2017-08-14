@@ -15,33 +15,18 @@
             </div>
 
             <div class="row">
-                <div class="col-md-8" id="blog-detail-container" >
+                <div class="col-md-8" >
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-sm-12" id="blog-detail-container" >
                             <h1 class="title">{{ object.title }}</h1>
-                        </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-sm-12">
                             {{ object.content|markdown_safe }}
                         </div>
                     </div>
 
-{#                    <div class="row meta-info">#}
-{#                        <ul class="list-inline" style="margin-left: 0;">#}
-{#                            {% for tag in object.tags %}#}
-{#                                <li class="post-tag">#}
-{#                                    <a href="{% url 'web_blog_tags' tag.pk %}" title="{% trans tag.name %}">#}
-{#                                        {% trans tag.name %}</a>#}
-{#                                </li>#}
-{#                            {% endfor %}#}
-{#                        </ul>#}
-{#                    </div>#}
-
-                    <div class="row post-nav">
+                    <div class="row post-nav" >
                         <div class="col-sm-6">
-                        {% if previous %}
+                            {% if previous %}
                                 <div class="previous">
                                     <a class="btn btn-default" href="{{ previous.get_absolute_url  }}" title="{{ previous.title }}"><i class="fa fa-angle-left"></i>&nbsp;上一篇</a>
                                 </div>
@@ -58,6 +43,12 @@
                             {% endif %}
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2>{% trans 'comments' %}</h2>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-md-4 hidden-xs">
@@ -66,10 +57,6 @@
                     {% endcache %}
                 </div>
             </div>
-
-{#            <div class="row">#}
-{#                {% trending_books object.tags  %}#}
-{#            </div>#}
 
             {% include 'base/goto-top.html' %}
         </div>

@@ -53,6 +53,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'rest_framework.authtoken',
     'django_extensions',
+    'django_gravatar',
 
     'allauth',
     'allauth.account',
@@ -62,10 +63,7 @@ INSTALLED_APPS = (
     'blog',
     'opensource',
     'tutorials',
-    # 'silk',
 )
-
-
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
