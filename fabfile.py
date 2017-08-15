@@ -35,5 +35,5 @@ def reload_server():
 
 def deploy():
     test_blog()
-    deploy_static()
     deploy_python()
+    deploy_static()

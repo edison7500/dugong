@@ -33,7 +33,7 @@ SITE_ID       = 1
 
 # Application definition
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'bootstrap_admin',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -63,7 +63,7 @@ INSTALLED_APPS = (
     'blog',
     'opensource',
     'tutorials',
-)
+]
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -255,16 +255,16 @@ MARKDOWN_EXTENSION_CONFIGS = {
     'encoding': "utf-8",
 }
 
-
-'''
-    silk
-'''
-SILKY_AUTHENTICATION    = True  # User must login
-SILKY_AUTHORISATION     = True  # User must have permissions
-SILKY_PYTHON_PROFILER   = True
-SILKY_META              = True
-SILKY_INTERCEPT_PERCENT = 25
-SILKY_PERMISSIONS       = lambda user: user.is_superuser
+#
+# '''
+#     silk
+# '''
+# SILKY_AUTHENTICATION    = True  # User must login
+# SILKY_AUTHORISATION     = True  # User must have permissions
+# SILKY_PYTHON_PROFILER   = True
+# SILKY_META              = True
+# SILKY_INTERCEPT_PERCENT = 25
+# SILKY_PERMISSIONS       = lambda user: user.is_superuser
 
 
 # django extensions
