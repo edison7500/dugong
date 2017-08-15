@@ -1,30 +1,30 @@
 # coding=utf-8
-# from django.shortcuts import render
 from django.http import Http404
 from django.views.generic import ListView, DetailView
-# from silk.profiling.profiler import silk_profile
 from tagging.models import TaggedItem, Tag
 from blog.models import Post
+
+
 # from markdown import markdown
 
-# Create your views here.
 
 class BlogListView(ListView):
-    http_method_names       = ['get']
-    model                   = Post
-    template_name           = 'blog/list.html'
-    paginate_by             = 20
-    queryset                = Post.objects.filter(status=Post.publish)
+    http_method_names = ['get', 'head']
+    model = Post
+    template_name = 'blog/list.html'
+    paginate_by = 20
+    queryset = Post.objects.filter(status=Post.publish)
 
 
 class BlogDetailView(DetailView):
-    http_method_names       = ['get']
-    model                   = Post
-    template_name           = 'blog/detail.html'
-    slug_field              = 'slug'
+    http_method_names = ['get', 'head']
+    model = Post
+    template_name = 'blog/detail.html'
+    slug_field = 'slug'
+    queryset = Post.objects.filter(status=Post.publish)
 
     def get_object(self, queryset=None):
-        obj             = super(BlogDetailView, self).get_object(queryset)
+        obj = super(BlogDetailView, self).get_object(queryset)
         if obj.status != Post.block:
             return obj
         raise Http404
@@ -40,30 +40,26 @@ class BlogDetailView(DetailView):
         except Post.DoesNotExist as e:
             pass
         try:
-            context['next']     = self.object.get_next_by_created_date()
+            context['next'] = self.object.get_next_by_created_date()
         except Post.DoesNotExist as e:
             pass
 
         return context
 
-    # @silk_profile(name='View Blog Post')
-    # def get(self, request, *args, **kwargs):
-    #     return super(BlogDetailView, self).get(request, *args, **kwargs)
-
 
 class PostTagListView(ListView):
-    http_method_names       = ['get']
-    model                   = TaggedItem
-    template_name           = 'blog/tag/list.html'
-    paginate_by             = 30
+    http_method_names = ['get']
+    model = TaggedItem
+    template_name = 'blog/tag/list.html'
+    paginate_by = 30
 
     def get_queryset(self):
         thing_tag = Tag.objects.get(pk=self.tag_id)
-        queryset  = TaggedItem.objects.get_by_model(Post.objects.filter(status=Post.publish),
-                                                    thing_tag)
+        queryset = TaggedItem.objects.get_by_model(Post.objects.filter(status=Post.publish),
+                                                   thing_tag)
         return queryset
 
     def get(self, request, *args, **kwargs):
-        self.tag_id     = kwargs.pop('tag_id', None)
+        self.tag_id = kwargs.pop('tag_id', None)
         assert self.tag_id is not None
         return super(PostTagListView, self).get(request, *args, **kwargs)

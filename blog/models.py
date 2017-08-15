@@ -44,7 +44,7 @@ class Post(CachingMixin, models.Model):
     @property
     def digest(self):
         _content    = markdown(self.content)
-        return h.unescape(strip_tags(_content))
+        return strip_tags(_content)
 
     def save(self, **kwargs):
         if len(self.slug) == 0:

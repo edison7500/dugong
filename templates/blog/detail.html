@@ -21,9 +21,17 @@
                     <div class="row">
                         <div class="col-sm-12" id="blog-detail-container" >
                             <h1 class="title">{{ object.title }}</h1>
+                            <p class="article-meta">
+                                <i class="fa fa-clock-o"></i>&nbsp;{{ object.created_date|date:'Y-m-d' }}
+                            </p>
                             <hr>
 
-                            {{ object.content|markdown_safe }}
+                            <article>
+                                {{ object.content|markdown_safe }}
+                            </article>
+
+                            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                            <div class="addthis_inline_share_toolbox_2eqs" style="margin-top: 30px;"></div>
                         </div>
                     </div>
 

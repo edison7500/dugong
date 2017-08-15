@@ -1,10 +1,10 @@
 <div class="latest-preview" itemscope itemtype="http://schema.org/BlogPosting">
 
     <a href="{{ post.get_absolute_url }}" title="{{ post.title }}">
-        <h2 class="post-title" itemprop="name">
+        <h1 class="post-title" itemprop="name">
             {{ post.title }}
-        </h2>
-        <h3 class="post-subtitle" itemprop="description articleBody">{{ post.digest|truncatechars:100 }}</h3>
+        </h1>
+        <p class="post-subtitle" itemprop="description articleBody">{{ post.digest|truncatechars:100 }}</p>
     </a>
     <div class="post-meta">
         <ul class="list-inline">
