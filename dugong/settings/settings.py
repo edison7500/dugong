@@ -177,10 +177,10 @@ COMPRESS_PRECOMPILERS   = (
 
 COMPRESS_CSS_FILTERS = [
     'compressor.filters.css_default.CssAbsoluteFilter',
-    'compressor.filters.cleancss.CleanCSSFilter',
+    # 'compressor.filters.cleancss.CleanCSSFilter',
     # 'compressor.filters.cssmin.rCSSMinFilter',
 ]
-COMPRESS_CLEAN_CSS_BINARY = '/usr/bin/cleancss'
+# COMPRESS_CLEAN_CSS_BINARY = '/usr/bin/cleancss'
 
 COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
 
@@ -264,18 +264,6 @@ MARKDOWN_EXTENSION_CONFIGS = {
     },
     'encoding': "utf-8",
 }
-
-#
-# '''
-#     silk
-# '''
-# SILKY_AUTHENTICATION    = True  # User must login
-# SILKY_AUTHORISATION     = True  # User must have permissions
-# SILKY_PYTHON_PROFILER   = True
-# SILKY_META              = True
-# SILKY_INTERCEPT_PERCENT = 25
-# SILKY_PERMISSIONS       = lambda user: user.is_superuser
-
 
 # django extensions
 SHELL_PLUS = 'ptpython'

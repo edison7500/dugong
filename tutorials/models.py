@@ -20,6 +20,6 @@ class Tutorial(models.Model):
     published_at = MonitorField(monitor='status', when=['published'])
 
     def __unicode__(self):
-        return '{}'.format(self.title)
+        return u'{title}'.format(title=self.title)
 
 register(Tutorial)
