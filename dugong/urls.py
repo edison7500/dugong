@@ -32,6 +32,7 @@ urlpatterns += [
 
     url(r'^blog/', include('blog.urls')),
     url(r'^project/', include('opensource.urls.web')),
+    url(r'^tutorials/', include('tutorials.urls')),
 
     url(r'^accounts/', include('allauth.urls')),
     # home page
