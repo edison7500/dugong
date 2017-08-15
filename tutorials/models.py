@@ -14,7 +14,7 @@ class Tutorial(models.Model):
     slug = fields.RandomCharField(length=12, unique=True,
                                   include_alpha=False, db_index=True, editable=False)
     status = StatusField(choices_name='STATUS', default=STATUS.draft)
-    content = models.TextField()
+    content = models.TextField(blank=True, null=True)
     created_datetime = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
     # updated_datetime = models.DateTimeField(auto_now=True, db_index=True, editable=False)
     published_at = MonitorField(monitor='status', when=['published'])
