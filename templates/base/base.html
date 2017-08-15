@@ -5,9 +5,11 @@
 <html{% if LANGUAGE_CODE %} lang="{{ LANGUAGE_CODE }}"{% endif %}>
 
 <head>
-    <meta charset="utf-8">
+    {% include 'base/meta.html' %}
+{#    <meta charset="utf-8">#}
+{#    <meta name="msvalidate.01" content="AC5BC2B7EE50E9FED342DC08F3BA6BAC" />#}
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{#    <meta name="viewport" content="width=device-width, initial-scale=1">#}
     <title>{% block bootstrap3_title %}Python 观察员 | 架构师实战 | 一个受尽折磨的攻城狮{% endblock %}</title>
 {#    {% bootstrap_css %}#}
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
