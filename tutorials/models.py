@@ -1,5 +1,6 @@
 # coding=utf-8
 from django.conf import settings
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
@@ -29,6 +30,9 @@ class Tutorial(models.Model):
 
     def __unicode__(self):
         return u'{title}'.format(title=self.title)
+
+    def get_absolute_url(self):
+        return reverse('tutorials:detail', args=[self.slug, ])
 
 
 # register(Tutorial)

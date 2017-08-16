@@ -3,6 +3,12 @@
 
 {% block container %}
     <div class="container">
-
+        <div class="row">
+            <div class="col-sm-8">
+                {% for obj in object_list %}
+                    {{ obj.get_absolute_url }}
+                {% endfor %}
+            </div>
+        </div>
     </div>
 {% endblock %}
