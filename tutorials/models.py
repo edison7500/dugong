@@ -1,3 +1,4 @@
+# coding=utf-8
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
@@ -21,7 +22,13 @@ class Tutorial(models.Model):
     published_at = MonitorField(monitor='status', when=['published'])
     tags = TagField()
 
+    class Meta:
+        ordering = ['-published_at']
+        verbose_name = u"教程"
+        verbose_name_plural = u'教程'
+
     def __unicode__(self):
         return u'{title}'.format(title=self.title)
+
 
 # register(Tutorial)
