@@ -40,17 +40,9 @@ urlpatterns += [
 ]
 
 
-# urlpatterns += [
-    # url(r'^login', LoginView.as_view())
-# ]
-
-# silk
-# urlpatterns += [url(r'^silk/', include('silk.urls', namespace='silk'))]
-
 from views.search import ProjectSearchView
 
 urlpatterns += [
-    # url(r'^search/', include('haystack.urls')),
     url(r'^search/autocomplete/?$', 'views.search.autocomplete', name='search-autocomplete'),
     url(r'^search/?$', ProjectSearchView.as_view(), name='project-search-view'),
 ]
@@ -60,7 +52,6 @@ urlpatterns += [
     api url config
 '''
 urlpatterns +=[
-    # url(r'^api/books/', include('books.urls')),
     url(r'^api/opensource/', include('opensource.urls.api')),
 ]
 
