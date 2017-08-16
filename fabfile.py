@@ -9,8 +9,8 @@ env.hosts = ['47.91.130.68', ]
 env.user = "jiaxin"
 
 
-def test_blog():
-    local("./manage.py test blog")
+def test():
+    local("./manage.py test")
 
 def deploy_python():
     local('find . -name "*.pyc" -exec rm {} \;')

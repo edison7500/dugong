@@ -1,10 +1,46 @@
 {% extends 'base/base.html' %}
+{% load bootstrap3 %}
+{% load i18n cache %}
+{% load django_markdown %}
+{% load gravatar %}
+
+
+{% block bootstrap3_title %}{{ meta.title }}{% endblock %}
 
 
 {% block container %}
     <div class="container">
         <div class="row">
-
+            <div class="col-sm-offset-2 col-sm-8">
+            <ol class="breadcrumb">
+                <li><a href="{% url 'homepage' %}" title="{% trans 'home' %}"><i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a></li>
+                <li><a href="{% url 'tutorials:list' %}" title="{% trans 'tutorials' %}"><i class="fa fa-keyboard-o"></i>&nbsp;{% trans 'tutorials' %}</a></li>
+                <li class="active">{{ object.title }}</li>
+            </ol>
+            </div>
         </div>
+
+        <div class="row">
+            <div id="tutorial" class="col-sm-8 col-sm-offset-2" style="margin-bottom: 40px;">
+                <h1 class="title text-left">{{ object.title }}</h1>
+{#                <hr>#}
+                <div class="meta" style="margin-bottom: 10px;padding-top: 10px;padding-bottom: 10px;">
+                    <time class="pull-right">
+                        <i class="fa fa-clock-o"></i>&nbsp;{{ object.published_at|date:'Y-m-d' }}
+                    </time>
+                </div>
+                <article style="background-color: #fff; padding: 16px;">
+                    {{ object.content|markdown_safe }}
+                </article>
+                <div class="addthis_inline_share_toolbox_2eqs" style="margin-top: 10px;"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-8">
+                {% include 'base/comment.html' with object=object %}
+            </div>
+        </div>
+
+        {% include 'base/goto-top.html' %}
     </div>
 {% endblock %}

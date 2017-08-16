@@ -1,1 +1,2 @@
+from tutorials.tests.models import TutorialModelTestCase
 from tutorials.tests.views import TutorialListViewTestCase
