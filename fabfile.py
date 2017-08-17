@@ -12,6 +12,7 @@ env.user = "jiaxin"
 def test():
     local("./manage.py test")
 
+
 def deploy_python():
     local('find . -name "*.pyc" -exec rm {} \;')
     rsync_project(
@@ -21,6 +22,7 @@ def deploy_python():
         delete=True,
     )
 
+
 def deploy_static():
     with cd("/data/www/dugong/"):
         run("/home/jiaxin/.virtualenvs/dugong/bin/python manage.py "
@@ -28,9 +30,9 @@ def deploy_static():
         run("/home/jiaxin/.virtualenvs/dugong/bin/python manage.py "
             "compress --settings=dugong.settings.production")
 
+
 def reload_server():
     run("sudo supervisorctl reload dugong")
-
 
 
 def deploy():
