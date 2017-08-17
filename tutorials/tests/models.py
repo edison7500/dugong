@@ -11,6 +11,7 @@ class TutorialModelTestCase(TestCase):
         self.tutorial.title = f.name()
         self.tutorial.content = f.text()
         self.tutorial.tags = f.word()
+        self.tutorial.origin_link = f.url()
 
     def test_can_create_a_tutorial(self):
         old_count = Tutorial.objects.count()

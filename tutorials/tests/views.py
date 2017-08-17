@@ -14,6 +14,7 @@ class TutorialListViewTestCase(TestCase):
         self.tutorial.title = f.name()
         self.tutorial.content = f.text()
         self.tutorial.status = Tutorial.STATUS.published
+        self.tutorial.origin_link = f.url()
         self.tutorial.save()
 
     def test_get_tutorial_list(self):
