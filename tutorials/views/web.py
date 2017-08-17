@@ -23,6 +23,7 @@ class TutorialDetailView(DetailView):
         _context = super(TutorialDetailView, self).get_context_data(**kwargs)
         _context['meta'] = {
             'title': u"{title} | Python观察员".format(title=self.object.title),
+            'desc': (self.object.digest[:75] + '...') if len(self.object.digest) > 75 else self.object.digest,
         }
         return _context
 

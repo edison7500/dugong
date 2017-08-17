@@ -3,8 +3,10 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils import timezone
+from django.utils.html import strip_tags
 from django.utils.translation import ugettext_lazy as _
 from django_extensions.db import fields
+from django_markdown.utils import markdown
 from tagging.fields import TagField
 from tagging.registry import register
 from model_utils.fields import StatusField, MonitorField
@@ -34,5 +36,9 @@ class Tutorial(models.Model):
     def get_absolute_url(self):
         return reverse('tutorials:detail', args=[self.slug, ])
 
+    @property
+    def digest(self):
+        _content = markdown(self.content)
+        return strip_tags(_content)
 
 # register(Tutorial)
