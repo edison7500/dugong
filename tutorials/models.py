@@ -21,6 +21,7 @@ class Tutorial(models.Model):
                                   include_alpha=False, db_index=True, editable=False)
     status = StatusField(_('status'), choices_name='STATUS', default=STATUS.draft)
     content = models.TextField(blank=True, null=True)
+    origin_link = models.URLField(max_length=255, null=True)
     created_datetime = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
     published_at = MonitorField(monitor='status', when=['published'])
     tags = TagField()
