@@ -8842,6 +8842,13 @@ button.close {
 .forgot-password:focus {
   color: #0c6121;
 }
+#tutorial pre {
+  background-color: #ffc;
+}
+#tutorial img {
+  width: 100%;
+  margin: auto;
+}
 body {
   margin-top: 70px;
   min-height: 600px;

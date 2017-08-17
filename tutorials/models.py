@@ -42,4 +42,11 @@ class Tutorial(models.Model):
         _content = markdown(self.content)
         return strip_tags(_content)
 
-# register(Tutorial)
+
+class TutorialImage(models.Model):
+    post = models.ForeignKey(Tutorial, related_name='images')
+    image = models.ImageField(upload_to='post/images')
+    uploaded = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        db_table = 'tutorials_image'
