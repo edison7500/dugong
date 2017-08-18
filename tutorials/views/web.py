@@ -1,6 +1,8 @@
 # coding=utf-8
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
+from braces.views import LoginRequiredMixin
 from tutorials.models import Tutorial
+from tutorials.forms.tutorial import TutorialForm
 
 
 class TutorialListView(ListView):
@@ -28,5 +30,6 @@ class TutorialDetailView(DetailView):
         return _context
 
 
-
-
+class TutorialCreateView(LoginRequiredMixin, CreateView):
+    template_name = 'tutorials/create.html'
+    form_class = TutorialForm
