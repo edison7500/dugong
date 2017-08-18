@@ -5,3 +5,19 @@
   width: 100%;
   margin: auto;
 }
+#tutorial a,
+#tutorial a.active {
+  color: #337ab7;
+}
+#tutorial a:hover,
+#tutorial a.active:hover,
+#tutorial a:focus,
+#tutorial a.active:focus {
+  color: #23527c;
+  text-decoration: underline;
+}
+#tutorial blockquote {
+  font-size: 12px;
+  font-style: italic;
+  color: #9d9d9d;
+}

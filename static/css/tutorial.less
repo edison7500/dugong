@@ -1,3 +1,6 @@
+@tutorial-link-color: darken(#428bca, 6.5%);
+@tutorial-link-hover-color: darken(@tutorial-link-color, 15%);
+
 #tutorial {
   pre {
     background-color: #ffc;
@@ -5,5 +8,18 @@
   img {
     width: 100%;
     margin: auto;
+  };
+  a,a.active {
+    color: @tutorial-link-color;
+    &:hover,
+    &:focus {
+      color: @tutorial-link-hover-color;
+      text-decoration: underline;
+    }
+  }
+  blockquote{
+    font-size: 12px;
+    font-style: italic;
+    color: #9d9d9d;
   }
 }
