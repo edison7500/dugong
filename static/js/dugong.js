@@ -57,6 +57,10 @@
         utils.gotop();
         // utils.autocomplete();
         utils.showWeixin();
+        $("#editor").markdown({
+            autofocus: true,
+            language: 'zh',
+        });
         // utils.refreshCaptcha();
         $("#autocomplete").autocomplete({
             minLength:1,

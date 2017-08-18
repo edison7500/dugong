@@ -9,6 +9,8 @@ class TutorialForm(forms.ModelForm):
         fields = ['title', 'content', 'status', 'tags']
         widgets = {
             'content': forms.Textarea(attrs={"data-provide":"markdown",
-                                             "data-iconlibrary":"fa"})
+                                             "data-iconlibrary":"fa",
+                                             "id":"editor",
+                                             })
         }
 
