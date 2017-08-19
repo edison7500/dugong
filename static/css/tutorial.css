@@ -24,3 +24,7 @@
   font-style: italic;
   color: #9d9d9d;
 }
+#tutorial article {
+  background-color: #fff;
+  padding: 16px;
+}
