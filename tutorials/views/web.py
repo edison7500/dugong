@@ -1,5 +1,5 @@
 # coding=utf-8
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from braces.views import LoginRequiredMixin
 from tutorials.models import Tutorial
 from tutorials.forms.tutorial import TutorialForm
@@ -33,3 +33,12 @@ class TutorialDetailView(DetailView):
 class TutorialCreateView(LoginRequiredMixin, CreateView):
     template_name = 'tutorials/create.html'
     form_class = TutorialForm
+
+
+class TutorialUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = 'tutorials/update.html'
+    form_class = TutorialForm
+    slug_field = 'slug'
+    queryset = Tutorial.objects.all()
+
+

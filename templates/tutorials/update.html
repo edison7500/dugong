@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+{% load i18n %}
+{% load bootstrap3 %}
+
+{% block container %}
+    <div class="container">
+        <div class="row">
+            <form class="form-horizontal col-sm-offset-2 col-sm-8" method="post">
+                {% csrf_token %}
+                <fieldset>
+                    {% bootstrap_form form layout='inline' %}
+{#                    {}#}
+                </fieldset>
+                <button class="btn btn-primary" type="submit">{% trans 'update' %}</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
