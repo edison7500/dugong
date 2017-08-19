@@ -8860,6 +8860,9 @@ button.close {
   color: #23527c;
   text-decoration: underline;
 }
+#tutorial time {
+  color: darkgray;
+}
 #tutorial blockquote {
   font-size: 12px;
   font-style: italic;

@@ -1,6 +1,7 @@
 # coding=utf-8
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
-from braces.views import LoginRequiredMixin
+from django.http import Http404
+from braces.views import LoginRequiredMixin, UserPassesTestMixin
 from tutorials.models import Tutorial
 from tutorials.forms.tutorial import TutorialForm
 
@@ -40,5 +41,12 @@ class TutorialUpdateView(LoginRequiredMixin, UpdateView):
     form_class = TutorialForm
     slug_field = 'slug'
     queryset = Tutorial.objects.all()
+
+    def get_object(self, queryset=None):
+        obj = super(TutorialUpdateView, self).get_object(queryset)
+        if obj.author == self.request.user:
+            return obj
+        else:
+            raise Http404
 
 
