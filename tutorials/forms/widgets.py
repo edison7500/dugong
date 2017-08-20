@@ -1,6 +1,4 @@
 from django import forms
-from django.contrib.admin.widgets import AdminTextareaWidget
-from django.core.files.storage import default_storage
 from django.utils.safestring import mark_safe
 from django.conf import settings
 
