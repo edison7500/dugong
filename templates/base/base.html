@@ -22,7 +22,8 @@
             <link rel="stylesheet" type="text/css" href="{% static 'css/jiaxin.css' %}" charset="utf-8" />
             <link rel="stylesheet" type="text/css" href="{% static 'css/pygments.css' %}" charset="utf-8" />
             <link rel="stylesheet" type="text/css" href="{% static 'css/jquery-ui.min.css' %}" charset="utf-8" />
-            <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-markdown.min.css' %}" charset="utf-8" />
+{#            <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-markdown.min.css' %}" charset="utf-8" />#}
+            {{ form.media.css }}
         {% endcompress %}
     {% endblock %}
 </head>
@@ -41,9 +42,10 @@
 {% block bootstrap3_extra_script %}
     {% compress js %}
         <script src="{% static 'js/jquery-ui.min.js' %}" charset="UTF-8"></script>
-        <script src="{% static 'js/markdown.js' %}" charset="UTF-8"></script>
-        <script src="{% static 'js/bootstrap-markdown.js' %}" charset="UTF-8"></script>
-        <script src="{% static 'js/bootstrap-markdown.zh.js' %}" charset="UTF-8"></script>
+        {{ form.media.js }}
+{#        <script src="{% static 'js/markdown.js' %}" charset="UTF-8"></script>#}
+{#        <script src="{% static 'js/bootstrap-markdown.js' %}" charset="UTF-8"></script>#}
+{#        <script src="{% static 'js/bootstrap-markdown.zh.js' %}" charset="UTF-8"></script>#}
         <script src="{% static 'js/dugong.js' %}" charset="utf-8"></script>
 
         <script>
