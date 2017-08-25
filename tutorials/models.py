@@ -8,9 +8,11 @@ from django.utils.translation import ugettext_lazy as _
 from django_extensions.db import fields
 from django_markdown.utils import markdown
 from tagging.fields import TagField
-from tagging.registry import register
 from model_utils.fields import StatusField, MonitorField
 from model_utils import Choices
+from utils.image.handlers import UUIDFilename
+
+upload_dir = UUIDFilename('tutorial/images/')
 
 
 class Tutorial(models.Model):
@@ -45,7 +47,7 @@ class Tutorial(models.Model):
 
 class TutorialImage(models.Model):
     post = models.ForeignKey(Tutorial, related_name='images')
-    image = models.ImageField(upload_to='post/images')
+    image = models.ImageField(upload_to=upload_dir)
     uploaded = models.DateTimeField(default=timezone.now)
 
     class Meta:

@@ -16,7 +16,6 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -28,8 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-SITE_ID       = 1
-
+SITE_ID = 1
 
 # Application definition
 
@@ -101,7 +99,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'dugong.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
@@ -126,7 +123,6 @@ CACHES = {
 
 CACHE_COUNT_TIMEOUT = 60
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
@@ -140,12 +136,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-USE_X_FORWARDED_HOST    = True
+USE_X_FORWARDED_HOST = True
 
 LOCALE_PATHS = (
     os.path.join(os.getcwd(), 'conf/locale'),
 )
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
@@ -157,18 +152,17 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
     'compressor.finders.CompressorFinder',
 )
 
-STATIC_URL              = '/static/'
-STATIC_ROOT             = '/tmp/static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = '/tmp/static/'
 
-HTML_MINIFY             = True
+HTML_MINIFY = True
 
-
-COMPRESS_ENABLED        = False
-COMPRESS_PRECOMPILERS   = (
+COMPRESS_ENABLED = False
+COMPRESS_PRECOMPILERS = (
     # ('text/coffeescript', 'coffee --compile --stdio'),
     ('text/less', '/usr/local/bin/lessc {infile} {outfile}'),
     # ('text/x-sass', 'sass {infile} {outfile}'),
@@ -184,39 +178,37 @@ COMPRESS_CSS_FILTERS = [
 
 COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
 
-COMPRESS_OUTPUT_DIR     = 'release'
-COMPRESS_OFFLINE        = True
-
+COMPRESS_OUTPUT_DIR = 'release'
+COMPRESS_OFFLINE = True
 
 '''
     session configure
 '''
-SESSION_ENGINE          = 'django.contrib.sessions.backends.file'
-SESSION_FILE_PATH       = '/tmp/'
+SESSION_ENGINE = 'django.contrib.sessions.backends.file'
+SESSION_FILE_PATH = '/tmp/'
 
-FILE_UPLOAD_HANDLERS   = (
-    "django.core.files.uploadhandler.MemoryFileUploadHandler",
-    "django.core.files.uploadhandler.TemporaryFileUploadHandler"
+FILE_UPLOAD_HANDLERS = (
+    # "django.core.files.uploadhandler.MemoryFileUploadHandler",
+    "django.core.files.uploadhandler.TemporaryFileUploadHandler",
 )
 
-REDACTOR_UPLOAD         = 'images/'
+REDACTOR_UPLOAD = 'images/'
 
-'''
-    storage configure
-'''
-DEFAULT_FILE_STORAGE        = 'qiniustorage.backends.QiniuStorage'
+# '''
+#     storage configure
+# '''
+# DEFAULT_FILE_STORAGE = 'qiniustorage.backends.QiniuStorage'
 
+# FILE_UPLOAD_HANDLERS = ["django.core.files.uploadhandler.TemporaryFileUploadHandler", ]
 FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880
-IMAGE_HOST                  = '//imgjiaxin.u.qiniudn.com/'
-
-QINIU_ACCESS_KEY            = "xD6MU4_jZANfAqu9auFQm4qkSIx_ln2hIefKIFAU"
-QINIU_SECRET_KEY            = "NkTHwgTFQHFaujEB3Fo-ZC2jgf6LkjkWT0iWbwWP"
-QINIU_BUCKET_NAME           = "imgjiaxin"
-
-QINIU_BUCKET_DOMAIN         = 'imgjiaxin.u.qiniudn.com'
-QINIU_SECURE_URL            = False
-
-
+# IMAGE_HOST = '//imgjiaxin.u.qiniudn.com/'
+#
+# QINIU_ACCESS_KEY = "xD6MU4_jZANfAqu9auFQm4qkSIx_ln2hIefKIFAU"
+# QINIU_SECRET_KEY = "NkTHwgTFQHFaujEB3Fo-ZC2jgf6LkjkWT0iWbwWP"
+# QINIU_BUCKET_NAME = "imgjiaxin"
+#
+# QINIU_BUCKET_DOMAIN = 'imgjiaxin.u.qiniudn.com'
+# QINIU_SECURE_URL = False
 
 '''
     rest framework
@@ -236,7 +228,6 @@ REST_FRAMEWORK = {
     ],
     'PAGE_SIZE': 20
 }
-
 
 ''' django haystack
 
@@ -268,10 +259,7 @@ MARKDOWN_EXTENSION_CONFIGS = {
 # django extensions
 SHELL_PLUS = 'ptpython'
 
-
 BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
-
-
 
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -295,12 +283,8 @@ SOCIALACCOUNT_PROVIDERS = {
 
 LOGIN_REDIRECT_URL = '/'
 
-
-
 GRAVATAR_DEFAULT_RATING = 'pg'
-GRAVATAR_DEFAULT_IMAGE  = 'identicon'
-
-
+GRAVATAR_DEFAULT_IMAGE = 'identicon'
 
 LOGGING = {
     'version': 1,
@@ -319,17 +303,17 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.NullHandler',
         },
-        'console':{
+        'console': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
             'formatter': 'verbose'
         },
         'file': {
-          'level': 'ERROR',
-          'class': 'logging.FileHandler',
-          'formatter': 'error',
-          'filename': '/tmp/django.log',
-          'mode': 'a',
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'formatter': 'error',
+            'filename': '/tmp/django.log',
+            'mode': 'a',
         },
     },
     'loggers': {
@@ -339,7 +323,7 @@ LOGGING = {
             'level': 'INFO',
         },
         'django.request': {
-            'handlers': ['file',],
+            'handlers': ['file', ],
             'level': 'ERROR',
             'propagate': False,
         },
