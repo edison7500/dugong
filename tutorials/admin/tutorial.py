@@ -7,6 +7,7 @@ from tutorials.models import TutorialImage
 
 class TutorialImageInlineAdmin(admin.StackedInline):
     model = TutorialImage
+    fields = ['image', ]
     extra = 1
 
 

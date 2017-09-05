@@ -31,12 +31,17 @@
                     </span>
                     {% endif %}
                     <time class="pull-right">
-                        <i class="fa fa-clock-o"></i>&nbsp;{{ object.published_at|date:'Y-m-d' }}
+                        <i class="fa fa-calendar"></i>&nbsp;{{ object.published_at|date:'Y-m-d' }}
                     </time>
                 </div>
                 <article>
                     {{ object.content|markdown_safe }}
                 </article>
+                {% if object.domain %}
+                <div style="margin-top: 10px; margin-bottom: 10px; color: darkgray;">
+                    <i class="fa fa-link"></i>&nbsp;教程来源: <a target="_blank" href="{{ object.domain_link }}">{{ object.domain }}</a>
+                </div>
+                {% endif %}
                 <div class="addthis_inline_share_toolbox_2eqs" style="margin-top: 10px;"></div>
             </div>
         </div>

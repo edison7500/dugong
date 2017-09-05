@@ -10,6 +10,7 @@ from django_markdown.utils import markdown
 from tagging.fields import TagField
 from model_utils.fields import StatusField, MonitorField
 from model_utils import Choices
+from urlparse import urlparse
 from utils.image.handlers import UUIDFilename
 
 upload_dir = UUIDFilename('tutorial/images/')
@@ -43,6 +44,23 @@ class Tutorial(models.Model):
     def digest(self):
         _content = markdown(self.content)
         return strip_tags(_content)
+
+    @property
+    def domain(self):
+        if self.origin_link:
+            o = urlparse(self.origin_link)
+            return o.netloc
+        return "jiaxin.im"
+
+    @property
+    def domain_link(self):
+        if self.origin_link:
+            o = urlparse(self.origin_link)
+            return "{schema}://{host}".format(
+                schema=o.schema,
+                host=o.netloc,
+            )
+        return "http://jiaxin.im"
 
 
 class TutorialImage(models.Model):
