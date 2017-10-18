@@ -2,8 +2,11 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.http import Http404
 from braces.views import LoginRequiredMixin, UserPassesTestMixin
+
+from utils.views.mixins import seo
 from tutorials.models import Tutorial
 from tutorials.forms.tutorial import TutorialForm
+
 
 
 class TutorialListView(ListView):
@@ -14,7 +17,7 @@ class TutorialListView(ListView):
     paginate_by = 12
 
 
-class TutorialDetailView(DetailView):
+class TutorialDetailView(seo.SEOMixin, DetailView):
     http_method_names = ['head', 'get']
     template_name = 'tutorials/detail.html'
     model = Tutorial
@@ -24,10 +27,11 @@ class TutorialDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         _context = super(TutorialDetailView, self).get_context_data(**kwargs)
-        _context['meta'] = {
-            'title': u"{title} | Python观察员".format(title=self.object.title),
-            'desc': (self.object.digest[:75] + '...') if len(self.object.digest) > 75 else self.object.digest,
-        }
+        # _context['meta'] = {
+            # 'title': u"{title} | Python观察员".format(title=self.object.title),
+            # 'desc': (self.object.digest[:75] + '...') if len(self.object.digest) > 75 else self.object.digest,
+        # }
+        _context['meta'] = self.get_seo_meta(obj=self.object)
         return _context
 
 
