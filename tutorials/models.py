@@ -87,7 +87,7 @@ class Tutorial(models.Model):
             "desc": (self.digest[:75] + '...') if len(self.digest) > 75 else self.digest,
             "url": self.get_absolute_url(),
             "cover_url": self.cover,
-            "tags": [tag.name for tag in self.tags],
+            "tags": self.tags.split(','),
         }
         return seo_info
 
