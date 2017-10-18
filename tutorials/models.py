@@ -80,6 +80,17 @@ class Tutorial(models.Model):
         else:
             return ""
 
+    def get_seo(self):
+
+        seo_info = {
+            "title": self.title,
+            "desc": (self.digest[:75] + '...') if len(self.digest) > 75 else self.digest,
+            "url": self.get_absolute_url(),
+            "cover_url": self.cover,
+            "tags": [tag.name for tag in self.tags],
+        }
+        return seo_info
+
 
 class TutorialImage(models.Model):
     post = models.ForeignKey(Tutorial, related_name='images')

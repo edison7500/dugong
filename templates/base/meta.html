@@ -13,13 +13,18 @@
 <meta name="360-site-verification" content="78b6cdfff48ceaec940b857e4dcd523b" />
 <link rel="alternate" href="http://www.jiaxin.im/" hreflang="zh-Hans" />
 
-
 <meta property="og:type" content="article">
 <meta property="og:url" content="{{ meta.url|default:"http://www.jiaxin.im/" }}">
-{#<meta property="og:image" content="{{ meta.cover_url|default:"http://image.deepto.me/img/deeptome.jpg" }}">#}
+{% if meta.cover_url %}
+    <meta property="og:image" content="{{ meta.cover_url }}">
+{% endif %}
 <meta property="og:site_name" content="Python观察员">
 <meta property="og:author" content="Python观察员">
 {#<meta property="article:publisher" content="https://www.facebook.com/deeptome/">#}
+
+{% for tag in tags %}
+    <meta property="article:tag" content="{{ tag }}" />
+{% endfor %}
 
     <!-- 启用 WebApp 全屏模式 -->
 <meta name="apple-mobile-web-app-capable" content="yes" />

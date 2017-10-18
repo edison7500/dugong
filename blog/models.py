@@ -11,7 +11,6 @@ from markdown import markdown
 
 from caching.base import CachingManager, CachingMixin
 
-
 h = HTMLParser()
 
 
@@ -23,17 +22,17 @@ class Post(CachingMixin, models.Model):
         (publish, _('publish'))
     ]
 
-    title           = models.CharField(_('title'), max_length=255)
-    slug            = models.SlugField(max_length=30, default='', unique=True, editable=False)
-    content         = MarkdownField()
-    status          = models.IntegerField(_('status'), choices=POST_STARUS_CHOICES, default=preview)
-    created_date    = models.DateTimeField(_('created_date'), auto_now_add=True, db_index=True, editable=False)
-    last_update     = models.DateTimeField(_('last_update'), auto_now=True, db_index=True, editable=False)
+    title = models.CharField(_('title'), max_length=255)
+    slug = models.SlugField(max_length=30, default='', unique=True, editable=False)
+    content = MarkdownField()
+    status = models.IntegerField(_('status'), choices=POST_STARUS_CHOICES, default=preview)
+    created_date = models.DateTimeField(_('created_date'), auto_now_add=True, db_index=True, editable=False)
+    last_update = models.DateTimeField(_('last_update'), auto_now=True, db_index=True, editable=False)
 
-    objects         = CachingManager()
+    objects = CachingManager()
 
     class Meta:
-        ordering    = ['-created_date']
+        ordering = ['-created_date']
 
     def __unicode__(self):
         return self.title
@@ -43,7 +42,7 @@ class Post(CachingMixin, models.Model):
 
     @property
     def digest(self):
-        _content    = markdown(self.content)
+        _content = markdown(self.content)
         return strip_tags(_content)
 
     def save(self, **kwargs):
@@ -57,10 +56,11 @@ class Post(CachingMixin, models.Model):
             t = self.tags[0]
             return t
 
+
 register(Post)
 
 
 class PostImage(models.Model):
-    post                = models.ForeignKey(Post, related_name='images')
-    image               = models.ImageField(upload_to='post/images')
-    uploaded_datetime   = models.DateTimeField(default=timezone.now)
+    post = models.ForeignKey(Post, related_name='images')
+    image = models.ImageField(upload_to='post/images')
+    uploaded_datetime = models.DateTimeField(default=timezone.now)
