@@ -192,7 +192,7 @@ FILE_UPLOAD_HANDLERS = (
     "django.core.files.uploadhandler.TemporaryFileUploadHandler",
 )
 
-REDACTOR_UPLOAD = 'images/'
+# REDACTOR_UPLOAD = 'images/'
 
 # '''
 #     storage configure

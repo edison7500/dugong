@@ -11,7 +11,7 @@ class TutorialListView(ListView):
     template_name = 'tutorials/list.html'
     model = Tutorial
     queryset = Tutorial.objects.filter(status=Tutorial.STATUS.published)
-    paginate_by = 20
+    paginate_by = 12
 
 
 class TutorialDetailView(DetailView):

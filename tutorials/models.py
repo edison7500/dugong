@@ -16,6 +16,12 @@ from utils.image.handlers import UUIDFilename
 upload_dir = UUIDFilename('tutorial/images/')
 
 
+class TutorialManager(models.Manager):
+
+    def published(self):
+        return self.get_queryset().filter(status="published")
+
+
 class Tutorial(models.Model):
     STATUS = Choices('draft', 'published')
     author = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, related_name='tutorial')
@@ -28,6 +34,8 @@ class Tutorial(models.Model):
     created_datetime = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
     published_at = MonitorField(monitor='status', when=['published'])
     tags = TagField()
+
+    objects = TutorialManager()
 
     class Meta:
         ordering = ['-published_at']
@@ -62,11 +70,23 @@ class Tutorial(models.Model):
             )
         return "http://jiaxin.im"
 
+    @property
+    def cover(self):
+        cover = self.images.first()
+        if cover:
+            return "{image}?{process}".format( image=cover.image.url,
+                                               process="imageView2/5/w/400/h/300/format/webp/interlace/1/q/100|imageslim",
+                                               )
+        else:
+            return ""
+
 
 class TutorialImage(models.Model):
     post = models.ForeignKey(Tutorial, related_name='images')
     image = models.ImageField(upload_to=upload_dir)
+    is_cover = models.BooleanField(default=False)
     uploaded = models.DateTimeField(default=timezone.now)
 
     class Meta:
         db_table = 'tutorials_image'
+        ordering = ("-is_cover", )

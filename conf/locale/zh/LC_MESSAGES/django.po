@@ -108,3 +108,7 @@ msgstr "标签"
 
 msgid "comments"
 msgstr "评论"
+
+
+msgid "tutorials"
+msgstr "教程"

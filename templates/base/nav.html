@@ -1,6 +1,7 @@
 {% load i18n %}
 {% url 'homepage' as index_url %}
 {% url 'web_blog_list' as blog_url %}
+{% url 'tutorials:list' as tutorials_url %}
 
     <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
@@ -27,6 +28,10 @@
                     <li {% ifequal request.path index_url %}class="active"{% endifequal %}>
                         <a href="{{ index_url }}" title="{% trans 'home' %}">
                             <i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a>
+                    </li>
+                    <li {% ifequal request.path tutorials_url %}class="active"{% endifequal %}>
+                        <a href="{{ tutorials_url }}" title="{% trans 'tutorials' %}">
+                            <i class="fa fa-book"></i>&nbsp;{% trans 'tutorials' %}</a>
                     </li>
                     <li {% ifequal request.path blog_url %}class="active"{% endifequal %}>
                         <a href="{{ blog_url }}" title="{% trans 'blog' %}">

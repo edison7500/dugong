@@ -32,10 +32,11 @@ def deploy_static():
 
 
 def reload_server():
-    run("sudo supervisorctl reload dugong")
+    run("sudo supervisorctl restart dugong")
 
 
 def deploy():
     test()
     deploy_python()
     deploy_static()
+    reload_server()

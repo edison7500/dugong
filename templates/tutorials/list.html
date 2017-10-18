@@ -1,13 +1,33 @@
 {% extends 'base/base.html' %}
-
+{% load bootstrap3 %}
 
 {% block container %}
     <div class="container">
         <div class="row">
-            <div class="col-sm-8">
-                {% for obj in object_list %}
-                    {{ obj.get_absolute_url }}
-                {% endfor %}
+            {% for obj in object_list %}
+                <div class="col-sm-4">
+                    <div class="thumbnail">
+                        <img src="{{ obj.cover }}" alt="{{ obj.title }}" title="{{ obj.title }}">
+                        <div class="caption" style="padding-bottom: 60px;">
+                            <h1 style="font-size: 16px;float: left;">
+                                <a title="{{ obj.title }}" href="{{ obj.get_absolute_url }}" target="_blank">{{ obj.title }}</a>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+{#            <div class="col-sm-8">#}
+{#                {% for obj in object_list %}#}
+{#                    <div>#}
+{#                        <a href="{{ obj.get_absolute_url }}" target="_blank">{{ obj.title }}</a>#}
+{#                    </div>#}
+{#                {% endfor %}#}
+{#            </div>#}
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                {% bootstrap_pagination page_obj extra=request.GET.urlencode size="large" %}
             </div>
         </div>
     </div>
