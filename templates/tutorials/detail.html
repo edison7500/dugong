@@ -25,23 +25,25 @@
                 <h1 class="title text-left">{{ object.title }}</h1>
                 <div class="meta" style="margin-bottom: 10px;padding-top: 10px;padding-bottom: 10px;">
                     {% if request.user == object.author %}
-                    <span class="operation">
-                        <a href="{% url 'tutorials:update' object.slug %}" target="_blank">
-                            <i class="fa fa-edit"></i>&nbsp;{% trans 'update' %}</a>
-                    </span>
+                        <span class="operation">
+                            <a href="{% url 'tutorials:update' object.slug %}" target="_blank">
+                                <i class="fa fa-edit"></i>&nbsp;{% trans 'update' %}</a>
+                        </span>
                     {% endif %}
                     <time class="pull-right">
                         <i class="fa fa-calendar"></i>&nbsp;{{ object.published_at|date:'Y-m-d' }}
                     </time>
                 </div>
-                <article>
+                <article class="typo">
                     {{ object.html_content|safe }}
                 </article>
+
                 {% if object.domain %}
-                <div style="margin-top: 10px; margin-bottom: 10px; color: darkgray;">
-                    <i class="fa fa-link"></i>&nbsp;教程来源: <a rel="nofollow" target="_blank" href="{{ object.domain_link }}">{{ object.domain }}</a>
-                </div>
+                    <div style="margin-top: 10px; margin-bottom: 10px; color: darkgray;">
+                        <i class="fa fa-link"></i>&nbsp;教程来源: <a rel="nofollow" target="_blank" href="{{ object.domain_link }}">{{ object.domain }}</a>
+                    </div>
                 {% endif %}
+
                 <div class="addthis_inline_share_toolbox_2eqs" style="margin-top: 10px;"></div>
             </div>
         </div>

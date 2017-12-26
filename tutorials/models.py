@@ -51,7 +51,13 @@ class Tutorial(models.Model):
         return reverse('tutorials:detail', args=[self.slug, ])
 
     def render_markdown(self):
-        md = markdown.Markdown(extensions=['markdown.extensions.toc', ])
+        md = markdown.Markdown(extensions=['markdown.extensions.toc',
+                                           'markdown.extensions.extra',
+                                           'markdown.extensions.codehilite',
+                                           'markdown.extensions.tables',
+                                           'markdown.extensions.headerid',
+                                           'markdown.extensions.fenced_code',
+                                           ])
         html = md.convert(self.content)
         return html, md.toc
 
