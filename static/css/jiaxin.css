@@ -9103,7 +9103,7 @@ footer {
 }
 .search-form button {
   border-radius: 0;
-  border-left: 0px;
+  border-left: 0;
 }
 @media (min-width: 768px) {
   .search-form .form-group {
