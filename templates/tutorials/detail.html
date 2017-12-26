@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 {% load bootstrap3 %}
 {% load i18n cache %}
-{% load django_markdown %}
+{#{% load django_markdown %}#}
 {% load gravatar %}
 
 
@@ -35,7 +35,7 @@
                     </time>
                 </div>
                 <article>
-                    {{ object.content|markdown_safe }}
+                    {{ object.html_content|safe }}
                 </article>
                 {% if object.domain %}
                 <div style="margin-top: 10px; margin-bottom: 10px; color: darkgray;">

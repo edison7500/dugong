@@ -4,14 +4,16 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils import timezone
 from django.utils.html import strip_tags
+from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
 from django_extensions.db import fields
-from django_markdown.utils import markdown
+# from django_markdown.utils import markdown
 from tagging.fields import TagField
 from model_utils.fields import StatusField, MonitorField
 from model_utils import Choices
 from urlparse import urlparse
 from utils.image.handlers import UUIDFilename
+import markdown
 
 upload_dir = UUIDFilename('tutorial/images/')
 
@@ -48,19 +50,33 @@ class Tutorial(models.Model):
     def get_absolute_url(self):
         return reverse('tutorials:detail', args=[self.slug, ])
 
-    @property
-    def digest(self):
-        _content = markdown(self.content)
-        return strip_tags(_content)
+    def render_markdown(self):
+        md = markdown.Markdown(extensions=['markdown.extensions.toc', ])
+        html = md.convert(self.content)
+        return html, md.toc
 
-    @property
+    @cached_property
+    def digest(self):
+        return strip_tags(self.html_content)
+
+    @cached_property
+    def html_content(self):
+        html, toc = self.render_markdown()
+        return html
+
+    @cached_property
+    def toc(self):
+        html, toc = self.render_markdown()
+        return toc
+
+    @cached_property
     def domain(self):
         if self.origin_link:
             o = urlparse(self.origin_link)
             return o.netloc
         return "jiaxin.im"
 
-    @property
+    @cached_property
     def domain_link(self):
         if self.origin_link:
             o = urlparse(self.origin_link)
@@ -74,9 +90,9 @@ class Tutorial(models.Model):
     def cover(self):
         cover = self.images.first()
         if cover:
-            return "{image}?{process}".format( image=cover.image.url,
-                                               process="imageView2/5/w/400/h/250/format/jpg/interlace/1/q/100|imageslim",
-                                               )
+            return "{image}?{process}".format(image=cover.image.url,
+                                              process="imageView2/5/w/400/h/250/format/jpg/interlace/1/q/100|imageslim",
+                                              )
         else:
             return ""
 
@@ -100,4 +116,4 @@ class TutorialImage(models.Model):
 
     class Meta:
         db_table = 'tutorials_image'
-        ordering = ("-is_cover", )
+        ordering = ("-is_cover",)
