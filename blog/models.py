@@ -2,12 +2,13 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django.utils.html import strip_tags
+from django.utils.functional import cached_property
 from uuslug import uuslug
 from tagging.registry import register
 
 from HTMLParser import HTMLParser
 from django_markdown.models import MarkdownField
-from markdown import markdown
+import markdown
 
 from caching.base import CachingManager, CachingMixin
 
@@ -40,17 +41,37 @@ class Post(CachingMixin, models.Model):
     def get_absolute_url(self):
         return "/blog/{slug}/".format(slug=self.slug)
 
-    @property
+    def render_markdown(self):
+        md = markdown.Markdown(extensions=['markdown.extensions.toc',
+                                           'markdown.extensions.extra',
+                                           'markdown.extensions.codehilite',
+                                           'markdown.extensions.tables',
+                                           'markdown.extensions.headerid',
+                                           'markdown.extensions.fenced_code',
+                                           ])
+        html = md.convert(self.content)
+        return html, md.toc
+
+    @cached_property
     def digest(self):
-        _content = markdown(self.content)
-        return strip_tags(_content)
+        return strip_tags(self.html_content)
+
+    @cached_property
+    def html_content(self):
+        html, toc = self.render_markdown()
+        return html
+
+    @cached_property
+    def toc(self):
+        html, toc = self.render_markdown()
+        return toc
 
     def save(self, **kwargs):
         if len(self.slug) == 0:
             self.slug = uuslug(self.title, instance=self, max_length=30)
         return super(Post, self).save(**kwargs)
 
-    @property
+    @cached_property
     def first_tag(self):
         if len(self.tags) > 0:
             t = self.tags[0]
