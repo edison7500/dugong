@@ -10,9 +10,12 @@
                 <li class="active"><i class="fa fa-keyboard-o"></i>&nbsp;博客</li>
             </ol>
             <div class="col-md-8" id="blog-container">
-                {% for post in object_list %}
-                    {% include 'blog/cell.html' with post=post %}
-                {% endfor %}
+                <ul class="list-unstyled">
+                    {% for post in object_list %}
+                        {% include 'blog/snippets/cell.html' with post=post %}
+{#                    {% include 'blog/cell.html' with post=post %}#}
+                    {% endfor %}
+                </ul>
 
                 {% include 'base/paginator.html' %}
             </div>

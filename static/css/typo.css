@@ -182,7 +182,7 @@ pre {
 /* 一致化 horizontal rule */
 hr {
   border: none;
-  border-bottom: 1px solid #cfcfcf;
+  border-bottom: 1px solid #ebebeb;
   margin-bottom: 0.8em;
   height: 10px;
 }

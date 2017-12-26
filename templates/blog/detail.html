@@ -1,7 +1,6 @@
 {% extends 'base/base.html' %}
-{% load bootstrap3 %}
 {% load i18n cache %}
-{% load django_markdown %}
+{% load bootstrap3 %}
 {% load gravatar %}
 
 {% block bootstrap3_title %}{{ meta.title }}{% endblock %}
@@ -27,7 +26,7 @@
                             <hr>
 
                             <article class="typo">
-                                {{ object.content|markdown_safe }}
+                                {{ object.html_content|safe }}
                             </article>
 
                             <!-- Go to www.addthis.com/dashboard to customize your tools -->
