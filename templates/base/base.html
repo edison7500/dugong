@@ -17,6 +17,7 @@
     <![endif]-->
     {% if 'javascript_in_head'|bootstrap_setting %}{% bootstrap_javascript jquery=True %}{% endif %}
     {% block bootstrap3_extra_head %}
+        <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         {% compress css %}
             <link rel="stylesheet" type="text/css" href="{% static 'css/jiaxin.css' %}" charset="utf-8" />
