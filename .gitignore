@@ -75,3 +75,4 @@ dugong/settings/production.py
 
 dugong/whoosh_index/
 .idea
+static/js/node_modules/

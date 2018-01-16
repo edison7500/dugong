@@ -1,0 +1,19 @@
+{
+  "name": "dugong-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dugong.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jiaxin",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^1.12.2",
+    "uglifyjs-webpack-plugin": "^1.1.6",
+    "css-loader": "^0.21.0",
+    "style-loader": "^0.13.0",
+    "markdown": "^0.5.0",
+    "tui-editor": "^1.0.1"
+  }
+}

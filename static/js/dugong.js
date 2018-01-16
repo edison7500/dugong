@@ -1,6 +1,7 @@
 /**
  * Created by xiejiaxin on 2017/2/1.
  */
+
 (function ($, document, window) {
     var utils =  {
         handlePageScroll: function(){
