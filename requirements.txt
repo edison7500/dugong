@@ -14,7 +14,7 @@ diskcache==2.4.1
 Django==1.8.18
 django-allauth==0.32.0
 django-appconf==1.0.2
-django-bootstrap3==9.0.0
+django-bootstrap3==9.1.0
 django-braces==1.11.0
 django-cache-machine==0.9.1
 django-compressor==2.1.1
@@ -60,7 +60,7 @@ oauthlib==2.0.2
 olefile==0.44
 pandas==0.20.3
 paramiko==2.1.2
-Pillow==4.2.1
+Pillow==5.0.0
 prompt-toolkit==1.0.14
 ptpython==0.39
 pyasn1==0.2.3
