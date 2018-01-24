@@ -1,9 +1,9 @@
 {% extends 'base/bulma_base.html' %}
+{% load bulma_tags %}
 {#{% load bootstrap3 %}#}
 
 {% block content %}
     <div class="columns is-multiline ">
-{#        <div class="row">#}
         {% for obj in object_list %}
             <div class="column is-one-third is-block-tablet">
                 <div class="card">
@@ -19,23 +19,9 @@
                         </h1>
                     </div>
                 </div>
-{#                <p>{{ obj.title }}</p>#}
-{#                    <div class="thumbnail">#}
-{#                        <img src="{{ obj.cover }}" alt="{{ obj.title }}" title="{{ obj.title }}">#}
-{#                        <div class="caption" style="padding-bottom: 60px;">#}
-{#                            <h1 style="font-size: 16px;float: left;">#}
-{#                                <a title="{{ obj.title }}" href="{{ obj.get_absolute_url }}" target="_blank">{{ obj.title }}</a>#}
-{#                            </h1>#}
-{#                        </div>#}
-{#                    </div>#}
             </div>
         {% endfor %}
-{#        </div>#}
-
-{#        <div class="row">#}
-{#            <div class="col-sm-12">#}
-{#                {% bootstrap_pagination page_obj extra=request.GET.urlencode size="large" %}#}
-{#            </div>#}
-{#        </div>#}
     </div>
+
+    {% bulma_pagination page_obj extra=request.GET.urlencode %}
 {% endblock %}
