@@ -3,6 +3,8 @@ from django.contrib import admin
 from django_markdown.widgets import AdminMarkdownWidget
 from django.db import models
 from tutorials.models import TutorialImage
+
+
 # from tutorials.forms.widgets import BSMarkDownWidget
 
 class TutorialImageInlineAdmin(admin.StackedInline):
@@ -17,5 +19,3 @@ class TutorialAdmin(admin.ModelAdmin):
         models.TextField: {'widget': AdminMarkdownWidget}
     }
     inlines = [TutorialImageInlineAdmin, ]
-
-

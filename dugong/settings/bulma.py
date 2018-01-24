@@ -21,29 +21,6 @@ BULMA = {
     # Include jQuery with Bootstrap JavaScript (affects django-bootstrap3 template tags)
     'include_jquery': True,
 
-    # Label class to use in horizontal forms
-    'horizontal_label_class': 'col-md-3',
-
-    # Field class to use in horizontal forms
-    'horizontal_field_class': 'col-md-9',
-
-    # Set HTML required attribute on required fields, for Django <= 1.8 only
-    'set_required': True,
-
-    # Set HTML disabled attribute on disabled fields, for Django <= 1.8 only
-    'set_disabled': False,
-
-    # Set placeholder attributes to label if no placeholder is provided.
-    # This also considers the 'label' option of {% bootstrap_field %} tags.
-    'set_placeholder': True,
-
-    # Class to indicate required (better to set this in your Django form)
-    'required_css_class': '',
-
-    # Class to indicate error (better to set this in your Django form)
-    'error_css_class': 'has-error',
-
-    # Class to indicate success, meaning the field has valid input (better to set this in your Django form)
-    'success_css_class': 'has-success',
-
+    # THE FontAwesome URL
+    'font_awesome_url': "//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css",
 }

@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'django_comments',
     'bulma',
 
-    # 'bootstrap3',
     'compressor',
     'tagging',
     'haystack',

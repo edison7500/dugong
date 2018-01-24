@@ -30,7 +30,7 @@ urlpatterns += [
     # url(r'^markdown/', include('django_markdown.urls')),
     url(r'^comments/', include('django_comments.urls')),
 
-    url(r'^blog/', include('blog.urls')),
+    url(r'^blog/', include('blog.urls', namespace='blog')),
     url(r'^project/', include('opensource.urls.web')),
     url(r'^tutorials/', include('tutorials.urls', namespace='tutorials')),
 
