@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     # 'django_markdown',
     'django_comments',
+    'bulma',
 
     # 'bootstrap3',
     'compressor',
@@ -317,6 +318,6 @@ LOGGING = {
 
 
 ###
-#  Django BootStrap3 Default settings
+#  BULMA Default settings
 ###
-# from .bootstrap import *
+from .bulma import *
