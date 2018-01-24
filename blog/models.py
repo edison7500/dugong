@@ -6,13 +6,13 @@ from django.utils.functional import cached_property
 from uuslug import uuslug
 from tagging.registry import register
 
-from HTMLParser import HTMLParser
+# from HTMLParser import HTMLParser
 from django_markdown.models import MarkdownField
 import markdown
 
 from caching.base import CachingManager, CachingMixin
 
-h = HTMLParser()
+# h = HTMLParser()
 
 
 class Post(CachingMixin, models.Model):

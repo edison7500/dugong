@@ -16,7 +16,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from views.home import HomeView
-from allauth.account.views import LoginView
+# from allauth.account.views import LoginView
 
 
 handler500 = 'views.errors.page_error'
@@ -27,7 +27,7 @@ urlpatterns = staticfiles_urlpatterns()
 
 urlpatterns += [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^markdown/', include('django_markdown.urls')),
+    # url(r'^markdown/', include('django_markdown.urls')),
     url(r'^comments/', include('django_comments.urls')),
 
     url(r'^blog/', include('blog.urls')),

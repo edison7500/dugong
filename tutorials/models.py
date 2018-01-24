@@ -11,7 +11,8 @@ from django_extensions.db import fields
 from tagging.fields import TagField
 from model_utils.fields import StatusField, MonitorField
 from model_utils import Choices
-from urlparse import urlparse
+# from urlparse import urlparse
+from urllib.parse import urlparse
 from utils.image.handlers import UUIDFilename
 import markdown
 
