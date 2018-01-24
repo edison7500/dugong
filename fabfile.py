@@ -4,8 +4,8 @@ from fabric.context_managers import cd
 from fabric.contrib.project import rsync_project
 from fabric.api import run, env
 
-env.hosts = ['47.91.130.68', ]
-# env.hosts = ['67.207.85.65',]
+# env.hosts = ['47.91.130.68', ]
+env.hosts = ['67.207.85.65',]
 env.user = "jiaxin"
 
 
