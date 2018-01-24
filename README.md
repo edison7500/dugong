@@ -2,8 +2,8 @@
 [![Build Status](https://travis-ci.org/edison7500/dugong.svg?branch=master)](https://travis-ci.org/edison7500/dugong)
 
 ### 系统环境
-* Ubuntu
-* Python2.7
+* Ubuntu 16.04
+* Python3.6
 * MySQL
 * Nginx
 * Docker
