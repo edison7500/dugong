@@ -47,9 +47,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
     #
-    'blog',
-    'opensource',
-    'tutorials',
+    # 'blog',
+    # 'opensource',
+    # 'tutorials',
 ]
 
 MIDDLEWARE_CLASSES = (
