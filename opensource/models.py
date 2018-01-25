@@ -55,7 +55,7 @@ class Project(CachingMixin, models.Model):
         verbose_name = _('project')
         verbose_name_plural = _('projects')
 
-    def __str_(self):
+    def __str__(self):
         return "{author}/{name}".format(
             author=self.author,
             name=self.name,
