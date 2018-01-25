@@ -47,9 +47,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
     #
-    # 'blog',
-    # 'opensource',
-    # 'tutorials',
+    'blog',
+    'opensource',
+    'tutorials',
 ]
 
 MIDDLEWARE_CLASSES = (
@@ -61,10 +61,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+
     'htmlmin.middleware.HtmlMinifyMiddleware',
     'htmlmin.middleware.MarkRequestMiddleware',
 
-    # 'silk.middleware.SilkyMiddleware',
 )
 
 ROOT_URLCONF = 'dugong.urls'

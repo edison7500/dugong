@@ -16,8 +16,8 @@ django-allauth==0.32.0
 django-appconf==1.0.2
 django-bootstrap3==9.1.0
 django-braces==1.11.0
--e git+https://github.com/edison7500/django-bulma.git#egg=django_bulma
-django-cache-machine==0.9.1
+-e git+git@github.com:edison7500/django-bulma.git@4bf91dc4d7360ca0d08b27b72d00eaa6f0d1cd2c#egg=django_bulma
+django-cache-machine==1.0.0
 django-compressor==2.2
 django-contrib-comments==1.8.0
 django-debug-toolbar==1.6
@@ -39,7 +39,6 @@ djangorestframework==3.6.3
 docopt==0.6.2
 elasticsearch==2.4.0
 enum34==1.1.6
-Fabric==1.13.2
 factory-boy==2.8.1
 Faker==0.7.17
 funcsigs==1.0.2
@@ -75,7 +74,7 @@ python-openid==2.2.5
 python-slugify==1.2.4
 python3-openid==3.1.0
 pytz==2017.3
-qiniu==7.1.0
+qiniu==7.2.0
 rcssmin==1.0.6
 requests==2.18.4
 requests-oauthlib==0.8.0
