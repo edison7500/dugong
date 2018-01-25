@@ -1,28 +1,45 @@
-{% extends 'base/base.html' %}
+{% extends 'base/bulma_base.html' %}
 {% load i18n cache %}
+{% load bulma_tags %}
 
-{% block container %}
-    {% url 'homepage' as index_url %}
-    {% url 'web_blog_list' as blog_url %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div id="homepage-latest">
-                    <p class="tip">周上升最快的 Python 项目</p>
-                    {% for project in projects_week %}
-                        {% include 'index/cell.html' with project=project %}
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div id="homepage-latest">
-                    <p class="tip">月上升最快的 Python 项目</p>
-                    {% for project in projects_month %}
-                        {% include 'index/cell.html' with project=project month=True %}
-                    {% endfor %}
-                </div>
-            </div>
+{% block content %}
+    <div class="columns is-multiline is-desktop">
+        <div class="column is-half-desktop" style="background-color: #fff;">
+            <h3 class="has-text-centered">周上升最快的 Python 项目</h3>
+            {% for project in projects_week %}
+                {% include 'index/cell.html' %}
+            {% endfor %}
         </div>
-        {% include 'base/goto-top.html' %}
+        <div class="column is-half-desktop" style="background-color: #fff;">
+            <h3 class="has-text-centered">月上升最快的 Python 项目</h3>
+            {% for project in projects_month %}
+                {% include 'index/cell.html' %}
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
+{#{% block container %}#}
+{#    {% url 'homepage' as index_url %}#}
+{#    {% url 'web_blog_list' as blog_url %}#}
+{#    <div class="container">#}
+{#        <div class="row">#}
+{#            <div class="col-md-6">#}
+{#                <div id="homepage-latest">#}
+{#                    <p class="tip">周上升最快的 Python 项目</p>#}
+{#                    {% for project in projects_week %}#}
+{#                        {% include 'index/cell.html' with project=project %}#}
+{#                    {% endfor %}#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="col-md-6">#}
+{#                <div id="homepage-latest">#}
+{#                    <p class="tip">月上升最快的 Python 项目</p>#}
+{#                    {% for project in projects_month %}#}
+{#                        {% include 'index/cell.html' with project=project month=True %}#}
+{#                    {% endfor %}#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        {% include 'base/goto-top.html' %}#}
+{#    </div>#}
+{#{% endblock %}#}

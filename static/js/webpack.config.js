@@ -13,7 +13,7 @@ const config = {
     ]
   },
   plugins: [
-    // new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin()
     // new HtmlWebpackPlugin({template: '../../templates/articles/list.html'})
   ]
 };

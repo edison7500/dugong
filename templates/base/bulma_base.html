@@ -1,0 +1,22 @@
+{% extends 'bulma/base.html' %}
+{% load static %}
+{% load bulma_tags %}
+
+
+{% block extra_css %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/typo.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/pygments.css' %}">
+{% endblock extra_css %}
+
+
+{% block header %}{% include 'base/snippets/header.html' %}{% endblock %}
+
+
+{% block footer %}{% include 'base/snippets/footer.html' %}{% endblock %}
+
+
+{% block extra_js %}
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58ee6b44b343d536"></script>
+{% endblock %}

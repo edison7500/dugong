@@ -13,14 +13,14 @@ from django_pandas.managers import DataFrameManager
 
 
 class Category(models.Model):
-    title               = models.CharField(null=True, unique=True, max_length=50)
-    created_datetime    = models.DateTimeField(default=timezone.now)
+    title = models.CharField(null=True, unique=True, max_length=50)
+    created_datetime = models.DateTimeField(default=timezone.now)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     class Meta:
-        verbose_name        = _('category')
+        verbose_name = _('category')
         verbose_name_plural = _('categories')
 
 
@@ -29,60 +29,59 @@ class Author(CachingMixin, models.Model):
     url = models.URLField(blank=True, max_length=255)
     created = models.DateTimeField(default=timezone.now, db_index=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.author
 
     class Meta:
-        verbose_name        = _('author')
+        verbose_name = _('author')
         verbose_name_plural = _('authors')
 
 
 class Project(CachingMixin, models.Model):
+    author = models.CharField(blank=True, max_length=255)
+    name = models.CharField(blank=True, max_length=255)
+    category = models.ForeignKey(Category, related_name='category', null=True)
+    desc = models.TextField(null=True, blank=True)
+    github_url = models.URLField(default='', max_length=255)
+    readme = MarkdownField(blank=True, null=True)
+    created_datetime = models.DateTimeField(auto_now=True, db_index=True)
+    display = models.BooleanField(default=True)
 
-    author              = models.CharField(blank=True, max_length=255)
-    name                = models.CharField(blank=True, max_length=255)
-    category            = models.ForeignKey(Category, related_name='category', null=True)
-    desc                = models.TextField(null=True, blank=True)
-    github_url          = models.URLField(default='', max_length=255)
-    readme              = MarkdownField(blank=True, null=True)
-    created_datetime    = models.DateTimeField(auto_now=True, db_index=True)
-    display             = models.BooleanField(default=True)
+    identified_code = models.CharField(null=True, blank=True, max_length=32, unique=True)
 
-    identified_code     = models.CharField(null=True, blank=True, max_length=32, unique=True)
-
-    objects             = CachingManager()
+    objects = CachingManager()
 
     class Meta:
-        verbose_name        = _('project')
+        verbose_name = _('project')
         verbose_name_plural = _('projects')
 
-    def __unicode__(self):
+    def __str_(self):
         return "{author}/{name}".format(
             author=self.author,
             name=self.name,
         )
 
     def stats_df(self, days=31):
-        return self.github_status\
-            .filter(datetime__gte=datetime.now() - timedelta(days)).order_by('datetime')\
-                                    .to_dataframe(index='datetime')
+        return self.github_status \
+            .filter(datetime__gte=datetime.now() - timedelta(days)).order_by('datetime') \
+            .to_dataframe(index='datetime')
 
     @property
     def latest_star(self):
-        _star   = 0
+        _star = 0
         try:
-            stats  = self.github_status.first()
-            _star   = stats.star
+            stats = self.github_status.first()
+            _star = stats.star
         except Exception as e:
             pass
         return _star
 
     @property
     def latest_watch(self):
-        _watch      = 0
+        _watch = 0
         try:
-            stats   = self.github_status.first()
-            _watch  = stats.watch
+            stats = self.github_status.first()
+            _watch = stats.watch
         except Exception as e:
             pass
         return _watch
@@ -93,10 +92,10 @@ class Project(CachingMixin, models.Model):
 
     @property
     def latest_fork(self):
-        _fork       = 0
+        _fork = 0
         try:
-            stats   = self.github_status.first()
-            _fork   = stats.fork
+            stats = self.github_status.first()
+            _fork = stats.fork
         except Exception as e:
             pass
         return _fork
@@ -132,30 +131,31 @@ class Project(CachingMixin, models.Model):
 
 
 class Status(CachingMixin, models.Model):
-    project             = models.ForeignKey(Project, related_name='github_status')
-    watch               = models.PositiveIntegerField(default=0)
-    star                = models.PositiveIntegerField(default=0)
-    fork                = models.PositiveIntegerField(default=0)
-    datetime            = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
-    objects             = DataFrameManager()
+    project = models.ForeignKey(Project, related_name='github_status')
+    watch = models.PositiveIntegerField(default=0)
+    star = models.PositiveIntegerField(default=0)
+    fork = models.PositiveIntegerField(default=0)
+    datetime = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
+    objects = DataFrameManager()
 
     class Meta:
-        ordering    = ('-datetime', )
+        ordering = ('-datetime',)
 
-    def __unicode__(self):
+    def __str__(self):
         return "Watch {watch} / Star {star} / Fork {fork}".format(
             watch=self.watch,
             star=self.star,
             fork=self.fork,
         )
 
-class PostProject(models.Model):
-    category    = models.ForeignKey(Category, )
-    url         = models.URLField(max_length=255, blank=True, unique=True)
-    status      = models.BooleanField(default=True)
 
-    def __unicode__(self):
+class PostProject(models.Model):
+    category = models.ForeignKey(Category, )
+    url = models.URLField(max_length=255, blank=True, unique=True)
+    status = models.BooleanField(default=True)
+
+    def __str__(self):
         return self.url
 
     class Meta:
-        db_table    = 'post_project'
+        db_table = 'post_project'

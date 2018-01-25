@@ -2,24 +2,53 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
+import django_extensions.db.fields
+import utils.image.handlers
 import django.utils.timezone
+from django.conf import settings
+import tagging.fields
+import model_utils.fields
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
             name='Tutorial',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('title', models.CharField(max_length=128, blank=True)),
-                ('slug', models.SlugField(unique=True, max_length=64)),
-                ('content', models.TextField()),
-                ('created_datetime', models.DateTimeField(default=django.utils.timezone.now, editable=False, db_index=True)),
-                ('updated_datetime', models.DateTimeField(auto_now=True, db_index=True)),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('title', models.CharField(verbose_name='title', max_length=128, blank=True)),
+                ('slug', django_extensions.db.fields.RandomCharField(unique=True, blank=True, db_index=True, editable=False, length=12, include_alpha=False)),
+                ('status', model_utils.fields.StatusField(verbose_name='status', max_length=100, default='draft', choices=[('draft', 'draft'), ('published', 'published')], no_check_for_status=True)),
+                ('content', models.TextField(blank=True, null=True)),
+                ('origin_link', models.URLField(max_length=255, unique=True, null=True)),
+                ('created_datetime', models.DateTimeField(db_index=True, default=django.utils.timezone.now, editable=False)),
+                ('published_at', model_utils.fields.MonitorField(default=django.utils.timezone.now, monitor='status', when=set(['published']))),
+                ('tags', tagging.fields.TagField(max_length=255, blank=True)),
+                ('author', models.ForeignKey(default=1, related_name='tutorial', to=settings.AUTH_USER_MODEL)),
             ],
+            options={
+                'verbose_name': '教程',
+                'verbose_name_plural': '教程',
+                'ordering': ['-published_at'],
+            },
+        ),
+        migrations.CreateModel(
+            name='TutorialImage',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('image', models.ImageField(upload_to=utils.image.handlers.UUIDFilename('tutorial/images/'))),
+                ('is_cover', models.BooleanField(default=False)),
+                ('uploaded', models.DateTimeField(default=django.utils.timezone.now)),
+                ('post', models.ForeignKey(related_name='images', to='tutorials.Tutorial')),
+            ],
+            options={
+                'db_table': 'tutorials_image',
+                'ordering': ('-is_cover',),
+            },
         ),
     ]
