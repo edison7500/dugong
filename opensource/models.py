@@ -1,15 +1,16 @@
 from datetime import datetime, timedelta
 from django.db import models
 from django.utils import timezone
-from django_markdown.models import MarkdownField
+# from django_markdown.models import MarkdownField
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
 from caching.base import CachingManager, CachingMixin
 from hashlib import md5
 # Create your models here.
-from django_markdown.utils import markdown
+# from django_markdown.utils import markdown
 from django_pandas.managers import DataFrameManager
+from markdownx.models import MarkdownxField
 
 
 class Category(models.Model):
@@ -43,7 +44,7 @@ class Project(CachingMixin, models.Model):
     category = models.ForeignKey(Category, related_name='category', null=True)
     desc = models.TextField(null=True, blank=True)
     github_url = models.URLField(default='', max_length=255)
-    readme = MarkdownField(blank=True, null=True)
+    readme = MarkdownxField(blank=True, null=True)
     created_datetime = models.DateTimeField(auto_now=True, db_index=True)
     display = models.BooleanField(default=True)
 

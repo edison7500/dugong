@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 from django.contrib.syndication.views import Feed
 from django.core.urlresolvers import reverse
 # from django.utils.feedgenerator import Atom1Feed
@@ -6,12 +6,12 @@ from django.utils.encoding import smart_str
 from django.utils.html import strip_tags, escape
 from django.utils.translation import gettext_lazy as _
 from django.utils.feedgenerator import Rss201rev2Feed
-from django_markdown.utils import markdown
+# from django_markdown.utils import markdown
 
 from blog.models import Post
 
-
 from xml.sax.saxutils import XMLGenerator
+
 
 class SimplerXMLGenerator(XMLGenerator):
     def addQuickElement(self, name, contents=None, attrs=None, escape=False):
@@ -22,15 +22,15 @@ class SimplerXMLGenerator(XMLGenerator):
             if escape:
                 self.characters(contents)
             else:
-                if not isinstance(contents, unicode):
-                    contents = unicode(contents, self._encoding)
+                if not isinstance(contents, str):
+                    contents = str(contents, self._encoding)
                 self._write(contents)
         self.endElement(name)
 
 
 class PostsFeedGenerator(Rss201rev2Feed):
-
     mime_type = 'application/xml; charset=utf-8'
+
     def write(self, outfile, encoding):
         handler = SimplerXMLGenerator(outfile, encoding)
         handler.startDocument()
@@ -41,13 +41,12 @@ class PostsFeedGenerator(Rss201rev2Feed):
         self.endChannelElement(handler)
         handler.endElement("rss")
 
-
     def rss_attributes(self):
         attrs = super(PostsFeedGenerator, self).rss_attributes()
         attrs['xmlns:content'] = 'http://purl.org/rss/1.0/modules/content/'
         attrs['xmlns:media'] = 'http://search.yahoo.com/mrss/'
         attrs['xmlns:georss'] = 'http://www.georss.org/georss'
-        attrs['xmlns:dc'] ="http://purl.org/dc/elements/1.1/"
+        attrs['xmlns:dc'] = "http://purl.org/dc/elements/1.1/"
         return attrs
 
     def add_item_elements(self, handler, item):
@@ -95,6 +94,6 @@ class PostFeeds(Feed):
 
     def item_extra_kwargs(self, item):
         extra = {
-                'content_encoded': ("<![CDATA[%s]]>" % smart_str(markdown(item.content))),
-                }
+            'content_encoded': ("<![CDATA[%s]]>" % smart_str(markdown(item.content))),
+        }
         return extra

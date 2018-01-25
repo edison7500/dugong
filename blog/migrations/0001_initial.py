@@ -2,8 +2,9 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
+from markdownx.models import MarkdownxField
 import caching.base
-import django_markdown.models
+# import django_markdown.models
 import django.utils.timezone
 
 
@@ -19,7 +20,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
                 ('title', models.CharField(verbose_name='title', max_length=255)),
                 ('slug', models.SlugField(max_length=30, unique=True, default='', editable=False)),
-                ('content', django_markdown.models.MarkdownField()),
+                ('content', MarkdownxField()),
                 ('status', models.IntegerField(verbose_name='status', default=1, choices=[(0, 'block'), (1, 'preview'), (2, 'publish')])),
                 ('created_date', models.DateTimeField(verbose_name='created_date', db_index=True, auto_now_add=True)),
                 ('last_update', models.DateTimeField(verbose_name='last_update', db_index=True, auto_now=True)),

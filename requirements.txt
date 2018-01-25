@@ -16,7 +16,7 @@ django-allauth==0.32.0
 django-appconf==1.0.2
 django-bootstrap3==9.1.0
 django-braces==1.11.0
--e git+https://github.com/edison7500/django-bulma.git#egg=django_bulma
+-e git+git@github.com:edison7500/django-bulma.git@4bf91dc4d7360ca0d08b27b72d00eaa6f0d1cd2c#egg=django_bulma
 django-cache-machine==1.0.0
 django-compressor==2.2
 django-contrib-comments==1.8.0
@@ -27,7 +27,7 @@ django-formtools==1.0
 django-gravatar2==1.4.2
 django-haystack==2.6.0
 django-htmlmin==0.10.0
-django-markdown==0.8.4
+django-markdownx==2.0.22
 django-model-utils==3.0.0
 django-nose==1.4.4
 django-pandas==0.4.4
