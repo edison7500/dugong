@@ -45,7 +45,7 @@ class Tutorial(models.Model):
         verbose_name = u"教程"
         verbose_name_plural = u'教程'
 
-    def __unicode__(self):
+    def __str__(self):
         return u'{title}'.format(title=self.title)
 
     def get_absolute_url(self):

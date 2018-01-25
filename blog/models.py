@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
@@ -35,11 +36,13 @@ class Post(CachingMixin, models.Model):
     class Meta:
         ordering = ['-created_date']
 
-    def __unicode__(self):
+    # def __unicode__(self):
+    def __str__(self):
         return self.title
 
     def get_absolute_url(self):
-        return "/blog/{slug}/".format(slug=self.slug)
+        return reverse('blog:detail', args=[self.slug])
+        # return "/blog/{slug}/".format(slug=self.slug)
 
     def render_markdown(self):
         md = markdown.Markdown(extensions=['markdown.extensions.toc',

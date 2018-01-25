@@ -1,28 +1,28 @@
-{% extends 'base/base.html' %}
+{% extends 'base/bulma_base.html' %}
 {% load i18n cache %}
 
 {% block container %}
-    {% url 'homepage' as index_url %}
-    {% url 'web_blog_list' as blog_url %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div id="homepage-latest">
-                    <p class="tip">周上升最快的 Python 项目</p>
-                    {% for project in projects_week %}
-                        {% include 'index/cell.html' with project=project %}
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div id="homepage-latest">
-                    <p class="tip">月上升最快的 Python 项目</p>
-                    {% for project in projects_month %}
-                        {% include 'index/cell.html' with project=project month=True %}
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        {% include 'base/goto-top.html' %}
-    </div>
+{#    {% url 'homepage' as index_url %}#}
+{#    {% url 'web_blog_list' as blog_url %}#}
+{#    <div class="container">#}
+{#        <div class="row">#}
+{#            <div class="col-md-6">#}
+{#                <div id="homepage-latest">#}
+{#                    <p class="tip">周上升最快的 Python 项目</p>#}
+{#                    {% for project in projects_week %}#}
+{#                        {% include 'index/cell.html' with project=project %}#}
+{#                    {% endfor %}#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="col-md-6">#}
+{#                <div id="homepage-latest">#}
+{#                    <p class="tip">月上升最快的 Python 项目</p>#}
+{#                    {% for project in projects_month %}#}
+{#                        {% include 'index/cell.html' with project=project month=True %}#}
+{#                    {% endfor %}#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        {% include 'base/goto-top.html' %}#}
+{#    </div>#}
 {% endblock %}
