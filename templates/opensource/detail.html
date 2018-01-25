@@ -1,62 +1,70 @@
-{% extends 'base/base.html' %}
+{% extends 'base/bulma_base.html' %}
 {% load i18n %}
-{% load django_markdown %}
-
+{#{% load django_markdown %}#}
+{% load bulma_tags %}
+{##}
 {% block title %}{{ project }} | Python 观察员{% endblock %}
 
-{% block container %}
 
-    <div class="container">
-        <h1 class="sr-only">{{ project }}</h1>
-        <div class="row">
-            <div class="col-sm-offset-1 col-sm-10">
-                <ol class="breadcrumb">
-                    <li><a href="{% url 'homepage' %}" title="{% trans 'home' %}"><i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a></li>
-                    <li class="active">{{ project.name }}</li>
-                </ol>
+{% block content %}
 
-                <div id="project">
-                    <h2><i class="fa fa-github" aria-hidden="true"></i>&nbsp;{{ project.author }} / {{ project.name }}</h2>
-                    <div class="project-content">
-                        <a target="_blank" href="{{ project.github_url }}" title="{{ project }}">
-                            <h3 class="project-title" >{{ project.author }} / {{ project.name }}</h3>
-                        </a>
-                        <div class="btn-group" role="group">
-                            <a href="{{ project.get_subscription }}" class="btn btn-sm btn-default"><i class="fa fa-eye"></i></a>
-                            <button type="button" class="btn btn-sm btn-default">{{ project.latest_watch }}</button>
-                        </div>&nbsp;
-                        <div class="btn-group" role="group">
-                            <a href="{{ project.get_star }}" type="button" class="btn btn-sm btn-default"><i class="fa fa-star"></i></a>
-                            <button type="button" class="btn btn-sm btn-default">{{ project.latest_star }}</button>
-                        </div>&nbsp;
-                        <div class="btn-group" role="group">
-                            <a href="{{ project.get_fork }}" type="button" class="btn btn-sm btn-default"><i class="fa fa-code-fork"></i></a>
-                            <button type="button" class="btn btn-sm btn-default">{{ project.latest_fork }}</button>
-                        </div>
-                        <p class="project-desc">{{ project.desc }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-offset-1 col-sm-10">
-                <embed type="image/svg+xml" src= {{ chart|safe }} />
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-offset-1 col-sm-10">
-                <div id="readme">
-                <h3><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;README</h3>
-                <article>
-                    {{ project.html_content }}
-                </article>
-                </div>
-            </div>
-        </div>
-
-        {% include 'base/goto-top.html' %}
-    </div>
 
 {% endblock %}
+
+{##}
+{#{% block container %}#}
+{##}
+{#    <div class="container">#}
+{#        <h1 class="sr-only">{{ project }}</h1>#}
+{#        <div class="row">#}
+{#            <div class="col-sm-offset-1 col-sm-10">#}
+{#                <ol class="breadcrumb">#}
+{#                    <li><a href="{% url 'homepage' %}" title="{% trans 'home' %}"><i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a></li>#}
+{#                    <li class="active">{{ project.name }}</li>#}
+{#                </ol>#}
+{##}
+{#                <div id="project">#}
+{#                    <h2><i class="fa fa-github" aria-hidden="true"></i>&nbsp;{{ project.author }} / {{ project.name }}</h2>#}
+{#                    <div class="project-content">#}
+{#                        <a target="_blank" href="{{ project.github_url }}" title="{{ project }}">#}
+{#                            <h3 class="project-title" >{{ project.author }} / {{ project.name }}</h3>#}
+{#                        </a>#}
+{#                        <div class="btn-group" role="group">#}
+{#                            <a href="{{ project.get_subscription }}" class="btn btn-sm btn-default"><i class="fa fa-eye"></i></a>#}
+{#                            <button type="button" class="btn btn-sm btn-default">{{ project.latest_watch }}</button>#}
+{#                        </div>&nbsp;#}
+{#                        <div class="btn-group" role="group">#}
+{#                            <a href="{{ project.get_star }}" type="button" class="btn btn-sm btn-default"><i class="fa fa-star"></i></a>#}
+{#                            <button type="button" class="btn btn-sm btn-default">{{ project.latest_star }}</button>#}
+{#                        </div>&nbsp;#}
+{#                        <div class="btn-group" role="group">#}
+{#                            <a href="{{ project.get_fork }}" type="button" class="btn btn-sm btn-default"><i class="fa fa-code-fork"></i></a>#}
+{#                            <button type="button" class="btn btn-sm btn-default">{{ project.latest_fork }}</button>#}
+{#                        </div>#}
+{#                        <p class="project-desc">{{ project.desc }}</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="row">#}
+{#            <div class="col-sm-offset-1 col-sm-10">#}
+{#                <embed type="image/svg+xml" src= {{ chart|safe }} />#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="row">#}
+{#            <div class="col-sm-offset-1 col-sm-10">#}
+{#                <div id="readme">#}
+{#                <h3><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;README</h3>#}
+{#                <article>#}
+{#                    {{ project.html_content }}#}
+{#                </article>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        {% include 'base/goto-top.html' %}#}
+{#    </div>#}
+{##}
+{#{% endblock %}#}
