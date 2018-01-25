@@ -1,17 +1,29 @@
-{% extends 'base/base.html' %}
+{% extends 'base/bulma_base.html' %}
 {% load flatpages %}
 {% get_flatpages as flatpages %}
+{% load bulma_tags %}
 
 {% block title %}{{ flatpage.title }} | 只做技术宅{% endblock %}
 
-{% block container %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 col-xs-12">
-                <div class="about">
-                    {{ flatpage.content }}
-                </div>
-            </div>
+{#{% block container %}#}
+{#    <div class="container">#}
+{#        <div class="row">#}
+{#            <div class="col-md-8 col-md-offset-2 col-xs-12">#}
+{#                <div class="about">#}
+{#                    {{ flatpage.content }}#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#{% endblock %}#}
+
+{% block content %}
+    <div class="columns">
+        <div class="column is-8 is-offset-2">
+            <h1 class="title">{{ flatpages.title }}</h1>
+            <article>
+                {{ flatpages.content|safe }}
+            </article>
         </div>
     </div>
 {% endblock %}
