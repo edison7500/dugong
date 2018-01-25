@@ -1,17 +1,5 @@
-"""dugong URL Configuration
+# coding=utf-8
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.8/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
-Including another URLconf
-    1. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
-"""
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -22,10 +10,7 @@ from views.home import HomeView
 handler500 = 'views.errors.page_error'
 handler404 = 'views.errors.not_found'
 
-
-urlpatterns = staticfiles_urlpatterns()
-
-urlpatterns += [
+urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     # url(r'^markdown/', include('django_markdown.urls')),
     url(r'^comments/', include('django_comments.urls')),
@@ -80,3 +65,5 @@ from django.contrib.flatpages import views
 urlpatterns += [
     url(r'^pages/(?P<url>.*/?)$', views.flatpage),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
