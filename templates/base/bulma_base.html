@@ -1,12 +1,17 @@
 {% extends 'bulma/base.html' %}
 {% load static %}
+{% load compress %}
 {% load bulma_tags %}
 
 
 {% block extra_css %}
-    <link type="text/css" rel="stylesheet" href="{% static 'css/main.css' %}">
-    <link type="text/css" rel="stylesheet" href="{% static 'css/typo.css' %}">
-    <link type="text/css" rel="stylesheet" href="{% static 'css/pygments.css' %}">
+
+    {% compress css %}
+        <link type="text/css" rel="stylesheet" href="{% static 'css/main.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/typo.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/pygments.css' %}">
+    {% endcompress %}
+
 {% endblock extra_css %}
 
 
@@ -16,7 +21,27 @@
 {% block footer %}{% include 'base/snippets/footer.html' %}{% endblock %}
 
 
-{% block extra_js %}
+{% block extra_javascript %}
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-22063793-3', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?a1329b889f1ed2244d2abb4244fa4fbd";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58ee6b44b343d536"></script>
 {% endblock %}
