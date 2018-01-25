@@ -1,18 +1,31 @@
-<div class="media">
-    <div class="media-left">
-        {% if month %}
-            <i class="fa fa-star" style="font-size: 12px;"></i>{{ project.latest_30_day_star }}
-        {% else %}
-            <i class="fa fa-star" style="font-size: 12px;"></i>{{ project.latest_7_day_star }}
-        {% endif %}
+{#<div class="media">#}
+{#    <div class="media-left">#}
+{#        {% if month %}#}
+{#            <i class="fa fa-star" style="font-size: 12px;"></i>{{ project.latest_30_day_star }}#}
+{#        {% else %}#}
+{#            <i class="fa fa-star" style="font-size: 12px;"></i>{{ project.latest_7_day_star }}#}
+{#        {% endif %}#}
+{#    </div>#}
+{#    <div class="media-body" style="margin-left: 20px">#}
+{#        <a href="{{ project.url }}" title="{{ project.author }} / {{ project.name }}" target="_blank">#}
+{#            <h4 class="media-heading">#}
+{#            {{ project.name }}#}
+{#            </h4>#}
+{#        </a>#}
+{#        <p class="post-meta">{{ project.desc|striptags }}</p>#}
+{#    </div>#}
+{#</div>#}
+{#<hr >#}
+
+<article class="media">
+    {% if month %}
+        <aside class="media-left"><i class="fa fa-star"></i>{{ project.latest_30_day_star }}</aside>
+    {% else %}
+        <aside class="media-left"><i class="fa fa-star"></i>{{ project.latest_7_day_star }}</aside>
+    {% endif %}
+    <div class="media-content">
+        <p class="title"><a href="{{ project.url }}" title="{{ project.author }} / {{ project.name }}" target="_blank">
+            {{ project.name }}</a></p>
+        <div>{{ project.desc|striptags }}</div>
     </div>
-    <div class="media-body" style="margin-left: 20px">
-        <a href="{{ project.url }}" title="{{ project.author }} / {{ project.name }}" target="_blank">
-            <h4 class="media-heading">
-            {{ project.name }}
-            </h4>
-        </a>
-        <p class="post-meta">{{ project.desc|striptags }}</p>
-    </div>
-</div>
-<hr >
+</article>
