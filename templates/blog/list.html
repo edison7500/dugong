@@ -1,32 +1,58 @@
-{% extends 'base/base.html' %}
+{% extends 'base/bulma_base.html' %}
 {% load i18n cache %}
+{% load bulma_tags %}
 
-{% block container %}
-   <div class="container">
-        <div class="row">
-            <ol class="post-breadcrumb">
-                <li><a href="{% url 'homepage' %}" title="{% trans 'home' %}">
-                    <i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a></li>
-                <li class="active"><i class="fa fa-keyboard-o"></i>&nbsp;博客</li>
-            </ol>
-            <div class="col-md-8" id="blog-container">
-                <ul class="list-unstyled">
-                    {% for post in object_list %}
-                        {% include 'blog/snippets/cell.html' with post=post %}
-{#                    {% include 'blog/cell.html' with post=post %}#}
-                    {% endfor %}
-                </ul>
+{% block content %}
+    <nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="{% url 'homepage' %}" title="{% trans 'home' %}"><i class="fa fa-home"></i></a>
+            </li>
+            <li class="is-active">
+                <a href="#" title="{% trans 'blog' %}">
+                    <i class="fa fa-keyboard-o"></i>&nbsp;{% trans 'blog' %}</a></li>
+        </ul>
+    </nav>
 
-                {% include 'base/paginator.html' %}
-            </div>
+    <div class="columns is-desktop is-multiline">
+        <div class="column is-8">
+            {% for row in object_list %}
+                {% include 'blog/snippets/cell.html' with post=row %}
+            {% endfor %}
 
-            <div class="col-md-4 hidden-xs">
-                {% cache 3600 sidebar %}
-                    {% include 'blog/slider/slider.html' %}
-                {% endcache %}
-            </div>
-
-            {% include 'base/goto-top.html' %}
         </div>
+
+        <div class="column is-4"></div>
     </div>
+    {% bulma_pagination page_obj extra=request.GET.urlencode %}
 {% endblock %}
+
+{#{% block container %}#}
+{#   <div class="container">#}
+{#        <div class="row">#}
+{#            <ol class="post-breadcrumb">#}
+{#                <li><a href="{% url 'homepage' %}" title="{% trans 'home' %}">#}
+{#                    <i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a></li>#}
+{#                <li class="active"><i class="fa fa-keyboard-o"></i>&nbsp;博客</li>#}
+{#            </ol>#}
+{#            <div class="col-md-8" id="blog-container">#}
+{#                <ul class="list-unstyled">#}
+{#                    {% for post in object_list %}#}
+{#                        {% include 'blog/snippets/cell.html' with post=post %}#}
+{#                    {% include 'blog/cell.html' with post=post %}#}
+{#                    {% endfor %}#}
+{#                </ul>#}
+{##}
+{#                {% include 'base/paginator.html' %}#}
+{#            </div>#}
+{##}
+{#            <div class="col-md-4 hidden-xs">#}
+{#                {% cache 3600 sidebar %}#}
+{#                    {% include 'blog/slider/slider.html' %}#}
+{#                {% endcache %}#}
+{#            </div>#}
+{##}
+{#            {% include 'base/goto-top.html' %}#}
+{#        </div>#}
+{#    </div>#}
+{#{% endblock %}#}
