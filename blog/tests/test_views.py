@@ -10,16 +10,16 @@ class PostTemplateTest(TestCase):
         PostFaker()
 
     def test_post_list(self):
-        response = self.client.get('/blog/')
+        response = self.client.get(reverse('blog:list'))
         self.assertTemplateUsed(response, 'blog/list.html')
 
     def test_post_detail(self):
         post = Post.objects.all().first()
-        response = self.client.get('/blog/{slug}/'.format(slug=post.slug))
+        response = self.client.get(post.get_absolute_url())
         self.assertEqual(response.status_code, 404)
         post.status = Post.publish
         post.save()
-        response = self.client.get('/blog/{slug}/'.format(slug=post.slug))
+        response = self.client.get(post.get_absolute_url())
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'blog/detail.html')
 
@@ -41,6 +41,6 @@ class PostViewTest(TestCase):
         post.status = Post.publish
         post.save()
 
-        path = reverse('web_blog_detail', args=[post.slug])
+        path = reverse('blog:detail', args=[post.slug])
         res = self.client.get(path)
         self.assertEqual(res.status_code, 200)

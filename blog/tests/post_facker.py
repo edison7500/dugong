@@ -7,10 +7,10 @@ from blog.models import Post
 faker = Faker()
 
 
-
 class PostFaker(factory.django.DjangoModelFactory):
     class Meta:
         model = Post
         django_get_or_create = ('title', 'content')
-    title                   = faker.name()
-    content                 = faker.text()
+
+    title = faker.name()
+    content = faker.text()
