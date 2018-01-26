@@ -23,11 +23,6 @@ class BlogAdminForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = forms.ALL_FIELDS
-        # labels  = {
-        #     'creator': _('author'),
-        # }
         widgets = {
             'content' : MarkdownxFormField(),
-        # 'title': forms.TextInput(attrs={'class':'form-control'}),
-        # 'status': forms.Select(attrs={'class':'form-control'}),
         }
