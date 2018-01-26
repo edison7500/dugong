@@ -14,7 +14,8 @@ from model_utils import Choices
 # from urlparse import urlparse
 from urllib.parse import urlparse
 from utils.image.handlers import UUIDFilename
-import markdown
+from utils.render_md import md
+# import markdown
 
 upload_dir = UUIDFilename('tutorial/images/')
 
@@ -52,13 +53,6 @@ class Tutorial(models.Model):
         return reverse('tutorials:detail', args=[self.slug, ])
 
     def render_markdown(self):
-        md = markdown.Markdown(extensions=['markdown.extensions.toc',
-                                           'markdown.extensions.extra',
-                                           'markdown.extensions.codehilite',
-                                           'markdown.extensions.tables',
-                                           'markdown.extensions.headerid',
-                                           'markdown.extensions.fenced_code',
-                                           ])
         html = md.convert(self.content)
         return html, md.toc
 

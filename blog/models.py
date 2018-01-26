@@ -10,9 +10,11 @@ from tagging.registry import register
 
 # from HTMLParser import HTMLParser
 # from django_markdown.models import MarkdownField
-import markdown
+# import markdown
+from utils.render_md import md
 
 from caching.base import CachingManager, CachingMixin
+
 
 # h = HTMLParser()
 
@@ -46,13 +48,6 @@ class Post(CachingMixin, models.Model):
         # return "/blog/{slug}/".format(slug=self.slug)
 
     def render_markdown(self):
-        md = markdown.Markdown(extensions=['markdown.extensions.toc',
-                                           'markdown.extensions.extra',
-                                           'markdown.extensions.codehilite',
-                                           'markdown.extensions.tables',
-                                           'markdown.extensions.headerid',
-                                           'markdown.extensions.fenced_code',
-                                           ])
         html = md.convert(self.content)
         return html, md.toc
 
@@ -82,10 +77,10 @@ class Post(CachingMixin, models.Model):
             return t
 
 
-register(Post)
-
-
 class PostImage(models.Model):
     post = models.ForeignKey(Post, related_name='images')
     image = models.ImageField(upload_to='post/images')
     uploaded_datetime = models.DateTimeField(default=timezone.now)
+
+
+register(Post)
