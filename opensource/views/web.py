@@ -2,7 +2,7 @@
 
 from datetime import timedelta
 from datetime import datetime
-from django.views.generic import DetailView
+from django.views import generic
 # from silk.profiling.profiler import silk_profile
 
 from opensource.models import Project, Status
@@ -11,7 +11,7 @@ import pygal
 from pygal.style import DarkSolarizedStyle
 
 
-class ProjectDetailView(DetailView):
+class ProjectDetailView(generic.DetailView):
     template_name = 'opensource/detail.html'
     model = Project
     queryset = Project.objects.all()

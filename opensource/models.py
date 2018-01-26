@@ -11,6 +11,7 @@ from hashlib import md5
 # from django_markdown.utils import markdown
 from django_pandas.managers import DataFrameManager
 from markdownx.models import MarkdownxField
+from utils.render_md import md
 
 
 class Category(models.Model):
@@ -102,7 +103,7 @@ class Project(CachingMixin, models.Model):
         return _fork
 
     def html_content(self):
-        return markdown(self.readme)
+        return md.convert(self.readme)
 
     def get_subscription(self):
         return "https://github.com/{author}/{name}/subscription".format(
