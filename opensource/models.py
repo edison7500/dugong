@@ -1,20 +1,17 @@
 from datetime import datetime, timedelta
 from django.db import models
 from django.utils import timezone
-# from django_markdown.models import MarkdownField
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
+from django_pandas.managers import DataFrameManager
 
 from caching.base import CachingManager, CachingMixin
 from hashlib import md5
-# Create your models here.
-# from django_markdown.utils import markdown
-from django_pandas.managers import DataFrameManager
 from markdownx.models import MarkdownxField
 from utils.render_md import md
 
 
-class Category(models.Model):
+class Category(CachingMixin, models.Model):
     title = models.CharField(null=True, unique=True, max_length=50)
     created_datetime = models.DateTimeField(default=timezone.now)
 
