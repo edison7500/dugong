@@ -5,15 +5,17 @@
 {% block content %}
     <div class="columns is-multiline is-desktop">
         <div class="column is-half-desktop" style="background-color: #fff;">
-            <h3 class="has-text-centered">周上升最快的 Python 项目</h3>
+            <h3 class="typo-h3 has-text-centered">周上升最快的 Python 项目</h3>
+            <hr class="typo-hr">
             {% for project in projects_week %}
-                {% include 'index/cell.html' %}
+                {% include 'index/cell.html' with project=project  %}
             {% endfor %}
         </div>
         <div class="column is-half-desktop" style="background-color: #fff;">
-            <h3 class="has-text-centered">月上升最快的 Python 项目</h3>
+            <h3 class="typo-h3 has-text-centered">月上升最快的 Python 项目</h3>
+            <hr class="typo-hr">
             {% for project in projects_month %}
-                {% include 'index/cell.html' %}
+                {% include 'index/cell.html' with project=project month=True  %}
             {% endfor %}
         </div>
     </div>
