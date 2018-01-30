@@ -19,7 +19,6 @@
 {#<hr class="typo-hr">#}
 
 <article class="media">
-
     <div class="media-content">
         <h1 class="title typo-h1" style="font-size: 16px;">
             <a href="{{ post.get_absolute_url }}" title="{{ post.title }}">{{ post.title }}</a>
@@ -27,5 +26,12 @@
         <div class="typo-p">
             {{ post.digest|truncatechars:100 }}
         </div>
+        <nav class="level is-mobile">
+            <div class="level-left">
+                <a class="level-item">
+                    <span class="icon is-small"><i class="fas fa-calendar"></i>&nbsp;{{ post.created_date|date:"Y-m-d" }}</span>
+                </a>
+            </div>
+        </nav>
     </div>
 </article>

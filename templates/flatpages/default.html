@@ -1,7 +1,7 @@
 {% extends 'base/bulma_base.html' %}
 {% load flatpages %}
 {% get_flatpages as flatpages %}
-{% load bulma_tags %}
+{#{% load bulma_tags %}#}
 
 {% block title %}{{ flatpage.title }} | 只做技术宅{% endblock %}
 
@@ -18,11 +18,12 @@
 {#{% endblock %}#}
 
 {% block content %}
+{#    {% get_flatpages as flatpages %}#}
     <div class="columns">
-        <div class="column is-8 is-offset-2">
-            <h1 class="title">{{ flatpages.title }}</h1>
-            <article>
-                {{ flatpages.content|safe }}
+        <div class="column is-8 is-offset-2" style="background: #fff; border: #ebebeb solid 1px;">
+            <h1 class="typo-h1 title">{{ flatpage.title }}</h1>
+            <article class="typo">
+                {{ flatpage.content|safe }}
             </article>
         </div>
     </div>
