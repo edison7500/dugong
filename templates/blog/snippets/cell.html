@@ -1,36 +1,22 @@
-{#<li>#}
-{#    <a title="{{ post.title }}" href="{{ post.get_absolute_url }}">#}
-{#        <h1 class="typo-h1">{{ post.title }}</h1>#}
-{#        <p class="typo-p">{{ post.digest|truncatechars:100 }}</p>#}
-{#    </a>#}
-{#    <div class="post-meta">#}
-{#        <ul class="list-inline">#}
-{#            {% for tag in post.tags %}#}
-{#                <li>#}
-{#                    <a href="{% url 'web_blog_tags' tag.pk %}" title="{{ tag.name }}">#}
-{#                        {{ tag.name }}#}
-{#                    </a>#}
-{#                </li>#}
-{#            {% endfor %}#}
-{#            <li class="updated-datetime">{{ post.created_date|date:"Y-m-d" }}</li>#}
-{#        </ul>#}
-{#    </div>#}
-{#</li>#}
-{#<hr class="typo-hr">#}
-
 <article class="media">
     <div class="media-content">
-        <h1 class="title typo-h1" style="font-size: 16px;">
+        <h1 class="title typo-h1" style="font-size: 24px;">
             <a href="{{ post.get_absolute_url }}" title="{{ post.title }}">{{ post.title }}</a>
         </h1>
-        <div class="typo-p">
-            {{ post.digest|truncatechars:100 }}
+        <div class="typo-p tile">
+{#            {{ post.digest|truncatechars:100 }}#}
+            {{ post.digest|safe|truncatechars:100 }}
         </div>
         <nav class="level is-mobile">
             <div class="level-left">
-                <a class="level-item">
-                    <span class="icon is-small"><i class="fas fa-calendar"></i>&nbsp;{{ post.created_date|date:"Y-m-d" }}</span>
-                </a>
+                {% for tag in post.tags %}
+                    <a class="level-item button is-small" href="{% url 'blog:tags' tag.pk %}" title="{{ tag.name }}">{{ tag.name }}</a>
+                {% endfor %}
+            </div>
+            <div class="level-right">
+                <time class="level-item">
+                    <i class="fa fa-calendar"></i>&nbsp;{{ post.created_date|date:"Y-m-d" }}
+                </time>
             </div>
         </nav>
     </div>
