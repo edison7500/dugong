@@ -54,10 +54,19 @@ class PostTagListView(ListView):
     paginate_by = 30
 
     def get_queryset(self):
-        thing_tag = Tag.objects.get(pk=self.tag_id)
+        self.thing_tag = Tag.objects.get(pk=self.tag_id)
         queryset = TaggedItem.objects.get_by_model(Post.objects.filter(status=Post.publish),
-                                                   thing_tag)
+                                                   self.thing_tag)
         return queryset
+
+    def get_context_data(self, **kwargs):
+        _context_data = super(PostTagListView, self).get_context_data(**kwargs)
+        _context_data.update(
+            {
+                'tag':self.thing_tag,
+            }
+        )
+        return _context_data
 
     def get(self, request, *args, **kwargs):
         self.tag_id = kwargs.pop('tag_id', None)
