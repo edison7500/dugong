@@ -1,19 +1,28 @@
-{% extends 'base/base.html' %}
+{% extends 'base/bulma_base.html' %}
+{% load i18n cache %}
+{% load bulma_tags %}
 
-{% block container %}
-   <div class="container">
-        <div class="row">
-            <div class="col-md-8" id="blog-container">
-                {% for post in object_list %}
-                    {% include 'blog/cell.html' with post=post %}
-                {% endfor %}
+{% block content %}
+    <nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="{% url 'homepage' %}" title="{% trans 'home' %}"><i class="fa fa-home"></i></a>
+            </li>
+            <li class="is-active">
+                <a href="#" title="{% trans 'blog' %}">
+                    <i class="fa fa-keyboard-o"></i>&nbsp;{% trans 'blog' %}</a></li>
+        </ul>
+    </nav>
 
-                {% include 'base/paginator.html' %}
-            </div>
+    <div class="columns is-desktop is-multiline">
+        <div class="column is-8" style="background-color: #fff;">
+            {% for row in object_list %}
+                {% include 'blog/snippets/cell.html' with post=row %}
+            {% endfor %}
 
-            <div class="col-md-4 hidden-xs">
-                {% include 'blog/slider/slider.html' %}
-            </div>
         </div>
+
+        <div class="column is-4"></div>
     </div>
+    {% bulma_pagination page_obj extra=request.GET.urlencode %}
 {% endblock %}
