@@ -6,7 +6,7 @@ from django.utils.encoding import smart_str
 from django.utils.html import strip_tags, escape
 from django.utils.translation import gettext_lazy as _
 from django.utils.feedgenerator import Rss201rev2Feed
-# from django_markdown.utils import markdown
+# from utils.render_md import md
 
 from blog.models import Post
 
@@ -56,10 +56,16 @@ class PostsFeedGenerator(Rss201rev2Feed):
             handler.addQuickElement(u'content:encoded', item['content_encoded'], escape=False)
 
 
+def items():
+    return Post.objects.filter(status=Post.publish)[:10]
+    # return Article.objects.published().order_by('-pub_time')[0:20]
+
+
 class PostFeeds(Feed):
     feed_type = PostsFeedGenerator
-    title = u'只做技术宅'
-    link = "/blog/"
+    title = '只做技术宅'
+    # link = "/blog/"
+    link = reverse('blog:list')
     author_email = "edison7500@gmail.com"
     feed_copyright = "since 2008 jiaxin.im All rights reserved."
     description = 'Python观察员，python，django，scrapy，ios'
@@ -69,24 +75,20 @@ class PostFeeds(Feed):
     # def get_object(self, request, *args, **kwargs):
     #     return getattr(get_object_or_404)
 
-    def items(self):
-        return Post.objects.filter(status=Post.publish)[:10]
-        # return Article.objects.published().order_by('-pub_time')[0:20]
-
     def item_title(self, item):
         return escape(item.title)
 
     def item_link(self, item):
-        return reverse('web_blog_detail', args=[item.slug])
+        return reverse('blog:detail', args=[item.slug])
 
     def item_author_name(self, item):
-        return "http://jiaxin.im/"
+        return "https://jiaxin.im/"
 
     def item_pubdate(self, item):
         return item.last_update
 
     def item_description(self, item):
-        content = strip_tags(markdown(item.content))
+        content = strip_tags(item.content.html_content)
         # content = strip_tags(item.article.bleached_content)
         desc = content.split(u'。')
         # return "<![CDATA[%s]]>" % (desc[0] + u'。')
@@ -94,6 +96,6 @@ class PostFeeds(Feed):
 
     def item_extra_kwargs(self, item):
         extra = {
-            'content_encoded': ("<![CDATA[%s]]>" % smart_str(markdown(item.content))),
+            'content_encoded': ("<![CDATA[%s]]>" % smart_str(item.html_content)),
         }
         return extra

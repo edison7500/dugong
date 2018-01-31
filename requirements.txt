@@ -6,6 +6,8 @@ bottle==0.12.13
 certifi==2018.1.18
 cffi==1.10.0
 chardet==3.0.4
+coreapi==2.3.3
+coreschema==0.0.4
 coverage==4.4.1
 crcmod==1.7
 cryptography==1.9
@@ -48,6 +50,7 @@ gunicorn==19.7.1
 html5lib==0.999999999
 idna==2.6
 ipaddress==1.0.18
+itypes==1.1.0
 jedi==0.10.2
 jieba==0.38
 Jinja2==2.9.6
@@ -82,6 +85,7 @@ rjsmin==1.0.12
 six==1.11.0
 sqlparse==0.2.1
 Unidecode==0.4.19
+uritemplate==3.0.0
 urllib3==1.22
 wcwidth==0.1.7
 webencodings==0.5.1
