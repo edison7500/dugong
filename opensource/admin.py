@@ -23,12 +23,12 @@ class ProjectAdmin(admin.ModelAdmin):
     list_per_page       = 30
 
 
-class PostPorjectAdmin(admin.ModelAdmin):
-    list_display = ('url', 'category')
+class PostProjectAdmin(admin.ModelAdmin):
+    list_display = ('url', 'category', 'created_at')
     search_fields = ['url', ]
 
 
 admin.site.register(Author, AuthorAdmin)
-admin.site.register(PostProject, PostPorjectAdmin)
+admin.site.register(PostProject, PostProjectAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Project, ProjectAdmin)

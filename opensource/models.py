@@ -152,9 +152,13 @@ class PostProject(models.Model):
     category = models.ForeignKey(Category, )
     url = models.URLField(max_length=255, blank=True, unique=True)
     status = models.BooleanField(default=True)
+    created_at = models.DateTimeField(default=timezone.now, editable=False, db_index=True)
 
     def __str__(self):
         return self.url
 
     class Meta:
         db_table = 'post_project'
+        verbose_name = _("post project")
+        verbose_name_plural = _("post projects")
+        ordering = ["-created_at"]
