@@ -125,7 +125,7 @@ class Project(CachingMixin, models.Model):
 
     def save(self, *args, **kwargs):
         if self.identified_code is None:
-            self.identified_code = md5(self.github_url).hexdigest()
+            self.identified_code = md5(self.github_url.encode('utf-8')).hexdigest()
         super(Project, self).save(*args, **kwargs)
 
 
