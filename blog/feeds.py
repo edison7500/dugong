@@ -63,7 +63,7 @@ def items():
 
 class PostFeeds(Feed):
     feed_type = PostsFeedGenerator
-    title = '只做技术宅'
+    title = 'Python观察员'
     # link = "/blog/"
     link = reverse('blog:list')
     author_email = "edison7500@gmail.com"

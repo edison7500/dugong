@@ -16,7 +16,7 @@ class AuthorSerializer(serializers.ModelSerializer):
 
 
 class ProjectSerializer(serializers.ModelSerializer):
-    url = serializers.HyperlinkedIdentityField(view_name='open-source-api-detail',
+    url = serializers.HyperlinkedIdentityField(view_name='api:opensource:detail',
                                                lookup_field='identified_code')
 
     class Meta:

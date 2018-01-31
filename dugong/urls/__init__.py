@@ -40,7 +40,8 @@ urlpatterns += [
     api url config
 '''
 urlpatterns +=[
-    url(r'^api/opensource/', include('opensource.urls.api')),
+    url(r'^api/', include('dugong.urls.api', namespace='api')),
+    # url(r'^api/opensource/', include('opensource.urls.api')),
 ]
 
 
