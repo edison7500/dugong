@@ -3,8 +3,9 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 
-from opensource.models import Project, Status, PostProject, Author
-from opensource.serializers import (AuthorSerializer,
+from opensource.models import (Project, Status, PostProject,
+                               Author, Organization)
+from opensource.serializers import (AuthorSerializer, OrganizationSerializer,
                                     ProjectSerializer,
                                     StatusSerializer,
                                     PostProjectSerializer)
@@ -16,11 +17,18 @@ class StandardResultsSetPagination(PageNumberPagination):
     max_page_size = 500
 
 
+class OrganizationListAPIView(generics.ListCreateAPIView):
+    serializer_class = OrganizationSerializer
+    queryset = Organization.objects.all()
+    pagination_class = StandardResultsSetPagination
+    ordering_fields = ('created_at',)
 
 
+class OrganizationDetailAPIView(generics.RetrieveUpdateAPIView):
+    serializer_class = OrganizationSerializer
 
 
-class AuthorListView(generics.ListCreateAPIView):
+class AuthorListAPIView(generics.ListCreateAPIView):
     model = Author
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
