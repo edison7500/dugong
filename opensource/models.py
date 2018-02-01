@@ -26,6 +26,7 @@ class Author(CachingMixin, models.Model):
 
 class Organization(CachingMixin, models.Model):
     name = models.CharField(max_length=128, unique=True)
+    bio = models.CharField(max_length=255, blank=True, default='')
     location = models.CharField(max_length=255, blank=True, null=True)
     web_site = models.CharField(max_length=255, blank=True, null=True)
     email = models.EmailField(max_length=255, blank=True, null=True)
