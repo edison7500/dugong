@@ -13,7 +13,8 @@
             <nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
                 <ul>
                     <li>
-                        <a href="{% url 'homepage' %}" title="{% trans 'home' %}"><i class="fa fa-home"></i></a></li>
+                        <a href="{% url 'homepage' %}" title="{% trans 'home' %}">
+                            <i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a></li>
                     <li>
                         <a href="{% url 'tutorials:list' %}" title="{% trans 'tutorials' %}">
                             <i class="fa fa-book"></i>&nbsp;{% trans 'tutorials' %}</a>
@@ -27,7 +28,7 @@
     </div>
 
     <div class="columns is-desktop is-multiline">
-        <div class="column is-8 is-offset-2" style="background-color: #fff; border: #ebebeb solid 1px;">
+        <div class="column is-8 is-offset-2 content" style="background-color: #fff; border: #ebebeb solid 1px;">
             <h1 class="typo-h1 title">{{ object.title }}</h1>
             <div class="meta">
                 <time><i class="fa fa-calendar"></i>&nbsp;{{ object.published_at|date:'Y-m-d' }}</time>
@@ -36,6 +37,7 @@
                  {{ object.html_content|safe }}
             </article>
 
+{#            <hr class="typo-hr">#}
             <div class="addthis_inline_share_toolbox_2eqs" style="margin-top: 10px;"></div>
         </div>
     </div>
