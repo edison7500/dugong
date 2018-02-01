@@ -7,7 +7,8 @@ from opensource.models import (Project, Category,
 # Register your models here.
 
 class OrganizationAdmin(admin.ModelAdmin):
-    list_display = ('name', 'url', 'location', 'web_site', 'email' 'created_at')
+    list_display = ('name', 'url', 'location', 'web_site',
+                    'email', 'created_at')
     list_per_page = 30
 
 
