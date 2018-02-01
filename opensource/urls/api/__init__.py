@@ -1,6 +1,6 @@
 from django.conf.urls import url, include
 
-from opensource.views.api import ( AuthorListAPIView,
+from opensource.views.api import (
                                     OpenSourceListAPIView,
                                     OpenSourceDetailAPIView,
                                     OpenSourceStatusListView,
@@ -10,7 +10,7 @@ from opensource.views.api import ( AuthorListAPIView,
 
 urlpatterns = [
     url(r'^$', OpenSourceListAPIView.as_view(), name='list'),
-    url(r'^author/?$', AuthorListAPIView.as_view(), name='author'),
+
     url(r'^fetch/project/?$', PostProjectListAPIView.as_view(), name='post-project-api-list'),
     url(r'^(?P<pid>\d+)/stats/?$', OpenSourceStatusListView.as_view(), name='stats'),
 ]
@@ -18,6 +18,7 @@ urlpatterns = [
 
 urlpatterns += [
     url(r'^organization/', include('opensource.urls.api.organization', namespace='organization')),
+    url(r'^author/', include('opensource.urls.api.author', namespace='author')),
 ]
 
 

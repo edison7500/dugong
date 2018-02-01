@@ -19,7 +19,7 @@ class OrganizationSerializer(serializers.ModelSerializer):
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
-        fields = ('author', 'url', 'created')
+        fields = ('author', 'url', 'created_at')
         read_only_fields = ('created_at',)
 
 
