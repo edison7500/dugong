@@ -16,13 +16,11 @@ class OrganizationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Organization
         exclude = ("created_at", "id")
-        # read_only_fields = ( "created_at",)
 
 
 class PeopleSerializer(serializers.ModelSerializer):
     class Meta:
         model = People
-        # fields = ('name', "bio", 'created_at')
         exclude = ("id", )
         read_only_fields = ('created_at',)
 

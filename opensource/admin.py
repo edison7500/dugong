@@ -13,7 +13,8 @@ class OrganizationAdmin(admin.ModelAdmin):
 
 
 class PeopleAdmin(admin.ModelAdmin):
-    list_display = ('name', 'url', 'created_at')
+    list_display = ('name', 'url', 'location',
+                    'web_site', 'created_at')
     list_per_page = 30
     search_fields = ['author', ]
 
