@@ -43,8 +43,10 @@ class Project(CachingMixin, models.Model):
     desc = models.TextField(null=True, blank=True)
     github_url = models.URLField(default='', max_length=255)
     readme = MarkdownxField(blank=True, null=True)
-    created_datetime = models.DateTimeField(auto_now=True, db_index=True)
     display = models.BooleanField(default=True)
+
+    created_at = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
+    updated_at = models.DateTimeField(auto_now=True, db_index=True, editable=False)
 
     identified_code = models.CharField(null=True, blank=True, max_length=32, unique=True)
 
