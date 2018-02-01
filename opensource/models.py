@@ -26,7 +26,7 @@ class Category(CachingMixin, models.Model):
 class Author(CachingMixin, models.Model):
     author = models.CharField(blank=True, max_length=128, unique=True)
     url = models.URLField(blank=True, max_length=255)
-    created = models.DateTimeField(default=timezone.now, db_index=True)
+    created_at = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
 
     def __str__(self):
         return self.author
@@ -34,6 +34,7 @@ class Author(CachingMixin, models.Model):
     class Meta:
         verbose_name = _('author')
         verbose_name_plural = _('authors')
+
 
 
 class Project(CachingMixin, models.Model):

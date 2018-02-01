@@ -16,10 +16,11 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('author', 'name', 'display', 'github_url',)
+    list_display = ('author', 'name', 'category', 'display',
+                    'github_url', 'created_at')
     list_display_links = ('name',)
     search_fields = ('author', 'name',)
-    list_filter = ('display',)
+    list_filter = ('display', 'category', )
     fields = (('author', 'name'), 'display', 'category', 'readme')
     list_per_page = 30
 
