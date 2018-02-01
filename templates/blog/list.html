@@ -6,7 +6,8 @@
     <nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
         <ul>
             <li>
-                <a href="{% url 'homepage' %}" title="{% trans 'home' %}"><i class="fa fa-home"></i></a>
+                <a href="{% url 'homepage' %}" title="{% trans 'home' %}">
+                    <i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a>
             </li>
             <li class="is-active">
                 <a href="#" title="{% trans 'blog' %}">
