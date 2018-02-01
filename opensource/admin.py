@@ -5,7 +5,7 @@ from opensource.models import Project, Category, Author, PostProject
 # Register your models here.
 
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = ('author', 'url')
+    list_display = ('author', 'url', 'created_at')
     list_per_page = 30
     search_fields = ['author', ]
 

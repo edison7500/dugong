@@ -11,18 +11,6 @@ from markdownx.models import MarkdownxField
 from utils.render_md import md
 
 
-class Category(CachingMixin, models.Model):
-    title = models.CharField(null=True, unique=True, max_length=50)
-    created_datetime = models.DateTimeField(default=timezone.now)
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        verbose_name = _('category')
-        verbose_name_plural = _('categories')
-
-
 class Author(CachingMixin, models.Model):
     author = models.CharField(blank=True, max_length=128, unique=True)
     url = models.URLField(blank=True, max_length=255)
@@ -34,6 +22,34 @@ class Author(CachingMixin, models.Model):
     class Meta:
         verbose_name = _('author')
         verbose_name_plural = _('authors')
+
+
+class Organization(CachingMixin, models.Model):
+    name = models.CharField(max_length=128, unique=True)
+    location = models.CharField(max_length=255, blank=True, null=True)
+    web_site = models.CharField(max_length=255, blank=True, null=True)
+    email = models.EmailField(max_length=255, blank=True, null=True)
+
+    created_at = models.DateTimeField(default=timezone.now, db_index=True, editable=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _("organization")
+        verbose_name_plural = _("organization")
+
+
+class Category(CachingMixin, models.Model):
+    title = models.CharField(null=True, unique=True, max_length=50)
+    created_datetime = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _('category')
+        verbose_name_plural = _('categories')
 
 
 class Project(CachingMixin, models.Model):
