@@ -7,11 +7,10 @@
 * Python3.6
 * MySQL
 * Nginx
-* Docker
+
 
 ### Web Framework
 * *django-1.8.18* [相关文档](https://docs.djangoproject.com/en/1.8/)
-
 
 
 ### 教程
