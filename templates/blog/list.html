@@ -23,7 +23,11 @@
 
         </div>
 
-        <div class="column is-4"></div>
+        <div class="column is-4">
+{#            <nav class="panel">#}
+{#                <p class="panel-heading">最近更新</p>#}
+{#            </nav>#}
+        </div>
     </div>
     {% bulma_pagination page_obj extra=request.GET.urlencode %}
 {% endblock %}
