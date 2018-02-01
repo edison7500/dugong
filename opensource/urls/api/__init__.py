@@ -18,7 +18,7 @@ urlpatterns = [
 
 urlpatterns += [
     url(r'^organization/', include('opensource.urls.api.organization', namespace='organization')),
-    url(r'^author/', include('opensource.urls.api.author', namespace='author')),
+    url(r'^people/', include('opensource.urls.api.people', namespace='people')),
 ]
 
 

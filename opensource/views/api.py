@@ -4,8 +4,8 @@ from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 
 from opensource.models import (Project, Status, PostProject,
-                               Author, Organization)
-from opensource.serializers import (AuthorSerializer, OrganizationSerializer,
+                               People, Organization)
+from opensource.serializers import (PeopleSerializer, OrganizationSerializer,
                                     ProjectSerializer,
                                     StatusSerializer,
                                     PostProjectSerializer)
@@ -31,10 +31,10 @@ class OrganizationDetailAPIView(generics.RetrieveUpdateAPIView):
     lookup_field = 'name'
 
 
-class AuthorListAPIView(generics.ListCreateAPIView):
-    model = Author
-    queryset = Author.objects.all()
-    serializer_class = AuthorSerializer
+class PeopleListAPIView(generics.ListCreateAPIView):
+    model = People
+    queryset = People.objects.all()
+    serializer_class = PeopleSerializer
     pagination_class = StandardResultsSetPagination
     filter_backends = (OrderingFilter, DjangoFilterBackend,)
     ordering_fields = ('created_at',)

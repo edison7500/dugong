@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from opensource.models import (Project, Status,
-                               PostProject, Author, Organization)
+                               PostProject, People, Organization)
 
 
 class StatusSerializer(serializers.ModelSerializer):
@@ -19,10 +19,10 @@ class OrganizationSerializer(serializers.ModelSerializer):
         # read_only_fields = ( "created_at",)
 
 
-class AuthorSerializer(serializers.ModelSerializer):
+class PeopleSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Author
-        fields = ('author', 'url', 'created_at')
+        model = People
+        fields = ('name', 'url', 'created_at')
         read_only_fields = ('created_at',)
 
 

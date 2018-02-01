@@ -33,15 +33,16 @@ class Organization(CachingMixin, models.Model):
         return "https://github.com/{name}".format(name=self.name)
 
 
-class Author(CachingMixin, models.Model):
+class People(CachingMixin, models.Model):
     organization = models.ForeignKey(Organization, related_name='authors',
                                      null=True, blank=True)
-    author = models.CharField(blank=True, max_length=128, unique=True)
+    name = models.CharField(blank=True, max_length=128, unique=True)
+    bio = models.CharField(max_length=255, blank=True, null=True)
     url = models.URLField(blank=True, max_length=255)
     created_at = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
 
     def __str__(self):
-        return self.author
+        return self.name
 
     class Meta:
         verbose_name = _('author')
