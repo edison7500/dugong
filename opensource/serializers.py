@@ -22,7 +22,8 @@ class OrganizationSerializer(serializers.ModelSerializer):
 class PeopleSerializer(serializers.ModelSerializer):
     class Meta:
         model = People
-        fields = ('name', 'url', 'created_at')
+        # fields = ('name', "bio", 'created_at')
+        exclude = ("id", )
         read_only_fields = ('created_at',)
 
 

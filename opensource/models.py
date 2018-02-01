@@ -41,8 +41,10 @@ class People(CachingMixin, models.Model):
     location = models.CharField(max_length=255, blank=True, null=True)
     email = models.EmailField(max_length=255, blank=True, null=True)
     web_site = models.URLField(max_length=255, blank=True, null=True)
-    url = models.URLField(blank=True, max_length=255)
 
+    avatar = models.URLField(max_length=255, blank=True, null=True)
+
+    # url = models.URLField(blank=True, max_length=255)
     created_at = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
 
     def __str__(self):
@@ -51,6 +53,10 @@ class People(CachingMixin, models.Model):
     class Meta:
         verbose_name = _('people')
         verbose_name_plural = _('people')
+
+    @property
+    def url(self):
+        return "https://github.com/{name}".format(name=self.name)
 
 
 class Category(CachingMixin, models.Model):
