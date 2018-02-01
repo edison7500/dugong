@@ -40,6 +40,10 @@ class Organization(CachingMixin, models.Model):
         verbose_name = _("organization")
         verbose_name_plural = _("organization")
 
+    @property
+    def url(self):
+        return "https://github.com/{name}".format(name=self.name)
+
 
 class Category(CachingMixin, models.Model):
     title = models.CharField(null=True, unique=True, max_length=50)
