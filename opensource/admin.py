@@ -1,8 +1,15 @@
 from django.contrib import admin
-from opensource.models import Project, Category, Author, PostProject
+from opensource.models import (Project, Category,
+                               Organization,
+                               Author, PostProject)
 
 
 # Register your models here.
+
+class OrganizationAdmin(admin.ModelAdmin):
+    list_display = ('name', 'url', 'location', 'web_site', 'email' 'created_at')
+    list_per_page = 30
+
 
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ('author', 'url', 'created_at')
@@ -30,6 +37,7 @@ class PostProjectAdmin(admin.ModelAdmin):
     search_fields = ['url', ]
 
 
+admin.site.register(Organization, OrganizationAdmin)
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(PostProject, PostProjectAdmin)
 admin.site.register(Category, CategoryAdmin)
