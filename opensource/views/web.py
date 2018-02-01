@@ -16,7 +16,6 @@ class ProjectDetailView(generic.DetailView):
     model = Project
     queryset = Project.objects.all()
     slug_field = 'identified_code'
-    # context_object_name = 'project'
 
     def get_context_data(self, **kwargs):
         _context = super(ProjectDetailView, self).get_context_data(**kwargs)

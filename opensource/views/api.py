@@ -16,13 +16,17 @@ class StandardResultsSetPagination(PageNumberPagination):
     max_page_size = 500
 
 
+
+
+
+
 class AuthorListView(generics.ListCreateAPIView):
     model = Author
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
     pagination_class = StandardResultsSetPagination
     filter_backends = (OrderingFilter, DjangoFilterBackend,)
-    ordering_fields = ('created',)
+    ordering_fields = ('created_at',)
 
 
 class OpenSourceListAPIView(generics.ListCreateAPIView):

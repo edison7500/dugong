@@ -39,7 +39,11 @@
                  {{ object.html_content|safe }}
             </article>
 
-{#            <hr class="typo-hr">#}
+            {% if object.domain %}
+                <div style="margin-top: 10px; margin-bottom: 10px; color: darkgray;">
+                    <i class="fa fa-link"></i>&nbsp;教程来源: <a rel="nofollow" target="_blank" href="{{ object.domain_link }}">{{ object.domain }}</a>
+                </div>
+            {% endif %}
             <div class="addthis_inline_share_toolbox_2eqs" style="margin-top: 10px;"></div>
         </div>
     </div>
