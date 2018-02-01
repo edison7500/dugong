@@ -36,7 +36,6 @@ class Author(CachingMixin, models.Model):
         verbose_name_plural = _('authors')
 
 
-
 class Project(CachingMixin, models.Model):
     author = models.CharField(blank=True, max_length=255)
     name = models.CharField(blank=True, max_length=255)
