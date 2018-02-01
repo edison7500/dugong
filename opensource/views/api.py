@@ -14,7 +14,7 @@ from opensource.serializers import (AuthorSerializer, OrganizationSerializer,
 class StandardResultsSetPagination(PageNumberPagination):
     page_size = 10
     page_size_query_param = 'size'
-    max_page_size = 500
+    max_page_size = 1000
 
 
 class OrganizationListAPIView(generics.ListCreateAPIView):
@@ -26,6 +26,8 @@ class OrganizationListAPIView(generics.ListCreateAPIView):
 
 class OrganizationDetailAPIView(generics.RetrieveUpdateAPIView):
     serializer_class = OrganizationSerializer
+    queryset = Organization.objects.all()
+    lookup_field = 'name'
 
 
 class AuthorListAPIView(generics.ListCreateAPIView):
