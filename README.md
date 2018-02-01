@@ -1,5 +1,6 @@
 # 概览
 [![Build Status](https://travis-ci.org/edison7500/dugong.svg?branch=master)](https://travis-ci.org/edison7500/dugong)
+[![Requirements Status](https://requires.io/github/edison7500/dugong/requirements.svg?branch=master)](https://requires.io/github/edison7500/dugong/requirements/?branch=master)
 
 ### 系统环境
 * Ubuntu 16.04
