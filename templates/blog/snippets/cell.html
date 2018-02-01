@@ -8,9 +8,9 @@
             {{ post.digest|safe|truncatechars:100 }}
         </div>
         <nav class="level is-mobile">
-            <div class="level-left">
+            <div class="level-left tags">
                 {% for tag in post.tags %}
-                    <a class="level-item button is-small" href="{% url 'blog:tags' tag.pk %}" title="{{ tag.name }}">{{ tag.name }}</a>
+                    <a class="level-item tag is-small" href="{% url 'blog:tags' tag.pk %}" title="{{ tag.name }}">{{ tag.name }}</a>
                 {% endfor %}
             </div>
             <div class="level-right">

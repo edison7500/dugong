@@ -32,10 +32,11 @@
             <article class="typo">
                  {{ object.html_content|safe }}
             </article>
+            <hr class="typo-hr">
             <nav class="level is-desktop">
-                <div class="level-left">
+                <div class="level-lef tags">
                     {% for tag in object.tags %}
-                        <a class="level-item button is-small" href="{% url 'blog:tags' tag.pk %}" title="{{ tag.name }}">{{ tag.name }}</a>
+                        <a class="level-item tag is-small" href="{% url 'blog:tags' tag.pk %}" title="{{ tag.name }}">{{ tag.name }}</a>
                     {% endfor %}
                 </div>
             </nav>
