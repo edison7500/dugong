@@ -11,19 +11,6 @@ from markdownx.models import MarkdownxField
 from utils.render_md import md
 
 
-class Author(CachingMixin, models.Model):
-    author = models.CharField(blank=True, max_length=128, unique=True)
-    url = models.URLField(blank=True, max_length=255)
-    created_at = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
-
-    def __str__(self):
-        return self.author
-
-    class Meta:
-        verbose_name = _('author')
-        verbose_name_plural = _('authors')
-
-
 class Organization(CachingMixin, models.Model):
     name = models.CharField(max_length=128, unique=True)
     bio = models.CharField(max_length=255, blank=True, default='')
@@ -43,6 +30,21 @@ class Organization(CachingMixin, models.Model):
     @property
     def url(self):
         return "https://github.com/{name}".format(name=self.name)
+
+
+class Author(CachingMixin, models.Model):
+    organization = models.ForeignKey(Organization, related_name='authors',
+                                     null=True, blank=True)
+    author = models.CharField(blank=True, max_length=128, unique=True)
+    url = models.URLField(blank=True, max_length=255)
+    created_at = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
+
+    def __str__(self):
+        return self.author
+
+    class Meta:
+        verbose_name = _('author')
+        verbose_name_plural = _('authors')
 
 
 class Category(CachingMixin, models.Model):
