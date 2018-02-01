@@ -34,19 +34,23 @@ class Organization(CachingMixin, models.Model):
 
 
 class People(CachingMixin, models.Model):
-    organization = models.ForeignKey(Organization, related_name='authors',
-                                     null=True, blank=True)
+    # organization = models.ForeignKey(Organization, related_name='authors',
+    #                                  null=True, blank=True)
     name = models.CharField(blank=True, max_length=128, unique=True)
     bio = models.CharField(max_length=255, blank=True, null=True)
+    location = models.CharField(max_length=255, blank=True, null=True)
+    email = models.EmailField(max_length=255, blank=True, null=True)
+    web_site = models.URLField(max_length=255, blank=True, null=True)
     url = models.URLField(blank=True, max_length=255)
+
     created_at = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name = _('author')
-        verbose_name_plural = _('authors')
+        verbose_name = _('people')
+        verbose_name_plural = _('people')
 
 
 class Category(CachingMixin, models.Model):
