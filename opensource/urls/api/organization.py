@@ -3,5 +3,5 @@ from opensource.views.api import OrganizationListAPIView, OrganizationDetailAPIV
 
 urlpatterns = [
     url(r'^$', OrganizationListAPIView.as_view(), name='list'),
-    url(r'^(?P<name>\d+)/?$', OrganizationDetailAPIView.as_view(), name='detail'),
+    url(r'^(?P<name>\w+)/?$', OrganizationDetailAPIView.as_view(), name='detail'),
 ]
