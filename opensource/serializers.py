@@ -15,8 +15,8 @@ class OrganizationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Organization
-        exclude = ("created_at",)
-        read_only_fields = ("id", "created_at",)
+        exclude = ("created_at", "id")
+        # read_only_fields = ( "created_at",)
 
 
 class AuthorSerializer(serializers.ModelSerializer):
