@@ -18,7 +18,7 @@ class Organization(CachingMixin, models.Model):
     web_site = models.CharField(max_length=255, blank=True, null=True)
     email = models.EmailField(max_length=255, blank=True, null=True)
 
-    created_at = models.DateTimeField(default=timezone.now, db_index=True, editable=True)
+    created_at = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
 
     def __str__(self):
         return self.name

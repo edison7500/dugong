@@ -18,9 +18,10 @@ class StandardResultsSetPagination(PageNumberPagination):
 
 
 class OrganizationListAPIView(generics.ListCreateAPIView):
+    model = Organization
     serializer_class = OrganizationSerializer
     queryset = Organization.objects.all()
-    pagination_class = StandardResultsSetPagination
+    # pagination_class = StandardResultsSetPagination
     ordering_fields = ('created_at',)
 
 

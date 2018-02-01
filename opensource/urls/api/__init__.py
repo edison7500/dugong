@@ -8,17 +8,19 @@ from opensource.views.api import ( AuthorListAPIView,
                                     )
 
 
-urlpatterns =[
+urlpatterns = [
     url(r'^$', OpenSourceListAPIView.as_view(), name='list'),
     url(r'^author/?$', AuthorListAPIView.as_view(), name='author'),
-    # url(r'^organization/?$', OrganizationListAPIView.as_view(), name='organization'),
-    # url(r'^organization/?$', OrganizationDetailAPIView.as_view(), name='organization'),
     url(r'^fetch/project/?$', PostProjectListAPIView.as_view(), name='post-project-api-list'),
     url(r'^(?P<pid>\d+)/stats/?$', OpenSourceStatusListView.as_view(), name='stats'),
-    url(r'^(?P<identified_code>\w+)/?$', OpenSourceDetailAPIView.as_view(), name='detail'),
 ]
 
 
 urlpatterns += [
-    url(r'^organization', include('opensource.urls.api.organization', namespace='organization')),
+    url(r'^organization/', include('opensource.urls.api.organization', namespace='organization')),
+]
+
+
+urlpatterns += [
+    url(r'^(?P<identified_code>\w+)/?$', OpenSourceDetailAPIView.as_view(), name='detail'),
 ]
