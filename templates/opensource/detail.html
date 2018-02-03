@@ -22,7 +22,11 @@
         </div>
 
         <div class="column is-8 is-offset-2" style="background-color: #fff; border: #ebebeb solid 1px;">
-            <h1 class="typo-h1 title">{{ object.name }}</h1>
+            <h1 class="typo-h1 title">
+                <a href="{{ object.github_url }}" rel="nofollow" target="_blank" title="{{ object.name }}">
+                    {{ object.name }}
+                </a>
+            </h1>
             <div class="field is-grouped is-grouped-multiline">
 
                 <div class="control">
