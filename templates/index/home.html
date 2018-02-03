@@ -2,6 +2,7 @@
 {% load i18n cache %}
 {% load bulma_tags %}
 
+{% cache 7200 index %}
 {% block content %}
     <div class="columns is-multiline is-desktop">
         <div class="column is-half-desktop" style="background-color: #fff;">
@@ -20,6 +21,7 @@
         </div>
     </div>
 {% endblock %}
+{% endcache %}
 {#{% block container %}#}
 {#    {% url 'homepage' as index_url %}#}
 {#    {% url 'web_blog_list' as blog_url %}#}

@@ -5,8 +5,11 @@
         <aside class="media-left"><i class="fa fa-star"></i>{{ project.latest_7_day_star }}</aside>
     {% endif %}
     <div class="media-content">
-        <p class="title is-5"><a href="{{ project.url }}" title="{{ project.author }} / {{ project.name }}" target="_blank">
-            {{ project.name }}</a></p>
+        <p class="title is-5">
+            <a href="{{ project.url }}" title="{{ project.author }} / {{ project.name }}">
+                {{ project.name }}
+            </a>
+        </p>
         <div>{{ project.desc|striptags|truncatechars_html:"50" }}</div>
     </div>
 </article>
