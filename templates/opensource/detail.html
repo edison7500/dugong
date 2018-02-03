@@ -63,13 +63,13 @@
             </figure>
         </div>
 
-{#        {% cache 3600 readme %}#}
+        {% cache 86400 obj_id object.identified_code %}
             <div class="column is-8 is-offset-2 content" style="background-color: #fff; border:  #ebebeb solid 1px;">
                 <article class="typo">
                     {{ object.html_content|safe }}
                 </article>
             </div>
-{#        {% endcache %}#}
+        {% endcache %}
     </div>
 
 {% endblock %}
