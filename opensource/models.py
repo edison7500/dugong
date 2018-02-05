@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 from django_pandas.managers import DataFrameManager
+from django_extensions.db import fields
 
 from caching.base import CachingManager, CachingMixin
 from hashlib import md5
@@ -12,12 +13,15 @@ from utils.render_md import md
 
 
 class Organization(CachingMixin, models.Model):
-    name = models.CharField(max_length=128, unique=True)
+    slug = fields.RandomCharField(length=12, unique=True,
+                                  include_alpha=False, db_index=True, editable=False)
+    name = models.CharField(max_length=128)
     bio = models.CharField(max_length=255, blank=True, default='')
     location = models.CharField(max_length=255, blank=True, null=True)
     web_site = models.CharField(max_length=255, blank=True, null=True)
     email = models.EmailField(max_length=255, blank=True, null=True)
     avatar = models.URLField(max_length=255, blank=True, null=True)
+    url = models.URLField(max_length=255, unique=True, default='')
 
     created_at = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
 
@@ -28,9 +32,9 @@ class Organization(CachingMixin, models.Model):
         verbose_name = _("organization")
         verbose_name_plural = _("organization")
 
-    @property
-    def url(self):
-        return "https://github.com/{name}".format(name=self.name)
+    # @property
+    # def url(self):
+    #     return "https://github.com/{name}".format(name=self.name)
 
 
 class People(CachingMixin, models.Model):

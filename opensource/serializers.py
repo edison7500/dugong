@@ -10,12 +10,13 @@ class StatusSerializer(serializers.ModelSerializer):
 
 
 class OrganizationSerializer(serializers.ModelSerializer):
-    url = serializers.HyperlinkedIdentityField(view_name='api:opensource:organization:detail',
-                                               lookup_field='name')
+    # url = serializers.HyperlinkedIdentityField(view_name='api:opensource:organization:detail',
+    #                                            lookup_field='name')
 
     class Meta:
         model = Organization
         exclude = ("created_at", "id")
+        read_only_fields = ("slug", )
 
 
 class PeopleSerializer(serializers.ModelSerializer):
