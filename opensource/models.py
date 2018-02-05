@@ -38,7 +38,7 @@ class Organization(CachingMixin, models.Model):
 
 
 class People(CachingMixin, models.Model):
-    name = models.CharField(blank=True, max_length=128, unique=True)
+    name = models.CharField(blank=True, null=True, max_length=128,)
     nickname = models.CharField(blank=True, max_length=128)
     bio = models.CharField(max_length=255, blank=True, null=True)
     location = models.CharField(max_length=255, blank=True, null=True)
@@ -47,11 +47,11 @@ class People(CachingMixin, models.Model):
 
     avatar = models.URLField(max_length=255, blank=True, null=True)
 
-    url = models.URLField(max_length=255, blank=True, null=True)
+    url = models.URLField(max_length=255, unique=True, default='')
     created_at = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
 
     def __str__(self):
-        return self.name
+        return self.nickname
 
     class Meta:
         verbose_name = _('people')
