@@ -46,33 +46,3 @@
     </div>
     {% bulma_pagination page_obj extra=request.GET.urlencode %}
 {% endblock %}
-
-{#{% block container %}#}
-{#   <div class="container">#}
-{#        <div class="row">#}
-{#            <ol class="post-breadcrumb">#}
-{#                <li><a href="{% url 'homepage' %}" title="{% trans 'home' %}">#}
-{#                    <i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a></li>#}
-{#                <li class="active"><i class="fa fa-keyboard-o"></i>&nbsp;博客</li>#}
-{#            </ol>#}
-{#            <div class="col-md-8" id="blog-container">#}
-{#                <ul class="list-unstyled">#}
-{#                    {% for post in object_list %}#}
-{#                        {% include 'blog/snippets/cell.html' with post=post %}#}
-{#                    {% include 'blog/cell.html' with post=post %}#}
-{#                    {% endfor %}#}
-{#                </ul>#}
-{##}
-{#                {% include 'base/paginator.html' %}#}
-{#            </div>#}
-{##}
-{#            <div class="col-md-4 hidden-xs">#}
-{#                {% cache 3600 sidebar %}#}
-{#                    {% include 'blog/slider/slider.html' %}#}
-{#                {% endcache %}#}
-{#            </div>#}
-{##}
-{#            {% include 'base/goto-top.html' %}#}
-{#        </div>#}
-{#    </div>#}
-{#{% endblock %}#}

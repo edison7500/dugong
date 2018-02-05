@@ -2,7 +2,6 @@
 {% load cache %}
 {#{% load bulma_tags %}#}
 
-
 {% block content %}
     <div class="columns is-mobile is-multiline">
 {#        <div class="column is-8 is-offset-2">#}
@@ -17,30 +16,3 @@
         </div>
     </div>
 {% endblock %}
-
-{#{% block container %}#}
-{#    <div class="container">#}
-{#        <div class="row">#}
-{##}
-{#            <div class="col-md-8 col-xs-12">#}
-{#                <div id="error" class="row">#}
-{#                    <div class="col-md-6">#}
-{#                        <i class="fa fa-frown-o pull-right"></i>#}
-{#                    </div>#}
-{#                    <div class="col-md-6">#}
-{#                        <p class="error-title" >OOPS!</p>#}
-{#                        <p>心实，则物欲不入。</p>#}
-{#                        <p>你访问的页面不存在。可能因为链接地址有误，或该文章已经被删除。</p>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{##}
-{#            <div class="col-md-4 hidden-xs">#}
-{#                {% cache 3600 sidebar %}#}
-{#                    {% include 'blog/slider/slider.html' %}#}
-{#                {% endcache %}#}
-{#            </div>#}
-{#        </div>#}
-{#        {% include 'base/goto-top.html' %}#}
-{#    </div>#}
-{#{% endblock %}#}
