@@ -1,6 +1,6 @@
 from django.contrib import admin
 from opensource.models import (Project, Category,
-                               Organization,
+                               Organization, Repository,
                                People, PostProject)
 
 
@@ -17,6 +17,10 @@ class PeopleAdmin(admin.ModelAdmin):
                     'web_site', 'created_at')
     list_per_page = 30
     search_fields = ['author', ]
+
+
+class RepositoryAdmin(admin.ModelAdmin):
+    pass
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -44,3 +48,4 @@ admin.site.register(People, PeopleAdmin)
 admin.site.register(PostProject, PostProjectAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Project, ProjectAdmin)
+admin.site.register(Repository, RepositoryAdmin)

@@ -70,6 +70,10 @@ class Repository(models.Model):
 
     created_at = models.DateTimeField(default=timezone.now, editable=False, db_index=True)
 
+    class Meta:
+        verbose_name = _("repository")
+        verbose_name_plural = _("repositories")
+
     def __str__(self):
         return "{author}/{name}".format(
             author=self.author,
