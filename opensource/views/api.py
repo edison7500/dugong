@@ -4,11 +4,11 @@ from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 
 from opensource.models import (Project, Status, PostProject,
-                               People, Organization)
+                               People, Organization, Repository)
 from opensource.serializers import (PeopleSerializer, OrganizationSerializer,
                                     ProjectSerializer,
                                     StatusSerializer,
-                                    PostProjectSerializer)
+                                    PostProjectSerializer, RepositorySerializer)
 
 
 class StandardResultsSetPagination(PageNumberPagination):
@@ -35,6 +35,15 @@ class PeopleListAPIView(generics.ListCreateAPIView):
     model = People
     queryset = People.objects.all()
     serializer_class = PeopleSerializer
+    pagination_class = StandardResultsSetPagination
+    filter_backends = (OrderingFilter, DjangoFilterBackend,)
+    ordering_fields = ('created_at',)
+
+
+class RepositoryListAPIView(generics.ListCreateAPIView):
+    model = Repository
+    queryset = Repository.objects.all()
+    serializer_class = RepositorySerializer
     pagination_class = StandardResultsSetPagination
     filter_backends = (OrderingFilter, DjangoFilterBackend,)
     ordering_fields = ('created_at',)

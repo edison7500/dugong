@@ -19,6 +19,7 @@ urlpatterns = [
 urlpatterns += [
     url(r'^organization/', include('opensource.urls.api.organization', namespace='organization')),
     url(r'^people/', include('opensource.urls.api.people', namespace='people')),
+    url(r'^repositories/', include('opensource.urls.api.repositories', namespace='repository')),
 ]
 
 

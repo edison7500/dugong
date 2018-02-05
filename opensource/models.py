@@ -56,7 +56,30 @@ class People(CachingMixin, models.Model):
     class Meta:
         verbose_name = _('people')
         verbose_name_plural = _('people')
-        ordering = ("-created_at", )
+        ordering = ("-created_at",)
+
+
+class Repository(models.Model):
+    author = models.CharField(max_length=128, default='')
+    name = models.CharField(max_length=128, default='')
+    desc = models.TextField(null=True, blank=True)
+    readme = models.TextField(null=True, blank=True)
+    url = models.URLField(max_length=255, null=True, blank=True)
+
+    identified_code = models.CharField(null=True, blank=True, max_length=32, unique=True)
+
+    created_at = models.DateTimeField(default=timezone.now, editable=False, db_index=True)
+
+    def __str__(self):
+        return "{author}/{name}".format(
+            author=self.author,
+            name=self.name,
+        )
+
+    def save(self, *args, **kwargs):
+        if self.identified_code is None:
+            self.identified_code = md5(self.url.encode('utf-8')).hexdigest()
+        super(Repository, self).save(*args, **kwargs)
 
 
 class Category(CachingMixin, models.Model):
