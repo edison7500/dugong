@@ -52,6 +52,7 @@ class People(CachingMixin, models.Model):
     class Meta:
         verbose_name = _('people')
         verbose_name_plural = _('people')
+        ordering = ("-created_at", )
 
 
 class Category(CachingMixin, models.Model):
