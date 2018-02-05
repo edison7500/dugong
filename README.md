@@ -13,8 +13,7 @@
 * *django-1.8.18* [相关文档](https://docs.djangoproject.com/en/1.8/)
 
 
-### FontEnd Framework
-
+### 前端框架
 * *bulma* [相关文档](https://bulma.io/)
 
 
