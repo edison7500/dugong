@@ -70,8 +70,6 @@ class OpenSourceStatusListView(generics.ListCreateAPIView):
     model = Status
     serializer_class = StatusSerializer
 
-    # queryset            = Status.objects.all()
-
     def get_queryset(self):
         _queryset = Status.objects.filter(project_id=self.pid)
         return _queryset
