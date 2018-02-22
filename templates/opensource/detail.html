@@ -6,9 +6,9 @@
 
 
 {% block content %}
-    <div class="columns is-desktop is-multiline">
+    <div class="columns is-desktop is-multiline is-centered">
 
-        <div class="column is-8 is-offset-2">
+        <div class="column is-8">
             <nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
                 <ul>
                     <li>
@@ -21,7 +21,8 @@
             </nav>
         </div>
 
-        <div class="column is-8 is-offset-2" style="background-color: #fff; border: #ebebeb solid 1px;">
+        <div class="column is-8">
+            <div class="box">
             <h1 class="typo-h1 title">
                 <a href="{{ object.github_url }}" rel="nofollow" target="_blank" title="{{ object.name }}">
                     {{ object.name }}
@@ -56,24 +57,30 @@
                     </div>
                 </div>
             </div>
-            <p class="typo-p">
-                {{ object.desc|safe }}
-            </p>
+
+                <p class="typo-p">
+                    {{ object.desc|safe }}
+                </p>
+            </div>
         </div>
 
-        <div class="column is-8 is-offset-2">
-            <figure class="is-16by9">
-                <embed type="image/svg+xml" src="{{ chart|safe }}" />
-            </figure>
+        <div class="column is-8">
+            <div class="box">
+                <figure class="is-16by9">
+                    <embed type="image/svg+xml" src="{{ chart|safe }}" />
+                </figure>
+            </div>
         </div>
 
-        {% cache 86400 obj_id object.identified_code %}
-            <div class="column is-8 is-offset-2 content" style="background-color: #fff; border:  #ebebeb solid 1px;">
+{#        {% cache 86400 obj_id object.identified_code %}#}
+            <div class="column is-8 content">
+                <div class="box">
                 <article class="typo">
                     {{ object.html_content|safe }}
                 </article>
+                </div>
             </div>
-        {% endcache %}
+{#        {% endcache %}#}
     </div>
 
 {% endblock %}

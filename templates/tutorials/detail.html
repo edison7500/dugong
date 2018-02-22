@@ -27,75 +27,30 @@
         </div>
     </div>
 
-    <div class="columns is-desktop is-multiline">
-        <div class="column is-8 is-offset-2 content" style="background-color: #fff; border: #ebebeb solid 1px;">
-            <h1 class="typo-h1 title">{{ object.title }}</h1>
+    <div class="columns is-desktop is-centered">
+        <div class="column is-8 content">
+            <div class="box">
+                <h1 class="typo-h1 title">{{ object.title }}</h1>
 
-            <div class="meta">
-                <time><i class="fa fa-calendar"></i>&nbsp;{{ object.published_at|date:'Y-m-d' }}</time>
-            </div>
-
-            <article class="typo">
-                 {{ object.html_content|safe }}
-            </article>
-
-            {% if object.domain %}
-                <div style="margin-top: 10px; margin-bottom: 10px; color: darkgray;">
-                    <i class="fa fa-link"></i>&nbsp;教程来源: <a rel="nofollow" target="_blank" href="{{ object.domain_link }}">{{ object.domain }}</a>
+                <div class="meta">
+                    <time><i class="fa fa-calendar"></i>&nbsp;{{ object.published_at|date:'Y-m-d' }}</time>
                 </div>
-            {% endif %}
-            <div class="addthis_inline_share_toolbox_2eqs" style="margin-top: 10px;"></div>
+
+                <article class="typo">
+                     {{ object.html_content|safe }}
+                </article>
+
+                <hr>
+                {% if object.domain %}
+                    <div style="margin-top: 10px; margin-bottom: 10px; color: darkgray;">
+                        <i class="fa fa-link"></i>&nbsp;教程来源: <a rel="nofollow" target="_blank" href="{{ object.domain_link }}">{{ object.domain }}</a>
+                    </div>
+                {% endif %}
+
+                <div class="addthis_inline_share_toolbox_2eqs" style="margin-top: 10px;"></div>
+            </div>
         </div>
     </div>
 
 {% endblock %}
 
-
-{#{% block container %}#}
-{#    <div class="container">#}
-{#        <div class="row">#}
-{#            <div class="col-sm-offset-2 col-sm-8">#}
-{#            <ol class="breadcrumb">#}
-{#                <li><a href="{% url 'homepage' %}" title="{% trans 'home' %}"><i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a></li>#}
-{#                <li><a href="{% url 'tutorials:list' %}" title="{% trans 'tutorials' %}"><i class="fa fa-book"></i>&nbsp;{% trans 'tutorials' %}</a></li>#}
-{#                <li class="active">{{ object.title }}</li>#}
-{#            </ol>#}
-{#            </div>#}
-{#        </div>#}
-{##}
-{#        <div class="row">#}
-{#            <div id="tutorial" class="col-sm-8 col-sm-offset-2" style="margin-bottom: 40px;">#}
-{#                <h1 class="title text-left">{{ object.title }}</h1>#}
-{#                <div class="meta" style="margin-bottom: 10px;padding-top: 10px;padding-bottom: 10px;">#}
-{#                    {% if request.user == object.author %}#}
-{#                        <span class="operation">#}
-{#                            <a href="{% url 'tutorials:update' object.slug %}" target="_blank">#}
-{#                                <i class="fa fa-edit"></i>&nbsp;{% trans 'update' %}</a>#}
-{#                        </span>#}
-{#                    {% endif %}#}
-{#                    <time class="pull-right">#}
-{#                        <i class="fa fa-calendar"></i>&nbsp;{{ object.published_at|date:'Y-m-d' }}#}
-{#                    </time>#}
-{#                </div>#}
-{#                <article class="typo">#}
-{#                    {{ object.html_content|safe }}#}
-{#                </article>#}
-{##}
-{#                {% if object.domain %}#}
-{#                    <div style="margin-top: 10px; margin-bottom: 10px; color: darkgray;">#}
-{#                        <i class="fa fa-link"></i>&nbsp;教程来源: <a rel="nofollow" target="_blank" href="{{ object.domain_link }}">{{ object.domain }}</a>#}
-{#                    </div>#}
-{#                {% endif %}#}
-{##}
-{#                <div class="addthis_inline_share_toolbox_2eqs" style="margin-top: 10px;"></div>#}
-{#            </div>#}
-{#        </div>#}
-{#        <div class="row">#}
-{#            <div class="col-sm-offset-2 col-sm-8">#}
-{#                {% include 'base/comment.html' with object=object %}#}
-{#            </div>#}
-{#        </div>#}
-{##}
-{#        {% include 'base/goto-top.html' %}#}
-{#    </div>#}
-{#{% endblock %}#}
