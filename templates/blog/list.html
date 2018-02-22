@@ -2,6 +2,8 @@
 {% load i18n cache %}
 {% load bulma_tags %}
 
+{% block title %}博客 - Python 观察员{% endblock %}
+
 {% block content %}
     <nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
         <ul>
@@ -16,10 +18,13 @@
     </nav>
 
     <div class="columns is-desktop is-multiline">
-        <div class="column is-8" style="background-color: #fff;">
+
+        <div class="column is-8">
+            <div class="box">
             {% for row in object_list %}
                 {% include 'blog/snippets/cell.html' with post=row %}
             {% endfor %}
+            </div>
         </div>
 
         <div class="column is-4">

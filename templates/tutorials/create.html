@@ -1,18 +1,20 @@
-{% extends 'base/base.html' %}
+{% extends 'base/bulma_base.html' %}
 {% load i18n %}
-{% load bootstrap3 %}
+{% load bulma_tags %}
+{#{% load bootstrap3 %}#}
 
 
-{% block container %}
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-10 col-sm-offset-1">
-                <form class="form-horizontal" method="post">
-                    {% csrf_token %}
+{% block content %}
+    <div class="columns is-desktop is-centered">
+        <div class="column is-8">
+            <div class="box">
+                <form method="post">{% csrf_token %}
                     <fieldset>
-                        {% bootstrap_form form layout='inline' %}
+                        {{ form|bulma_inline }}
+                        <div class="field">
+                            <button type="submit" class="button is-primary">{% trans 'submit' %}</button>
+                        </div>
                     </fieldset>
-                    <button class="btn btn-primary" type="submit">{% trans 'submit' %}</button>
                 </form>
             </div>
         </div>
