@@ -2,6 +2,9 @@
 {% load i18n cache %}
 {% load bulma_tags %}
 
+
+{% block title %}首页 - Python观察员{% endblock %}
+
 {% cache 7200 index %}
 {% block content %}
     <div class="columns is-multiline is-desktop">
