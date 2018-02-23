@@ -1,49 +1,23 @@
-{#{% extends 'registration/login.html' %}#}
-{#{% load i18n %}#}
-{#{% load gravatar %}#}
-{#{% load account socialaccount %}#}
-{##}
-{#{% block title %}{% trans "Sign In" %}{% endblock %}#}
-{##}
-{#{% block content %}#}
-{#    <div class="container">#}
-{#        <div class="card card-container">#}
-{#            <img id="profile-img" class="profile-img-card" src="{% gravatar_url 'example@jiaxin.im' 80 %}">#}
-{#            <p id="profile-name" class="profile-name-card"></p>#}
-{#            <form class="form-signin" method="POST" action="{% url 'account_login' %}">#}
-{#                {% csrf_token %}#}
-{#                <fieldset>#}
-{#                {% for field in form %}#}
-{#                    {% bootstrap_field field show_label=False %}#}
-{#                {% endfor %}#}
-{#                </fieldset>#}
-{#                <button class="btn btn-lg btn-success btn-block btn-signin" type="submit">{% trans 'Sign In' %}</button>#}
-{#            </form><!-- /form -->#}
-{#            <ul class="list-unstyled" style="padding-left: 16px; padding-right: 16px;padding-top: 16px;border-top: #ebebeb solid 1px;">#}
-{#                {% include "account/provider_list.html" with process="login" %}#}
-{#            </ul>#}
-{#        </div>#}
-{#    </div>#}
-{#{% endblock %}#}
-{#{% block footer %}{% endblock %}#}
-
-
 {% extends "account/base.html" %}
 {% load bulma_tags i18n %}
 
+{% block title %}{% trans 'Sign In' %} - Python观察员{% endblock %}
+
 {% block content %}
 
-  {% if form.errors %}
-    <p>{% trans "Your username and password didn't match. Please try again." %}</p>
-  {% endif %}
+    <div class="box">
+        {% if form.errors %}
+            <p>{% trans "Your username and password didn't match. Please try again." %}</p>
+        {% endif %}
 
-  <form method="post" action="{% url 'account_login' %}">
-    {% csrf_token %}
-    {{ form|bulma }}
-    <div class="field">
-      <button type="submit" class="button is-primary">{% trans 'Log in' %}</button>
+        <form method="post" action="{% url 'account_login' %}">
+        {% csrf_token %}
+            {{ form|bulma }}
+            <div class="field">
+                <button type="submit" class="button is-primary">{% trans 'Log in' %}</button>
+            </div>
+        <input type="hidden" name="next" value="{{ next }}"/>
+        </form>
     </div>
-    <input type="hidden" name="next" value="{{ next }}"/>
-  </form>
 
 {% endblock %}

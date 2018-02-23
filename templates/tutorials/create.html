@@ -10,7 +10,7 @@
             <div class="box">
                 <form method="post">{% csrf_token %}
                     <fieldset>
-                        {{ form|bulma_inline }}
+                        {{ form|bulma }}
                         <div class="field">
                             <button type="submit" class="button is-primary">{% trans 'submit' %}</button>
                         </div>
