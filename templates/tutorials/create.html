@@ -10,7 +10,14 @@
             <div class="box">
                 <form method="post">{% csrf_token %}
                     <fieldset>
-                        {{ form|bulma }}
+{#                        {{ form|bulma }}#}
+                        {% for field in form %}
+{#                            {{ field.html_name }}#}
+                            <div class="field" {% if field.html_name == "content" %}{% endif %}>
+                                {{ field|bulma }}
+                            </div>
+                        {% endfor %}
+
                         <div class="field">
                             <button type="submit" class="button is-primary">{% trans 'submit' %}</button>
                         </div>
@@ -19,4 +26,6 @@
             </div>
         </div>
     </div>
+
+{#    <div id="editSection"></div>#}
 {% endblock %}
