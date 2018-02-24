@@ -2,13 +2,18 @@
 
 {% get_providers as socialaccount_providers %}
 
-{% for provider in socialaccount_providers %}
-<li>
-    <a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}"
-       href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">
-        {% ifequal provider.name 'GitHub' %}
-            <i class="fa fa-github fa-3x"></i>
-        {% endifequal %}
-    </a>
-</li>
-{% endfor %}
+<hr>
+<div style="margin-top: 20px;">
+    <ul>
+        {% for provider in socialaccount_providers %}
+        <li>
+            <a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}"
+                href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">
+                {% ifequal provider.name 'GitHub' %}
+                    <i class="fa fa-github fa-3x"></i>
+                {% endifequal %}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
