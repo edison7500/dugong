@@ -9,7 +9,7 @@ var editor = new Editor({
     el: document.querySelector('#editSection'),
     // initialEditType: 'wysiwyg',
     initialEditType: 'markdown',
-    previewStyle: 'vertical',
+    previewStyle: 'tab',
 
     height: 'auto'
 });
