@@ -7,7 +7,8 @@ var Editor = require('tui-editor');
 
 var editor = new Editor({
     el: document.querySelector('#editSection'),
-    initialEditType: 'wysiwyg',
+    // initialEditType: 'wysiwyg',
+    initialEditType: 'markdown',
     previewStyle: 'vertical',
 
     height: 'auto'
