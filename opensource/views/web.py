@@ -1,10 +1,6 @@
-# coding=utf-8
-
 from datetime import timedelta
 from datetime import datetime
 from django.views import generic
-# from silk.profiling.profiler import silk_profile
-
 from opensource.models import Project, Status
 
 import pygal

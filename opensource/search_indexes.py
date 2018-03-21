@@ -39,7 +39,6 @@ class ProjectIndex(indexes.SearchIndex, indexes.Indexable):
         fork_sum = obj.stats_df().fork.diff().fillna(0).sum()
         return int(fork_sum)
 
-    #
     def prepare_latest_30_day_watch(self, obj):
         watch_sum = obj.stats_df().watch.diff().fillna(0).sum()
         return int(watch_sum)
@@ -52,7 +51,6 @@ class ProjectIndex(indexes.SearchIndex, indexes.Indexable):
         fork_sum = obj.stats_df(8).fork.diff().fillna(0).sum()
         return int(fork_sum)
 
-    #
     def prepare_latest_7_day_watch(self, obj):
         watch_sum = obj.stats_df(8).watch.diff().fillna(0).sum()
         return int(watch_sum)
