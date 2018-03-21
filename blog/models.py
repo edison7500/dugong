@@ -28,7 +28,8 @@ class Post(CachingMixin, models.Model):
     ]
 
     title = models.CharField(_('title'), max_length=255)
-    slug = models.SlugField(max_length=30, default='', unique=True, editable=False)
+    slug = models.SlugField(max_length=30, default='',
+                            unique=True, editable=False)
     content = MarkdownxField()
     status = models.IntegerField(_('status'), choices=POST_STARUS_CHOICES, default=preview)
     created_date = models.DateTimeField(_('created_date'), auto_now_add=True, db_index=True, editable=False)
@@ -45,7 +46,6 @@ class Post(CachingMixin, models.Model):
 
     def get_absolute_url(self):
         return reverse('blog:detail', args=[self.slug])
-        # return "/blog/{slug}/".format(slug=self.slug)
 
     def render_markdown(self):
         html = md.convert(self.content)

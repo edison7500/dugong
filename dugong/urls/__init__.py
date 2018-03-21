@@ -12,26 +12,24 @@ handler404 = 'views.errors.not_found'
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    # url(r'^markdown/', include('django_markdown.urls')),
-    url(r'^comments/', include('django_comments.urls')),
+    url(r'^comments/', include('django_comments.urls', namespace='comments')),
 
     url(r'^blog/', include('blog.urls', namespace='blog')),
     url(r'^project/', include('opensource.urls.web')),
     url(r'^tutorials/', include('tutorials.urls', namespace='tutorials')),
-
     url(r'^accounts/', include('allauth.urls')),
 
-
-    url(r'^markdownx/', include('markdownx.urls')),
+    # url(r'^markdownx/', include('markdownx.urls')),
     # home page
     url(r'^$', HomeView.as_view(), name='homepage'),
 ]
 
 
-from views.search import ProjectSearchView
+from views.search import ProjectSearchView, autocomplete
+
 
 urlpatterns += [
-    url(r'^search/autocomplete/?$', 'views.search.autocomplete', name='search-autocomplete'),
+    url(r'^search/autocomplete/?$', autocomplete, name='search-autocomplete'),
     url(r'^search/?$', ProjectSearchView.as_view(), name='project-search-view'),
 ]
 
@@ -39,9 +37,8 @@ urlpatterns += [
 '''
     api url config
 '''
-urlpatterns +=[
+urlpatterns += [
     url(r'^api/', include('dugong.urls.api', namespace='api')),
-    # url(r'^api/opensource/', include('opensource.urls.api')),
 ]
 
 

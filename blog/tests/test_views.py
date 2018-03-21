@@ -1,27 +1,12 @@
+import logging
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 
 from blog.models import Post
 from blog.tests.post_facker import PostFaker
 
+logger = logging.getLogger("django")
 
-class PostTemplateTest(TestCase):
-    def setUp(self):
-        PostFaker()
-
-    def test_post_list(self):
-        response = self.client.get(reverse('blog:list'))
-        self.assertTemplateUsed(response, 'blog/list.html')
-
-    def test_post_detail(self):
-        post = Post.objects.all().first()
-        response = self.client.get(post.get_absolute_url())
-        self.assertEqual(response.status_code, 404)
-        post.status = Post.publish
-        post.save()
-        response = self.client.get(post.get_absolute_url())
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'blog/detail.html')
 
 
 class PostViewTest(TestCase):
@@ -29,11 +14,11 @@ class PostViewTest(TestCase):
         PostFaker()
 
     def test_post_template(self):
-        response = self.client.get('/blog/')
+        response = self.client.get(reverse('blog:list'))
         self.assertTemplateUsed(response, 'blog/list.html')
 
     def test_list_view(self):
-        res = self.client.get('/blog/')
+        res = self.client.get(reverse('blog:list'))
         self.assertEqual(res.status_code, 200)
 
     def test_post_view(self):
