@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'haystack',
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_auth.registration',
     'django_extensions',
     'django_gravatar',
 
@@ -193,6 +194,7 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ),
@@ -308,6 +310,11 @@ LOGGING = {
         },
     }
 }
+
+##
+# django rest auth
+##
+REST_USE_JWT = True
 
 
 ###
