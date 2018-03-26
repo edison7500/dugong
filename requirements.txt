@@ -32,10 +32,12 @@ django-model-utils==3.0.0
 django-nose==1.4.4
 django-pandas==0.4.4
 django-qiniu-storage==2.3.1
+django-rest-auth==0.9.3
 django-simple-captcha==0.5.3
 django-tagging==0.4.5
 django-uuslug==1.1.8
-djangorestframework==3.6.3
+djangorestframework==3.7.7
+djangorestframework-jwt==1.11.0
 docopt==0.6.2
 elasticsearch==2.4.0
 enum34==1.1.6
@@ -70,6 +72,7 @@ pycparser==2.17
 pygal==2.4.0
 Pygments==2.2.0
 pygments-markdown-lexer==0.1.0.dev39
+PyJWT==1.6.1
 pymdown-extensions==4.9.1
 python-dateutil==2.7.0
 python-openid==2.2.5

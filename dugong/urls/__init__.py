@@ -3,6 +3,9 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from rest_framework import permissions
+from rest_framework.documentation import include_docs_urls
+
 from views.home import HomeView
 # from allauth.account.views import LoginView
 
@@ -39,6 +42,13 @@ urlpatterns += [
 '''
 urlpatterns += [
     url(r'^api/', include('dugong.urls.api', namespace='api')),
+
+    url(r'^docs/', include_docs_urls(title='JiaXinAPI Docs',
+                                     public=False,
+                                     permission_classes=[
+                                         permissions.IsAdminUser,
+                                     ])
+        ),
 ]
 
 
