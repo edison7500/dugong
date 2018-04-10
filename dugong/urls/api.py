@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^auth/', include('rest_auth.urls')),
     url(r'^auth/registration/', include('rest_auth.registration.urls')),
     url(r'^opensource/', include('opensource.urls.api', namespace='opensource')),
+    url(r'^tutorials/', include('tutorials.urls.api', namespace='tutorials')),
     url(r'^schema/$', schema_view),
 ]
 

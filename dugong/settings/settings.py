@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'django_extensions',
     'django_gravatar',
+    'django_filters',
 
     'allauth',
     'allauth.account',

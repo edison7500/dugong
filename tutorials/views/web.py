@@ -3,10 +3,8 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.http import Http404
 from braces.views import LoginRequiredMixin, UserPassesTestMixin
 
-# from utils.views.mixins import seo
 from tutorials.models import Tutorial
 from tutorials.forms.tutorial import TutorialForm
-
 
 
 class TutorialListView(ListView):
@@ -48,5 +46,3 @@ class TutorialUpdateView(LoginRequiredMixin, UpdateView):
             return obj
         else:
             raise Http404
-
-
