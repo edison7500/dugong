@@ -85,7 +85,7 @@ class Tutorial(models.Model):
                 scheme=o.scheme,
                 host=o.netloc,
             )
-        return "http://jiaxin.im"
+        return "https://jiaxin.im"
 
     @property
     def cover(self):
@@ -96,6 +96,9 @@ class Tutorial(models.Model):
                                               )
         else:
             return ""
+
+    def tag_list(self):
+        return [{"id": o.pk, "name": o.name} for o in self.tags.all()]
 
     def get_seo(self):
 
