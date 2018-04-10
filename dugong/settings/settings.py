@@ -322,3 +322,7 @@ REST_USE_JWT = True
 #  BULMA Default settings
 ###
 from .bulma import *
+
+
+
+FORCE_LOWERCASE_TAGS = True

@@ -98,7 +98,7 @@ class Tutorial(models.Model):
             return ""
 
     def tag_list(self):
-        return [{"id": o.pk, "name": o.name} for o in self.tags.all()]
+        return [{"id": o.pk, "name": o.name} for o in self.tags]
 
     def get_seo(self):
 
