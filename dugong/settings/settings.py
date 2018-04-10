@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.flatpages',
     'django.contrib.sitemaps',
-    # 'django_markdown',
     'django_comments',
     'bulma',
 
@@ -53,6 +52,7 @@ INSTALLED_APPS = [
     'blog',
     'opensource',
     'tutorials',
+    'views',
 ]
 
 MIDDLEWARE_CLASSES = (

@@ -47,9 +47,6 @@
     {% compress js %}
         <script src="{% static 'js/jquery-ui.min.js' %}" charset="UTF-8"></script>
         <script src="{% static 'js/markdown.js' %}" charset="UTF-8"></script>
-{#        <script src="{% static 'js/bootstrap-markdown.js' %}" charset="UTF-8"></script>#}
-{#        <script src="{% static 'js/bootstrap-markdown.zh.js' %}" charset="UTF-8"></script>#}
-{#        <script type="text/javascript" src="{% static 'js/bundle.js'%}"></script>#}
         <script type="text/javascript" src="{% static 'js/dugong.js' %}" charset="utf-8"></script>
     {% endcompress %}
 {#    {{ form.media.js }}#}
@@ -59,20 +56,10 @@
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
             })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
             ga('create', 'UA-22063793-3', 'auto');
             ga('send', 'pageview');
         </script>
 
-        <script>
-            var _hmt = _hmt || [];
-            (function() {
-                var hm = document.createElement("script");
-                hm.src = "https://hm.baidu.com/hm.js?a1329b889f1ed2244d2abb4244fa4fbd";
-                var s = document.getElementsByTagName("script")[0];
-                s.parentNode.insertBefore(hm, s);
-            })();
-        </script>
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58ee6b44b343d536"></script>
 {% endblock %}

@@ -7,7 +7,6 @@ from rest_framework import permissions
 from rest_framework.documentation import include_docs_urls
 
 from views.home import HomeView
-# from allauth.account.views import LoginView
 
 
 handler500 = 'views.errors.page_error'
