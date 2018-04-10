@@ -58,7 +58,7 @@ coverage.xml
 docs/_build/
 
 # PyCharm
-.idea/*
+.idea
 
 images/*
 
