@@ -32,10 +32,6 @@ class Organization(CachingMixin, models.Model):
         verbose_name = _("organization")
         verbose_name_plural = _("organization")
 
-    # @property
-    # def url(self):
-    #     return "https://github.com/{name}".format(name=self.name)
-
 
 class People(CachingMixin, models.Model):
     name = models.CharField(blank=True, null=True, max_length=128,)
@@ -66,9 +62,12 @@ class Repository(models.Model):
     readme = models.TextField(null=True, blank=True)
     url = models.URLField(max_length=255, null=True, blank=True)
 
-    identified_code = models.CharField(null=True, blank=True, max_length=32, unique=True)
+    identified_code = models.CharField(null=True, blank=True,
+                                       max_length=32, unique=True)
 
-    created_at = models.DateTimeField(default=timezone.now, editable=False, db_index=True)
+    created_at = models.DateTimeField(default=timezone.now,
+                                      editable=False,
+                                      db_index=True)
 
     class Meta:
         verbose_name = _("repository")
@@ -148,10 +147,6 @@ class Project(CachingMixin, models.Model):
         except Exception as e:
             pass
         return _watch
-
-    # @property
-    # def latest_30_day_star(self):
-    #     return self._stats_df().star.diff().sum()
 
     @property
     def latest_fork(self):

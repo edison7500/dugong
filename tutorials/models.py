@@ -89,7 +89,7 @@ class Tutorial(models.Model):
         cover = self.images.first()
         if cover:
             return "{image}?{process}".format(image=cover.image.url,
-                    process="imageView2/5/w/400/h/250/format/jpg/interlace/1/q/100|imageslim",
+                                              process="imageView2/5/w/400/h/250/format/jpg/interlace/1/q/100|imageslim",
                                               )
         else:
             return ""
