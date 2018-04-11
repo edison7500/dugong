@@ -21,6 +21,7 @@ class PeopleAdmin(admin.ModelAdmin):
 class RepositoryAdmin(admin.ModelAdmin):
     list_display = ('author', 'name', 'url', 'created_at')
     list_per_page = 30
+    list_display_links = ('name', )
 
 
 class CategoryAdmin(admin.ModelAdmin):
