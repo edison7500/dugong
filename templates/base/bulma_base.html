@@ -44,6 +44,7 @@
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58ee6b44b343d536"></script>
 
     {% compress js %}
-        <script type="text/javascript" src="{% static 'js/bundle.js' %}"></script>
+{#        <script type="text/javascript" src="{% static 'js/bundle.js' %}"></script>#}
+        <script type="text/javascript" src="{% static 'dist/bundle.js' %}" charset="UTF-8"></script>
     {% endcompress %}
 {% endblock %}

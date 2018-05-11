@@ -47,7 +47,8 @@
     {% compress js %}
         <script src="{% static 'js/jquery-ui.min.js' %}" charset="UTF-8"></script>
         <script src="{% static 'js/markdown.js' %}" charset="UTF-8"></script>
-        <script type="text/javascript" src="{% static 'js/dugong.js' %}" charset="utf-8"></script>
+{#        <script type="text/javascript" src="{% static 'js/dugong.js' %}" charset="utf-8"></script>#}
+        <script type="application/javascript" src="{% static 'dist/bundle.js' %}" charset="UTF-8"></script>
     {% endcompress %}
 {#    {{ form.media.js }}#}
 

@@ -12,7 +12,8 @@
                     {% for field in form %}
                         <div class="field">
                             {% if field.html_name == "content" %}
-                                <div id="editSection"></div>
+{#                                <div id="editSection"></div>#}
+                                {{ field|bulma }}
                             {% else %}
                                 {{ field|bulma }}
                             {% endif %}
