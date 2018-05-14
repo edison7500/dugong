@@ -1,10 +1,11 @@
 {% extends 'base/bulma_base.html' %}
-{% load i18n %}
+{% load i18n static %}
 {% load bulma_tags %}
+{% load compress %}
 
 {% block content %}
     <div class="columns is-desktop is-centered">
-        <div class="column is-8">
+        <div class="column is-12-desktop">
             <div class="box">
                 <form method="post">{% csrf_token %}
                     <fieldset>
@@ -19,3 +20,9 @@
     </div>
 {% endblock %}
 
+
+{% block extra_javascript %}
+    {% compress js %}
+        <script type="text/javascript" src="{% static 'dist/editor.js' %}" charset="UTF-8"></script>
+    {% endcompress %}
+{% endblock %}

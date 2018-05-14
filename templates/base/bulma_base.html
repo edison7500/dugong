@@ -18,8 +18,7 @@
 
 {% block footer %}{% include 'base/snippets/footer.html' %}{% endblock %}
 
-
-{% block extra_javascript %}
+{% block track_js %}
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -30,19 +29,12 @@
         ga('send', 'pageview');
     </script>
 
-{#    <script>#}
-{#        var _hmt = _hmt || [];#}
-{#        (function() {#}
-{#            var hm = document.createElement("script");#}
-{#            hm.src = "https://hm.baidu.com/hm.js?a1329b889f1ed2244d2abb4244fa4fbd";#}
-{#            var s = document.getElementsByTagName("script")[0];#}
-{#            s.parentNode.insertBefore(hm, s);#}
-{#        })();#}
-{#    </script>#}
-
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58ee6b44b343d536"></script>
+{% endblock %}
 
+
+{% block extra_javascript %}
     {% compress js %}
         <script type="text/javascript" src="{% static 'dist/bundle.js' %}" charset="UTF-8"></script>
     {% endcompress %}
