@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth.registration',
+    'rest_framework_swagger',
     'django_extensions',
     'django_gravatar',
     'django_filters',
@@ -47,7 +48,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
-    'markdownx',
+    # 'markdownx',
     #
     'blog',
     'opensource',
