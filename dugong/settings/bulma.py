@@ -1,9 +1,5 @@
 BULMA = {
-
-    # The URL to the jQuery JavaScript file
-    'jquery_url': '//cdn.bootcss.com/jquery/1.12.4/jquery.min.js',
-
-    # The Bootstrap base URL
+    # The bulma base URL
     'base_url': '//cdn.bootcss.com/bulma/0.7.1/',
 
     # The complete URL to the Bootstrap CSS file (None means derive it from base_url)

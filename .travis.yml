@@ -13,6 +13,7 @@ script:
   - cd static/
   - npm i
   - npm run production
+  - npm run build-sass
   - cd ..
   - python manage.py test
 
