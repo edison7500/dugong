@@ -23,12 +23,6 @@ class BlogDetailView(DetailView):
     slug_field = 'slug'
     queryset = Post.objects.filter(status=Post.publish)
 
-    # def get_object(self, queryset=None):
-    #     obj = super(BlogDetailView, self).get_object(queryset)
-    #     if obj.status != Post.block:
-    #         return obj
-    #     raise Http404
-
     def get_context_data(self, **kwargs):
         context = super(BlogDetailView, self).get_context_data(**kwargs)
         context['meta'] = {

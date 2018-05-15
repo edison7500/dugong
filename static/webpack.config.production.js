@@ -8,7 +8,7 @@ module.exports = {
     entry: './src/app.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'editor.min.js'
+        filename: 'bundle.min.js'
     },
     plugins: [
         new UglifyJsPlugin()

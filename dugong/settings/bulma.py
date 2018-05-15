@@ -4,7 +4,7 @@ BULMA = {
     'jquery_url': '//cdn.bootcss.com/jquery/1.12.4/jquery.min.js',
 
     # The Bootstrap base URL
-    'base_url': '//cdn.bootcss.com/bulma/0.6.2/',
+    'base_url': '//cdn.bootcss.com/bulma/0.7.1/',
 
     # The complete URL to the Bootstrap CSS file (None means derive it from base_url)
     'css_url': None,

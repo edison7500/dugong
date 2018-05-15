@@ -10,7 +10,7 @@
 
 
 ### Web Framework
-* *django-1.8.18* [相关文档](https://docs.djangoproject.com/en/1.8/)
+* *django-1.11* [相关文档](https://docs.djangoproject.com/en/1.11/)
 
 
 ### 前端框架
