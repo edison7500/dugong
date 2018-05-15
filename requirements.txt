@@ -16,7 +16,7 @@ Django==1.11.12
 django-allauth==0.35.0
 django-appconf==1.0.2
 django-braces==1.12.0
--e git+https://github.com/edison7500/django-bulma.git#egg=django_bulma
+-e git+https://github.com/edison7500/django-bulma.git@1c01531827595fd5ad6543165487eb1bc1a398ba#egg=django_bulma
 django-cache-machine==1.0.0
 django-compressor==2.2
 django-contrib-comments==1.8.0
@@ -35,7 +35,7 @@ django-qiniu-storage==2.3.1
 django-rest-auth==0.9.3
 django-rest-swagger==2.2.0
 django-simple-captcha==0.5.3
-django-tagging==0.4.5
+django-tagging==0.4.6
 django-uuslug==1.1.8
 djangorestframework==3.8.2
 djangorestframework-jwt==1.11.0
@@ -47,7 +47,7 @@ Faker==0.8.12
 funcsigs==1.0.2
 gevent==1.2.2
 greenlet==0.4.12
-gunicorn==19.7.1
+gunicorn==19.8.1
 html5lib==1.0.1
 idna==2.6
 ipaddress==1.0.18
@@ -67,7 +67,7 @@ pandas==0.22.0
 paramiko==2.1.2
 Pillow==5.1.0
 prompt-toolkit==1.0.14
-ptpython==0.39
+ptpython==0.41
 pyasn1==0.2.3
 pycodestyle==2.3.1
 pycparser==2.17
