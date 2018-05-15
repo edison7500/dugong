@@ -13,8 +13,8 @@ schema_view = get_swagger_view(title='Jiaxin API')
 # schema_view = get_schema_view(title='JiaXin API', public=False)
 
 urlpatterns = [
-    url(r'^auth/', include('rest_auth.urls')),
-    url(r'^auth/registration/', include('rest_auth.registration.urls')),
+    # url(r'^auth/', include('rest_auth.urls')),
+    # url(r'^auth/registration/', include('rest_auth.registration.urls')),
     url(r'^opensource/', include('opensource.urls.api', namespace='opensource')),
     url(r'^tutorials/', include('tutorials.urls.api', namespace='tutorials')),
     url(r'^docs/$', schema_view),
