@@ -12,7 +12,7 @@ before_script:
 script:
   - cd static/
   - npm i
-  - npm run dev
+  - npm run production
   - cd ..
   - python manage.py test
 
