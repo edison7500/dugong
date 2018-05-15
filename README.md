@@ -4,9 +4,10 @@
 
 ### 系统环境
 * Ubuntu 16.04
-* Python3.6
-* MySQL
 * Nginx
+* MySQL
+* Python3.6
+* Nodejs
 
 
 ### Web Framework

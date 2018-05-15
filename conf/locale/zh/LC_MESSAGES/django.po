@@ -109,13 +109,17 @@ msgstr "标签"
 msgid "comments"
 msgstr "评论"
 
-
 msgid "tutorials"
 msgstr "教程"
-
 
 msgid "tags"
 msgstr "标签"
 
 msgid "origin_link"
 msgstr "原文链接"
+
+msgid "next page"
+msgstr "下一页"
+
+msgid "previous page"
+msgstr "上一页"
