@@ -10,6 +10,6 @@ class TutorialImageInlineAdmin(admin.StackedInline):
 
 
 class TutorialAdmin(admin.ModelAdmin):
-    list_display = ['slug','title', 'tags', 'status', 'published_at']
+    list_display = ['slug', 'title', 'tags', 'status', 'published_at']
     inlines = [TutorialImageInlineAdmin, ]
-    search_fields = ['title' ]
+    search_fields = ['title', ]

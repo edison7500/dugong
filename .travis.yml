@@ -2,6 +2,9 @@ language: python
 python:
   - "3.6.4"
 dist: xenial
+before_install:
+  - curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+  - sudo apt-get -qq nodejs
 install: pip install -r requirements.txt
 script:
   - export DJANGO_SETTINGS_MODULE=dugong.settings.stage
