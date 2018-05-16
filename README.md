@@ -18,6 +18,14 @@
 * *bulma* [相关文档](https://bulma.io/)
 
 
+### Build
+```
+pip install -r requirements/local.txt  # development
+
+pip install -r requirements/production.txt # production
+```
+
+
 ### 教程
 * [利用 Django 建站攻略 （一）安装](https://jiaxin.im/blog/li-yong-django-jian-zhan-gong/)
 * [利用 Django 建站攻略 （二）建模](https://jiaxin.im/blog/li-yong-django-jian-zhan-gon-1/)
