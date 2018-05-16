@@ -61,7 +61,7 @@ mysqlclient==1.3.12
 nose==1.3.7
 numpy==1.14.3
 oauthlib==2.0.7
-olefile==0.44
+olefile==0.45.1
 openapi-codec==1.3.2
 pandas==0.22.0
 paramiko==2.1.2
