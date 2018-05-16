@@ -69,7 +69,7 @@ Pillow==5.1.0
 prompt-toolkit==1.0.15
 ptpython==0.41
 pyasn1==0.4.2
-pycodestyle==2.3.1
+pycodestyle==2.4.0
 pycparser==2.17
 pygal==2.4.0
 Pygments==2.2.0
