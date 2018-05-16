@@ -39,7 +39,7 @@ html5lib==1.0.1
 idna==2.6
 ipaddress==1.0.18
 jieba==0.39
-Jinja2==2.9.6
+Jinja2==2.10
 Markdown==2.6.11
 MarkupSafe==1.0
 numpy==1.14.2
