@@ -33,6 +33,11 @@ USE_TZ = True
 
 USE_X_FORWARDED_HOST = True
 
+
+LOCALE_PATHS = (
+    str(ROOT_DIR.path('conf/locale')),
+)
+
 ROOT_URLCONF = 'dugong.urls'
 
 WSGI_APPLICATION = 'dugong.wsgi.application'
