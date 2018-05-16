@@ -22,6 +22,4 @@ script:
   - python manage.py test
 after_success:
   - coverage report
-  - pip install --quiet python-coveralls
-  - coveralls
 
