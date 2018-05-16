@@ -40,7 +40,6 @@ class Post(CachingMixin, models.Model):
     class Meta:
         ordering = ['-created_date']
 
-    # def __unicode__(self):
     def __str__(self):
         return self.title
 
