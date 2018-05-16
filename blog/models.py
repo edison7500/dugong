@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from django.utils.html import strip_tags
 from django.utils.functional import cached_property
-from markdownx.models import MarkdownxField
+# from markdownx.models import MarkdownxField
 from uuslug import uuslug
 from tagging.registry import register
 
@@ -30,7 +30,7 @@ class Post(CachingMixin, models.Model):
     title = models.CharField(_('title'), max_length=255)
     slug = models.SlugField(max_length=30, default='',
                             unique=True, editable=False)
-    content = MarkdownxField()
+    content = models.TextField()
     status = models.IntegerField(_('status'), choices=POST_STARUS_CHOICES, default=preview)
     created_date = models.DateTimeField(_('created_date'), auto_now_add=True, db_index=True, editable=False)
     last_update = models.DateTimeField(_('last_update'), auto_now=True, db_index=True, editable=False)

@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 # from django_markdown.widgets import AdminMarkdownWidget
-from markdownx.admin import MarkdownxModelAdmin
-from markdownx.fields import MarkdownxFormField
+# from markdownx.admin import MarkdownxModelAdmin
+# from markdownx.fields import MarkdownxFormField
 
 # from blog.admin.forms import BlogAdminForm
 from blog.models import PostImage
@@ -13,7 +13,7 @@ class PostImageInlineAdmin(admin.StackedInline):
     extra = 1
 
 
-class PostAdmin(MarkdownxModelAdmin):
+class PostAdmin(admin.ModelAdmin):
     # form = BlogAdminForm
 
     list_display = ('title', 'status', 'created_date', 'last_update')
@@ -38,8 +38,8 @@ from django.db import models
 # Define a new FlatPageAdmin
 class FlatPageAdmin(FlatPageAdmin):
     form = FlatpageForm
-    formfield_overrides = {
-        models.TextField: {'widget': MarkdownxFormField()}
+    # formfield_overrides = {
+        # models.TextField: {'widget': MarkdownxFormField()}
         #     models.TextField: {'widget': RedactorEditor(
         #         redactor_options={
         #             'formatting': ['p', 'blockquote', 'h2', 'h3'],
@@ -50,7 +50,7 @@ class FlatPageAdmin(FlatPageAdmin):
         #         },
         #         # attrs={}
         #     )},
-    }
+    # }
 
     fieldsets = (
         (None, {'fields': ('url', 'title', 'content', 'sites')}),

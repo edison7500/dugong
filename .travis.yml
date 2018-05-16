@@ -2,6 +2,9 @@ language: python
 python:
   - "3.6.5"
 dist: xenial
+branches:
+  only:
+    - master
 before_install:
   - curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
   - sudo apt-get update -qq
@@ -17,4 +20,8 @@ script:
   - npm run build-sass
   - cd ..
   - python manage.py test
+after_success:
+  - coverage report
+  - pip install --quiet python-coveralls
+  - coveralls
 

@@ -8,7 +8,7 @@ from django_extensions.db import fields
 
 from caching.base import CachingManager, CachingMixin
 from hashlib import md5
-from markdownx.models import MarkdownxField
+# from markdownx.models import MarkdownxField
 from utils.render_md import md
 
 
@@ -103,7 +103,7 @@ class Project(CachingMixin, models.Model):
     category = models.ForeignKey(Category, related_name='category', null=True)
     desc = models.TextField(null=True, blank=True)
     github_url = models.URLField(default='', max_length=255)
-    readme = MarkdownxField(blank=True, null=True)
+    readme = models.TextField(blank=True, null=True)
     display = models.BooleanField(default=True)
 
     created_at = models.DateTimeField(default=timezone.now, db_index=True, editable=False)

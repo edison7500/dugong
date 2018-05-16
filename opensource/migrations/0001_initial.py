@@ -2,10 +2,8 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
-from markdownx.models import MarkdownxField
 import caching.base
 import django.utils.timezone
-# import django_markdown.models
 
 
 class Migration(migrations.Migration):
@@ -60,7 +58,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=255, blank=True)),
                 ('desc', models.TextField(blank=True, null=True)),
                 ('github_url', models.URLField(max_length=255, default='')),
-                ('readme', MarkdownxField(blank=True, null=True)),
+                ('readme', models.TextField(blank=True, null=True)),
                 ('created_datetime', models.DateTimeField(db_index=True, auto_now=True)),
                 ('display', models.BooleanField(default=True)),
                 ('identified_code', models.CharField(max_length=32, unique=True, blank=True, null=True)),
