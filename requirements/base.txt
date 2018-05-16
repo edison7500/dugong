@@ -3,7 +3,6 @@ certifi==2018.1.18
 cffi==1.10.0
 chardet==3.0.4
 coreapi==2.3.3
-coreschema==0.0.4
 cryptography==2.2.2
 defusedxml==0.5.0
 diskcache==3.0.1
@@ -39,13 +38,10 @@ funcsigs==1.0.2
 html5lib==1.0.1
 idna==2.6
 ipaddress==1.0.18
-itypes==1.1.0
-jedi==0.10.2
 jieba==0.39
 Jinja2==2.9.6
 Markdown==2.6.11
 MarkupSafe==1.0
-
 numpy==1.14.2
 oauthlib==2.0.2
 olefile==0.44
