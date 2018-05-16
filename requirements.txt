@@ -75,7 +75,7 @@ pygal==2.4.0
 Pygments==2.2.0
 pygments-markdown-lexer==0.1.0.dev39
 PyJWT==1.6.1
-pymdown-extensions==4.9.1
+pymdown-extensions==4.10.1
 python-dateutil==2.7.0
 python-openid==2.2.5
 python-slugify==1.2.4
