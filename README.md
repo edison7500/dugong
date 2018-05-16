@@ -1,6 +1,8 @@
 # 概览
 [![Build Status](https://travis-ci.org/edison7500/dugong.svg?branch=master)](https://travis-ci.org/edison7500/dugong)
 [![Requirements Status](https://requires.io/github/edison7500/dugong/requirements.svg?branch=master)](https://requires.io/github/edison7500/dugong/requirements/?branch=master)
+[![Updates](https://pyup.io/repos/github/edison7500/dugong/shield.svg)](https://pyup.io/repos/github/edison7500/dugong/)
+[![Python 3](https://pyup.io/repos/github/edison7500/dugong/python-3-shield.svg)](https://pyup.io/repos/github/edison7500/dugong/)
 
 ### 系统环境
 * Ubuntu 16.04
