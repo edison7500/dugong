@@ -47,7 +47,7 @@ oauthlib==2.0.2
 olefile==0.44
 openapi-codec==1.3.2
 pandas==0.22.0
-paramiko==2.1.2
+paramiko==2.4.1
 Pillow==5.1.0
 prompt-toolkit==1.0.14
 ptpython==0.41
