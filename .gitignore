@@ -71,7 +71,6 @@ dugong/settings/production.py
 
 *.sqlite3
 *.rdb
-.env
 
 
 dugong/whoosh_index/
