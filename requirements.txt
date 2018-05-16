@@ -50,7 +50,7 @@ greenlet==0.4.13
 gunicorn==19.8.1
 html5lib==1.0.1
 idna==2.6
-ipaddress==1.0.18
+ipaddress==1.0.21
 itypes==1.1.0
 jedi==0.10.2
 jieba==0.39
