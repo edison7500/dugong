@@ -227,22 +227,9 @@ HAYSTACK_CONNECTIONS = {
 }
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
 
-''' django mark-down
-
-'''
-MARKDOWN_EDITOR_SKIN = 'simple'
-MARKDOWN_EXTENSIONS = ['extra', 'codehilite', 'tables', 'fenced_code']
-MARKDOWN_EXTENSION_CONFIGS = {
-    'codehilite': {
-        'linenums': False,
-    },
-    'encoding': "utf-8",
-}
-
 # django extensions
 SHELL_PLUS = 'ptpython'
 
-BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
 
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -253,7 +240,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 ACCOUNT_LOGOUT_REDIRECT_URL = '/'
-
+LOGIN_REDIRECT_URL = '/'
 SOCIALACCOUNT_PROVIDERS = {
     'github': {
         'SCOPE': [
@@ -264,7 +251,6 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-LOGIN_REDIRECT_URL = '/'
 
 GRAVATAR_DEFAULT_RATING = 'pg'
 GRAVATAR_DEFAULT_IMAGE = 'identicon'

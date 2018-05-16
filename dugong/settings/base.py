@@ -1,26 +1,41 @@
 import environ
 
-root = environ.Path(__file__) - 3 # three folder back (/a/b/c/ - 3 = /)
-env = environ.Env(DEBUG=(bool, False),) # set default values and casting
-environ.Env.read_env() # reading .env file
+ROOT_DIR = environ.Path(__file__) - 3  # three folder back (/a/b/c/ - 3 = /)
+env = environ.Env()
+env.read_env(str(ROOT_DIR.path('.env')))
 
+# SITE_ROOT = root()
 
-SITE_ROOT = root()
-
-DEBUG = env('DEBUG') # False if not in os.environ
+DEBUG = env('DJANGO_DEBUG', default=True)  # False if not in os.environ
 TEMPLATE_DEBUG = DEBUG
 
-
-SECRET_KEY = env('SECRET_KEY')
 
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
-    'default': env.db('DATABASE_URL'),
+    'default': env.db('DATABASE_URL', default=str(ROOT_DIR.path('db.sqlite3'))),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
+# Internationalization
+# -------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/1.8/topics/i18n/
+TIME_ZONE = 'Asia/Shanghai'
+
+LANGUAGE_CODE = 'zh-hans'
+
+USE_I18N = True
+
+USE_L10N = True
+
+USE_TZ = True
+
+USE_X_FORWARDED_HOST = True
+
+ROOT_URLCONF = 'dugong.urls'
+
+WSGI_APPLICATION = 'dugong.wsgi.application'
 
 # APPS
 # ------------------------------------------------------------------------------
@@ -43,7 +58,7 @@ REST_FRAMEWORK_APPS = [
 THIRD_PARTY_APPS = [
     'django_comments',
     'bulma',
-    'compressor',
+    # 'compressor',
     'tagging',
     'haystack',
     'django_extensions',
@@ -63,11 +78,26 @@ LOCAL_APPS = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + REST_FRAMEWORK_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
+# STATIC
+# ------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/dev/ref/settings/#static-root
+STATIC_ROOT = '/tmp/static'
+# https://docs.djangoproject.com/en/dev/ref/settings/#static-url
+STATIC_URL = '/static/'
+# https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
+STATICFILES_DIRS = [
+    str(ROOT_DIR.path('static')),
+]
+# https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
 
 # MIDDLEWARE
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -76,11 +106,40 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+]
 
-    'htmlmin.middleware.HtmlMinifyMiddleware',
-    'htmlmin.middleware.MarkRequestMiddleware',
-)
+# TEMPLATES
+# ------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/dev/ref/settings/#templates
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            str(ROOT_DIR.path('templates'))
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'debug': DEBUG,
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.template.context_processors.static',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+            'string_if_invalid': 'Invalid: "%s"'
+        },
+    },
+]
 
+# # django-htmlmin
+# # ------------------------------------------------------------------------------
+# # https://pypi.org/project/django-htmlmin/#description
+# MIDDLEWARE += [
+#     'htmlmin.middleware.HtmlMinifyMiddleware',
+#     'htmlmin.middleware.MarkRequestMiddleware',
+# ]
+# HTML_MINIFY = True
 
 # REST FRAMEWORK
 # ------------------------------------------------------------------------------
@@ -101,3 +160,20 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 20,
     'DATETIME_FORMAT': '%Y-%m-%d %H:%M:%S',
 }
+
+
+''' django haystack
+
+'''
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': ROOT_DIR.path('whoosh_index'),
+        # 'PATH': os.path.join(os.path.dirname(__file__), '../whoosh_index'),
+        'STORAGE': 'file',
+        # 'POST_LIMIT': 128 * 1024 * 1024,
+        'INCLUDE_SPELLING': True,
+        'BATCH_SIZE': 100,
+    },
+}
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20

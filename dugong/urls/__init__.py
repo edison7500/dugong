@@ -1,5 +1,5 @@
 # coding=utf-8
-
+from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -76,3 +76,11 @@ urlpatterns += staticfiles_urlpatterns()
 admin.site.site_header = "jiaxin.im"
 admin.site.site_title = "jiaxin.im"
 admin.site.index_title = "Welcome to JIAXIN.IM"
+
+if settings.DEBUG:
+    if 'debug_toolbar' in settings.INSTALLED_APPS:
+        import debug_toolbar
+
+        urlpatterns = [
+                          url(r'^__debug__/', include(debug_toolbar.urls)),
+                      ] + urlpatterns
