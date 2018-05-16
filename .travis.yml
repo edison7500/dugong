@@ -7,7 +7,7 @@ branches:
     - master
 before_install:
   - curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-  - sudo apt-get update && sudo apt-get install nodejs
+  - sudo apt-get install nodejs -y -q
 install:
   - pip install -r requirements/local.txt
 before_script:
