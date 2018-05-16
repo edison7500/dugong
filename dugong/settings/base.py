@@ -58,7 +58,7 @@ REST_FRAMEWORK_APPS = [
 THIRD_PARTY_APPS = [
     'django_comments',
     'bulma',
-    # 'compressor',
+    'compressor',
     'tagging',
     'haystack',
     'django_extensions',
@@ -141,6 +141,25 @@ TEMPLATES = [
 # ]
 # HTML_MINIFY = True
 
+COMPRESS_ENABLED = False
+COMPRESS_PRECOMPILERS = (
+    # ('text/coffeescript', 'coffee --compile --stdio'),
+    ('text/less', '/usr/local/bin/lessc {infile} {outfile}'),
+    # ('text/x-sass', 'sass {infile} {outfile}'),
+    # ('text/x-scss', 'sass --scss {infile} {outfile}'),
+)
+
+COMPRESS_CSS_FILTERS = [
+    'compressor.filters.cssmin.rCSSMinFilter',
+]
+COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
+
+COMPRESS_OUTPUT_DIR = 'release'
+COMPRESS_OFFLINE = True
+STATICFILES_FINDERS += [
+    'compressor.finders.CompressorFinder',
+]
+
 # REST FRAMEWORK
 # ------------------------------------------------------------------------------
 # http://www.django-rest-framework.org/api-guide/settings/
@@ -168,8 +187,7 @@ REST_FRAMEWORK = {
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
-        'PATH': ROOT_DIR.path('whoosh_index'),
-        # 'PATH': os.path.join(os.path.dirname(__file__), '../whoosh_index'),
+        'PATH': str(ROOT_DIR.path('whoosh_index')),
         'STORAGE': 'file',
         # 'POST_LIMIT': 128 * 1024 * 1024,
         'INCLUDE_SPELLING': True,
@@ -177,3 +195,15 @@ HAYSTACK_CONNECTIONS = {
     },
 }
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
+
+
+FILE_UPLOAD_TEMP_DIR = '/tmp/'
+FILE_UPLOAD_PERMISSIONS = 0o644
+
+
+###
+#  BULMA Default settings
+###
+from .bulma import *
+
+FORCE_LOWERCASE_TAGS = True

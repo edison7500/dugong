@@ -1,9 +1,9 @@
 -r base.txt
 
+qiniu>=7.2.0
+django-qiniu-storage>=2.3
 gevent==1.2.2
 greenlet==0.4.12
 gunicorn==19.8.1
 elasticsearch==2.4.0
 mysqlclient>=1.3.12
-django-qiniu-storage>=2.3
-qiniu>=7.2.0
