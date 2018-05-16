@@ -43,7 +43,7 @@ docopt==0.6.2
 elasticsearch==6.2.0
 enum34==1.1.6
 factory-boy==2.11.1
-Faker==0.8.12
+Faker==0.8.15
 funcsigs==1.0.2
 gevent==1.2.2
 greenlet==0.4.12
