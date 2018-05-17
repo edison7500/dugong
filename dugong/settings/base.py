@@ -73,6 +73,7 @@ THIRD_PARTY_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
+    'webpack_loader',
 ]
 LOCAL_APPS = [
     'blog',
@@ -200,6 +201,20 @@ HAYSTACK_CONNECTIONS = {
     },
 }
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
+
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'CACHE': not DEBUG,
+        'BUNDLE_DIR_NAME': 'dist/', # must end with slash
+        # 'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+        'STATS_FILE': str(ROOT_DIR.path('static/webpack-stats.json')),
+        'POLL_INTERVAL': 0.1,
+        'TIMEOUT': None,
+        'IGNORE': ['.+\.hot-update.js', '.+\.map']
+    }
+}
+
 
 
 FILE_UPLOAD_TEMP_DIR = '/tmp/'
