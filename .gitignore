@@ -73,9 +73,8 @@ dugong/settings/production.py
 *.rdb
 
 
-dugong/whoosh_index/
+whoosh_index
 static/node_modules
 static/package-lock.json
-static/js/package-lock.json
 static/css/mixins.css
 static/js/lib/

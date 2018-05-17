@@ -22,5 +22,4 @@ script:
 after_success:
   - pip install python-coveralls
   - coveralls
-#  - coverage report
 
