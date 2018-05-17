@@ -10,7 +10,7 @@ Django>=1.11,<2.0
 django-allauth>=0.35.0
 django-appconf==1.0.2
 django-braces==1.12.0
-django-compressor==2.2
+django-compressor>=2.2
 -e git+https://github.com/edison7500/django-bulma.git#egg=django_bulma
 django-cache-machine>=1.0.0
 django-contrib-comments==1.8.0
