@@ -33,6 +33,8 @@ USE_TZ = True
 
 USE_X_FORWARDED_HOST = True
 
+SITE_ID = 1
+
 
 LOCALE_PATHS = (
     str(ROOT_DIR.path('conf/locale')),
@@ -148,6 +150,7 @@ TEMPLATES = [
 # HTML_MINIFY = True
 
 COMPRESS_ENABLED = False
+COMPRESS_OFFLINE = True
 COMPRESS_PRECOMPILERS = (
     # ('text/coffeescript', 'coffee --compile --stdio'),
     ('text/less', '/usr/local/bin/lessc {infile} {outfile}'),
@@ -161,7 +164,6 @@ COMPRESS_CSS_FILTERS = [
 COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
 
 COMPRESS_OUTPUT_DIR = 'release'
-COMPRESS_OFFLINE = True
 STATICFILES_FINDERS += [
     'compressor.finders.CompressorFinder',
 ]

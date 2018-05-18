@@ -1,6 +1,6 @@
 var path = require('path');
 var BundleTracker = require('webpack-bundle-tracker');
-var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+// var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 
 var config = require("./webpack.base.config");
