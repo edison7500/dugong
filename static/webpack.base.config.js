@@ -5,20 +5,29 @@ var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
     context: __dirname,
 
-    entry: './src/js/app.js',
+    entry: './src/js/app.jsx',
 
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle-[hash].js'
+        filename: 'bundle.js'
     },
 
     plugins: [
 
-    ]
+    ],
 
-    // module: {
-    //     loaders: []
-    // },
+    module: {
+        rules: [
+            {
+                test: /\.jsx?$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/,
+                query: {
+                    presets: ['es2015']
+                }
+            }
+        ]
+    },
     //
     // resolve: {
     //     modulesDirectories: ['node_modules', 'bower_components'],
