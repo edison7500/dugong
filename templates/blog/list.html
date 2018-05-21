@@ -18,8 +18,8 @@
     </nav>
 
     <div class="columns is-desktop is-multiline">
-
-        <div class="column is-8">
+        <div id="modal"></div>
+        <div class="column is-8" id="content">
             <div class="box">
             {% for row in object_list %}
                 {% include 'blog/snippets/cell.html' with post=row %}
@@ -27,8 +27,8 @@
             </div>
         </div>
 
-        <div class="column is-4">
-            <nav class="panel">
+        <div class="column is-4" id="sidebar">
+            <nav class="panel sidebar__inner">
                 <p class="panel-heading">github</p>
                 <a href="https://github.com/edison7500/dugong" target="_blank" title="Python观察员" class="panel-block">
                     <span class="panel-icon"><i class="fa fa-github-alt"></i></span>
