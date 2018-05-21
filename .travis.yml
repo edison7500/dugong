@@ -10,6 +10,7 @@ before_install:
   - sudo apt-get install nodejs -y -q
 install:
   - pip install -r requirements/local.txt
+  - pip install flake8
 before_script:
   - export DJANGO_SETTINGS_MODULE=dugong.settings.stage
 script:

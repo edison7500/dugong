@@ -8,11 +8,12 @@
         <div class="column is-12">
             <div class="box">
                 <form method="post">{% csrf_token %}
-                    {% for field in form %}
-                        <div class="field">
-                                {{ field|bulma_inline }}
-                        </div>
-                    {% endfor %}
+                    {{ form|bulma_inline }}
+{#                    {% for field in form %}#}
+{#                        <div class="field">#}
+{#                                {{ field|bulma_inline }}#}
+{#                        </div>#}
+{#                    {% endfor %}#}
                     <div class="field">
                         <button class="button is-primary" type="submit">{% trans 'submit' %}</button>
                     </div>

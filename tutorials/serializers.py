@@ -11,8 +11,9 @@ class TutorialSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Tutorial
-        fields = ('slug', 'cover_url', 'absolute_url',
-                  'title', 'digest', 'content', 'origin_link',
-                  'created_at', 'published_at',)
-        # exclude = ('id', 'author', 'tags')
+        fields = (
+            'slug', 'cover_url', 'absolute_url',
+            'title', 'digest', 'content', 'origin_link',
+            'created_at', 'published_at',
+        )
 
