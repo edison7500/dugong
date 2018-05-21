@@ -4,10 +4,8 @@ ROOT_DIR = environ.Path(__file__) - 3  # three folder back (/a/b/c/ - 3 = /)
 env = environ.Env()
 env.read_env(str(ROOT_DIR.path('.env')))
 
-# SITE_ROOT = root()
 
 DEBUG = env('DJANGO_DEBUG', default=True)  # False if not in os.environ
-TEMPLATE_DEBUG = DEBUG
 
 
 # DATABASES
@@ -65,7 +63,7 @@ REST_FRAMEWORK_APPS = [
 THIRD_PARTY_APPS = [
     'django_comments',
     'bulma',
-    'compressor',
+    # 'compressor',
     'tagging',
     'haystack',
     'django_extensions',
@@ -149,24 +147,24 @@ TEMPLATES = [
 # ]
 # HTML_MINIFY = True
 
-COMPRESS_ENABLED = False
-COMPRESS_OFFLINE = True
-COMPRESS_PRECOMPILERS = (
+# COMPRESS_ENABLED = False
+# COMPRESS_OFFLINE = True
+# COMPRESS_PRECOMPILERS = (
     # ('text/coffeescript', 'coffee --compile --stdio'),
-    ('text/less', '/usr/local/bin/lessc {infile} {outfile}'),
+    # ('text/less', '/usr/local/bin/lessc {infile} {outfile}'),
     # ('text/x-sass', 'sass {infile} {outfile}'),
     # ('text/x-scss', 'sass --scss {infile} {outfile}'),
-)
+# )
 
-COMPRESS_CSS_FILTERS = [
-    'compressor.filters.cssmin.rCSSMinFilter',
-]
-COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
-
-COMPRESS_OUTPUT_DIR = 'release'
-STATICFILES_FINDERS += [
-    'compressor.finders.CompressorFinder',
-]
+# COMPRESS_CSS_FILTERS = [
+#     'compressor.filters.cssmin.rCSSMinFilter',
+# ]
+# COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
+#
+# COMPRESS_OUTPUT_DIR = 'release'
+# STATICFILES_FINDERS += [
+#     'compressor.finders.CompressorFinder',
+# ]
 
 # REST FRAMEWORK
 # ------------------------------------------------------------------------------
