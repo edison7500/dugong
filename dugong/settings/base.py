@@ -69,11 +69,13 @@ THIRD_PARTY_APPS = [
     'django_extensions',
     'django_gravatar',
     'django_filters',
+    'webpack_loader',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
-    'webpack_loader',
+    'widget_tweaks',
 ]
 LOCAL_APPS = [
     'blog',
