@@ -39,17 +39,17 @@ from django.db import models
 class FlatPageAdmin(FlatPageAdmin):
     form = FlatpageForm
     # formfield_overrides = {
-        # models.TextField: {'widget': MarkdownxFormField()}
-        #     models.TextField: {'widget': RedactorEditor(
-        #         redactor_options={
-        #             'formatting': ['p', 'blockquote', 'h2', 'h3'],
-        #             # 'buttons': ['formatting', 'bold', 'italic',
-        #             #         'deleted', 'lists', 'link', 'unorderedlist', 'orderedlist',
-        #             #         'alignment', 'horizontalrule', 'html'],
-        #             'lang': 'zh_cn',
-        #         },
-        #         # attrs={}
-        #     )},
+    # models.TextField: {'widget': MarkdownxFormField()}
+    #     models.TextField: {'widget': RedactorEditor(
+    #         redactor_options={
+    #             'formatting': ['p', 'blockquote', 'h2', 'h3'],
+    #             # 'buttons': ['formatting', 'bold', 'italic',
+    #             #         'deleted', 'lists', 'link', 'unorderedlist', 'orderedlist',
+    #             #         'alignment', 'horizontalrule', 'html'],
+    #             'lang': 'zh_cn',
+    #         },
+    #         # attrs={}
+    #     )},
     # }
 
     fieldsets = (
