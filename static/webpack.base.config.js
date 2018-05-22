@@ -1,6 +1,5 @@
 var path = require("path")
-var BundleTracker = require('webpack-bundle-tracker');
-var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+var webpack = require('webpack')
 
 module.exports = {
     context: __dirname,
@@ -9,28 +8,28 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'js/bundle.js'
     },
 
     plugins: [
-
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+        })
     ],
 
     module: {
         rules: [
             {
                 test: /\.jsx?$/,
-                // loader: 'babel-loader',
                 exclude: /node_modules/,
-                // query: {
-                //     presets: ['es2015']
-                // }
             }
         ]
     },
     //
     resolve: {
-        // modulesDirectories: ['node_modules', 'bower_components'],
+        moduleExtensions: [ '-loader' ],
+        // modulesDirectories: ['node_modules', ],
         // extensions: ['', '.js', '.json']
     }
 }

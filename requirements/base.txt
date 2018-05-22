@@ -18,7 +18,7 @@ django-extensions>=2.0.6
 django-filter>=1.1.0
 django-formtools==2.1
 django-gravatar2>=1.4
-django-haystack==2.8.1
+django-haystack>=2.8
 django-htmlmin==0.10.0
 django-model-utils>=3.0.0
 django-pandas==0.5.1

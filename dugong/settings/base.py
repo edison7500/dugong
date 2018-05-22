@@ -4,9 +4,7 @@ ROOT_DIR = environ.Path(__file__) - 3  # three folder back (/a/b/c/ - 3 = /)
 env = environ.Env()
 env.read_env(str(ROOT_DIR.path('.env')))
 
-
 DEBUG = env('DJANGO_DEBUG', default=True)  # False if not in os.environ
-
 
 # DATABASES
 # ------------------------------------------------------------------------------
@@ -32,7 +30,6 @@ USE_TZ = True
 USE_X_FORWARDED_HOST = True
 
 SITE_ID = 1
-
 
 LOCALE_PATHS = (
     str(ROOT_DIR.path('conf/locale')),
@@ -151,10 +148,10 @@ TEMPLATES = [
 # COMPRESS_ENABLED = False
 # COMPRESS_OFFLINE = True
 # COMPRESS_PRECOMPILERS = (
-    # ('text/coffeescript', 'coffee --compile --stdio'),
-    # ('text/less', '/usr/local/bin/lessc {infile} {outfile}'),
-    # ('text/x-sass', 'sass {infile} {outfile}'),
-    # ('text/x-scss', 'sass --scss {infile} {outfile}'),
+# ('text/coffeescript', 'coffee --compile --stdio'),
+# ('text/less', '/usr/local/bin/lessc {infile} {outfile}'),
+# ('text/x-sass', 'sass {infile} {outfile}'),
+# ('text/x-scss', 'sass --scss {infile} {outfile}'),
 # )
 
 # COMPRESS_CSS_FILTERS = [
@@ -187,7 +184,6 @@ REST_FRAMEWORK = {
     'DATETIME_FORMAT': '%Y-%m-%d %H:%M:%S',
 }
 
-
 ''' django haystack
 
 '''
@@ -203,11 +199,10 @@ HAYSTACK_CONNECTIONS = {
 }
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
 
-
 WEBPACK_LOADER = {
     'DEFAULT': {
         'CACHE': not DEBUG,
-        'BUNDLE_DIR_NAME': 'dist/', # must end with slash
+        'BUNDLE_DIR_NAME': 'dist/',  # must end with slash
         # 'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
         'STATS_FILE': str(ROOT_DIR.path('static/webpack-stats.json')),
         'POLL_INTERVAL': 0.1,
@@ -216,11 +211,8 @@ WEBPACK_LOADER = {
     }
 }
 
-
-
 FILE_UPLOAD_TEMP_DIR = '/tmp/'
 FILE_UPLOAD_PERMISSIONS = 0o644
-
 
 ###
 #  BULMA Default settings

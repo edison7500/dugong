@@ -76,5 +76,5 @@ dugong/settings/production.py
 whoosh_index
 static/node_modules
 static/package-lock.json
-static/css/mixins.css
-static/js/lib/
+
+dugong/settings/prod.py

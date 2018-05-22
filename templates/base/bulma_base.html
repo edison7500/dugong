@@ -1,6 +1,5 @@
 {% extends 'bulma/base.html' %}
 {% load static %}
-{#{% load compress %}#}
 {% load bulma_tags %}
 {% load render_bundle from webpack_loader %}
 
@@ -36,7 +35,4 @@
 
 {% block extra_javascript %}
     {% render_bundle 'main' 'js' %}
-{#    {% compress js %}#}
-{#        <script type="text/javascript" src="{% static 'dist/bundle.js' %}" charset="UTF-8"></script>#}
-{#    {% endcompress %}#}
 {% endblock %}
