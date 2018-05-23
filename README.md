@@ -1,9 +1,13 @@
 # 概览
+
+[![GitHub license](https://img.shields.io/github/license/edison7500/dugong.svg)](https://github.com/edison7500/dugong/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/edison7500/dugong.svg?branch=master)](https://travis-ci.org/edison7500/dugong)
 [![Coverage Status](https://coveralls.io/repos/github/edison7500/dugong/badge.svg?branch=master)](https://coveralls.io/github/edison7500/dugong?branch=master)
 [![Requirements Status](https://requires.io/github/edison7500/dugong/requirements.svg?branch=master)](https://requires.io/github/edison7500/dugong/requirements/?branch=master)
 [![Updates](https://pyup.io/repos/github/edison7500/dugong/shield.svg)](https://pyup.io/repos/github/edison7500/dugong/)
 [![Python 3](https://pyup.io/repos/github/edison7500/dugong/python-3-shield.svg)](https://pyup.io/repos/github/edison7500/dugong/)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/edison7500/dugong.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fedison7500%2Fdugong)
+
 
 ### 系统环境
 * Ubuntu 16.04
