@@ -1,10 +1,5 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
-# from django_markdown.widgets import AdminMarkdownWidget
-# from markdownx.admin import MarkdownxModelAdmin
-# from markdownx.fields import MarkdownxFormField
-
-# from blog.admin.forms import BlogAdminForm
 from blog.models import PostImage
 
 

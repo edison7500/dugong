@@ -65,6 +65,8 @@ THIRD_PARTY_APPS = [
     'haystack',
     'django_extensions',
     'django_gravatar',
+    'django_markdown',
+
     'django_filters',
     'webpack_loader',
 
@@ -136,34 +138,6 @@ TEMPLATES = [
     },
 ]
 
-# # django-htmlmin
-# # ------------------------------------------------------------------------------
-# # https://pypi.org/project/django-htmlmin/#description
-# MIDDLEWARE += [
-#     'htmlmin.middleware.HtmlMinifyMiddleware',
-#     'htmlmin.middleware.MarkRequestMiddleware',
-# ]
-# HTML_MINIFY = True
-
-# COMPRESS_ENABLED = False
-# COMPRESS_OFFLINE = True
-# COMPRESS_PRECOMPILERS = (
-# ('text/coffeescript', 'coffee --compile --stdio'),
-# ('text/less', '/usr/local/bin/lessc {infile} {outfile}'),
-# ('text/x-sass', 'sass {infile} {outfile}'),
-# ('text/x-scss', 'sass --scss {infile} {outfile}'),
-# )
-
-# COMPRESS_CSS_FILTERS = [
-#     'compressor.filters.cssmin.rCSSMinFilter',
-# ]
-# COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
-#
-# COMPRESS_OUTPUT_DIR = 'release'
-# STATICFILES_FINDERS += [
-#     'compressor.finders.CompressorFinder',
-# ]
-
 # REST FRAMEWORK
 # ------------------------------------------------------------------------------
 # http://www.django-rest-framework.org/api-guide/settings/
@@ -220,3 +194,11 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 from .bulma import *
 
 FORCE_LOWERCASE_TAGS = True
+
+
+
+# django markdown
+# ------------------------------------------------------
+# https://github.com/edison7500/django_markdown/tree/master
+MARKDOWN_EDITOR_SKIN = 'simple'
+MARKDOWN_EXTENSIONS = ['extra']
