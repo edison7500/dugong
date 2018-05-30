@@ -13,6 +13,7 @@ install:
   - pip install flake8
 before_script:
   - export DJANGO_SETTINGS_MODULE=dugong.settings.stage
+  - mv .env.example .env
 script:
   - cd static/
   - npm i
