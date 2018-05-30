@@ -1,6 +1,6 @@
-# coding=utf-8
 import uuid
 from django.utils.deconstruct import deconstructible
+
 
 @deconstructible
 class UUIDFilename(object):
@@ -9,8 +9,8 @@ class UUIDFilename(object):
 
     def __call__(self, instance, filename):
         ext = filename.split('.')[-1]
-        uuid_filename   = uuid.uuid5(uuid.NAMESPACE_DNS, filename.encode('utf8'))
-        filename        = '{path}{filename}.{ext}'.format(path=self.sub_path,
-                                                        filename=uuid_filename,
-                                                        ext=ext)
+        uuid_filename = uuid.uuid5(uuid.NAMESPACE_DNS, filename)
+        filename = '{path}{filename}.{ext}'.format(path=self.sub_path,
+                                                   filename=uuid_filename,
+                                                   ext=ext)
         return filename

@@ -1,6 +1,6 @@
 from django import forms
 from tutorials.models import Tutorial
-# from .widgets import BSMarkDownWidget
+from editormd.fields import EditorMdFormField
 
 
 class TutorialForm(forms.ModelForm):
@@ -9,7 +9,7 @@ class TutorialForm(forms.ModelForm):
         model = Tutorial
         fields = ['title', 'content', 'status', 'tags', 'origin_link']
         widgets = {
-            'content': forms.Textarea()
+            'content': EditorMdFormField(),
         }
         # widgets = {
         #     'content': BSMarkDownWidget()
