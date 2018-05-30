@@ -65,10 +65,11 @@ THIRD_PARTY_APPS = [
     'haystack',
     'django_extensions',
     'django_gravatar',
-    'django_markdown',
+    # 'django_markdown',
 
     'django_filters',
     'webpack_loader',
+    'editormd',
 
     'allauth',
     'allauth.account',

@@ -31,6 +31,7 @@ django-environ==0.4
 django-webpack-loader>=0.6
 djangorestframework>=3.8
 djangorestframework-jwt>=1.11
+django-editormd>=0.3
 docopt==0.6.2
 enum34==1.1.6
 funcsigs==1.0.2

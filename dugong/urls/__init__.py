@@ -18,7 +18,7 @@ urlpatterns = [
     url(r'^tutorials/', include('tutorials.urls', namespace='tutorials')),
     url(r'^accounts/', include('allauth.urls')),
 
-    url('^markdown/', include('django_markdown.urls')),
+    # url('^markdown/', include('django_markdown.urls')),
     # home page
     url(r'^$', HomeView.as_view(), name='homepage'),
 ]

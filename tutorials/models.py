@@ -1,4 +1,3 @@
-# coding=utf-8
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.db import models
@@ -10,6 +9,7 @@ from django_extensions.db import fields
 from tagging.fields import TagField
 from model_utils.fields import StatusField, MonitorField
 from model_utils import Choices
+from editormd.models import EditorMdField
 from urllib.parse import urlparse
 from utils.image.handlers import UUIDFilename
 from utils.render_md import md
@@ -30,7 +30,7 @@ class Tutorial(models.Model):
     slug = fields.RandomCharField(length=12, unique=True,
                                   include_alpha=False, db_index=True, editable=False)
     status = StatusField(_('status'), choices_name='STATUS', default=STATUS.draft)
-    content = models.TextField(blank=True, null=True)
+    content = EditorMdField(blank=True, null=True)
     origin_link = models.URLField(_('origin_link'), max_length=255, null=True, unique=True)
     created_datetime = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
     published_at = MonitorField(monitor='status', when=['published'])
