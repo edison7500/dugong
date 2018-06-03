@@ -1,4 +1,3 @@
-# coding=utf-8
 from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
@@ -18,16 +17,14 @@ urlpatterns = [
     url(r'^tutorials/', include('tutorials.urls', namespace='tutorials')),
     url(r'^accounts/', include('allauth.urls')),
 
-    # url('^markdown/', include('django_markdown.urls')),
-    # home page
     url(r'^$', HomeView.as_view(), name='homepage'),
 ]
 
 from views.search import ProjectSearchView, autocomplete
 
 urlpatterns += [
-    url(r'^search/autocomplete/?$', autocomplete, name='search-autocomplete'),
     url(r'^search/?$', ProjectSearchView.as_view(), name='project-search-view'),
+    url(r'^search/autocomplete/?$', autocomplete, name='search-autocomplete'),
 ]
 
 '''
@@ -36,12 +33,6 @@ urlpatterns += [
 urlpatterns += [
     url(r'^api/', include('dugong.urls.api', namespace='api')),
 
-    # url(r'^docs/', include_docs_urls(title='JiaXinAPI Docs',
-    #                                  public=False,
-    #                                  permission_classes=[
-    #                                      permissions.IsAdminUser,
-    #                                  ])
-    #     ),
 ]
 
 from blog.sitemaps import PostSitemap
