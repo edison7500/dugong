@@ -14,9 +14,6 @@ from utils.render_md import md
 from caching.base import CachingManager, CachingMixin
 
 
-# h = HTMLParser()
-
-
 class Post(CachingMixin, models.Model):
     (block, preview, publish) = range(3)
     POST_STARUS_CHOICES = [
@@ -46,6 +43,7 @@ class Post(CachingMixin, models.Model):
         return reverse('blog:detail', args=[self.slug])
 
     def render_markdown(self):
+        md.reset()
         html = md.convert(self.content)
         return html, md.toc
 
