@@ -43,7 +43,6 @@ class Post(CachingMixin, models.Model):
         return reverse('blog:detail', args=[self.slug])
 
     def render_markdown(self):
-        md.reset()
         html = md.convert(self.content)
         return html, md.toc
 
