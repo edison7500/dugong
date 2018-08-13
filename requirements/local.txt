@@ -1,6 +1,6 @@
 -r base.txt
 
-Faker==0.8.17
+Faker==0.8.18
 factory-boy==2.11.1
 coverage>=4.4
 django-nose>=1.4
