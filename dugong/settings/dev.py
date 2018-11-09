@@ -25,10 +25,7 @@ DEBUG_TOOLBAR_CONFIG = {
         'debug_toolbar.panels.redirects.RedirectsPanel',
     ],
     'SHOW_TEMPLATE_CONTEXT': True,
+    "JQUERY_URL": "//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"
 }
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#internal-ips
 INTERNAL_IPS = ['127.0.0.1']
-
-DEBUG_TOOLBAR_CONFIG = {
-    "JQUERY_URL": "//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"
-}
