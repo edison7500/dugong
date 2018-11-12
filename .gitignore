@@ -79,3 +79,5 @@ static/package-lock.json
 
 dugong/settings/prod.py
 .env
+
+yarn.lock
