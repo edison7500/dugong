@@ -1,7 +1,7 @@
 from .base import *
 from .base import env
 
-SECRET_KEY = env('SECRET_KEY', default='rlch5d=b=i@gwuyjntbk#weuu0tne4*)b4hq1hb^h_tq-0=e@u')
+SECRET_KEY = env('SECRET_KEY', default='only test')
 
 ALLOWED_HOSTS = [
     "*",
