@@ -12,7 +12,7 @@ virtualenv_python_version: python3.6
 #gunicorn_worker: gevent
 
 
-domain_name: dapprank.com
+domain_name: jiaxin.im
 
 ##
 # nodejs
@@ -22,16 +22,16 @@ nodejs_version: 8.x
 ##
 # mysql
 ##
-db_server: "10.132.11.59"
+db_server: "10.136.69.172"
 db_server_port: "3306"
-db_name: "gluon"
-db_user: "gluon"
-db_password: "gluon1@#"
+db_name: "dugong"
+db_user: "dugong"
+db_password: "dugong1@#"
 
 ##
 # elasticsearch
 ##
-search_server: "10.132.13.8"
+search_server: "10.136.17.139"
 search_server_port: "9200"
 
 
@@ -39,7 +39,6 @@ migrate: yes
 compilemessages: yes
 
 enable_deadsnakes_ppa: yes
-enable_gasol_wu_ppa: no
 
 recreate_virtualenv: no
 #virtualenv_python_version: "/usr/bin/python3.6"

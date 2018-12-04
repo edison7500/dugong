@@ -1,0 +1,101 @@
+from .settings import *
+
+DEBUG = False
+
+ALLOWED_HOSTS = ['jiaxin.im',
+                 'api.jiaxin.im',
+                 'www.jiaxin.im']
+
+INSTALLED_APPS += [
+    'gunicorn',
+]
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dugong',
+        'USER': 'dugong',
+        'PASSWORD': 'dugong1@#',
+        'HOST': '10.136.69.172',
+        # 'HOST': 'rm-j6cw5lg9n2wd67qyi.mysql.rds.aliyuncs.com',
+        # 'HOST': 'localhost',
+        'PORT': 3306,
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+            'init_command': 'SET storage_engine=INNODB',
+        }
+    }
+}
+
+STATIC_URL = '//static.jiaxin.im/static/'
+STATIC_ROOT = '/data/www/static/'
+COMPRESS_ENABLED = True
+
+COMPRESS_CSS_FILTERS = [
+    'compressor.filters.css_default.CssAbsoluteFilter',
+    'compressor.filters.cleancss.CleanCSSFilter',
+]
+COMPRESS_CLEAN_CSS_BINARY = '/usr/bin/cleancss'
+COMPRESS_CLEAN_CSS_ARGUMENTS = '--s0'
+COMPRESS_JS_FILTERS = [
+    'compressor.filters.jsmin.JSMinFilter',
+
+]
+
+"""
+session configure
+"""
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+SESSION_COOKIE_DOMAIN = ".jiaxin.im"
+
+''' django haystack
+
+'''
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch2_backend.Elasticsearch2SearchEngine',
+        'URL': 'http://10.136.17.139:9200/',
+        'INCLUDE_SPELLING': True,
+        'INDEX_NAME': 'opensource',
+        'BATCH_SIZE': 1000,
+    },
+}
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
+
+'''
+    rest framework
+'''
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ],
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 20,
+    'DATETIME_FORMAT': '%Y-%m-%d %H:%M:%S',
+}
+
+
+
+'''
+    storage configure
+'''
+DEFAULT_FILE_STORAGE = 'qiniustorage.backends.QiniuStorage'
+
+IMAGE_HOST = '//imgjiaxin.u.qiniudn.com/'
+
+QINIU_ACCESS_KEY = "xD6MU4_jZANfAqu9auFQm4qkSIx_ln2hIefKIFAU"
+QINIU_SECRET_KEY = "NkTHwgTFQHFaujEB3Fo-ZC2jgf6LkjkWT0iWbwWP"
+QINIU_BUCKET_NAME = "imgjiaxin"
+
+QINIU_BUCKET_DOMAIN = 'imgjiaxin.u.qiniudn.com'
+QINIU_SECURE_URL = False
