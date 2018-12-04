@@ -1,0 +1,9 @@
+---
+
+
+branch: "stable"
+update_apt_cache: yes
+
+nginx_worker_processes: "{{ ansible_processor_vcpus | default(ansible_processor_count) }}"
+
+nginx_server_tokens: "off"

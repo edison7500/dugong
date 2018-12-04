@@ -1,0 +1,4 @@
+# from galaxy
+- src: https://github.com/geerlingguy/ansible-role-nodejs.git
+  version: master
+  name: geerlingguy.nodejs

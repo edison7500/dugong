@@ -1,0 +1,10 @@
+---
+# defaults file for base
+ansible_python_interpreter: /usr/bin/python3
+
+server_user: root
+
+base_python_package: "{{ ansible_python_interpreter | default('/usr/bin/python') | basename }}"
+
+
+update_apt_cache: no

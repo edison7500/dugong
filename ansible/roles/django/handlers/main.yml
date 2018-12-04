@@ -1,0 +1,5 @@
+---
+
+- name: restart django
+  supervisorctl: name={{ application_name }} state=restarted
+  listen: restart application

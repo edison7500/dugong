@@ -1,0 +1,17 @@
+---
+
+virtualenvwrapper_version: 4.8.2
+
+virtualenvwrapper_python: /usr/bin/python
+
+virtualenvwrapper_virtualenv: /usr/local/bin/virtualenv
+
+virtualenvwrapper_source: /usr/local/bin/virtualenvwrapper.sh
+
+virtualenvwrapper_home: "/webapps/"
+
+virtualenvwrapper_project: "{{ lookup('env', 'HOME') }}/projects/"
+
+virtualenvwrapper_shell_file: "{{ lookup('env', 'HOME') }}/.bashrc"
+
+ufw_rules: [{ port: 22, rule: limit }]

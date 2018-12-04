@@ -1,0 +1,42 @@
+---
+
+- name: Install security updates
+  apt: default_release={{ ansible_distribution_release }}-security
+       update_cache={{ update_apt_cache }}
+       upgrade=dist
+  tags:
+    - packages
+    - skip_ansible_lint
+
+- name: Install base packages
+  apt: name={{ item }} update_cache={{ update_apt_cache }} state=present
+  with_items:
+    - software-properties-common
+    - tmux
+    - locales
+    - build-essential
+    - ntp
+    - htop
+    - dstat
+    - gettext
+    - git
+    - curl
+    - "{{ base_python_package }}-pip"
+    - supervisor
+  tags:
+    - packages
+    - packages.security
+
+
+- name: Upgrade pip
+  pip: name=pip state=latest
+  tags:
+    - packages
+    - skip_ansible_lint
+
+
+- include_tasks: timezone.yml
+  tags: timezone
+
+- include_tasks: sysctl.yml
+  tags: sysctl

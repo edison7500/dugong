@@ -1,0 +1,9 @@
+---
+
+- name: Install openssh server
+  apt: name=openssh-server update_cache={{ update_apt_cache }} state=present
+  tags: packages
+
+- name: update the openssh server config file
+  template: src=sshd_config.j2 dest=/etc/ssh/sshd_config
+  notify: restart openssh

@@ -1,0 +1,69 @@
+---
+
+- name: Install packages required by the Django app inside virtualenv
+  pip: virtualenv={{ virtualenv_path }} requirements={{ requirements_file }}
+
+- name: Create Django Production Settings
+  template: src={{ application_name }}_production.j2
+            dest=/data/www/{{ application_name }}/{{ application_name }}/settings/prod.py
+  notify: restart application
+  tags: django
+
+- name: Create Django Environment
+  template: src=env.j2
+            dest=/data/www/{{ application_name }}/.env
+  notify: restart application
+  tags: django
+
+- name: Run the Django migrate command
+  django_manage:
+    command: migrate
+    app_path: "{{ project_path }}"
+    virtualenv: "{{ virtualenv_path }}"
+    settings: "{{ django_settings_file }}"
+  environment: "{{ django_environment }}"
+  tags: django.migrate
+  when: migrate is defined and migrate
+
+- name: Run Django compilemessages
+  django_manage:
+    command: compilemessages
+    app_path: "{{ project_path }}"
+    virtualenv: "{{ virtualenv_path }}"
+    settings: "{{ django_settings_file }}"
+  environment: "{{ django_environment }}"
+  tags: django.compilemessages
+  when: compilemessages is defined and compilemessages
+
+- name: Install Frontend Dependencies
+  npm:
+    path: "{{ django_frontend }}"
+    state: present
+
+- name: Build Frontend Static
+  shell: npm run build
+  args:
+    chdir: "{{ django_frontend }}"
+
+- name: Run Django collectstatic
+  django_manage:
+    command: collectstatic
+    app_path: "{{ project_path }}"
+    virtualenv: "{{ virtualenv_path }}"
+    settings: "{{ django_settings_file }}"
+  environment: "{{ django_environment }}"
+  when: run_django_collectstatic is defined and run_django_collectstatic
+  notify: restart application
+  tags: django.collectstatic
+
+# - name: Run Django compress
+#   django_manage:
+#     command: compress
+#     app_path: "{{ project_path }}"
+#     virtualenv: "{{ virtualenv_path }}"
+#     settings: "{{ django_settings_file }}"
+#   environment: "{{ django_environment }}"
+# #  when: run_django_collectstatic is defined and run_django_collectstatic
+#   notify: restart application
+#   tags: django.compress
+#   when: compress is defined and compress

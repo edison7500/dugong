@@ -1,0 +1,12 @@
+---
+
+- name: Provision a dugong web server
+  hosts: dugong
+  become: yes
+  become_user: root
+  remote_user: jiaxin
+
+  roles:
+    - base
+    - ssh
+    - nginx

@@ -1,0 +1,8 @@
+---
+# defaults file for ssh
+
+update_apt_cache: yes
+
+SSH_PORT: 22
+SSH_UseDNS: "no"
+SSH_PermitRootLogin: "no"

@@ -1,0 +1,6 @@
+[program:{{ application_name }}]
+environment =
+	DJANGO_SETTINGS_MODULE={{ django_settings_file }}
+user=root
+directory={{ project_path }}
+command={{ virtualenv_path }}/bin/gunicorn -c /etc/default/gunicorn {{ application_name }}.wsgi

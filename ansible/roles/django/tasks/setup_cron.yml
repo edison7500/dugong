@@ -1,0 +1,36 @@
+---
+
+- name: update repo index crontab
+  cron:
+    name: update repo index crontab
+    user: root
+    minute: 0
+    hour: "*/6"
+    job: "{{ virtualenv_path }}/bin/python {{ project_path }}/manage.py update_index --settings='{{ django_settings_file }}'"
+    state: present
+  tags:
+    - cron
+
+
+- name: scrapy repo stat
+  cron:
+    name: scrapy repo stat
+    user: root
+    minute: 0
+    hour: 4
+    job: "{{ virtualenv_path }}/bin/python {{ project_path }}/manage.py running_repo_spider --settings='{{ django_settings_file }}'"
+    state: present
+  tags:
+    - cron
+
+
+- name: scrapy repo commit
+  cron:
+    name: scrapy repo commit
+    user: root
+    minute: 0
+    hour: 8
+    job: "{{ virtualenv_path }}/bin/python {{ project_path }}/manage.py fetch_repos_commit --settings='{{ django_settings_file }}'"
+    state: present
+  tags:
+    - cron

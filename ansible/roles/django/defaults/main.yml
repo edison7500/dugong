@@ -1,0 +1,19 @@
+---
+# defaults file for django
+
+# Gunicorn settings.
+gunicorn_user: "{{ application_name }}"
+gunicorn_group: www-data
+gunicorn_cpu_coefficient: "{{ ansible_processor_vcpus | default(ansible_processor_count) }}"
+gunicorn_max_requests: 1024
+gunicorn_worker: gevent
+
+
+project_path: "/data/www/{{ application_name }}"
+application_log_dir: "{{ virtualenv_path }}/logs"
+application_log_file: "{{ application_log_dir }}/gunicorn_supervisor.log"
+requirements_file: "{{ project_path }}/requirements/prod.txt"
+
+# frontend
+run_django_collectstatic: yes
+django_frontend: "{{ project_path + '/frontend' }}"

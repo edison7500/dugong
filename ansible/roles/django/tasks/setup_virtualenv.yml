@@ -1,0 +1,25 @@
+---
+
+- name: Install virtualenv
+  pip:
+    name: virtualenv
+    version: 15.1.0
+  tags: packages
+
+- name: Create the virtualenv
+  command: virtualenv -p {{ virtualenv_python_version }} {{ virtualenv_path }}
+           creates={{ virtualenv_path }}/bin/activate
+
+- name: Create the Gunicorn script file
+  template: src=gunicorn.j2
+            dest=/etc/default/gunicorn
+            mode=0644
+  notify: restart application
+  tags: deploy
+
+
+- name: Create the virtualenv postactivate script to set environment variables
+  template: src=virtualenv_postactivate.j2
+            dest={{ virtualenv_path }}/bin/postactivate
+            mode=0640
+  tags: deploy

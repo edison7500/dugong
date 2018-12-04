@@ -1,0 +1,75 @@
+
+git_repo: "git@github.com:Bit03/gluon.git"
+
+project_name: "dugong"
+application_name: "dugong"
+
+
+virtualenv_python_version: python3.6
+
+#gunicorn_num_workers: 3
+#gunicorn_max_requests: 1024
+#gunicorn_worker: gevent
+
+
+domain_name: dapprank.com
+
+##
+# nodejs
+##
+nodejs_version: 8.x
+
+##
+# mysql
+##
+db_server: "10.132.11.59"
+db_server_port: "3306"
+db_name: "gluon"
+db_user: "gluon"
+db_password: "gluon1@#"
+
+##
+# elasticsearch
+##
+search_server: "10.132.13.8"
+search_server_port: "9200"
+
+
+migrate: yes
+compilemessages: yes
+
+enable_deadsnakes_ppa: yes
+enable_gasol_wu_ppa: no
+
+recreate_virtualenv: no
+#virtualenv_python_version: "/usr/bin/python3.6"
+virtualenv_path: "/webapps/{{ application_name }}"
+
+project_path: "/data/www/{{ application_name }}"
+application_log_dir: "{{ virtualenv_path }}/logs"
+application_log_file: "{{ application_log_dir }}/gunicorn_supervisor.log"
+requirements_file: "{{ project_path }}/requirements/prod.txt"
+
+
+# Github
+project_key_src: "keys/id_rsa.{{ application_name }}"
+project_key_file: "/webapps/{{ application_name }}/id_rsa"
+
+# Gunicorn settings.
+gunicorn_user: "{{ application_name }}"
+gunicorn_group: www-data
+gunicorn_cpu_coefficient: "{{ ansible_processor_vcpus | default(ansible_processor_count) }}"
+gunicorn_max_requests: 4096
+gunicorn_worker: gevent
+
+
+# Django environment variables.
+django_environment:
+  DJANGO_SETTINGS_MODULE: "{{ django_settings_file }}"
+
+# ufw
+ufw_rules:
+  - { port: 22, rule: limit }
+  - { port: 80, rule: allow }
+  - { port: 443, rule: allow }
+  - { port: 9393, rule: allow }

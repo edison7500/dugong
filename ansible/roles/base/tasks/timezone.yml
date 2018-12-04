@@ -1,0 +1,5 @@
+---
+
+- name: set timezone to Asia/Shanghai
+  timezone:
+    name: Asia/Shanghai

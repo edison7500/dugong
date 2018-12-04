@@ -1,0 +1,6 @@
+# Git settings.
+git_branch: master
+
+
+# Application settings.
+django_settings_file: "{{ application_name }}.settings.prod"
