@@ -6,7 +6,13 @@
   become_user: root
   remote_user: jiaxin
 
+  vars_files:
+    - env_vars/base.yml
+    - env_vars/dugong.yml
+    - env_vars/production.yml
+
   roles:
     - base
     - ssh
     - nginx
+    - django

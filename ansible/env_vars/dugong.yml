@@ -1,5 +1,5 @@
 
-git_repo: "git@github.com:edison7500/dugong.git"
+git_repo: "https://github.com/edison7500/dugong.git"
 
 project_name: "dugong"
 application_name: "dugong"
@@ -41,7 +41,6 @@ compilemessages: yes
 enable_deadsnakes_ppa: yes
 
 recreate_virtualenv: no
-#virtualenv_python_version: "/usr/bin/python3.6"
 virtualenv_path: "/webapps/{{ application_name }}"
 
 project_path: "/data/www/{{ application_name }}"

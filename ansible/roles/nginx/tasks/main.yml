@@ -1,9 +1,9 @@
 ---
 
-- name: Add New Nginx Versions PPA to the apt sources list
-  apt_repository: repo='ppa:nginx/{{ branch }}'
-                  update_cache={{ update_apt_cache }}
-                  state=present
+#- name: Add New Nginx Versions PPA to the apt sources list
+#  apt_repository: repo='ppa:nginx/{{ branch }}'
+#                  update_cache={{ update_apt_cache }}
+#                  state=present
 
 - name: Install Nginx
   apt: name=nginx update_cache={{ update_apt_cache }} state=present

@@ -14,6 +14,11 @@ application_log_dir: "{{ virtualenv_path }}/logs"
 application_log_file: "{{ application_log_dir }}/gunicorn_supervisor.log"
 requirements_file: "{{ project_path }}/requirements/prod.txt"
 
+
+enable_deadsnakes_ppa: yes
+virtualenv_python_version: "python3.6"
+
+
 # frontend
-run_django_collectstatic: yes
-django_frontend: "{{ project_path + '/frontend' }}"
+#run_django_collectstatic: yes
+#django_frontend: "{{ project_path + '/frontend' }}"
