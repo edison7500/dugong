@@ -20,5 +20,5 @@ virtualenv_python_version: "python3.6"
 
 
 # frontend
-#run_django_collectstatic: yes
-#django_frontend: "{{ project_path + '/frontend' }}"
+run_django_collectstatic: yes
+django_frontend: "{{ project_path + '/static' }}"

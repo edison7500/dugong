@@ -1,6 +1,6 @@
 upstream {{ project_name }} {
     #ip_hash;
-    server 127.0.0.1:8000 fail_timeout=5;
+    server {{ ansible_eth1.ipv4.address }}:8000 fail_timeout=5;
 }
 
 server {

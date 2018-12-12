@@ -41,7 +41,7 @@
     state: present
 
 - name: Build Frontend Static
-  shell: npm run build
+  shell: npm run build-sass
   args:
     chdir: "{{ django_frontend }}"
 

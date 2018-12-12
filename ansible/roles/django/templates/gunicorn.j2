@@ -2,7 +2,7 @@
 import multiprocessing
 
 pidfile = "/tmp/gunicorn.pid"
-bind = "{{ ansible_eth0.ipv4.address }}:8000"
+bind = "{{ ansible_eth1.ipv4.address }}:8000"
 workers = ({{ gunicorn_cpu_coefficient }} * multiprocessing.cpu_count()) + 1
 worker_class = "{{ gunicorn_worker }}"
 max_requests_jitter = {{ gunicorn_max_requests }}

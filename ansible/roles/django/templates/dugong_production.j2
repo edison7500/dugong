@@ -1,15 +1,22 @@
-from .settings import *
+from .base import *  # noqa
+from .base import env
 
-DEBUG = False
+DEBUG = False  # False if not in os.environ
+SECRET_KEY = env('SECRET_KEY', default='rlch5d=b=i@gwuyjntbk#weuu0tne4*)b4hq1hb^h_tq-0=e@u')
 
-ALLOWED_HOSTS = ['jiaxin.im',
-                 'api.jiaxin.im',
-                 'www.jiaxin.im']
+ALLOWED_HOSTS = [
+    "jiaxin.im",
+    "api.jiaxin.im",
+    "www.jiaxin.im",
+]
 
 INSTALLED_APPS += [
     'gunicorn',
 ]
 
+# DATABASES
+# ------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -25,30 +32,16 @@ DATABASES = {
     }
 }
 
-STATIC_URL = '//static.jiaxin.im/static/'
-STATIC_ROOT = '/data/www/static/'
-COMPRESS_ENABLED = True
 
-COMPRESS_CSS_FILTERS = [
-    'compressor.filters.css_default.CssAbsoluteFilter',
-    'compressor.filters.cleancss.CleanCSSFilter',
-]
-COMPRESS_CLEAN_CSS_BINARY = '/usr/bin/cleancss'
-COMPRESS_CLEAN_CSS_ARGUMENTS = '--s0'
-COMPRESS_JS_FILTERS = [
-    'compressor.filters.jsmin.JSMinFilter',
+# django session
+# ---------------------------------------------
+SESSION_ENGINE = 'django.contrib.sessions.backends.file'
+SESSION_FILE_PATH = '/tmp/'
 
-]
 
-"""
-session configure
-"""
-SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
-SESSION_COOKIE_DOMAIN = ".jiaxin.im"
-
-''' django haystack
-
-'''
+# django haystack
+# -------------------------------------------------------------------------
+#
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.elasticsearch2_backend.Elasticsearch2SearchEngine',
@@ -60,9 +53,10 @@ HAYSTACK_CONNECTIONS = {
 }
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
 
-'''
-    rest framework
-'''
+
+# rest framework
+# -------------------------------------------------------------------------
+#
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
@@ -82,18 +76,65 @@ REST_FRAMEWORK = {
     'DATETIME_FORMAT': '%Y-%m-%d %H:%M:%S',
 }
 
-
-
-'''
-    storage configure
-'''
+# django storage configure
+# --------------------------------------------------------------------
 DEFAULT_FILE_STORAGE = 'qiniustorage.backends.QiniuStorage'
 
 IMAGE_HOST = '//imgjiaxin.u.qiniudn.com/'
 
-QINIU_ACCESS_KEY = "xD6MU4_jZANfAqu9auFQm4qkSIx_ln2hIefKIFAU"
-QINIU_SECRET_KEY = "NkTHwgTFQHFaujEB3Fo-ZC2jgf6LkjkWT0iWbwWP"
-QINIU_BUCKET_NAME = "imgjiaxin"
-
+# django qiniu storage
+# ---------------------------------------------------------------------
+# https://github.com/glasslion/django-qiniu-storage
+QINIU_ACCESS_KEY = env('QINIU_ACCESS_KEY')
+QINIU_SECRET_KEY = env('QINIU_SECRET_KEY')
+QINIU_BUCKET_NAME = env('QINIU_BUCKET_NAME')
 QINIU_BUCKET_DOMAIN = 'imgjiaxin.u.qiniudn.com'
 QINIU_SECURE_URL = False
+
+
+STATIC_URL = '//static.jiaxin.im/static/'
+STATIC_ROOT = '/data/www/static/'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+            # 'format': '[%(asctime)s.%(msecs)d] %(levelname)s [%(module)s:%(funcName)s:%(lineno)d]- %(message)s',
+        },
+        'error': {
+            'format': '[%(asctime)s.%(msecs)d] [%(module)s:%(funcName)s:%(lineno)d]- %(message)s',
+        },
+    },
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'formatter': 'error',
+            'filename': '/tmp/django.log',
+            'mode': 'a',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file', 'console'],
+            'propagate': True,
+            'level': 'INFO',
+        },
+        'django.request': {
+            'handlers': ['file', ],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    }
+}
