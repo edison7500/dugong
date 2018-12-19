@@ -159,9 +159,9 @@ REST_FRAMEWORK = {
     'DATETIME_FORMAT': '%Y-%m-%d %H:%M:%S',
 }
 
-''' django haystack
-
-'''
+# django haystack
+# ----------------------------------------------------------------------------------------------------------------------
+# https://django-haystack.readthedocs.io/en/master/toc.html
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
@@ -195,8 +195,6 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 from .bulma import *
 
 FORCE_LOWERCASE_TAGS = True
-
-
 
 # # django markdown
 # # ------------------------------------------------------
