@@ -32,7 +32,7 @@ USE_X_FORWARDED_HOST = True
 SITE_ID = 1
 
 LOCALE_PATHS = (
-    str(ROOT_DIR.path('conf/locale')),
+    str(ROOT_DIR.path('dugong/conf/locale')),
 )
 
 ROOT_URLCONF = 'dugong.urls'
