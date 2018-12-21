@@ -17,6 +17,8 @@ urlpatterns = [
     url(r'^tutorials/', include('tutorials.urls', namespace='tutorials')),
     url(r'^accounts/', include('allauth.urls')),
 
+    url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+
     url(r'^$', HomeView.as_view(), name='homepage'),
 ]
 
@@ -27,9 +29,9 @@ urlpatterns += [
     url(r'^search/autocomplete/?$', autocomplete, name='search-autocomplete'),
 ]
 
-'''
-    api url config
-'''
+#
+# api url config
+# ----------------------------------------------------------------------------------------------------------------------
 urlpatterns += [
     url(r'^api/', include('dugong.urls.api', namespace='api')),
 

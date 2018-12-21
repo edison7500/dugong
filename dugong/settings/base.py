@@ -71,6 +71,8 @@ THIRD_PARTY_APPS = [
     'webpack_loader',
     'editormd',
 
+    'oauth2_provider',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
