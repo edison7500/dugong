@@ -2,7 +2,7 @@ from django.core.urlresolvers import reverse
 from django.test import TestCase
 from rest_framework import status
 
-from tutorials.models import Tutorial
+from apps.tutorials.models import Tutorial
 
 from faker import Faker
 

@@ -2,11 +2,10 @@ import logging
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 
-from blog.models import Post
-from blog.tests.post_facker import PostFaker
+from apps.blog.models import Post
+from apps.blog.tests.post_facker import PostFaker
 
 logger = logging.getLogger("django")
-
 
 
 class PostViewTest(TestCase):

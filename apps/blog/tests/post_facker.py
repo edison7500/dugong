@@ -1,7 +1,6 @@
 import factory
+from apps.blog.models import Post
 from faker import Faker
-from django.contrib.auth.models import User
-from blog.models import Post
 
 # Create your tests here.
 faker = Faker()

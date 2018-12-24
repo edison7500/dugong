@@ -13,7 +13,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     license='BSD License',  # example license
-    description='A  Django app to conduct Web-based images.',
+    description='A Django app to conduct Web-based images.',
     long_description=README,
     url='https://jiaxin.im/',
     author='jiaxin',
