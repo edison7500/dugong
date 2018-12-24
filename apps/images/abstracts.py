@@ -17,14 +17,12 @@ upload_dir = UUIDFilename(upload_image_dir)
 class ImageAbstractModel(models.Model):
     file = models.ImageField(upload_to=upload_dir)
     description = models.CharField(max_length=255, blank=True)
+    is_cover = models.BooleanField(default=False)
 
     # Content-object field
-    content_type = models.ForeignKey(ContentType,
-                                     verbose_name=_('content type'),
-                                     related_name="content_type_set_for_%(class)s",
-                                     on_delete=models.CASCADE)
-    object_id = models.PositiveIntegerField()
-    content_object = GenericForeignKey(ct_field="content_type", fk_field="object_id")
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField(db_index=True)
+    content_object = GenericForeignKey("content_type", "object_id")
 
     uploaded_at = models.DateTimeField(default=timezone.now)
 
