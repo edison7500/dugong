@@ -15,3 +15,5 @@ Quick start
     ```
 
 2. Run `python manage.py migrate` to create the images models.
+
+3. 
