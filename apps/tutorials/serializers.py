@@ -1,11 +1,12 @@
 from rest_framework import serializers
 from apps.tutorials.models import Tutorial
+from apps.images.models import Image
 
 
 # class TutorialImageSerializer(serializers.ModelSerializer):
 #     class Meta:
-#         model = TutorialImage
-#         fields = '__all__'
+#         model = Image
+#         fields = ()
 
 
 class TutorialSerializer(serializers.ModelSerializer):
@@ -16,6 +17,7 @@ class TutorialSerializer(serializers.ModelSerializer):
     created_at = serializers.DateTimeField(source='created_datetime', required=False, read_only=True)
 
     # images = TutorialImageSerializer(read_only=True, many=True)
+    images = serializers.SerializerMethodField(source='get_images')
 
     class Meta:
         model = Tutorial
@@ -24,3 +26,7 @@ class TutorialSerializer(serializers.ModelSerializer):
             'title', 'digest', 'content', 'origin_link', 'images',
             'created_at', 'published_at',
         )
+
+    def get_images(self, obj):
+        _images = obj.images.all().values_list('file', flat=True)
+        return list(_images)

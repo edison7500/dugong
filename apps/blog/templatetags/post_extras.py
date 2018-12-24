@@ -7,7 +7,7 @@ import random
 log = logging.getLogger('django')
 register = Library()
 
-from blog.models import Post
+from apps.blog.models import Post
 
 
 @register.inclusion_tag('blog/slider/latest-update.html')

@@ -9,7 +9,6 @@ from django.conf import settings
 
 from apps.images.handlers import UUIDFilename
 
-
 upload_image_dir = getattr(settings, "IMAGE_UPLOAD_DIR", "images/")
 upload_dir = UUIDFilename(upload_image_dir)
 
@@ -30,3 +29,4 @@ class ImageAbstractModel(models.Model):
         abstract = True
         verbose_name = _("photo")
         verbose_name_plural = _("photos")
+        ordering = ["-uploaded_at", ]

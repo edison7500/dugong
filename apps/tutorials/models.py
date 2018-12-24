@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.contenttypes.fields import GenericRelation
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils import timezone
@@ -11,8 +12,10 @@ from model_utils.fields import StatusField, MonitorField
 from model_utils import Choices
 from editormd.models import EditorMdField
 from urllib.parse import urlparse
-# from utils.image.handlers import UUIDFilename
 from utils.render_md import md
+
+from apps.images.models import Image
+
 
 # upload_dir = UUIDFilename('tutorial/images/')
 
@@ -35,6 +38,8 @@ class Tutorial(models.Model):
     created_datetime = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
     published_at = MonitorField(monitor='status', when=['published'])
     tags = TagField(_('tags'))
+
+    images = GenericRelation(Image, related_query_name="images")
 
     objects = TutorialManager()
 
@@ -107,7 +112,6 @@ class Tutorial(models.Model):
             "tags": self.tags.split(','),
         }
         return seo_info
-
 
 # class TutorialImage(models.Model):
 #     post = models.ForeignKey(Tutorial, related_name='images')
