@@ -6,7 +6,7 @@ from apps.images.models import Image
 
 class TutorialImageInlineAdmin(GenericStackedInline):
     model = Image
-    fields = ['file',]
+    fields = ['file', 'description', 'is_cover']
     extra = 1
 
 
