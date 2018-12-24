@@ -1,5 +1,5 @@
 from django.test import TestCase
-from tutorials.models import Tutorial
+from apps.tutorials.models import Tutorial
 from faker import Faker
 
 f = Faker()
