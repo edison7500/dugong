@@ -1,17 +1,18 @@
+from caching.base import CachingManager, CachingMixin
+from django.contrib.contenttypes.fields import GenericRelation
 from django.core.urlresolvers import reverse
 from django.db import models
-from django.utils import timezone
-from django.utils.translation import ugettext_lazy as _
-from django.utils.html import strip_tags
 from django.utils.functional import cached_property
-from uuslug import uuslug
-from tagging.registry import register
+from django.utils.html import strip_tags
+from django.utils.translation import ugettext_lazy as _
 # from django_markdown.models import MarkdownField
 from editormd.models import EditorMdField
+from tagging.registry import register
+from uuslug import uuslug
 
 from utils.render_md import md
 
-from caching.base import CachingManager, CachingMixin
+from apps.images.models import Image
 
 
 class Post(CachingMixin, models.Model):
@@ -26,10 +27,11 @@ class Post(CachingMixin, models.Model):
     slug = models.SlugField(max_length=30, default='',
                             unique=True, editable=False)
     content = EditorMdField()
-    # content = models.TextField()
     status = models.IntegerField(_('status'), choices=POST_STARUS_CHOICES, default=preview)
     created_date = models.DateTimeField(_('created_date'), auto_now_add=True, db_index=True, editable=False)
     last_update = models.DateTimeField(_('last_update'), auto_now=True, db_index=True, editable=False)
+
+    images = GenericRelation(Image, related_query_name="images")
 
     objects = CachingManager()
 
