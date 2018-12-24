@@ -5,10 +5,14 @@ from django.db import models
 
 # Create your models here.
 from django.utils import timezone
+from django.conf import settings
+
+
+upload_image_dir = getattr(settings, "IMAGE_UPLOAD_DIR", "images/")
 
 
 class ImageAbstractModel(models.Model):
-    file = models.ImageField()
+    file = models.ImageField(upload_to=upload_image_dir)
     description = models.CharField(max_length=255, blank=True)
 
     # Content-object field
