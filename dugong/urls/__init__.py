@@ -16,9 +16,15 @@ urlpatterns = [
     url(r'^tutorials/', include('apps.tutorials.urls', namespace='tutorials')),
 
     url(r'^project/', include('opensource.urls.web')),
-    url(r'^accounts/', include('allauth.urls')),
 
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+]
+
+#
+# django allauth url config
+# ----------------------------------------------------------------------------------------------------------------------
+urlpatterns += [
+    url(r'^accounts/', include('allauth.urls')),
 ]
 
 #
