@@ -3,10 +3,10 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from views.home import HomeView
+from apps.views.index import HomeView
 
-handler500 = 'views.errors.page_error'
-handler404 = 'views.errors.not_found'
+handler500 = 'apps.views.errors.page_error'
+handler404 = 'apps.views.errors.not_found'
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -19,11 +19,12 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
 
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
-
-    url(r'^$', HomeView.as_view(), name='homepage'),
 ]
 
-from views.search import ProjectSearchView, autocomplete
+#
+# search url config
+# ----------------------------------------------------------------------------------------------------------------------
+from apps.views.search import ProjectSearchView, autocomplete
 
 urlpatterns += [
     url(r'^search/?$', ProjectSearchView.as_view(), name='project-search-view'),
@@ -38,6 +39,14 @@ urlpatterns += [
 
 ]
 
+
+urlpatterns += [
+    url(r'^$', HomeView.as_view(), name='homepage'),
+]
+
+#
+# site map config
+#
 from apps.blog.sitemaps import PostSitemap
 
 sitemaps = {
@@ -66,7 +75,6 @@ urlpatterns += [
 ]
 
 urlpatterns += staticfiles_urlpatterns()
-
 
 #
 # debug url config
