@@ -1,10 +1,12 @@
 from django.contrib import admin
-from tutorials.models import TutorialImage
+from django.contrib.contenttypes.admin import GenericStackedInline
+# from tutorials.models import TutorialImage
+from apps.images.models import Image
 
 
-class TutorialImageInlineAdmin(admin.StackedInline):
-    model = TutorialImage
-    fields = ['image', 'is_cover']
+class TutorialImageInlineAdmin(GenericStackedInline):
+    model = Image
+    fields = ['file',]
     extra = 1
 
 
