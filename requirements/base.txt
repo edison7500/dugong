@@ -64,6 +64,7 @@ requests-oauthlib==0.8.0
 simplejson==3.15.0
 sqlparse==0.2.1
 uritemplate==3.0.0
+urllib3==1.24.1
 wcwidth==0.1.7
 webencodings==0.5.1
 xmltodict==0.11.0
