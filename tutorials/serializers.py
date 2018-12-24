@@ -1,11 +1,11 @@
 from rest_framework import serializers
-from tutorials.models import Tutorial, TutorialImage
+from tutorials.models import Tutorial
 
 
-class TutorialImageSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = TutorialImage
-        fields = '__all__'
+# class TutorialImageSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = TutorialImage
+#         fields = '__all__'
 
 
 class TutorialSerializer(serializers.ModelSerializer):
@@ -15,7 +15,7 @@ class TutorialSerializer(serializers.ModelSerializer):
     cover_url = serializers.URLField(source='cover', required=False, read_only=True)
     created_at = serializers.DateTimeField(source='created_datetime', required=False, read_only=True)
 
-    images = TutorialImageSerializer(read_only=True, many=True)
+    # images = TutorialImageSerializer(read_only=True, many=True)
 
     class Meta:
         model = Tutorial

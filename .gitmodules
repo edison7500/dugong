@@ -1,0 +1,3 @@
+[submodule "apps/images"]
+	path = apps/images
+	url = https://papaya2018@bitbucket.org/papaya2018/django-generic-images.git

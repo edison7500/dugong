@@ -1,8 +1,8 @@
 # coding=utf-8
-from django.http import Http404
 from django.views.generic import ListView, DetailView
 from tagging.models import TaggedItem, Tag
-from blog.models import Post
+
+from apps.blog.models import Post
 
 
 # from markdown import markdown

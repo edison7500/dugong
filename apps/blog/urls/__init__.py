@@ -1,6 +1,10 @@
-from django.conf.urls import url, include
-from blog.views import BlogListView, BlogDetailView, PostTagListView
+from django.conf.urls import url
 
+from apps.blog.views import (
+    BlogListView,
+    BlogDetailView,
+    PostTagListView,
+)
 
 urlpatterns = [
     url(r'^$', BlogListView.as_view(), name='list'),

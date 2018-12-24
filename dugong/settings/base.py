@@ -32,7 +32,7 @@ USE_X_FORWARDED_HOST = True
 SITE_ID = 1
 
 LOCALE_PATHS = (
-    str(ROOT_DIR.path('conf/locale')),
+    str(ROOT_DIR.path('dugong/conf/locale')),
 )
 
 ROOT_URLCONF = 'dugong.urls'
@@ -71,16 +71,20 @@ THIRD_PARTY_APPS = [
     'webpack_loader',
     'editormd',
 
+    'oauth2_provider',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
 ]
 LOCAL_APPS = [
-    'blog',
     'opensource',
     'tutorials',
     'views',
+
+    'apps.blog',
+    "apps.images",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + REST_FRAMEWORK_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -159,9 +163,9 @@ REST_FRAMEWORK = {
     'DATETIME_FORMAT': '%Y-%m-%d %H:%M:%S',
 }
 
-''' django haystack
-
-'''
+# django haystack
+# ----------------------------------------------------------------------------------------------------------------------
+# https://django-haystack.readthedocs.io/en/master/toc.html
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
@@ -195,8 +199,6 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 from .bulma import *
 
 FORCE_LOWERCASE_TAGS = True
-
-
 
 # # django markdown
 # # ------------------------------------------------------

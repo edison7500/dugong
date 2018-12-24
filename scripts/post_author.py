@@ -21,6 +21,7 @@ def get_results(url):
     data = res.json().get('results', None)
     return next_url, get_author(data)
 
+
 def post_author(data):
     res = s.post(url='http://www.jiaxin.im/api/opensource/author/', json=data, headers=headers)
     return res.status_code
@@ -38,14 +39,13 @@ if __name__ == '__main__':
                 'url': "https://github.com/{author}".format(author=row),
             }
             res = s.post(url='http://www.jiaxin.im/api/opensource/author/', json=payload, headers=headers)
-            pprint (res.json(), indent=2)
+            pprint(res.json(), indent=2)
 
         if next_url is None:
             break
         star_url = next_url
         sleep(5)
     # print (data)
-
 
     # for row in get_author(data):
     #     payload = {
