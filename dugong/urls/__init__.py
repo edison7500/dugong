@@ -13,8 +13,9 @@ urlpatterns = [
     url(r'^comments/', include('django_comments.urls', namespace='comments')),
 
     url(r'^blog/', include('apps.blog.urls', namespace='blog')),
+    url(r'^tutorials/', include('apps.tutorials.urls', namespace='tutorials')),
+
     url(r'^project/', include('opensource.urls.web')),
-    url(r'^tutorials/', include('tutorials.urls', namespace='tutorials')),
     url(r'^accounts/', include('allauth.urls')),
 
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),

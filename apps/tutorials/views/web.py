@@ -1,8 +1,8 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.http import Http404
 from braces.views import LoginRequiredMixin
-from tutorials.models import Tutorial
-from tutorials.forms.tutorial import TutorialForm
+from apps.tutorials.models import Tutorial
+from apps.tutorials.forms.tutorial import TutorialForm
 
 
 class TutorialListView(ListView):

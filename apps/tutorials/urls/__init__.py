@@ -1,8 +1,10 @@
 from django.conf.urls import url
-from tutorials.views.web import (TutorialListView,
-                                 TutorialDetailView,
-                                 TutorialCreateView, TutorialUpdateView)
-
+from apps.tutorials.views.web import (
+    TutorialListView,
+    TutorialDetailView,
+    TutorialCreateView,
+    TutorialUpdateView
+)
 
 urlpatterns = [
     url(r'^$', TutorialListView.as_view(), name='list'),

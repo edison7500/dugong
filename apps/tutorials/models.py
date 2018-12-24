@@ -11,10 +11,10 @@ from model_utils.fields import StatusField, MonitorField
 from model_utils import Choices
 from editormd.models import EditorMdField
 from urllib.parse import urlparse
-from utils.image.handlers import UUIDFilename
+# from utils.image.handlers import UUIDFilename
 from utils.render_md import md
 
-upload_dir = UUIDFilename('tutorial/images/')
+# upload_dir = UUIDFilename('tutorial/images/')
 
 
 class TutorialManager(models.Manager):

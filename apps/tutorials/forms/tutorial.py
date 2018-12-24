@@ -1,5 +1,5 @@
 from django import forms
-from tutorials.models import Tutorial
+from apps.tutorials.models import Tutorial
 from editormd.fields import EditorMdFormField
 
 

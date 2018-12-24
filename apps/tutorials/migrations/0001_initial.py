@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import migrations, models
-import django_extensions.db.fields
-import utils.image.handlers
 import django.utils.timezone
-from django.conf import settings
-import tagging.fields
+import django_extensions.db.fields
 import model_utils.fields
+import tagging.fields
+from django.conf import settings
+from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
@@ -37,18 +36,18 @@ class Migration(migrations.Migration):
                 'ordering': ['-published_at'],
             },
         ),
-        migrations.CreateModel(
-            name='TutorialImage',
-            fields=[
-                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
-                ('image', models.ImageField(upload_to=utils.image.handlers.UUIDFilename('tutorial/images/'))),
-                ('is_cover', models.BooleanField(default=False)),
-                ('uploaded', models.DateTimeField(default=django.utils.timezone.now)),
-                ('post', models.ForeignKey(related_name='images', to='tutorials.Tutorial')),
-            ],
-            options={
-                'db_table': 'tutorials_image',
-                'ordering': ('-is_cover',),
-            },
-        ),
+        # migrations.CreateModel(
+        #     name='TutorialImage',
+        #     fields=[
+        #         ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+        #         ('image', models.ImageField(upload_to=utils.image.handlers.UUIDFilename('tutorial/images/'))),
+        #         ('is_cover', models.BooleanField(default=False)),
+        #         ('uploaded', models.DateTimeField(default=django.utils.timezone.now)),
+        #         ('post', models.ForeignKey(related_name='images', to='tutorials.Tutorial')),
+        #     ],
+        #     options={
+        #         'db_table': 'tutorials_image',
+        #         'ordering': ('-is_cover',),
+        #     },
+        # ),
     ]

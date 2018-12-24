@@ -1,6 +1,6 @@
 from rest_framework import generics
-from tutorials.serializers import TutorialSerializer
-from tutorials.models import Tutorial
+from apps.tutorials.serializers import TutorialSerializer
+from apps.tutorials.models import Tutorial
 
 
 class TutorialsListView(generics.ListAPIView):

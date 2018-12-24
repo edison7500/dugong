@@ -1,5 +1,8 @@
 from django.conf.urls import url
-from tutorials.views.api import TutorialsListView, TutorialsDetailView
+from apps.tutorials.views.api import (
+    TutorialsListView,
+    TutorialsDetailView
+)
 
 
 urlpatterns = [

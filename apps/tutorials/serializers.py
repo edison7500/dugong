@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from tutorials.models import Tutorial
+from apps.tutorials.models import Tutorial
 
 
 # class TutorialImageSerializer(serializers.ModelSerializer):
