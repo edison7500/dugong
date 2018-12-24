@@ -1,16 +1,17 @@
 from django.contrib import admin
-from django.utils.translation import ugettext_lazy as _
+from django.contrib.contenttypes.admin import GenericStackedInline
+from apps.images.models import Image
 
-from blog.models import PostImage
+# from blog.models import PostImage
 
 
-class PostImageInlineAdmin(admin.StackedInline):
-    model = PostImage
+class PostImageInlineAdmin(GenericStackedInline):
+    model = Image
+    fields = ['file', 'description']
     extra = 1
 
 
 class PostAdmin(admin.ModelAdmin):
-    # form = BlogAdminForm
 
     list_display = ('title', 'status', 'created_date', 'last_update')
     list_filter = ('status',)
@@ -19,8 +20,8 @@ class PostAdmin(admin.ModelAdmin):
     inlines = (PostImageInlineAdmin,)
 
 
-class PostImageAdmin(admin.ModelAdmin):
-    list_display = ('image',)
+# class PostImageAdmin(admin.ModelAdmin):
+#     list_display = ('image',)
 
 #
 # from django.contrib.flatpages.forms import FlatpageForm

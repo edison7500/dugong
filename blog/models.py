@@ -72,10 +72,10 @@ class Post(CachingMixin, models.Model):
             return t
 
 
-class PostImage(models.Model):
-    post = models.ForeignKey(Post, related_name='images')
-    image = models.ImageField(upload_to='post/images')
-    uploaded_datetime = models.DateTimeField(default=timezone.now)
+# class PostImage(models.Model):
+#     post = models.ForeignKey(Post, related_name='images')
+#     image = models.ImageField(upload_to='post/images')
+#     uploaded_datetime = models.DateTimeField(default=timezone.now)
 
 
 register(Post)

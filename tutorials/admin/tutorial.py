@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.contrib.contenttypes.admin import GenericStackedInline
-# from tutorials.models import TutorialImage
 from apps.images.models import Image
 
 

@@ -109,12 +109,12 @@ class Tutorial(models.Model):
         return seo_info
 
 
-class TutorialImage(models.Model):
-    post = models.ForeignKey(Tutorial, related_name='images')
-    image = models.ImageField(upload_to=upload_dir)
-    is_cover = models.BooleanField(default=False)
-    uploaded = models.DateTimeField(default=timezone.now)
-
-    class Meta:
-        db_table = 'tutorials_image'
-        ordering = ("-is_cover",)
+# class TutorialImage(models.Model):
+#     post = models.ForeignKey(Tutorial, related_name='images')
+#     image = models.ImageField(upload_to=upload_dir)
+#     is_cover = models.BooleanField(default=False)
+#     uploaded = models.DateTimeField(default=timezone.now)
+#
+#     class Meta:
+#         db_table = 'tutorials_image'
+#         ordering = ("-is_cover",)

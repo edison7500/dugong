@@ -1,5 +1,5 @@
 from rest_framework import generics
-from tutorials.serializers import TutorialSerializer, TutorialImage
+from tutorials.serializers import TutorialSerializer
 from tutorials.models import Tutorial
 
 
@@ -14,6 +14,6 @@ class TutorialsDetailView(generics.RetrieveAPIView):
     lookup_field = 'slug'
 
 
-class TutorialImageListAPIView(generics.ListCreateAPIView):
-
-    serializer_class = TutorialImage
+# class TutorialImageListAPIView(generics.ListCreateAPIView):
+#
+#     serializer_class = TutorialImage
