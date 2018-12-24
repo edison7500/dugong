@@ -79,11 +79,11 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount.providers.github',
 ]
 LOCAL_APPS = [
-    'blog',
     'opensource',
     'tutorials',
     'views',
 
+    'apps.blog',
     "apps.images",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^comments/', include('django_comments.urls', namespace='comments')),
 
-    url(r'^blog/', include('blog.urls', namespace='blog')),
+    url(r'^blog/', include('apps.blog.urls', namespace='blog')),
     url(r'^project/', include('opensource.urls.web')),
     url(r'^tutorials/', include('tutorials.urls', namespace='tutorials')),
     url(r'^accounts/', include('allauth.urls')),
@@ -37,7 +37,7 @@ urlpatterns += [
 
 ]
 
-from blog.sitemaps import PostSitemap
+from apps.blog.sitemaps import PostSitemap
 
 sitemaps = {
     'blog': PostSitemap,
@@ -52,7 +52,7 @@ urlpatterns += [
         name='post_sitemaps'),
 ]
 
-from blog.feeds import PostFeeds
+from apps.blog.feeds import PostFeeds
 
 urlpatterns += [
     url(r'^feed/posts/$', PostFeeds(), name='blog-post-feed')
@@ -66,10 +66,10 @@ urlpatterns += [
 
 urlpatterns += staticfiles_urlpatterns()
 
-admin.site.site_header = "jiaxin.im"
-admin.site.site_title = "jiaxin.im"
-admin.site.index_title = "Welcome to JIAXIN.IM"
 
+#
+# debug url config
+# ----------------------------------------------------------------------------------------------------------------------
 if settings.DEBUG:
     if 'debug_toolbar' in settings.INSTALLED_APPS:
         import debug_toolbar
@@ -77,3 +77,7 @@ if settings.DEBUG:
         urlpatterns = [
                           url(r'^__debug__/', include(debug_toolbar.urls)),
                       ] + urlpatterns
+
+admin.site.site_header = "jiaxin.im"
+admin.site.site_title = "jiaxin.im"
+admin.site.index_title = "Welcome to JIAXIN.IM"
