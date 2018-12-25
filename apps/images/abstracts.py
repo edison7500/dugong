@@ -19,8 +19,8 @@ class ImageAbstractModel(models.Model):
     is_cover = models.BooleanField(default=False)
 
     # Content-object field
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
-    object_id = models.PositiveIntegerField(db_index=True)
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, null=True)
+    object_id = models.PositiveIntegerField(db_index=True, null=True)
     content_object = GenericForeignKey("content_type", "object_id")
 
     uploaded_at = models.DateTimeField(default=timezone.now)

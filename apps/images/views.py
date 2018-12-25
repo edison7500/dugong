@@ -13,3 +13,4 @@ class ImageUploadView(generic.CreateView):
     model = Image
     form_class = ImageForm
     template_name = "images/upload.html"
+    success_url = "/"
