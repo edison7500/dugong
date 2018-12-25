@@ -14,10 +14,12 @@ urlpatterns = [
 
     url(r'^blog/', include('apps.blog.urls', namespace='blog')),
     url(r'^tutorials/', include('apps.tutorials.urls', namespace='tutorials')),
-
     url(r'^project/', include('opensource.urls.web')),
-
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+]
+
+urlpatterns += [
+    url(r'^images/', include("apps.images.urls", namespace='images'),),
 ]
 
 #
