@@ -7,20 +7,13 @@
 {% block content %}
 
     <div class="box">
-{#        {% if form.errors %}#}
-{#            <p>{% trans "Your username and password didn't match. Please try again." %}</p>#}
-{#        {% endif %}#}
-
         <form method="post" action="{% url 'account_signup' %}">
             {% csrf_token %}
             {{ form|bulma }}
             <div class="field">
                 <button type="submit" class="button is-primary">{% trans 'Sign Up' %}</button>
             </div>
-{#        <input type="hidden" name="next" value="{{ next }}"/>#}
         </form>
-
-{#        {% include 'account/provider_list.html' %}#}
     </div>
 
 {% endblock %}
