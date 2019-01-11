@@ -4,6 +4,7 @@
 
 {% block title %}博客 - Python 观察员{% endblock %}
 
+
 {% block content %}
     <nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
         <ul>
@@ -11,12 +12,16 @@
                 <a href="{% url 'homepage' %}" title="{% trans 'home' %}">
                     <i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a>
             </li>
+            <li>
+                <a href="{% url 'blog:list' %}" title="{% trans 'blog' %}">
+                    <i class="fa fa-keyboard-o"></i>&nbsp;{% trans 'blog' %}</a>
+            </li>
             <li class="is-active">
-                <a href="#" title="{% trans 'blog' %}">
-                    <i class="fa fa-keyboard-o"></i>&nbsp;{% trans 'blog' %}</a></li>
+                <a href="#" title="{{ year|date:'Y' }}">
+                    <i class="fa fa-calendar"></i>&nbsp;{{ year|date:"Y" }}</a>
+            </li>
         </ul>
     </nav>
-
     <div class="columns is-desktop is-multiline clearfix">
         <!--<div id="modal"></div>-->
         <div class="column is-8" id="content">
@@ -26,6 +31,7 @@
             {% endfor %}
             </div>
         </div>
+
 
         <div class="column is-4" id="sidebar">
             <nav class="panel">
@@ -52,13 +58,13 @@
                 </a>
             </nav>
 
-            <nav class="panel">
-                <p class="panel-heading">Archive</p>
-                {% for row in date_list %}
+{#            <nav class="panel">#}
+{#                <p class="panel-heading">Archive</p>#}
+{#                {% for row in date_list %}#}
 {#                    {{ row|date:"Y" as year }}#}
-                    <a class="panel-block" href="{% url 'archive:blog_year' year=row|date:'Y' %}" title="{{ row|date:"Y" }}">{{ row|date:"Y" }}</a>
-                {% endfor %}
-            </nav>
+{#                    <a class="panel-block" href="{% url 'archive:blog_year' year=row|date:'Y' %}" title="{{ row|date:"Y" }}">{{ row|date:"Y" }}</a>#}
+{#                {% endfor %}#}
+{#            </nav>#}
         </div>
     </div>
 

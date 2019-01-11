@@ -22,6 +22,10 @@ urlpatterns += [
     url(r'^images/', include("apps.images.urls", namespace='images'),),
 ]
 
+urlpatterns += [
+    url(r'archive/', include('apps.urls.archive', namespace='archive')),
+]
+
 #
 # django allauth url config
 # ----------------------------------------------------------------------------------------------------------------------

@@ -1,19 +1,33 @@
 # coding=utf-8
 from django.views.generic import ListView, DetailView
+from django.views.generic.dates import (
+    ArchiveIndexView,
+    YearArchiveView
+)
 from tagging.models import TaggedItem, Tag
 
 from apps.blog.models import Post
 
 
-# from markdown import markdown
-
-
-class BlogListView(ListView):
+class BlogListView(ArchiveIndexView):
     http_method_names = ['get', 'head']
     model = Post
     template_name = 'blog/list.html'
     paginate_by = 20
     queryset = Post.objects.filter(status=Post.publish)
+    date_field = 'created_date'
+    date_list_period = "year"
+
+
+class BlogYearArchiveView(YearArchiveView):
+    http_method_names = ['get', 'head']
+    model = Post
+    date_field = "created_date"
+    template_name = 'archive/blogs/post_archive_year.html'
+    queryset = Post.objects.filter(status=Post.publish)
+    make_object_list = True
+    allow_future = True
+    paginate_by = 20
 
 
 class BlogDetailView(DetailView):
@@ -42,7 +56,7 @@ class BlogDetailView(DetailView):
 
 
 class PostTagListView(ListView):
-    http_method_names = ['get']
+    http_method_names = ['get', 'head']
     model = TaggedItem
     template_name = 'blog/tag/list.html'
     paginate_by = 30
@@ -57,7 +71,7 @@ class PostTagListView(ListView):
         _context_data = super(PostTagListView, self).get_context_data(**kwargs)
         _context_data.update(
             {
-                'tag':self.thing_tag,
+                'tag': self.thing_tag,
             }
         )
         return _context_data
