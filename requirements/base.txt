@@ -41,7 +41,7 @@ jieba==0.39
 Jinja2==2.9.6
 Markdown==2.6.11
 MarkupSafe==1.0
-numpy==1.14.2
+numpy==1.16.1
 olefile==0.44
 openapi-codec==1.3.2
 pandas==0.22.0
