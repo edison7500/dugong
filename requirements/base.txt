@@ -20,10 +20,10 @@ django-model-utils>=3.0.0
 django-pandas==0.5.1
 django-rest-auth==0.9.3
 django-rest-swagger==2.2.0
-django-simple-captcha==0.5.3
+django-simple-captcha==0.5.10
 django-tagging==0.4.6
 django-uuslug==1.1.8
-django-environ==0.4
+django-environ==0.4.5
 django-webpack-loader>=0.6
 djangorestframework>=3.8
 djangorestframework-jwt>=1.11
@@ -35,7 +35,6 @@ docopt==0.6.2
 enum34==1.1.6
 funcsigs==1.0.2
 html5lib==1.0.1
-idna==2.6
 ipaddress==1.0.18
 jieba==0.39
 Jinja2==2.9.6
