@@ -78,8 +78,6 @@ REST_FRAMEWORK = {
 
 # django storage configure
 # --------------------------------------------------------------------
-# django storage configure
-# --------------------------------------------------------------------
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
@@ -87,6 +85,19 @@ AWS_S3_REGION_NAME = env("AWS_S3_REGION_NAME")
 AWS_S3_ENDPOINT_URL = env("AWS_S3_ENDPOINT_URL")
 AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
+
+
+# ssl
+# ----------------------------------------------------------------------------------------------------------------------
+##
+# ssl
+##
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_SECONDS = 31536000
 
 
 
