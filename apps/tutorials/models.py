@@ -91,14 +91,15 @@ class Tutorial(models.Model):
 
     @property
     def cover(self):
-        cover = self.images.first()
+
+        if self.images.count() == 0:
+            return ""
+
+        cover = self.images.filter(is_cover=True).first()
         if cover:
             return cover.file.url
-            # return "{image}".format(image=cover.image.url,
-            #                                   process="imageView2/5/w/400/h/250/format/jpg/interlace/1/q/100|imageslim",
-            #                                   )
         else:
-            return ""
+            return self.images.first()
 
     def tag_list(self):
         return [{"id": o.pk, "name": o.name} for o in self.tags]

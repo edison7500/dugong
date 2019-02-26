@@ -82,11 +82,11 @@ REST_FRAMEWORK = {
 # --------------------------------------------------------------------
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-AWS_STORAGE_BUCKET_NAME = "dugong"
-AWS_S3_REGION_NAME = "sfo2"
-AWS_S3_ENDPOINT_URL = "https://dugong.sfo2.digitaloceanspaces.com"
-AWS_ACCESS_KEY_ID = "ERXXII7VIECTUBA6RSGQ"
-AWS_SECRET_ACCESS_KEY = "NNcZ+SXfeDAIS8vd6xmsHtt94YIHh7im6UV3I+aCPPw"
+AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
+AWS_S3_REGION_NAME = env("AWS_S3_REGION_NAME")
+AWS_S3_ENDPOINT_URL = env("AWS_S3_ENDPOINT_URL")
+AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
 
 
 
