@@ -76,20 +76,20 @@ REST_FRAMEWORK = {
     'DATETIME_FORMAT': '%Y-%m-%d %H:%M:%S',
 }
 
-# django storage configure
-# --------------------------------------------------------------------
-DEFAULT_FILE_STORAGE = 'qiniustorage.backends.QiniuStorage'
-
-IMAGE_HOST = '//imgjiaxin.u.qiniudn.com/'
-
-# django qiniu storage
-# ---------------------------------------------------------------------
-# https://github.com/glasslion/django-qiniu-storage
-QINIU_ACCESS_KEY = env('QINIU_ACCESS_KEY')
-QINIU_SECRET_KEY = env('QINIU_SECRET_KEY')
-QINIU_BUCKET_NAME = env('QINIU_BUCKET_NAME')
-QINIU_BUCKET_DOMAIN = 'imgjiaxin.u.qiniudn.com'
-QINIU_SECURE_URL = False
+{## django storage configure#}
+{## --------------------------------------------------------------------#}
+{#DEFAULT_FILE_STORAGE = 'qiniustorage.backends.QiniuStorage'#}
+{##}
+{#IMAGE_HOST = '//imgjiaxin.u.qiniudn.com/'#}
+{##}
+{## django qiniu storage#}
+{## ---------------------------------------------------------------------#}
+{## https://github.com/glasslion/django-qiniu-storage#}
+{#QINIU_ACCESS_KEY = env('QINIU_ACCESS_KEY')#}
+{#QINIU_SECRET_KEY = env('QINIU_SECRET_KEY')#}
+{#QINIU_BUCKET_NAME = env('QINIU_BUCKET_NAME')#}
+{#QINIU_BUCKET_DOMAIN = 'imgjiaxin.u.qiniudn.com'#}
+{#QINIU_SECURE_URL = False#}
 
 
 STATIC_URL = '//static.jiaxin.im/static/'
