@@ -17,6 +17,7 @@ class BlogListView(ArchiveIndexView):
     queryset = Post.objects.filter(status=Post.publish)
     date_field = 'created_date'
     date_list_period = "year"
+    allow_empty = True
 
 
 class BlogYearArchiveView(YearArchiveView):
