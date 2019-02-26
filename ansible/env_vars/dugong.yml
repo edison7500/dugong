@@ -5,7 +5,7 @@ project_name: "dugong"
 application_name: "dugong"
 
 
-virtualenv_python_version: python3.6
+virtualenv_python_version: python3.7
 
 #gunicorn_num_workers: 3
 #gunicorn_max_requests: 1024

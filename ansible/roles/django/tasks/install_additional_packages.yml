@@ -1,7 +1,7 @@
 ---
 
 - name: Add Felix Krull's New Python Versions PPA to the apt sources list
-  apt_repository: repo='ppa:deadsnakes/ppa'
+  apt_repository: repo='ppa:ubuntu-toolchain-r/ppa'
                   update_cache={{ update_apt_cache }}
                   state=present
   when: enable_deadsnakes_ppa
