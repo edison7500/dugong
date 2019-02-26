@@ -1,6 +1,6 @@
 ---
 
-- name: Add Felix Krull's New Python Versions PPA to the apt sources list
+- name: Add Ubuntu ToolChain PPA to the apt sources list
   apt_repository: repo='ppa:ubuntu-toolchain-r/ppa'
                   update_cache={{ update_apt_cache }}
                   state=present
