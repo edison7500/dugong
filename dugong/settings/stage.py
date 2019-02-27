@@ -25,5 +25,3 @@ NOSE_ARGS = [
     '--with-coverage',
     '--cover-package=blog,opensource,tutorials',
 ]
-
-
