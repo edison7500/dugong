@@ -91,10 +91,8 @@ class Tutorial(models.Model):
 
     @property
     def cover(self):
-
         if self.images.count() == 0:
             return ""
-
         cover = self.images.filter(is_cover=True).first()
         if cover:
             return cover.file.url
@@ -105,7 +103,6 @@ class Tutorial(models.Model):
         return [{"id": o.pk, "name": o.name} for o in self.tags]
 
     def get_seo(self):
-
         seo_info = {
             "title": self.title,
             "desc": (self.digest[:75] + '...') if len(self.digest) > 75 else self.digest,
@@ -114,13 +111,3 @@ class Tutorial(models.Model):
             "tags": self.tags.split(','),
         }
         return seo_info
-
-# class TutorialImage(models.Model):
-#     post = models.ForeignKey(Tutorial, related_name='images')
-#     image = models.ImageField(upload_to=upload_dir)
-#     is_cover = models.BooleanField(default=False)
-#     uploaded = models.DateTimeField(default=timezone.now)
-#
-#     class Meta:
-#         db_table = 'tutorials_image'
-#         ordering = ("-is_cover",)
