@@ -6,7 +6,8 @@ from .models import Image
 
 
 class ImagesAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['file', 'description', 'is_cover', 'content_type', 'uploaded_at']
+    list_filter = ['is_cover']
 
 
 admin.site.register(Image, ImagesAdmin)
