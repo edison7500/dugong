@@ -18,3 +18,4 @@ class TutorialAdmin(admin.ModelAdmin):
         TutorialImageInlineAdmin,
     ]
     search_fields = ['title', ]
+    list_filter = ['status']
