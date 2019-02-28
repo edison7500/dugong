@@ -33,6 +33,11 @@ server {
         }
     }
 
+    location ~ /(.git|{{ application_name }}) {
+        deny all;
+        return 404;
+    }
+
     error_page   500 502 503 504  /50x.html;
     location = /50x.html {
         root   html;
@@ -55,6 +60,11 @@ server {
 
     server_name  api.jiaxin.im;
     root /data/www/dugong/;
+
+    location ~ /(.git|{{ application_name }}) {
+        deny all;
+        return 404;
+    }
 
     location ^~ /api/ {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
