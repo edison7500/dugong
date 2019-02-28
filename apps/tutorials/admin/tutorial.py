@@ -14,8 +14,9 @@ class TutorialAdmin(admin.ModelAdmin):
         'slug', 'title', 'tags', 'status', 'published_at'
     ]
     list_display_links = ['title', ]
+    list_filter = ['status']
+    list_editable = ['status']
     inlines = [
         TutorialImageInlineAdmin,
     ]
     search_fields = ['title', ]
-    list_filter = ['status']
