@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^docs/$', schema_view),
     url(r'^tutorials/', include('apps.tutorials.urls.api', namespace='tutorials')),
     url(r'^opensource/', include('opensource.urls.api', namespace='opensource')),
+    url(r'^books/', include('apps.books.urls.api', namespace='book')),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -77,6 +77,7 @@ THIRD_PARTY_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.google',
 ]
 LOCAL_APPS = [
     'opensource',
@@ -85,6 +86,7 @@ LOCAL_APPS = [
     'apps.blog',
     'apps.tutorials',
     "apps.images",
+    "apps.books",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + REST_FRAMEWORK_APPS + THIRD_PARTY_APPS + LOCAL_APPS
