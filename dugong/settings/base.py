@@ -221,3 +221,15 @@ FORCE_LOWERCASE_TAGS = True
 
 
 EDITORMD_UPLOAD_TO = 'material/upload'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
