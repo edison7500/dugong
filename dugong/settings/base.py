@@ -16,7 +16,7 @@ DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 # Internationalization
 # -------------------------------------------------------------------------------
-# https://docs.djangoproject.com/en/1.8/topics/i18n/
+# https://docs.djangoproject.com/en/1.11/topics/i18n/
 TIME_ZONE = 'Asia/Shanghai'
 
 LANGUAGE_CODE = 'zh-hans'
@@ -60,7 +60,6 @@ REST_FRAMEWORK_APPS = [
 THIRD_PARTY_APPS = [
     'django_comments',
     'bulma',
-    # 'compressor',
     'tagging',
     'haystack',
     'django_extensions',
