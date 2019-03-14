@@ -88,7 +88,7 @@ class PostFeeds(Feed):
         return item.last_update
 
     def item_description(self, item):
-        content = strip_tags(item.content.html_content)
+        content = strip_tags(item.html_content)
         # content = strip_tags(item.article.bleached_content)
         desc = content.split(u'。')
         # return "<![CDATA[%s]]>" % (desc[0] + u'。')
