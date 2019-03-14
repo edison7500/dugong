@@ -6,7 +6,7 @@ from rest_framework.permissions import IsAuthenticated
 from apps.users.serializers import UserDetailsSerializer
 
 
-class UserDetailsView(generics.RetrieveUpdateAPIView):
+class UserDetailsView(generics.RetrieveAPIView):
     serializer_class = UserDetailsSerializer
     permission_classes = [IsAuthenticated, TokenHasScope]
     required_scopes = ['profile']
