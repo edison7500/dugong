@@ -56,9 +56,6 @@ class PostsFeedGenerator(Rss201rev2Feed):
         if item['content_encoded'] is not None:
             handler.addQuickElement(u'content:encoded', item['content_encoded'], escape=False)
 
-
-def items():
-    return Post.objects.filter(status=Post.publish)[:10]
     # return Article.objects.published().order_by('-pub_time')[0:20]
 
 
@@ -75,6 +72,8 @@ class PostFeeds(Feed):
 
     # def get_object(self, request, *args, **kwargs):
     #     return getattr(get_object_or_404)
+    def items(self):
+        return Post.objects.filter(status=Post.publish)[:10]
 
     def item_title(self, item):
         return escape(item.title)

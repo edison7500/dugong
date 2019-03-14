@@ -1,7 +1,13 @@
+import logging
+from django.contrib.contenttypes.fields import GenericRelation
+from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from django.utils import timezone
 
+from apps.images.models import Image
 from apps.models.base import BaseModel
+
+logger = logging.getLogger('django')
 
 
 class Book(BaseModel):
@@ -19,5 +25,16 @@ class Book(BaseModel):
 
     pub_date = models.DateTimeField(default=timezone.now, db_index=True, )
 
+    images = GenericRelation(Image, related_query_name="images")
+
+    class Meta:
+        verbose_name = _("book")
+        verbose_name_plural = _("book")
+
     def __str__(self):
         return self.title
+
+    @property
+    def cover(self):
+        url = self.images.filter(is_cover=True).first().file.url
+        return url

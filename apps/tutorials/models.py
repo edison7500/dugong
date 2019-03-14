@@ -45,11 +45,11 @@ class Tutorial(models.Model):
 
     class Meta:
         ordering = ['-published_at']
-        verbose_name = u"教程"
-        verbose_name_plural = u'教程'
+        verbose_name = _("tutorial")
+        verbose_name_plural = _("tutorial")
 
     def __str__(self):
-        return u'{title}'.format(title=self.title)
+        return '{title}'.format(title=self.title)
 
     def get_absolute_url(self):
         return reverse('tutorials:detail', args=[self.slug, ])
