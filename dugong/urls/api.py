@@ -11,4 +11,9 @@ urlpatterns = [
     url(r'^books/', include('apps.books.urls.api', namespace='book')),
 ]
 
+
+urlpatterns += [
+    url(r"^rest/", include('rest_auth.urls')),
+]
+
 urlpatterns = format_suffix_patterns(urlpatterns)
