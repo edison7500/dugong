@@ -235,7 +235,6 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-
 OAUTH2_PROVIDER = {
     # this is the list of available scopes
     'SCOPES':
@@ -245,7 +244,6 @@ OAUTH2_PROVIDER = {
             'profile': 'Access to user profile'
         }
 }
-
 
 REST_USE_JWT = True
 REST_AUTH_SERIALIZERS = {
