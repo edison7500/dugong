@@ -9,8 +9,8 @@ django-appconf==1.0.2
 django-braces==1.12.0
 django-compressor>=2.2
 django-cache-machine>=1.0.0
-django-contrib-comments==1.9.0
-django-extensions>=2.0.6
+django-contrib-comments==1.9.1
+django-extensions==2.1.6
 django-filter>=1.1.0
 django-formtools==2.1
 django-gravatar2==1.4.2
@@ -58,7 +58,7 @@ python-dateutil==2.7.0
 python-openid==2.2.5
 python-slugify==1.2.4
 python3-openid==3.1.0
-requests>=2.18
+requests==2.21.0
 requests-oauthlib==0.8.0
 simplejson==3.15.0
 sqlparse==0.2.1
