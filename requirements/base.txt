@@ -54,7 +54,7 @@ Pygments==2.3.1
 pygments-markdown-lexer==0.1.0.dev39
 PyJWT==1.7.1
 pymdown-extensions==4.9.1
-python-dateutil==2.7.0
+python-dateutil==2.8.0
 python-openid==2.2.5
 python-slugify==1.2.4
 python3-openid==3.1.0

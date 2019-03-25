@@ -82,6 +82,7 @@ LOCAL_APPS = [
     'opensource',
     'views',
 
+    'apps.extensions',
     'apps.blog',
     'apps.tutorials',
     "apps.images",
