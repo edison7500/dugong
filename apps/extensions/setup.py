@@ -1,6 +1,5 @@
 import os
 from setuptools import find_packages, setup
-from . import __version__
 
 with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
     README = readme.read()
@@ -13,8 +12,8 @@ install_requires = [
 ]
 
 setup(
-    name='django-account',
-    version=__version__,
+    name='django-jx-extensions',
+    version='0.1.0',
     packages=find_packages(),
     include_package_data=True,
     license='BSD License',
