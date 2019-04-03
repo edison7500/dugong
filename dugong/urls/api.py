@@ -14,7 +14,7 @@ urlpatterns = [
 
 
 urlpatterns += [
-    url(r"^rest/", include('rest_auth.urls')),
+    url(r"^auth/", include('rest_auth.urls')),
     url(r"^rest/profile/?$", UserDetailsView.as_view(), name='oauth_user_profile'),
 ]
 
