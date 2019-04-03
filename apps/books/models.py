@@ -5,7 +5,7 @@ from django.db import models
 from django.utils import timezone
 
 from apps.images.models import Image
-from apps.models.base import BaseModel
+from apps.ext.models import BaseModel
 
 logger = logging.getLogger('django')
 
