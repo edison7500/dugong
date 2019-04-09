@@ -30,11 +30,16 @@ class Book(BaseModel):
     class Meta:
         verbose_name = _("book")
         verbose_name_plural = _("book")
+        ordering = ["-pub_date"]
 
     def __str__(self):
         return self.title
 
     @property
     def cover(self):
-        url = self.images.filter(is_cover=True).first().file.url
+        try:
+            url = self.images.filter(is_cover=True).first().file.url
+        except AttributeError:
+            url = ""
+
         return url
