@@ -4,7 +4,6 @@ from apps.blog.views import (
     BlogListView,
     BlogDetailView,
     PostTagListView,
-
     # BlogYearArchiveView,
 )
 
