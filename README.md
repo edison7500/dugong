@@ -13,7 +13,7 @@
 * Ubuntu 16.04
 * Nginx
 * MySQL
-* Python3.6
+* Python3.7.x
 * Nodejs
 
 
