@@ -58,6 +58,7 @@ python-dateutil==2.8.0
 python-openid==2.2.5
 python-slugify==1.2.4
 python3-openid==3.1.0
+urllib3<1.25,>=1.21.1
 requests==2.21.0
 requests-oauthlib==0.8.0
 simplejson==3.15.0
@@ -66,6 +67,7 @@ uritemplate==3.0.0
 wcwidth==0.1.7
 webencodings==0.5.1
 xmltodict==0.11.0
+
 
 
 
