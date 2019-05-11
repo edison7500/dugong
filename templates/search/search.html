@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+
+{% block container %}
+    <div class="container">
+        <div class="row">
+            <div class="tips col-sm-12">找到与 <em>{{ query }}</em> {{ paginator.count }} 个相似结果</div>
+            <div id="search-results" class="col-sm-8">
+                {% for result in page_obj.object_list %}
+                    {% include 'search/cell.html' with row=result %}
+                {% endfor %}
+
+            {% include 'search/paginator.html' %}
+            </div>
+            {% include 'base/goto-top.html' %}
+        </div>
+    </div>
+{% endblock %}

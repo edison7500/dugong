@@ -1,0 +1,21 @@
+@import "var"
+
+body
+  margin-top: 50px
+  background-color: $bg-color
+  font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif
+
+a
+  color: $link-color
+  &:hover
+    color: lighten($link-color, 33%)
+    text-decoration: underline
+  &:visited
+    color: lighten($link-color, 33%)
+
+article
+  img
+    margin-left: auto
+    margin-right: auto
+  p
+    font-size: 16px

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load staticfiles i18n %}
+{% load compress %}
+{#{% load bootstrap3 %}#}
+<html{% if LANGUAGE_CODE %} lang="{{ LANGUAGE_CODE }}"{% endif %}>
+
+<head>
+    {% include 'base/meta.html' %}
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
+    <title>{% block bootstrap3_title %}Python 观察员 | 架构师实战 | 一个受尽折磨的攻城狮{% endblock %}</title>
+{#    {% bootstrap_css %}#}
+{#    {% bootstrap_css %}#}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+{#    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>#}
+{#    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>#}
+    <![endif]-->
+    {% if 'javascript_in_head'|bootstrap_setting %}{% bootstrap_javascript jquery=True %}{% endif %}
+    {% block bootstrap3_extra_head %}
+        <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+        {% compress css %}
+            <link rel="stylesheet" type="text/css" href="{% static 'css/jiaxin.css' %}" charset="utf-8" />
+            <link rel="stylesheet" type="text/css" href="{% static 'css/pygments.css' %}" charset="utf-8" />
+            <link rel="stylesheet" type="text/css" href="{% static 'css/typo.css' %}" charset="utf-8" />
+            <link rel="stylesheet" type="text/css" href="{% static 'css/jquery-ui.min.css' %}" charset="utf-8" />
+            <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-markdown.min.css' %}" charset="utf-8" />
+        {% endcompress %}
+{#        {{ form.media.css }}#}
+    {% endblock %}
+</head>
+
+<body>
+
+    {% block bootstrap3_content %}
+        {% block nav %}{% include 'base/nav.html' %}{% endblock %}
+
+        {% block container %}{% endblock %}
+
+        {% block footer %}{% include 'base/footer.html' %}{% endblock %}
+    {% endblock %}
+
+
+{% if not 'javascript_in_head'|bootstrap_setting %}{% bootstrap_javascript jquery=True %}{% endif %}
+{% block bootstrap3_extra_script %}
+    {% compress js %}
+        <script type="application/javascript" src="{% static 'dist/bundle.js' %}" charset="UTF-8"></script>
+    {% endcompress %}
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-22063793-3', 'auto');
+            ga('send', 'pageview');
+        </script>
+
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58ee6b44b343d536"></script>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,25 @@
+{#{% load django_markdown_static %}#}
+{% load static %}
+{% load md_render %}
+
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <base target="_blank">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>preview</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/pygments.css' %}">
+{#    <link rel="stylesheet" type="text/css" href="{% static css %}" />#}
+</head>
+<body>
+    <div>
+        <article>
+            {% autoescape off %}
+                {{ content|markdown }}
+            {% endautoescape %}
+        </article>
+    </div>
+</body>
+</html>
+

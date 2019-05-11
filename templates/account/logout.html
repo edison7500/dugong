@@ -1,0 +1,18 @@
+{% extends 'account/base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Sign Out" %} - Python观察员{% endblock %}
+
+{% block content %}
+    <div class="box">
+        <h1 class="title is-spaced">{% trans "Sign Out" %}</h1>
+        <p class="subtitle">{% trans 'Are you sure you want to sign out?' %}</p>
+
+        <form class="form-horizontal" method="post" action="{% url 'account_logout' %}">
+            {% csrf_token %}
+            <div class="field">
+                <button class="button is-danger" type="submit">{% trans 'Sign Out' %}</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

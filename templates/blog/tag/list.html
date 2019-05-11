@@ -1,0 +1,28 @@
+{% extends 'base/bulma_base.html' %}
+{% load i18n cache %}
+{% load bulma_tags %}
+
+{% block content %}
+    <nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="{% url 'homepage' %}" title="{% trans 'home' %}"><i class="fa fa-home"></i></a>
+            </li>
+            <li class="is-active">
+                <a href="#" title="{{ tag.name }}">
+                    <i class="fa fa-tag"></i>&nbsp;{{ tag.name }}</a></li>
+        </ul>
+    </nav>
+
+    <div class="columns is-desktop is-multiline">
+        <div class="column is-8" style="background-color: #fff;">
+            {% for row in object_list %}
+                {% include 'blog/snippets/cell.html' with post=row %}
+            {% endfor %}
+
+        </div>
+
+        <div class="column is-4"></div>
+    </div>
+    {% bulma_pagination page_obj extra=request.GET.urlencode %}
+{% endblock %}

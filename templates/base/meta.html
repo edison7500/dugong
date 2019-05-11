@@ -1,0 +1,32 @@
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Python,Linux,iOS,Django,flask,scrapy,devops,docker,运维开发,摄影,攻城狮，技术宅">
+<meta name="title" content="{{ meta.title|default:"Python观察员" }}">
+<meta name="description" content="{{ meta.desc|default:'Python观察员, Linux, iOS独立开发者, 爬虫, 运维开发, 摄影' }}">
+<meta name="author" content="{{ meta.author|default:'jiaxin' }}">
+<meta name="hostname" content="www.jiaxin.im">
+
+<meta name="google-site-verification" content="tzGC1O8-GRdindRYN6_ovLQgDjzDjvSMyGx-p6m6-_w" />
+<meta property="wb:webmaster" content="14c60fa0dd58b6b2" />
+<meta name="msvalidate.01" content="AC5BC2B7EE50E9FED342DC08F3BA6BAC" />
+<meta name="360-site-verification" content="78b6cdfff48ceaec940b857e4dcd523b" />
+<link rel="alternate" href="http://www.jiaxin.im/" hreflang="{{ LANGUAGE_CODE }}" />
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ meta.url|default:"http://www.jiaxin.im/" }}">
+{% if meta.cover_url %}
+    <meta property="og:image" content="{{ meta.cover_url }}">
+{% endif %}
+<meta property="og:site_name" content="Python观察员">
+<meta property="og:author" content="Python观察员">
+{#<meta property="article:publisher" content="https://www.facebook.com/deeptome/">#}
+
+{% for tag in tags %}
+    <meta property="article:tag" content="{{ tag }}" />
+{% endfor %}
+
+    <!-- 启用 WebApp 全屏模式 -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Python 观察员">

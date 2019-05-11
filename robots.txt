@@ -1,0 +1,5 @@
+User-agent: *
+Crawl-delay: 30
+Disallow: /admin/
+Disallow: /api/
+Sitemap: http://jiaxin.im/sitemap.xml

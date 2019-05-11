@@ -1,0 +1,32 @@
+{% extends 'base/bulma_base.html' %}
+{% load i18n cache %}
+{% load bulma_tags %}
+
+
+{% block title %}首页 - Python观察员{% endblock %}
+
+{% cache 7200 index %}
+{% block content %}
+    <div class="columns is-multiline is-desktop">
+        <div class="column is-half-desktop">
+            <div class="box">
+                <h3 class="typo-h3 has-text-centered">周上升最快的 Python 项目</h3>
+                <hr class="typo-hr">
+                {% for project in projects_week %}
+                    {% include 'index/cell.html' with project=project  %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="column is-half-desktop">
+            <div class="box">
+                <h3 class="typo-h3 has-text-centered">月上升最快的 Python 项目</h3>
+                <hr class="typo-hr">
+                {% for project in projects_month %}
+                    {% include 'index/cell.html' with project=project month=True  %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% endcache %}

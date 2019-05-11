@@ -1,0 +1,30 @@
+language: python
+python:
+  - "3.7.2"
+dist: xenial
+branches:
+  only:
+    - master
+before_install:
+  - curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+  - sudo apt-get install nodejs -y -q
+  - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+  - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+  - sudo apt-get update && sudo apt-get install yarn
+install:
+  - pip install -r requirements/local.txt
+  - pip install flake8
+before_script:
+  - export DJANGO_SETTINGS_MODULE=dugong.settings.stage
+  - mv .env.example .env
+script:
+  - cd static/
+  - yarn
+  - npm run production
+  - npm run build-sass
+  - cd ..
+  - python manage.py test
+after_success:
+  - pip install python-coveralls
+  - coveralls
+
