@@ -80,7 +80,6 @@ THIRD_PARTY_APPS = [
 ]
 LOCAL_APPS = [
     'opensource',
-    'views',
 
     'apps.ext',
     'apps.blog',
