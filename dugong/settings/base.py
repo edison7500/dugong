@@ -249,13 +249,9 @@ REST_AUTH_SERIALIZERS = {
 }
 
 #
+# django any mail
 #
-#
-# EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
-# SENDGRID_API_KEY = env('SENDGRID_API_KEY', default='only test')
-
-# EMAIL_BACKEND = "anymail.backends.sendinblue.EmailBackend"
-# DEFAULT_FROM_EMAIL = "noreply@jiaxin.im"
-# ANYMAIL = {
-#     "SENDINBLUE_API_KEY": env("SENDINBLUE_API_KEY", ),
-# }
+EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
+ANYMAIL = {
+    "SENDGRID_API_KEY": env("SENDGRID_API_KEY", default="<replace>"),
+}
