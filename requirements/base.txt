@@ -29,6 +29,7 @@ djangorestframework==3.9.3
 djangorestframework-jwt==1.11
 django-editormd>=0.3
 django-oauth-toolkit==1.1.3
+django-grappelli==2.12.3
 oauthlib==2.1.0
 
 
