@@ -227,3 +227,5 @@ REST_AUTH_SERIALIZERS = {
 #
 EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
 ANYMAIL = {"SENDGRID_API_KEY": env("SENDGRID_API_KEY", default="<replace>")}
+
+GRAPPELLI_ADMIN_TITLE = "jiaxin.im"
