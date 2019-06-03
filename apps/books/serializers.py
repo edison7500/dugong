@@ -6,5 +6,4 @@ class BookSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Book
-        exclude = ["id", "identified"]
-        
+        exclude = ["id", "identified", "origin_link"]

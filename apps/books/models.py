@@ -14,7 +14,9 @@ class Book(BaseModel):
     bio = models.TextField(blank=True)
     origin_link = models.URLField(max_length=255, blank=True, null=True)
     download_link = models.URLField(max_length=255)
-    identified = models.CharField(max_length=32, null=True, db_index=True, editable=False)
+    identified = models.CharField(
+        max_length=32, null=True, db_index=True, editable=False
+    )
 
     images = GenericRelation(Image, related_query_name="images")
 

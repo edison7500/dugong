@@ -12,3 +12,4 @@ class BookViewSet(viewsets.ModelViewSet):
         permissions.IsAuthenticatedOrReadOnly
     ]
 
+    lookup_field = "identified"
