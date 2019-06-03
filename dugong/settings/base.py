@@ -59,11 +59,10 @@ REST_FRAMEWORK_APPS = [
 THIRD_PARTY_APPS = [
     "django_comments",
     "bulma",
-    # "tagging",
+    "taggit",
     "haystack",
     "django_extensions",
     "django_gravatar",
-    # 'django_markdown',
     "django_filters",
     "webpack_loader",
     "editormd",
