@@ -1,58 +1,64 @@
+from urllib.parse import urlparse
+
 from django.conf import settings
 from django.contrib.contenttypes.fields import GenericRelation
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils import timezone
-from django.utils.html import strip_tags
 from django.utils.functional import cached_property
+from django.utils.html import strip_tags
 from django.utils.translation import ugettext_lazy as _
 from django_extensions.db import fields
-from tagging.fields import TagField
-from model_utils.fields import StatusField, MonitorField
-from model_utils import Choices
 from editormd.models import EditorMdField
-from urllib.parse import urlparse
-from utils.render_md import md
+from model_utils import Choices
+from model_utils.fields import StatusField, MonitorField
 
 from apps.images.models import Image
+from utils.render_md import md
 
 
 # upload_dir = UUIDFilename('tutorial/images/')
 
 
 class TutorialManager(models.Manager):
-
     def published(self):
         return self.get_queryset().filter(status="published")
 
 
 class Tutorial(models.Model):
-    STATUS = Choices('draft', 'published')
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, related_name='tutorial')
-    title = models.CharField(_('title'), max_length=128, blank=True)
-    slug = fields.RandomCharField(length=12, unique=True,
-                                  include_alpha=False, db_index=True, editable=False)
-    status = StatusField(_('status'), choices_name='STATUS', default=STATUS.draft)
+    STATUS = Choices("draft", "published")
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL, default=1, related_name="tutorial"
+    )
+    title = models.CharField(_("title"), max_length=128, blank=True)
+    slug = fields.RandomCharField(
+        length=12, unique=True, include_alpha=False, db_index=True, editable=False
+    )
+    status = StatusField(_("status"), choices_name="STATUS", default=STATUS.draft)
     content = EditorMdField(blank=True, null=True)
-    origin_link = models.URLField(_('origin_link'), max_length=255, null=True, unique=True)
-    created_datetime = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
-    published_at = MonitorField(monitor='status', when=['published'])
-    tags = TagField(_('tags'))
+    origin_link = models.URLField(
+        _("origin_link"), max_length=255, null=True, unique=True
+    )
+    created_datetime = models.DateTimeField(
+        default=timezone.now, db_index=True, editable=False
+    )
+    published_at = MonitorField(monitor="status", when=["published"])
+    # tags = TagField(_('tags'))
 
     images = GenericRelation(Image, related_query_name="images")
 
     objects = TutorialManager()
 
     class Meta:
-        ordering = ['-published_at']
+        ordering = ["-published_at"]
         verbose_name = _("tutorial")
         verbose_name_plural = _("tutorial")
 
     def __str__(self):
-        return '{title}'.format(title=self.title)
+        return "{title}".format(title=self.title)
 
     def get_absolute_url(self):
-        return reverse('tutorials:detail', args=[self.slug, ])
+        return reverse("tutorials:detail", args=[self.slug])
 
     def render_markdown(self):
         html = md.convert(self.content)
@@ -83,10 +89,7 @@ class Tutorial(models.Model):
     def domain_link(self):
         if self.origin_link:
             o = urlparse(self.origin_link)
-            return "{scheme}://{host}".format(
-                scheme=o.scheme,
-                host=o.netloc,
-            )
+            return "{scheme}://{host}".format(scheme=o.scheme, host=o.netloc)
         return "https://jiaxin.im"
 
     @property
@@ -105,9 +108,11 @@ class Tutorial(models.Model):
     def get_seo(self):
         seo_info = {
             "title": self.title,
-            "desc": (self.digest[:75] + '...') if len(self.digest) > 75 else self.digest,
+            "desc": (self.digest[:75] + "...")
+            if len(self.digest) > 75
+            else self.digest,
             "url": self.get_absolute_url(),
             "cover_url": self.cover,
-            "tags": self.tags.split(','),
+            "tags": self.tags.split(","),
         }
         return seo_info

@@ -4,7 +4,7 @@ from django.views.generic.dates import (
     ArchiveIndexView,
     YearArchiveView
 )
-from tagging.models import TaggedItem, Tag
+# from tagging.models import TaggedItem, Tag
 
 from apps.blog.models import Post
 
@@ -56,28 +56,28 @@ class BlogDetailView(DetailView):
         return context
 
 
-class PostTagListView(ListView):
-    http_method_names = ['get', 'head']
-    model = TaggedItem
-    template_name = 'blog/tag/list.html'
-    paginate_by = 30
-
-    def get_queryset(self):
-        self.thing_tag = Tag.objects.get(pk=self.tag_id)
-        queryset = TaggedItem.objects.get_by_model(Post.objects.filter(status=Post.publish),
-                                                   self.thing_tag)
-        return queryset
-
-    def get_context_data(self, **kwargs):
-        _context_data = super(PostTagListView, self).get_context_data(**kwargs)
-        _context_data.update(
-            {
-                'tag': self.thing_tag,
-            }
-        )
-        return _context_data
-
-    def get(self, request, *args, **kwargs):
-        self.tag_id = kwargs.pop('tag_id', None)
-        assert self.tag_id is not None
-        return super(PostTagListView, self).get(request, *args, **kwargs)
+# class PostTagListView(ListView):
+#     http_method_names = ['get', 'head']
+#     model = TaggedItem
+#     template_name = 'blog/tag/list.html'
+#     paginate_by = 30
+#
+#     def get_queryset(self):
+#         self.thing_tag = Tag.objects.get(pk=self.tag_id)
+#         queryset = TaggedItem.objects.get_by_model(Post.objects.filter(status=Post.publish),
+#                                                    self.thing_tag)
+#         return queryset
+#
+#     def get_context_data(self, **kwargs):
+#         _context_data = super(PostTagListView, self).get_context_data(**kwargs)
+#         _context_data.update(
+#             {
+#                 'tag': self.thing_tag,
+#             }
+#         )
+#         return _context_data
+#
+#     def get(self, request, *args, **kwargs):
+#         self.tag_id = kwargs.pop('tag_id', None)
+#         assert self.tag_id is not None
+#         return super(PostTagListView, self).get(request, *args, **kwargs)

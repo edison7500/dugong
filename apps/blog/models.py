@@ -7,7 +7,7 @@ from django.utils.html import strip_tags
 from django.utils.translation import ugettext_lazy as _
 # from django_markdown.models import MarkdownField
 from editormd.models import EditorMdField
-from tagging.registry import register
+# from tagging.registry import register
 from uuslug import uuslug
 
 from utils.render_md import md
@@ -62,11 +62,11 @@ class Post(CachingMixin, models.Model):
         html, toc = self.render_markdown()
         return toc
 
-    @cached_property
-    def first_tag(self):
-        if len(self.tags) > 0:
-            t = self.tags[0]
-            return t
+    # @cached_property
+    # def first_tag(self):
+    #     if len(self.tags) > 0:
+    #         t = self.tags[0]
+    #         return t
 
     def save(self, **kwargs):
         if len(self.slug) == 0:
@@ -74,4 +74,4 @@ class Post(CachingMixin, models.Model):
         return super(Post, self).save(**kwargs)
 
 
-register(Post)
+# register(Post)

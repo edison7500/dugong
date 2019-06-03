@@ -59,7 +59,7 @@ REST_FRAMEWORK_APPS = [
 THIRD_PARTY_APPS = [
     "django_comments",
     "bulma",
-    "tagging",
+    # "tagging",
     "haystack",
     "django_extensions",
     "django_gravatar",
@@ -189,7 +189,6 @@ FILE_UPLOAD_PERMISSIONS = 644
 ###
 from .bulma import *
 
-FORCE_LOWERCASE_TAGS = True
 
 # # django markdown
 # # ------------------------------------------------------
@@ -236,3 +235,7 @@ EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
 ANYMAIL = {"SENDGRID_API_KEY": env("SENDGRID_API_KEY", default="<replace>")}
 
 GRAPPELLI_ADMIN_TITLE = "jiaxin.im"
+
+
+
+TAGGIT_CASE_INSENSITIVE = True
