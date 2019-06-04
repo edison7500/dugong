@@ -2,6 +2,8 @@ import hashlib
 
 from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
+from taggit.managers import TaggableManager
+
 from apps.ext.models import BaseModel
 
 # Create your models here.
@@ -18,6 +20,8 @@ class Book(BaseModel):
         max_length=32, null=True, db_index=True, editable=False
     )
 
+    tags = TaggableManager()
+
     images = GenericRelation(Image, related_query_name="images")
 
     def __str__(self):
@@ -29,3 +33,6 @@ class Book(BaseModel):
             m.update(self.origin_link.encode("utf-8"))
             self.identified = m.hexdigest()
         super().save(*args, **kwargs)
+
+    def tag_list(self):
+        return ",".join(o.name for o in self.tags.all())
