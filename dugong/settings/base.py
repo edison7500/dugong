@@ -40,7 +40,6 @@ WSGI_APPLICATION = "dugong.wsgi.application"
 # APPS
 # ------------------------------------------------------------------------------
 DJANGO_APPS = [
-    "grappelli",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -232,9 +231,6 @@ REST_AUTH_SERIALIZERS = {
 #
 EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
 ANYMAIL = {"SENDGRID_API_KEY": env("SENDGRID_API_KEY", default="<replace>")}
-
-GRAPPELLI_ADMIN_TITLE = "jiaxin.im"
-
 
 
 TAGGIT_CASE_INSENSITIVE = True

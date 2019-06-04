@@ -38,6 +38,8 @@ class Post(CachingMixin, models.Model):
 
     class Meta:
         ordering = ['-created_date']
+        verbose_name = _("posts")
+        verbose_name_plural = _("posts")
 
     def __str__(self):
         return self.title
@@ -63,6 +65,12 @@ class Post(CachingMixin, models.Model):
         html, toc = self.render_markdown()
         return toc
 
+    def tag_list(self):
+        return [o.name for o in self.tags.all()]
+
+    def tag_string(self):
+        return ",".join(self.tag_list())
+
     # @cached_property
     # def first_tag(self):
     #     if len(self.tags) > 0:
@@ -73,6 +81,5 @@ class Post(CachingMixin, models.Model):
         if len(self.slug) == 0:
             self.slug = uuslug(self.title, instance=self, max_length=30)
         return super(Post, self).save(**kwargs)
-
 
 # register(Post)
