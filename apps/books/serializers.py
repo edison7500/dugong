@@ -15,7 +15,7 @@ class BookSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         tag_list = validated_data.pop("tag_list", None)
-        logger.info(tag_list)
+        # logger.info(tag_list)
         instance = super().create(validated_data)
         for tag in tag_list:
             instance.tags.add(tag)
