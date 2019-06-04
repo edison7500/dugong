@@ -15,6 +15,7 @@ class BookAdmin(admin.ModelAdmin):
         "created_at",
     ]
     list_display_links = ["title"]
+    list_per_page = 30
 
 
 admin.site.register(Book, BookAdmin)

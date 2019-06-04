@@ -12,6 +12,7 @@ from django_extensions.db import fields
 from editormd.models import EditorMdField
 from model_utils import Choices
 from model_utils.fields import StatusField, MonitorField
+from taggit.managers import TaggableManager
 
 from apps.images.models import Image
 from utils.render_md import md
@@ -43,7 +44,8 @@ class Tutorial(models.Model):
         default=timezone.now, db_index=True, editable=False
     )
     published_at = MonitorField(monitor="status", when=["published"])
-    # tags = TagField(_('tags'))
+
+    tags = TaggableManager(blank=True)
 
     images = GenericRelation(Image, related_query_name="images")
 
@@ -103,7 +105,10 @@ class Tutorial(models.Model):
             return self.images.first()
 
     def tag_list(self):
-        return [{"id": o.pk, "name": o.name} for o in self.tags]
+        return [{"id": o.pk, "name": o.name} for o in self.tags.all()]
+
+    def tag_string(self):
+        return ",".join(o.name for o in self.tags.all())
 
     def get_seo(self):
         seo_info = {
@@ -113,6 +118,6 @@ class Tutorial(models.Model):
             else self.digest,
             "url": self.get_absolute_url(),
             "cover_url": self.cover,
-            "tags": self.tags.split(","),
+            "tags": self.tag_string().split(","),
         }
         return seo_info
