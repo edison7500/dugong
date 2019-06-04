@@ -20,7 +20,7 @@ class Book(BaseModel):
         max_length=32, null=True, db_index=True, editable=False
     )
 
-    tags = TaggableManager()
+    tags = TaggableManager(blank=True)
 
     images = GenericRelation(Image, related_query_name="images")
 
@@ -35,4 +35,7 @@ class Book(BaseModel):
         super().save(*args, **kwargs)
 
     def tag_list(self):
-        return ",".join(o.name for o in self.tags.all())
+        return [o.name for o in self.tags.all()]
+
+    def tag_string(self):
+        return ", ".join(self.tag_list())

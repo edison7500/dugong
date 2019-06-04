@@ -10,7 +10,7 @@ class BookAdmin(admin.ModelAdmin):
         "title",
         "author",
         "download_link",
-        "tag_list",
+        "tag_string",
         "updated_at",
         "created_at",
     ]
