@@ -1,8 +1,7 @@
 from apps.blog.models import Post
 from apps.blog.tests.post_facker import PostFaker
 from django.test import TestCase
-from tagging.models import Tag
-from taggit.models import Tag
+# from taggit.models import Tag
 
 
 class PostModelTest(TestCase):
