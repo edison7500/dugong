@@ -5,9 +5,8 @@ from django.db import models
 from django.utils.functional import cached_property
 from django.utils.html import strip_tags
 from django.utils.translation import ugettext_lazy as _
-# from django_markdown.models import MarkdownField
 from editormd.models import EditorMdField
-# from tagging.registry import register
+from taggit.managers import TaggableManager
 from uuslug import uuslug
 
 from utils.render_md import md
@@ -30,6 +29,8 @@ class Post(CachingMixin, models.Model):
     status = models.IntegerField(_('status'), choices=POST_STARUS_CHOICES, default=preview)
     created_date = models.DateTimeField(_('created_date'), auto_now_add=True, db_index=True, editable=False)
     last_update = models.DateTimeField(_('last_update'), auto_now=True, db_index=True, editable=False)
+
+    tags = TaggableManager(blank=True)
 
     images = GenericRelation(Image, related_query_name="images")
 
