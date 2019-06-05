@@ -2,9 +2,8 @@
 from django.http import Http404
 from django.views.generic import ListView, DetailView
 from django.views.generic.dates import ArchiveIndexView, YearArchiveView
+from taggit.models import Tag
 
-# from tagging.models import TaggedItem, Tag
-from taggit.models import TaggedItem, Tag
 from apps.blog.models import Post
 
 

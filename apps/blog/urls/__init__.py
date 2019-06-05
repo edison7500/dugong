@@ -14,6 +14,4 @@ urlpatterns = [
 
     url(r'^tags/(?P<tid>\d+/?$)', PostTagListView.as_view(), name='tags'),
     url(r'^(?P<slug>[\w|\-]+)/?$', BlogDetailView.as_view(), name='detail'),
-
-
 ]
