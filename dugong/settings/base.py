@@ -109,6 +109,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    "apps.ext.middleware.GeoIPMiddleware",
 ]
 
 # TEMPLATES
@@ -234,3 +235,6 @@ ANYMAIL = {"SENDGRID_API_KEY": env("SENDGRID_API_KEY", default="<replace>")}
 
 
 TAGGIT_CASE_INSENSITIVE = True
+
+
+GEOIP_PATH_MMDB = str(ROOT_DIR.path("GeoLite2-Country/GeoLite2-Country.mmdb"))

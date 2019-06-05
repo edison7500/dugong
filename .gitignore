@@ -175,3 +175,5 @@ yarn.lock
 
 *.retry
 ansible
+
+GeoLite2*
