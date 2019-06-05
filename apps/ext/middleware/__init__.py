@@ -19,7 +19,7 @@ class GeoIPMiddleware(MiddlewareMixin):
         if mmdb:
             try:
                 self.reader = geoip2.database.Reader(mmdb)
-            except FileNotFoundError:
+            except FileNotFoundError as e:
                 warnings.warn(e)
         self.reader = None
 
