@@ -28,3 +28,5 @@ class GeoIPMiddleware(MiddlewareMixin):
             logger.info(res.country.name)
         except (AddressNotFoundError, AttributeError):
             pass
+        except FileNotFoundError as e:
+            logger.error(e)
