@@ -15,6 +15,7 @@ class BookAdmin(admin.ModelAdmin):
         "created_at",
     ]
     list_display_links = ["title"]
+    search_fields = ["title"]
     list_per_page = 30
 
     def get_queryset(self, request):
