@@ -1,4 +1,7 @@
+from collections import OrderedDict
+
 from rest_framework import pagination
+from rest_framework.response import Response
 from rest_framework.settings import api_settings
 
 
@@ -8,8 +11,16 @@ class ExtensionPagination(pagination.PageNumberPagination):
     max_page_size = 1000
 
     def get_paginated_response(self, data):
-        res = super().get_paginated_response(data)
-        res.update({
-            "iso_code": self.request.iso_code
-        })
-        return res
+        ret = OrderedDict([
+            ('count', self.page.paginator.count),
+            ('next', self.get_next_link()),
+            ('previous', self.get_previous_link()),
+            ('results', data),
+        ])
+        # if self.request.iso_code
+        if hasattr(self.request, "iso_code"):
+            ret.update({
+                "iso_code": self.request.iso_code,
+            })
+
+        return Response(data=ret)
