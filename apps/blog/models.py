@@ -5,9 +5,8 @@ from django.db import models
 from django.utils.functional import cached_property
 from django.utils.html import strip_tags
 from django.utils.translation import ugettext_lazy as _
-# from django_markdown.models import MarkdownField
 from editormd.models import EditorMdField
-from tagging.registry import register
+from taggit.managers import TaggableManager
 from uuslug import uuslug
 
 from utils.render_md import md
@@ -31,12 +30,16 @@ class Post(CachingMixin, models.Model):
     created_date = models.DateTimeField(_('created_date'), auto_now_add=True, db_index=True, editable=False)
     last_update = models.DateTimeField(_('last_update'), auto_now=True, db_index=True, editable=False)
 
+    tags = TaggableManager(blank=True)
+
     images = GenericRelation(Image, related_query_name="images")
 
     objects = CachingManager()
 
     class Meta:
         ordering = ['-created_date']
+        verbose_name = _("posts")
+        verbose_name_plural = _("posts")
 
     def __str__(self):
         return self.title
@@ -62,16 +65,21 @@ class Post(CachingMixin, models.Model):
         html, toc = self.render_markdown()
         return toc
 
-    @cached_property
-    def first_tag(self):
-        if len(self.tags) > 0:
-            t = self.tags[0]
-            return t
+    def tag_list(self):
+        return [o.name for o in self.tags.all()]
+
+    def tag_string(self):
+        return ",".join(self.tag_list())
+
+    # @cached_property
+    # def first_tag(self):
+    #     if len(self.tags) > 0:
+    #         t = self.tags[0]
+    #         return t
 
     def save(self, **kwargs):
         if len(self.slug) == 0:
             self.slug = uuslug(self.title, instance=self, max_length=30)
         return super(Post, self).save(**kwargs)
 
-
-register(Post)
+# register(Post)

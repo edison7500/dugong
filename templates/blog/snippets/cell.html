@@ -8,7 +8,7 @@
         </div>
         <nav class="level is-desktop">
             <div class="level-left tags">
-                {% for tag in post.tags %}
+                {% for tag in post.tags.all %}
                     <a class="level-item tag is-small" href="{% url 'blog:tags' tag.pk %}" title="{{ tag.name }}">{{ tag.name }}</a>
                 {% endfor %}
             </div>

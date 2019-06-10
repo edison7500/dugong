@@ -7,7 +7,7 @@ class TutorialForm(forms.ModelForm):
 
     class Meta:
         model = Tutorial
-        fields = ['title', 'content', 'status', 'tags', 'origin_link']
+        fields = ['title', 'content', 'status', 'origin_link']
         widgets = {
             'content': EditorMdFormField(),
         }
