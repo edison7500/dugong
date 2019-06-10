@@ -17,9 +17,10 @@ class GeoIPMiddleware(MiddlewareMixin):
         # assert mmdb is not None
         if mmdb:
             try:
-                self.reader = geoip2.database.Reader(mmdb)
+                self.reader = geoip2.database.Reader(mmdb + "test")
             except FileNotFoundError as e:
-                warnings.warn(e)
+                logger.info(e)
+                self.reader = None
         else:
             warnings.warn("django settings GEOIP_PATH_MMDB not configured")
             self.reader = None
