@@ -22,7 +22,7 @@ class GeoIPMiddleware(MiddlewareMixin):
                 warnings.warn(e)
         else:
             warnings.warn("django settings GEOIP_PATH_MMDB not configured")
-        self.reader = None
+            self.reader = None
 
     def process_request(self, request):
         if "HTTP_X_FORWARDED_FOR" in request.META.keys():
@@ -32,7 +32,6 @@ class GeoIPMiddleware(MiddlewareMixin):
             _client_ip = request.META["REMOTE_ADDR"]
             logger.info(_client_ip)
 
-        logger.info(self.reader)
         try:
             res = self.reader.country(_client_ip)
             logger.info(res.country.name)
