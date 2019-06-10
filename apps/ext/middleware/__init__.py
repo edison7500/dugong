@@ -39,5 +39,3 @@ class GeoIPMiddleware(MiddlewareMixin):
                 request.iso_code = res.country.iso_code
             except AddressNotFoundError as e:
                 logger.info(e)
-            # finally:
-            #     self.reader.close()

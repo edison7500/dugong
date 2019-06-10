@@ -188,7 +188,6 @@ FILE_UPLOAD_PERMISSIONS = 644
 ###
 from .bulma import *
 
-
 # # django markdown
 # # ------------------------------------------------------
 # # https://github.com/edison7500/django_markdown/tree/master
@@ -233,8 +232,6 @@ REST_AUTH_SERIALIZERS = {
 EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
 ANYMAIL = {"SENDGRID_API_KEY": env("SENDGRID_API_KEY", default="<replace>")}
 
-
 TAGGIT_CASE_INSENSITIVE = True
-
 
 GEOIP_PATH_MMDB = str(ROOT_DIR.path("GeoLite2-Country/GeoLite2-Country.mmdb"))
