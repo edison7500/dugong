@@ -39,4 +39,4 @@ class GeoIPMiddleware(MiddlewareMixin):
         except AddressNotFoundError as e:
             logger.info(e)
 
-        self.reader.close()
+        # self.reader.close()
