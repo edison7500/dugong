@@ -25,11 +25,15 @@ class GeoIPMiddleware(MiddlewareMixin):
         self.reader = None
 
     def process_request(self, request):
-        logger.info(request.META)
-        _client_ip = request.META["REMOTE_ADDR"]
-        logger.info(_client_ip)
+        if "HTTP_X_FORWARDED_FOR" in request.META:
+            _client_ip = request.META["HTTP_X_FORWARDED_FOR"]
+            logger.info("okoko")
+            logger.info(_client_ip)
+        else:
+            _client_ip = request.META["REMOTE_ADDR"]
+            logger.info(_client_ip)
         try:
             res = self.reader.country(_client_ip)
             logger.info(res.country.name)
-        except (AddressNotFoundError, AttributeError):
+        except (AddressNotFoundError, AttributeError) as e:
             pass
