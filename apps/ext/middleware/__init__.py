@@ -17,7 +17,7 @@ class GeoIPMiddleware(MiddlewareMixin):
         # assert mmdb is not None
         if mmdb:
             try:
-                self.reader = geoip2.database.Reader(mmdb + "test")
+                self.reader = geoip2.database.Reader(mmdb)
             except FileNotFoundError as e:
                 logger.info(e)
                 self.reader = None
