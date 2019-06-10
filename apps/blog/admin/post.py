@@ -7,17 +7,20 @@ from apps.images.models import Image
 
 class PostImageInlineAdmin(GenericStackedInline):
     model = Image
-    fields = ['file', 'description']
+    fields = ["file", "description"]
     extra = 1
 
 
 class PostAdmin(admin.ModelAdmin):
 
-    list_display = ('title', 'status', 'created_date', 'last_update')
-    list_filter = ('status',)
-    search_fields = ('title',)
+    list_display = ("title", "status", "tag_string", "created_date", "last_update")
+    list_filter = ("status",)
+    search_fields = ("title",)
     list_per_page = 30
     inlines = (PostImageInlineAdmin,)
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).prefetch_related("tags")
 
 
 # class PostImageAdmin(admin.ModelAdmin):
