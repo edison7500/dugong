@@ -34,6 +34,9 @@ class GeoIPMiddleware(MiddlewareMixin):
 
         try:
             res = self.reader.country(_client_ip)
-            logger.info(res.country.name)
-        except (AddressNotFoundError, AttributeError) as e:
+            logger.info(res.country.iso_code)
+            request.iso_code = res.country.iso_code
+        except AddressNotFoundError as e:
             logger.info(e)
+
+        self.reader.close()
