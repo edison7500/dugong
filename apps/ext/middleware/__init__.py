@@ -32,11 +32,12 @@ class GeoIPMiddleware(MiddlewareMixin):
             _client_ip = request.META["REMOTE_ADDR"]
             logger.info(_client_ip)
 
-        try:
-            res = self.reader.country(_client_ip)
-            logger.info(res.country.iso_code)
-            request.iso_code = res.country.iso_code
-        except AddressNotFoundError as e:
-            logger.info(e)
-
-        # self.reader.close()
+        if self.reader is not None:
+            try:
+                res = self.reader.country(_client_ip)
+                logger.info(res.country.iso_code)
+                request.iso_code = res.country.iso_code
+            except AddressNotFoundError as e:
+                logger.info(e)
+            # finally:
+            #     self.reader.close()
