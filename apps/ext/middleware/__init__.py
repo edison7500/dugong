@@ -32,8 +32,9 @@ class GeoIPMiddleware(MiddlewareMixin):
             _client_ip = request.META["REMOTE_ADDR"]
             logger.info(_client_ip)
 
+        logger.info(self.reader)
         try:
             res = self.reader.country(_client_ip)
             logger.info(res.country.name)
         except (AddressNotFoundError, AttributeError) as e:
-            logger.error(e)
+            logger.info(e)
