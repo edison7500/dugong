@@ -1,7 +1,8 @@
 import hashlib
-
+from django.utils.translation import ugettext_lazy as _
 from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
+from model_utils import Choices
 from taggit.managers import TaggableManager
 
 from apps.ext.models import BaseModel
@@ -11,6 +12,8 @@ from apps.images.models import Image
 
 
 class Book(BaseModel):
+    STATUS = Choices((0, "draft", _("draft")), (1, "published", _("published")))
+
     title = models.CharField(max_length=255)
     author = models.CharField(max_length=255)
     bio = models.TextField(blank=True)
@@ -19,6 +22,8 @@ class Book(BaseModel):
     identified = models.CharField(
         max_length=32, null=True, db_index=True, editable=False
     )
+
+    status = models.PositiveSmallIntegerField(choices=STATUS, default=STATUS.draft)
 
     tags = TaggableManager(blank=True)
 
