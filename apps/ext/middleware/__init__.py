@@ -4,6 +4,7 @@ import geoip2.database
 from django.utils.deprecation import MiddlewareMixin
 from django.conf import settings
 from geoip2.errors import AddressNotFoundError
+from pprint import pprint
 
 logger = logging.getLogger("django")
 
@@ -26,8 +27,11 @@ class GeoIPMiddleware(MiddlewareMixin):
             self.reader = None
 
     def process_request(self, request):
+        pprint(request.META, indent=2)
         if "HTTP_X_FORWARDED_FOR" in request.META.keys():
-            _client_ip = request.META["HTTP_X_FORWARDED_FOR"]
+            _client_ip_string = request.META["HTTP_X_FORWARDED_FOR"]
+            _client_ip = _client_ip_string.split(",")
+            _client_ip = _client_ip[-1].strip()
             logger.info(_client_ip)
         else:
             _client_ip = request.META["REMOTE_ADDR"]
