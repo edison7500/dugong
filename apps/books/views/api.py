@@ -3,12 +3,14 @@ from rest_framework import permissions
 
 from apps.books.models import Book
 from apps.books.serializers import BookSerializer
+from apps.books.filters import BookFilter
 
 
 class BookListCreateAPIView(generics.ListCreateAPIView):
     serializer_class = BookSerializer
     queryset = Book.objects.all()
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    filterset_class = BookFilter
 
 
 class BookRetrieveAPIView(generics.RetrieveUpdateDestroyAPIView):
