@@ -27,7 +27,6 @@ class GeoIPMiddleware(MiddlewareMixin):
             self.reader = None
 
     def process_request(self, request):
-        pprint(request.META, indent=2)
         if "HTTP_X_FORWARDED_FOR" in request.META.keys():
             _client_ip_string = request.META["HTTP_X_FORWARDED_FOR"]
             _client_ip = _client_ip_string.split(",")
