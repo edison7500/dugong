@@ -10,7 +10,7 @@ class BookSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Book
-        exclude = ["id", "identified", "created_at", "updated_at"]
+        exclude = ["id", "identified", "status", "created_at", "updated_at"]
         extra_kwargs = {"origin_link": {"write_only": True}}
 
     def create(self, validated_data):
