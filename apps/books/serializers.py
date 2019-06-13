@@ -1,12 +1,16 @@
 import logging
+
 from rest_framework import serializers
+
+from apps.ext.rest.serializers.taggit import TaggitListSerializerField
 from .models import Book
 
 logger = logging.getLogger("django")
 
 
 class BookSerializer(serializers.ModelSerializer):
-    tags = serializers.ListField(source="tag_list")
+    # tags = serializers.ListField(source="tag_list")
+    tags = TaggitListSerializerField(required=False)
 
     class Meta:
         model = Book

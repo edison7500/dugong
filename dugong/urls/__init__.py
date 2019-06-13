@@ -9,7 +9,7 @@ handler500 = "apps.views.errors.page_error"
 handler404 = "apps.views.errors.not_found"
 
 urlpatterns = [
-    url(r"^grappelli/", include("grappelli.urls")),  # grappelli URLS
+    # url(r"^grappelli/", include("grappelli.urls")),  # grappelli URLS
     url(r"^admin/", include(admin.site.urls)),
     url(r"^comments/", include("django_comments.urls", namespace="comments")),
     url(r"^blog/", include("apps.blog.urls", namespace="blog")),
