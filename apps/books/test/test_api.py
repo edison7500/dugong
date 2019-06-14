@@ -33,12 +33,6 @@ class BookAPITestCase(APITestCase):
         res = self.client.post(uri, data=payload, format="json")
         self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
 
-        # # print(self.admin)
-        # auth_token = self.admin.auth_token.key
-        # self.client.credentials(HTTP_AUTHORIZATION='Token ' + auth_token)
-        # res = self.client.post(uri, data=payload, format="json")
-        # self.assertEqual(res.status_code, status.HTTP_201_CREATED)
-
     def test_create_a_book_with_admin(self):
         uri = reverse("api:books:index")
 
@@ -48,6 +42,9 @@ class BookAPITestCase(APITestCase):
             "bio": f.text(),
             "origin_link": f.url(),
             "download_link": f.url(),
+            "tags": [
+                f.word()
+            ]
         }
 
         auth_token = self.admin.auth_token.key
