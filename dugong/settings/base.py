@@ -240,6 +240,19 @@ REST_AUTH_SERIALIZERS = {
 EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
 ANYMAIL = {"SENDGRID_API_KEY": env("SENDGRID_API_KEY", default="<replace>")}
 
+
+#
+# django taggit
+#
 TAGGIT_CASE_INSENSITIVE = True
 
+
+#
+# GEOIP database
+#
 GEOIP_PATH_MMDB = str(ROOT_DIR.path("GeoLite2-Country/GeoLite2-Country.mmdb"))
+
+
+# django allauth
+# ----------------------------------------------------------------------------------------------------------------------
+ACCOUNT_USERNAME_VALIDATORS = 'apps.users.validators.custom_username_validators'
