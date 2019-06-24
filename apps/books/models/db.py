@@ -18,7 +18,7 @@ class Book(BaseModel):
     author = models.CharField(max_length=255)
     bio = models.TextField(blank=True)
     origin_link = models.URLField(max_length=255, blank=True, null=True)
-    download_link = models.URLField(max_length=255)
+    download_link = models.URLField(max_length=512, blank=True, null=True)
     identified = models.CharField(
         max_length=32, null=True, db_index=True, editable=False
     )
