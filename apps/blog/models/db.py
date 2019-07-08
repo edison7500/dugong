@@ -71,15 +71,8 @@ class Post(CachingMixin, models.Model):
     def tag_string(self):
         return ",".join(self.tag_list())
 
-    # @cached_property
-    # def first_tag(self):
-    #     if len(self.tags) > 0:
-    #         t = self.tags[0]
-    #         return t
-
     def save(self, **kwargs):
         if len(self.slug) == 0:
             self.slug = uuslug(self.title, instance=self, max_length=30)
         return super(Post, self).save(**kwargs)
 
-# register(Post)
