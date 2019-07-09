@@ -1,5 +1,6 @@
 from django import template
-from utils.render_md import md
+# from utils.render_md import md
+from ..render.md import md
 
 register = template.Library()
 
