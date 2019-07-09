@@ -9,9 +9,9 @@ from editormd.models import EditorMdField
 from taggit.managers import TaggableManager
 from uuslug import uuslug
 
-from utils.render_md import md
-
+# from utils.render_md import md
 from apps.images.models import Image
+from apps.ext.render.md import md
 
 
 class Post(CachingMixin, models.Model):

@@ -15,7 +15,7 @@ from model_utils.fields import StatusField, MonitorField
 from taggit.managers import TaggableManager
 
 from apps.images.models import Image
-from utils.render_md import md
+from apps.ext.render.md import md
 
 
 # upload_dir = UUIDFilename('tutorial/images/')

@@ -8,8 +8,7 @@ from django_extensions.db import fields
 
 from caching.base import CachingManager, CachingMixin
 from hashlib import md5
-# from markdownx.models import MarkdownxField
-from utils.render_md import md
+from apps.ext.render.md import md
 
 
 class Organization(CachingMixin, models.Model):
