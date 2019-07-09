@@ -6,12 +6,12 @@
 
 {% block content %}
 
-    <div class="box">
+    <div class="box auth">
         <form method="post" action="{% url 'account_signup' %}">
             {% csrf_token %}
             {{ form|bulma }}
             <div class="field">
-                <button type="submit" class="button is-primary">{% trans 'Sign Up' %}</button>
+                <button type="submit" class="button is-primary is-block is-fullwidth">{% trans 'Sign Up' %}</button>
             </div>
         </form>
     </div>

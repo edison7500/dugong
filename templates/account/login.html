@@ -14,7 +14,7 @@
         {% csrf_token %}
             {{ form|bulma }}
             <div class="field">
-                <button type="submit" class="button is-info is-large is-fullwidth">{% trans 'Log in' %}</button>
+                <button type="submit" class="button is-info is-block is-fullwidth">{% trans 'Log in' %}</button>
             </div>
         <input type="hidden" name="next" value="{{ next }}"/>
         </form>
