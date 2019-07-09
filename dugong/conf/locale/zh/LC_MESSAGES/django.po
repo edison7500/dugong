@@ -126,3 +126,6 @@ msgstr "上一页"
 
 msgid "login-using-social-media"
 msgstr "使用第三方账号登录"
+
+msgid "forget-password"
+msgstr "忘记密码"
