@@ -16,7 +16,7 @@ from apps.blog.models import Post
 
 class SimplerXMLGenerator(XMLGenerator):
     def addQuickElement(self, name, contents=None, attrs=None, escape=False):
-        "Convenience method for adding an element with no children"
+        """Convenience method for adding an element with no children"""
         if attrs is None: attrs = {}
         self.startElement(name, attrs)
         if contents is not None:

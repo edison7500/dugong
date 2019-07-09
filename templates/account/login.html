@@ -5,7 +5,7 @@
 
 {% block content %}
 
-    <div class="box">
+    <div class="box auth">
         {% if form.errors %}
             <p>{% trans "Your username and password didn't match. Please try again." %}</p>
         {% endif %}
@@ -14,7 +14,7 @@
         {% csrf_token %}
             {{ form|bulma }}
             <div class="field">
-                <button type="submit" class="button is-primary">{% trans 'Log in' %}</button>
+                <button type="submit" class="button is-info is-large is-fullwidth">{% trans 'Log in' %}</button>
             </div>
         <input type="hidden" name="next" value="{{ next }}"/>
         </form>
@@ -23,3 +23,4 @@
     </div>
 
 {% endblock %}
+

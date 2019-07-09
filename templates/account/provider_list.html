@@ -1,9 +1,10 @@
+{% load i18n %}
 {% load socialaccount %}
-
 {% get_providers as socialaccount_providers %}
-
 <hr>
-<div style="margin-top: 20px;">
+<p class="subtitle is-5" style="margin-top: 20px;">{% trans 'login-using-social-media' %}</p>
+
+<div>
     <ul>
         {% for provider in socialaccount_providers %}
         <li>
