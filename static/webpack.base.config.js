@@ -1,6 +1,5 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const CleanWebpackPlugin = require('clean-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 var path = require("path");
 var webpack = require('webpack');
 
@@ -14,9 +13,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/bundle.js'
     },
-    optimization: {
-        minimizer: [new OptimizeCSSAssetsPlugin({})],
-    },
+
     plugins: [
         new MiniCssExtractPlugin({
             // TODO optimize  // seognil LC 2019/06/19
@@ -38,7 +35,7 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
-                test: /\.sass$/i,
+                test: /\.(sass|scss|less|css)$/i,
 
                 use: [
                     {loader: MiniCssExtractPlugin.loader},

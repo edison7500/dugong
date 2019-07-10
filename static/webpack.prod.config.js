@@ -1,14 +1,19 @@
-var path = require('path');
-var BundleTracker = require('webpack-bundle-tracker');
-var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-
-
+// var path = require('path');
+const BundleTracker = require('webpack-bundle-tracker');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const merge = require('webpack-merge');
 var config = require("./webpack.base.config");
 
-config.mode = 'production'
-config.plugins = config.plugins.concat([
-    new UglifyJsPlugin(),
-    new BundleTracker({filename: './webpack-stats.json'}),
-])
 
-module.exports = config;
+module.exports = merge(config, {
+    optimization: {
+        minimizer: [new OptimizeCSSAssetsPlugin({})],
+    },
+    plugins: [
+        new UglifyJsPlugin({
+            sourceMap: false,
+        }),
+        new BundleTracker({filename: './webpack-stats.json'}),
+    ]
+})
