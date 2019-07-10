@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import StickySidebar from 'sticky-sidebar'
 import plugin from './plugin';
+import '../sass/style.sass';
 
 plugin('stickysidebar', StickySidebar);
 

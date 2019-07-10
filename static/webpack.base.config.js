@@ -1,5 +1,9 @@
-var path = require("path")
-var webpack = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const CleanWebpackPlugin = require('clean-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+var path = require("path");
+var webpack = require('webpack');
+
 
 module.exports = {
     context: __dirname,
@@ -10,8 +14,17 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/bundle.js'
     },
-
+    optimization: {
+        minimizer: [new OptimizeCSSAssetsPlugin({})],
+    },
     plugins: [
+        new MiniCssExtractPlugin({
+            // TODO optimize  // seognil LC 2019/06/19
+            path: path.resolve(__dirname, 'dist'),
+            filename: 'css/[name].css',
+            chunkFilename: `css/[id].css`,
+        }),
+        // new CleanWebpackPlugin(),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'
@@ -23,6 +36,21 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
+            },
+            {
+                test: /\.sass$/i,
+
+                use: [
+                    {loader: MiniCssExtractPlugin.loader},
+                    // {loader:"style-loader"},
+                    {loader:"css-loader"},
+                    {
+                        loader:"sass-loader",
+                        options: {
+                            sourceMap: false
+                        }
+                    }
+                ]
             }
         ]
     },
