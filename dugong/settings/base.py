@@ -80,7 +80,7 @@ LOCAL_APPS = [
     "apps.tutorials",
     "apps.images",
     "apps.books",
-    "apps.classifier",
+    # "apps.classifier",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + REST_FRAMEWORK_APPS + THIRD_PARTY_APPS + LOCAL_APPS
