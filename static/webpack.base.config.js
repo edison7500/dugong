@@ -1,25 +1,27 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const CleanWebpackPlugin = require('clean-webpack-plugin');
-var path = require("path");
-var webpack = require('webpack');
+const argv = require('yargs').argv;
+const path = require("path");
+const webpack = require('webpack');
+
+var debug = argv.mode != "production";
 
 
 module.exports = {
     context: __dirname,
-
     entry: './src/js/index.js',
+    // devtool: debug = this.mode == "production",
 
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'js/bundle.js'
+        filename: debug ? 'js/[name]-bundle.js' : 'js/[name]-[hash].js',
     },
 
     plugins: [
         new MiniCssExtractPlugin({
-            // TODO optimize  // seognil LC 2019/06/19
             path: path.resolve(__dirname, 'dist'),
-            filename: 'css/[name].css',
-            chunkFilename: `css/[id].css`,
+            filename: debug ? 'css/[name].css' : 'css/[name]-[hash].css',
+            chunkFilename: debug ? 'css/[id].css' : 'css/[id]-[hash].css',
         }),
         // new CleanWebpackPlugin(),
         new webpack.ProvidePlugin({
