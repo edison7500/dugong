@@ -16,4 +16,9 @@
         </form>
     </div>
 
+    <div class="account-help">
+        <a href="{% url 'account_signup' %}" title="{% trans 'sign-up' %}">{% trans 'Sign Up' %}</a> &nbsp;·&nbsp;
+        <a href="{% url 'account_reset_password' %}" title="{% trans 'forgot-password' %}">{% trans 'forget-password' %}</a>
+    </div>
+
 {% endblock %}

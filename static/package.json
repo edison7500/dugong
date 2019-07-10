@@ -23,7 +23,7 @@
   },
   "scripts": {
     "build-clean": "rimraf ./dist/css",
-    "build-sass": "node-sass --output-style expanded --source-map true ./src/sass/style.sass ./dist/css/style.css",
+    "build-sass": "node-sass --output-style expanded --source-map false ./src/sass/style.sass ./dist/css/style.css",
     "sass-watch": "npm run build-sass -- --watch",
     "production": "webpack --config webpack.prod.config.js --mode production --progress --colors",
     "dev": "webpack --config webpack.local.config.js --mode development --progress --colors",
