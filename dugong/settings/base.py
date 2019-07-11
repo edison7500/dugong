@@ -53,7 +53,8 @@ REST_FRAMEWORK_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "rest_auth.registration",
-    "rest_framework_swagger",
+    # "rest_framework_swagger",
+    "drf_yasg",
 ]
 THIRD_PARTY_APPS = [
     "django_comments",
