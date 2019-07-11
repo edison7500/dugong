@@ -17,10 +17,10 @@ schema_view = get_schema_view(
         description="Test description",
         terms_of_service="https://jiaxin.im/about/",
         contact=openapi.Contact(email="edison7500@gmail.com"),
-        license=openapi.License(name="BSD License"),
+        license=openapi.License(name="GNU General Public License v3.0"),
     ),
-    public=True,
-    permission_classes=(permissions.AllowAny,),
+    public=False,
+    permission_classes=(permissions.IsAdminUser,),
 )
 
 urlpatterns = [
