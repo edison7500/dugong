@@ -18,10 +18,10 @@ before_script:
   - export DJANGO_SETTINGS_MODULE=dugong.settings.stage
   - mv .env.example .env
 script:
-#  - cd static/
-#  - npm i
-#  - npm run dev
-#  - cd ..
+  - cd static/
+  - yarn
+  - yarn run dev
+  - cd ..
   - python manage.py test
 after_success:
   - pip install python-coveralls

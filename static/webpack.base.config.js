@@ -10,7 +10,6 @@ var debug = argv.mode != "production";
 module.exports = {
     context: __dirname,
     entry: './src/js/index.js',
-    // devtool: debug = this.mode == "production",
 
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -23,7 +22,6 @@ module.exports = {
             filename: debug ? 'css/[name].css' : 'css/[name]-[hash].css',
             chunkFilename: debug ? 'css/[id].css' : 'css/[id]-[hash].css',
         }),
-        // new CleanWebpackPlugin(),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'
@@ -33,7 +31,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.jsx?$/i,
                 exclude: /node_modules/,
             },
             {
