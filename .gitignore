@@ -172,6 +172,8 @@ dugong/settings/prod.py
 
 yarn.lock
 
+webpack-stats.json
+
 
 *.retry
 ansible
