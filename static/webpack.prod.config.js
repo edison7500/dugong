@@ -7,7 +7,13 @@ const merge = require('webpack-merge');
 var config = require("./webpack.base.config");
 
 
+var publicPath = "https://static.jiaxin.im/static/dist/";
+
+
 module.exports = merge(config, {
+    output: {
+        publicPath: publicPath,
+    },
     optimization: {
         minimizer: [new OptimizeCSSAssetsPlugin({})],
     },

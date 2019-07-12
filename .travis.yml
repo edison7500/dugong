@@ -20,7 +20,7 @@ before_script:
 script:
   - cd static/
   - npm install
-  - npm run build
+  - npm run dev
   - cd ..
   - python manage.py test
 after_success:
