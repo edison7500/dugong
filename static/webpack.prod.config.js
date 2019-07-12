@@ -1,4 +1,5 @@
 // var path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const BundleTracker = require('webpack-bundle-tracker');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -15,6 +16,7 @@ module.exports = merge(config, {
         minimizer: [new OptimizeCSSAssetsPlugin({})],
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new UglifyJsPlugin({
             sourceMap: false,
         }),
