@@ -14,8 +14,8 @@ schema_view = get_schema_view(
     openapi.Info(
         title="Jiaxin.im API",
         default_version="v1",
-        description="Test description",
-        terms_of_service="https://jiaxin.im/about/",
+        # description=" description",
+        terms_of_service="https://jiaxin.im/pages/about/",
         contact=openapi.Contact(email="edison7500@gmail.com"),
         license=openapi.License(name="GNU General Public License v3.0"),
     ),
