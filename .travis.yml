@@ -19,7 +19,7 @@ before_script:
   - mv .env.example .env
 script:
   - cd static/
-  - npm install
+  - npm i
   - npm run dev
   - cd ..
   - python manage.py test
