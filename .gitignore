@@ -172,7 +172,7 @@ dugong/settings/prod.py
 
 yarn.lock
 
-webpack-stats.json
+static/webpack-stats.json
 
 
 *.retry
