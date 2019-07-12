@@ -8,10 +8,6 @@ var config = require("./webpack.base.config");
 
 
 module.exports = merge(config, {
-    // output: {
-    //     path: path.resolve(__dirname, 'dist'),
-    //     filename: 'js/[name]-bundle.js'
-    // },
     optimization: {
         minimizer: [new OptimizeCSSAssetsPlugin({})],
     },

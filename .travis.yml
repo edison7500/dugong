@@ -19,9 +19,8 @@ before_script:
   - mv .env.example .env
 script:
   - cd static/
-  - yarn
-  - npm run production
-  - npm run build-sass
+  - npm install
+  - npm run build
   - cd ..
   - python manage.py test
 after_success:
