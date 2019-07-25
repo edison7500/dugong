@@ -179,3 +179,6 @@ static/webpack-stats.json
 ansible
 
 GeoLite2*
+
+
+.eslintrc.js
