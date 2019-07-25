@@ -133,7 +133,7 @@ class Project(CachingMixin, models.Model):
         try:
             stats = self.github_status.first()
             _star = stats.star
-        except Exception as e:
+        except Exception:
             pass
         return _star
 
@@ -143,7 +143,7 @@ class Project(CachingMixin, models.Model):
         try:
             stats = self.github_status.first()
             _watch = stats.watch
-        except Exception as e:
+        except Exception:
             pass
         return _watch
 
@@ -153,7 +153,7 @@ class Project(CachingMixin, models.Model):
         try:
             stats = self.github_status.first()
             _fork = stats.fork
-        except Exception as e:
+        except Exception:
             pass
         return _fork
 

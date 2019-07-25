@@ -46,13 +46,12 @@ class BlogDetailView(DetailView):
         }
         try:
             context["previous"] = self.object.get_previous_by_created_date()
-        except Post.DoesNotExist as e:
+        except Post.DoesNotExist:
             pass
         try:
             context["next"] = self.object.get_next_by_created_date()
-        except Post.DoesNotExist as e:
+        except Post.DoesNotExist:
             pass
-
         return context
 
 

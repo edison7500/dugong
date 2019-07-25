@@ -1,10 +1,9 @@
+from ajax_select import register, LookupChannel
 from django.contrib import admin
 from taggit.models import Tag
 
-from apps.books.models import Book
-
-from ajax_select import register, LookupChannel, make_ajax_form
 from apps.books.forms import BookForm
+from apps.books.models import Book
 
 
 @register("tags")
