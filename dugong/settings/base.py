@@ -1,4 +1,5 @@
 import environ
+import tempfile
 
 ROOT_DIR = environ.Path(__file__) - 3  # three folder back (/a/b/c/ - 3 = /)
 env = environ.Env()
@@ -190,7 +191,7 @@ WEBPACK_LOADER = {
     }
 }
 
-FILE_UPLOAD_TEMP_DIR = "/tmp/"
+FILE_UPLOAD_TEMP_DIR = tempfile.mkdtemp()
 FILE_UPLOAD_PERMISSIONS = 644
 
 ###
