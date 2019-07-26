@@ -1,3 +1,4 @@
+import tempfile
 from .base import *
 from .base import env
 
@@ -11,7 +12,7 @@ ALLOWED_HOSTS = [
 # -----------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/1.11/topics/http/sessions/
 SESSION_ENGINE = 'django.contrib.sessions.backends.file'
-SESSION_FILE_PATH = '/tmp/'
+SESSION_FILE_PATH = tempfile.mkdtemp()
 
 INSTALLED_APPS += [
     'django_nose',
