@@ -54,8 +54,8 @@ REST_FRAMEWORK_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "rest_auth.registration",
-    # "rest_framework_swagger",
     "drf_yasg",
+    # "blocktech_cookielaw",
 ]
 THIRD_PARTY_APPS = [
     "django_comments",
@@ -258,4 +258,7 @@ GEOIP_PATH_MMDB = str(ROOT_DIR.path("GeoLite2-Country/GeoLite2-Country.mmdb"))
 
 # django allauth
 # ----------------------------------------------------------------------------------------------------------------------
-ACCOUNT_USERNAME_VALIDATORS = 'apps.users.validators.custom_username_validators'
+ACCOUNT_USERNAME_VALIDATORS = "apps.users.validators.custom_username_validators"
+SOCIALACCOUNT_AUTO_SIGNUP =True
+ACCOUNT_LOGOUT_ON_GET = False
+# ACCOUNT_EMAIL_VERIFICATION = "mandatory"
