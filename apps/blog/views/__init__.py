@@ -16,6 +16,7 @@ class BlogListView(ArchiveIndexView):
     date_field = "created_date"
     date_list_period = "year"
     allow_empty = True
+    allow_future = False
 
 
 class BlogYearArchiveView(YearArchiveView):
