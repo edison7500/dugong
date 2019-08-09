@@ -55,7 +55,6 @@ REST_FRAMEWORK_APPS = [
     "rest_framework.authtoken",
     "rest_auth.registration",
     "drf_yasg",
-    # "blocktech_cookielaw",
 ]
 THIRD_PARTY_APPS = [
     "django_comments",
@@ -113,7 +112,6 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.security.SecurityMiddleware",
-    "apps.ext.middleware.GeoIPMiddleware",
 ]
 
 # TEMPLATES
@@ -243,22 +241,19 @@ REST_AUTH_SERIALIZERS = {
 EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
 ANYMAIL = {"SENDGRID_API_KEY": env("SENDGRID_API_KEY", default="<replace>")}
 
-
 #
 # django taggit
 #
 TAGGIT_CASE_INSENSITIVE = True
 
-
 #
 # GEOIP database
-#
-GEOIP_PATH_MMDB = str(ROOT_DIR.path("GeoLite2-Country/GeoLite2-Country.mmdb"))
-
+# ----------------------------------------------------------------------------------------------------------------------
+GEOIP_PATH_MMDB = str(ROOT_DIR.path("GeoLite2-Country"))
 
 # django allauth
 # ----------------------------------------------------------------------------------------------------------------------
 ACCOUNT_USERNAME_VALIDATORS = "apps.users.validators.custom_username_validators"
-SOCIALACCOUNT_AUTO_SIGNUP =True
+SOCIALACCOUNT_AUTO_SIGNUP = True
 ACCOUNT_LOGOUT_ON_GET = False
 # ACCOUNT_EMAIL_VERIFICATION = "mandatory"
