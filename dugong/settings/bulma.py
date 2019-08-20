@@ -1,6 +1,6 @@
 BULMA = {
     # The bulma base URL
-    'base_url': '//cdn.bootcss.com/bulma/0.7.1/',
+    'base_url': '//cdn.bootcss.com/bulma/0.7.5/',
 
     # The complete URL to the Bootstrap CSS file (None means derive it from base_url)
     'css_url': None,
