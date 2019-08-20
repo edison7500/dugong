@@ -1,4 +1,0 @@
-{{ object.author }}
-{{ object.name }}
-{{ object.category }}
-{{ object.desc }}
