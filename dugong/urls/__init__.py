@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from ajax_select import urls as ajax_select_urls
 
+from apps.blog.views import BlogListView
 from apps.views.index import HomeView
 
 handler500 = "apps.views.errors.page_error"
@@ -17,7 +18,7 @@ urlpatterns = [
     url(r"^comments/", include("django_comments.urls", namespace="comments")),
     url(r"^blog/", include("apps.blog.urls", namespace="blog")),
     url(r"^tutorials/", include("apps.tutorials.urls", namespace="tutorials")),
-    url(r"^project/", include("opensource.urls.web")),
+    # url(r"^project/", include("opensource.urls.web")),
     url(r"^o/", include("oauth2_provider.urls", namespace="oauth2_provider")),
 ]
 
@@ -45,7 +46,7 @@ urlpatterns += [
 # ----------------------------------------------------------------------------------------------------------------------
 urlpatterns += [url(r"^api/", include("dugong.urls.api", namespace="api"))]
 
-urlpatterns += [url(r"^$", HomeView.as_view(), name="homepage")]
+urlpatterns += [url(r"^$", BlogListView.as_view(), name="homepage")]
 
 #
 # site map config

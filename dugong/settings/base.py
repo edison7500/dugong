@@ -75,7 +75,7 @@ THIRD_PARTY_APPS = [
     "ajax_select",
 ]
 LOCAL_APPS = [
-    "opensource",
+    # "opensource",
     "apps.ext",
     "apps.blog",
     "apps.tutorials",
