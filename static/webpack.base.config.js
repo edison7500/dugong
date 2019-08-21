@@ -9,7 +9,7 @@ var debug = argv.mode != "production";
 
 module.exports = {
 	context: __dirname,
-	entry: "./src/js/index.js",
+	entry: "./app.js",
 
 	output: {
 		path: path.resolve(__dirname, "dist"),

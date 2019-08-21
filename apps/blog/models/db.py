@@ -13,6 +13,8 @@ from uuslug import uuslug
 from apps.images.models import Image
 from apps.ext.render.md import md
 
+from .manager import PostManager
+
 
 class Post(CachingMixin, models.Model):
     (block, preview, publish) = range(3)
@@ -34,7 +36,7 @@ class Post(CachingMixin, models.Model):
 
     images = GenericRelation(Image, related_query_name="images")
 
-    objects = CachingManager()
+    objects = PostManager()
 
     class Meta:
         ordering = ['-created_date']
