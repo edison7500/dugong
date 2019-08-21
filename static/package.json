@@ -4,10 +4,6 @@
   "description": "",
   "main": "src/js/index.js",
   "dependencies": {
-    "install": "^0.12.2",
-    "jquery": "^3.3.1",
-    "jquery-ui": "^1.12.1",
-    "npm": "^6.4.1",
     "sticky-sidebar": "^3.3.1"
   },
   "devDependencies": {
@@ -23,7 +19,7 @@
     "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^4.8.3",
     "webpack-bundle-tracker": "^0.3.0",
-    "webpack-cli": "^3.3.6",
+    "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.1.4",
     "webpack-merge": "^4.2.1"
   },
