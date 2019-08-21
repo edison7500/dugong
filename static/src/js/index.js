@@ -21,7 +21,7 @@ import "../sass/style.sass";
 var sidebar = new StickySidebar('#sidebar', {
     topSpacing: 50,
     bottomSpacing: 50,
-    resizeSensor: false,
+    resizeSensor: true,
     minWidth: 300,
     stickyClass: 'is-affixed',
 });
