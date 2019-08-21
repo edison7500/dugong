@@ -18,10 +18,12 @@ import "../sass/style.sass";
 // window.jQuery = jQuery;
 
 
-var sidebar = new StickySidebar('#sidebar', {
+new StickySidebar('#sidebar', {
     topSpacing: 50,
     bottomSpacing: 50,
     resizeSensor: true,
-    minWidth: 300,
+    // minWidth: 300,
+    containerSelector: '#main-content',
+    innerWrapperSelector: '.sidebar__inner',
     stickyClass: 'is-affixed',
 });
