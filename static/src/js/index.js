@@ -25,7 +25,8 @@ import "../sass/style.sass";
 new StickySidebar('#sidebar', {
     topSpacing: 50,
     bottomSpacing: 50,
-    resizeSensor: true,
+    additionalMarginTop: 30,
+    resizeSensor: false,
     // minWidth: 300,
     containerSelector: '#main-content',
     innerWrapperSelector: '.sidebar__inner',
