@@ -35,6 +35,5 @@ class TutorialAPIViewTestCase(APITestCase):
 
         self.tutorial.status = Tutorial.STATUS.published
         self.tutorial.save()
-        print (url)
         res = self.client.get(url)
         self.assertEqual(res.status_code, status.HTTP_200_OK)

@@ -33,12 +33,12 @@ urlpatterns += [url(r"^account/", include("allauth.urls"))]
 #
 # search url config
 # ----------------------------------------------------------------------------------------------------------------------
-from apps.views.search import ProjectSearchView, autocomplete
+# from apps.views.search import ProjectSearchView, autocomplete
 
-urlpatterns += [
-    url(r"^search/?$", ProjectSearchView.as_view(), name="project-search-view"),
-    url(r"^search/autocomplete/?$", autocomplete, name="search-autocomplete"),
-]
+# urlpatterns += [
+    # url(r"^search/?$", ProjectSearchView.as_view(), name="project-search-view"),
+    # url(r"^search/autocomplete/?$", autocomplete, name="search-autocomplete"),
+# ]
 
 #
 # api url config
