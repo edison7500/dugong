@@ -1,4 +1,3 @@
-from caching.base import CachingManager, CachingMixin
 from django.contrib.contenttypes.fields import GenericRelation
 from django.core.urlresolvers import reverse
 from django.db import models
@@ -16,7 +15,7 @@ from apps.ext.render.md import md
 from .manager import PostManager
 
 
-class Post(CachingMixin, models.Model):
+class Post(models.Model):
     (block, preview, publish) = range(3)
     POST_STARUS_CHOICES = [
         (block, _('block')),
