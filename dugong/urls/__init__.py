@@ -1,10 +1,11 @@
-from ajax_select import urls as ajax_select_urls
+# from ajax_select import urls as ajax_select_urls
 from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from apps.blog.views import BlogListView
+from apps.main.views import SearchIndexView
 
 handler500 = "apps.views.errors.page_error"
 handler404 = "apps.views.errors.not_found"
@@ -14,6 +15,7 @@ urlpatterns = [
     # url(r'^ajax_select/', include(ajax_select_urls)),
 
     # url(r"^comments/", include("django_comments.urls", namespace="comments")),
+    url(r"^search/", include("apps.main.urls.search", namespace="search")),
     url(r"^blog/", include("apps.blog.urls", namespace="blog")),
     url(r"^tutorials/", include("apps.tutorials.urls", namespace="tutorials")),
     # url(r"^project/", include("opensource.urls.web")),
