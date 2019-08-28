@@ -13,7 +13,7 @@ class BlogListView(ArchiveIndexView):
     template_name = "blog/list.html"
     paginate_by = 20
     queryset = Post.objects.filter(status=Post.publish)
-    date_field = "created_date"
+    date_field = "created_at"
     date_list_period = "year"
     allow_empty = True
     allow_future = False
@@ -22,7 +22,7 @@ class BlogListView(ArchiveIndexView):
 class BlogYearArchiveView(YearArchiveView):
     http_method_names = ["get", "head"]
     model = Post
-    date_field = "created_date"
+    date_field = "created_at"
     template_name = "archive/blogs/post_archive_year.html"
     queryset = Post.objects.filter(status=Post.publish)
     make_object_list = True

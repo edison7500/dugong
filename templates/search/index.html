@@ -22,7 +22,7 @@
             </form>
 
             {% for row in object_list %}
-                {{ row }}
+                {% include 'widgets/articles/_cell.html' with post=row %}
             {% endfor %}
         </div>
 
