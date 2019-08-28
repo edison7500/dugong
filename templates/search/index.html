@@ -20,6 +20,7 @@
         <div class="column is-8" id="content">
             <form>
                 {{ form }}
+                <button type="submit" class="btn btn-block">{% trans 'search' %}</button>
             </form>
 
             {% for row in object_list %}
@@ -29,7 +30,9 @@
 
 
         <div class="column is-4" id="sidebar">
-
+            <div class="sidebar__inner">
+                {% include "sidebar/_github.html"  %}
+            </div>
         </div>
 
         {% bulma_pagination page_obj extra=request.GET.urlencode %}
