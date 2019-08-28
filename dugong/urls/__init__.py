@@ -10,7 +10,6 @@ handler500 = "apps.views.errors.page_error"
 handler404 = "apps.views.errors.not_found"
 
 urlpatterns = [
-    # url(r"^grappelli/", include("grappelli.urls")),  # grappelli URLS
     url(r"^admin/", include(admin.site.urls)),
     url(r'^ajax_select/', include(ajax_select_urls)),
 
@@ -36,8 +35,8 @@ urlpatterns += [url(r"^account/", include("allauth.urls"))]
 # from apps.views.search import ProjectSearchView, autocomplete
 
 # urlpatterns += [
-    # url(r"^search/?$", ProjectSearchView.as_view(), name="project-search-view"),
-    # url(r"^search/autocomplete/?$", autocomplete, name="search-autocomplete"),
+# url(r"^search/?$", ProjectSearchView.as_view(), name="project-search-view"),
+# url(r"^search/autocomplete/?$", autocomplete, name="search-autocomplete"),
 # ]
 
 #
