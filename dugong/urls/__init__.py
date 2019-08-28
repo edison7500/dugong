@@ -12,12 +12,9 @@ handler404 = "apps.views.errors.not_found"
 urlpatterns = [
     url(r"^admin/", include(admin.site.urls)),
     # url(r'^ajax_select/', include(ajax_select_urls)),
-
     # url(r"^comments/", include("django_comments.urls", namespace="comments")),
-    url(r"^search/", include("apps.main.urls.search", namespace="search")),
     url(r"^blog/", include("apps.blog.urls", namespace="blog")),
     url(r"^tutorials/", include("apps.tutorials.urls", namespace="tutorials")),
-    # url(r"^project/", include("opensource.urls.web")),
     url(r"^o/", include("oauth2_provider.urls", namespace="oauth2_provider")),
 ]
 
@@ -33,12 +30,7 @@ urlpatterns += [url(r"^account/", include("allauth.urls"))]
 #
 # search url config
 # ----------------------------------------------------------------------------------------------------------------------
-# from apps.views.search import ProjectSearchView, autocomplete
-
-# urlpatterns += [
-# url(r"^search/?$", ProjectSearchView.as_view(), name="project-search-view"),
-# url(r"^search/autocomplete/?$", autocomplete, name="search-autocomplete"),
-# ]
+urlpatterns += [url(r"^search/", include("apps.main.urls.search", namespace="search"))]
 
 #
 # api url config
