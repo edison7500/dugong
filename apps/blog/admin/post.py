@@ -28,8 +28,7 @@ class PostImageInlineAdmin(GenericStackedInline):
 
 
 class PostAdmin(admin.ModelAdmin):
-
-    list_display = ("title", "status", "tag_string", "created_date", "last_update")
+    list_display = ("title", "status", "tag_string", "created_at", "updated_at")
     list_filter = ("status",)
     search_fields = ("title",)
     list_per_page = 30
@@ -38,4 +37,3 @@ class PostAdmin(admin.ModelAdmin):
 
     # def get_queryset(self, request):
     #     return super().get_queryset(request).prefetch_related("tags")
-

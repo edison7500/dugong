@@ -28,8 +28,8 @@ class Post(models.Model):
                             unique=True, editable=False)
     content = EditorMdField()
     status = models.IntegerField(_('status'), choices=POST_STARUS_CHOICES, default=preview)
-    created_date = models.DateTimeField(_('created_date'), auto_now_add=True, db_index=True, editable=False)
-    last_update = models.DateTimeField(_('last_update'), auto_now=True, db_index=True, editable=False)
+    created_at = models.DateTimeField(_('created_at'), auto_now_add=True, db_index=True, editable=False)
+    updated_at = models.DateTimeField(_('updated_at'), auto_now=True, db_index=True, editable=False)
 
     tags = TaggableManager(blank=True)
 
@@ -38,7 +38,7 @@ class Post(models.Model):
     objects = PostManager()
 
     class Meta:
-        ordering = ['-created_date']
+        ordering = ['-created_at']
         verbose_name = _("posts")
         verbose_name_plural = _("posts")
 
