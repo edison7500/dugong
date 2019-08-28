@@ -34,8 +34,8 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ("title",)
     list_per_page = 30
     inlines = (PostImageInlineAdmin,)
-    form = PostForm
+    # form = PostForm
 
-    def get_queryset(self, request):
-        return super().get_queryset(request).prefetch_related("tags")
+    # def get_queryset(self, request):
+    #     return super().get_queryset(request).prefetch_related("tags")
 
