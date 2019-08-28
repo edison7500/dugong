@@ -16,6 +16,19 @@
         </ul>
     </nav>
     <div class="columns is-desktop is-multiline clearfix" id="main-content">
+        <div class="column is-8" id="content">
+            <form>
+                {{ form }}
+            </form>
 
+            {% for row in object_list %}
+                {{ row }}
+            {% endfor %}
+        </div>
+
+
+        <div class="column is-4" id="sidebar">
+
+        </div>
     </div>
 {% endblock  %}

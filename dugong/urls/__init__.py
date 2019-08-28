@@ -5,7 +5,6 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from apps.blog.views import BlogListView
-from apps.main.views import SearchIndexView
 
 handler500 = "apps.views.errors.page_error"
 handler404 = "apps.views.errors.not_found"
