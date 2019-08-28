@@ -19,10 +19,13 @@
             {% for row in object_list %}
                 {% include 'widgets/articles/_cell.html' with post=row %}
             {% endfor %}
-
         </div>
 
-        <div class="column is-4"></div>
+        <div class="column is-4">
+            <div class="sidebar__inner">
+                {% include "sidebar/_github.html"  %}
+            </div>
+        </div>
     </div>
     {% bulma_pagination page_obj extra=request.GET.urlencode %}
 {% endblock %}
