@@ -4,7 +4,6 @@ try:
     from haystack.utils.highlighting import Highlighter
 except ImportError:
     Warning("please install django-haystack")
-# from django.utils.html import strip_tags
 
 logger = logging.getLogger("django")
 
