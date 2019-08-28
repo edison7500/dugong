@@ -6,6 +6,8 @@ class PostIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
     title = indexes.CharField(model_attr="title")
 
+    tags = indexes.FacetMultiValueField()
+
     created_at = indexes.DateTimeField(model_attr="created_at")
     updated_at = indexes.DateTimeField(model_attr="updated_at")
 
@@ -18,3 +20,5 @@ class PostIndex(indexes.SearchIndex, indexes.Indexable):
     def get_updated_field(self):
         return "updated_at"
 
+    def prepare_tags(self, obj):
+        return obj.tag_list()
