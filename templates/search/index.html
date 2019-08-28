@@ -1,7 +1,21 @@
 {% extends "base/bulma_base.html" %}
+{% load i18n %}
 
 {% block title %}搜索 - Python 观察员{% endblock %}
 
 {% block content %}
+    <nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="{% url 'homepage' %}" title="{% trans 'home' %}">
+                    <i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a>
+            </li>
+            <li class="is-active">
+                <a href="#" title="{% trans 'search' %}">
+                    <i class="fa fa-search"></i>&nbsp;{% trans 'search' %}</a></li>
+        </ul>
+    </nav>
+    <div class="columns is-desktop is-multiline clearfix" id="main-content">
 
+    </div>
 {% endblock  %}
