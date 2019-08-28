@@ -1,5 +1,6 @@
 {% extends "base/bulma_base.html" %}
 {% load i18n %}
+{% load bulma_tags %}
 
 {% block title %}搜索 - Python 观察员{% endblock %}
 
@@ -30,5 +31,7 @@
         <div class="column is-4" id="sidebar">
 
         </div>
+
+        {% bulma_pagination page_obj extra=request.GET.urlencode %}
     </div>
 {% endblock  %}
