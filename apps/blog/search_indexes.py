@@ -6,7 +6,7 @@ class PostIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
     title = indexes.CharField(model_attr="title")
 
-    created_at = indexes.DateTimeField(model_attr="craeted_at")
+    created_at = indexes.DateTimeField(model_attr="created_at")
     updated_at = indexes.DateTimeField(model_attr="updated_at")
 
     def get_model(self):
