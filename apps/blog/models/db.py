@@ -52,6 +52,10 @@ class Post(models.Model):
         html = md.convert(self.content)
         return html, md.toc
 
+    @property
+    def url(self):
+        return self.get_absolute_url()
+
     @cached_property
     def digest(self):
         return strip_tags(self.html_content)
