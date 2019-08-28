@@ -6,8 +6,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from apps.blog.views import BlogListView
 
-handler500 = "apps.views.errors.page_error"
-handler404 = "apps.views.errors.not_found"
+handler500 = "apps.main.views.errors.page_error"
+handler404 = "apps.main.views.errors.not_found"
 
 urlpatterns = [
     url(r"^admin/", include(admin.site.urls)),
