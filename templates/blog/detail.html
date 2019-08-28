@@ -30,7 +30,7 @@
             <div class="box">
                 <h1 class="typo-h1 title">{{ object.title }}</h1>
                 <div class="meta" style="margin-bottom: 20px;">
-                    <time><i class="fa fa-calendar"></i>&nbsp;{{ object.created_date|date:'Y-m-d' }}</time>
+                    <time><i class="fa fa-calendar"></i>&nbsp;{{ object.created_at|date:'Y-m-d' }}</time>
                 </div>
                 <article>
                      {{ object.html_content|safe }}
