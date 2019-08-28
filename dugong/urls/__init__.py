@@ -11,7 +11,7 @@ handler404 = "apps.views.errors.not_found"
 
 urlpatterns = [
     url(r"^admin/", include(admin.site.urls)),
-    url(r'^ajax_select/', include(ajax_select_urls)),
+    # url(r'^ajax_select/', include(ajax_select_urls)),
 
     # url(r"^comments/", include("django_comments.urls", namespace="comments")),
     url(r"^blog/", include("apps.blog.urls", namespace="blog")),

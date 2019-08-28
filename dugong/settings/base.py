@@ -72,7 +72,7 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount",
     "allauth.socialaccount.providers.github",
     "allauth.socialaccount.providers.google",
-    "ajax_select",
+    # "ajax_select",
 ]
 LOCAL_APPS = [
     # "opensource",
