@@ -18,6 +18,15 @@ class BlogListView(ArchiveIndexView):
     allow_empty = True
     allow_future = False
 
+    def get_dated_items(self):
+        qs = self.get_dated_queryset()
+        date_list = self.get_date_list(qs, ordering='DESC')[:5]
+
+        if not date_list:
+            qs = qs.none()
+
+        return date_list, qs, {}
+
 
 class BlogYearArchiveView(YearArchiveView):
     http_method_names = ["get", "head"]
