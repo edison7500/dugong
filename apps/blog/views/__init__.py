@@ -84,8 +84,3 @@ class PostTagListView(ListView):
         _context_data = super(PostTagListView, self).get_context_data(**kwargs)
         _context_data.update({"tag": self.thing_tag})
         return _context_data
-
-    def get(self, request, *args, **kwargs):
-        # self.tag_id = kwargs.pop("tag_id", None)
-        # assert self.tag_id is not None
-        return super(PostTagListView, self).get(request, *args, **kwargs)
