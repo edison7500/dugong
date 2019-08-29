@@ -20,11 +20,11 @@
     <div class="columns is-desktop is-multiline clearfix" id="main-content">
         <!--<div id="modal"></div>-->
         <div class="column is-8" id="content">
-            <div class="box">
+            <section class="box">
             {% for row in object_list %}
                 {% include 'widgets/articles/_cell.html' with post=row %}
             {% endfor %}
-            </div>
+            </section>
         </div>
 
         <div class="column is-4" id="sidebar">

@@ -31,15 +31,14 @@
                 </form>
             </section>
 
-            <section class="box">
-{#                <div class="box">#}
+            <section class="box" style="margin-top: 1rem;">
                 {% for row in object_list %}
                     {% include 'widgets/articles/_cell.html' with post=row %}
+                {% empty %}
+
                 {% endfor %}
-{#                </div>#}
             </section>
         </div>
-
 
         <div class="column is-4" id="sidebar">
             <div class="sidebar__inner">
