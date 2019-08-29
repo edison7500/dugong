@@ -31,10 +31,12 @@
                 </form>
             </section>
 
-            <section>
+            <section class="box">
+{#                <div class="box">#}
                 {% for row in object_list %}
                     {% include 'widgets/articles/_cell.html' with post=row %}
                 {% endfor %}
+{#                </div>#}
             </section>
         </div>
 
