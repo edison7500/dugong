@@ -18,14 +18,24 @@
     </nav>
     <div class="columns is-desktop is-multiline clearfix" id="main-content">
         <div class="column is-8" id="content">
-            <form>
-                {{ form }}
-                <button type="submit" class="btn btn-block">{% trans 'search' %}</button>
-            </form>
+            <section>
+                <form method="get" action="{% url 'search:index' %}">
+                    <div class="field is-grouped">
+                        <p class="control is-expanded">
+                        <input  class="input" type="search" name="q" id="id_q">
+                        </p>
+                        <p class="control">
+                            <button type="submit" class="button is-info">{% trans 'search' %}</button>
+                        </p>
+                    </div>
+                </form>
+            </section>
 
-            {% for row in object_list %}
-                {% include 'widgets/articles/_cell.html' with post=row %}
-            {% endfor %}
+            <section>
+                {% for row in object_list %}
+                    {% include 'widgets/articles/_cell.html' with post=row %}
+                {% endfor %}
+            </section>
         </div>
 
 
