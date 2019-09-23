@@ -36,8 +36,9 @@
                     {% for row in object_list %}
                         {% include 'widgets/articles/_cell.html' with post=row %}
                    {% endfor %}
-                    {% bulma_pagination page_obj extra=request.GET.urlencode %}
                 </section>
+                
+                {% bulma_pagination page_obj extra=request.GET.urlencode %}
             {% endif %}
         </div>
     </div>
