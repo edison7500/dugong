@@ -18,5 +18,6 @@ BULMA = {
     'include_jquery': True,
 
     # THE FontAwesome URL
-    'font_awesome_url': "//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css",
+    # 'font_awesome_url': "//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css",
+    'font_awesome_url': "//cdn.bootcss.com/font-awesome/5.10.2/css/all.min.css",
 }

@@ -15,7 +15,7 @@
                         </a></li>
                     <li>
                         <a href="{% url 'blog:list' %}" title="{% trans 'blog' %}">
-                            <i class="fa fa-keyboard-o"></i>&nbsp;{% trans 'blog' %}</a>
+                            <i class="fas fa-pencil-alt"></i>&nbsp;{% trans 'blog' %}</a>
                     </li>
                     <li class="is-active">
                         <a href="#" title="{{ object.title }}" aria-current="page">{{ object.title }}</a>
@@ -30,7 +30,7 @@
             <div class="box">
                 <h1 class="typo-h1 title">{{ object.title }}</h1>
                 <div class="meta" style="margin-bottom: 20px;">
-                    <time><i class="fa fa-calendar"></i>&nbsp;{{ object.created_at|date:'Y-m-d' }}</time>
+                    <time><i class="fa fa-calendar-alt"></i>&nbsp;{{ object.created_at|date:'Y-m-d' }}</time>
                 </div>
                 <article>
                      {{ object.html_content|safe }}
