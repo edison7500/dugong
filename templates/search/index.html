@@ -16,7 +16,7 @@
                     <i class="fa fa-search"></i>&nbsp;{% trans 'search' %}</a></li>
         </ul>
     </nav>
-    <div class="columns is-desktop is-multiline clearfix" id="main-content">
+    <div class="columns is-desktop is-multiline is-centered clearfix" id="main-content">
         <div class="column is-8" id="content">
             <section>
                 <form method="get" action="{% url 'search:index' %}">
@@ -31,21 +31,22 @@
                 </form>
             </section>
 
-            <section class="box" style="margin-top: 1rem;">
-                {% for row in object_list %}
-                    {% include 'widgets/articles/_cell.html' with post=row %}
-                {% empty %}
-
-                {% endfor %}
-            </section>
+            {% if object_list.count > 0 %}
+                <section class="box" style="margin-top: 1rem;">
+                    {% for row in object_list %}
+                        {% include 'widgets/articles/_cell.html' with post=row %}
+                        {% bulma_pagination page_obj extra=request.GET.urlencode %}
+                        {#                {% empty %}#}
+                    {% endfor %}
+                </section>
+            {% endif %}
         </div>
 
-        <div class="column is-4" id="sidebar">
-            <div class="sidebar__inner">
-                {% include "sidebar/_github.html"  %}
-            </div>
-        </div>
+{#        <div class="column is-4" id="sidebar">#}
+{#            <div class="sidebar__inner">#}
+{#                {% include "sidebar/_github.html"  %}#}
+{#            </div>#}
+{#        </div>#}
 
-        {% bulma_pagination page_obj extra=request.GET.urlencode %}
     </div>
 {% endblock  %}
