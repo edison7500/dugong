@@ -31,7 +31,7 @@
                 </form>
             </section>
 
-            {% if page_obj.number > 2 %}
+            {% if page_obj.number > 0 %}
                 <section class="box" style="margin-top: 1rem;">
                     {% for row in object_list %}
                         {% include 'widgets/articles/_cell.html' with post=row %}
