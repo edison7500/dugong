@@ -22,7 +22,7 @@
                 <form method="get" action="{% url 'search:index' %}">
                     <div class="field is-grouped">
                         <p class="control is-expanded">
-                        <input  class="input" type="search" name="q" id="id_q">
+                            <input  class="input" type="search" name="q" id="id_q" value="{{ query }}">
                         </p>
                         <p class="control">
                             <button type="submit" class="button is-info">{% trans 'search' %}</button>
