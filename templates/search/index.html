@@ -38,8 +38,11 @@
                    {% endfor %}
                 </section>
                 
-                {% bulma_pagination page_obj extra=request.GET.urlencode %}
             {% endif %}
         </div>
     </div>
+
+    {%  if page_obj.number > 2 %}
+        {% bulma_pagination page_obj extra=request.GET.urlencode %}
+    {% endif %}
 {% endblock  %}
