@@ -5,7 +5,7 @@
 [![GitHub license](https://img.shields.io/github/license/edison7500/dugong.svg)](https://github.com/edison7500/dugong/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/edison7500/dugong.svg?branch=master)](https://travis-ci.org/edison7500/dugong)
 [![Coverage Status](https://coveralls.io/repos/github/edison7500/dugong/badge.svg?branch=master)](https://coveralls.io/github/edison7500/dugong?branch=master)
-[![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](href="https://github.com/psf/black)
+[![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Requirements Status](https://requires.io/github/edison7500/dugong/requirements.svg?branch=master)](https://requires.io/github/edison7500/dugong/requirements/?branch=master)
 [![Updates](https://pyup.io/repos/github/edison7500/dugong/shield.svg)](https://pyup.io/repos/github/edison7500/dugong/)
 [![Python 3](https://pyup.io/repos/github/edison7500/dugong/python-3-shield.svg)](https://pyup.io/repos/github/edison7500/dugong/)
