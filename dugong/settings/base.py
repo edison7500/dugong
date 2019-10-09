@@ -57,6 +57,7 @@ REST_FRAMEWORK_APPS = [
     "drf_yasg",
 ]
 THIRD_PARTY_APPS = [
+    "controlcenter",
     "django_comments",
     "bulma",
     "taggit",
@@ -257,3 +258,11 @@ ACCOUNT_USERNAME_VALIDATORS = "apps.users.validators.custom_username_validators"
 SOCIALACCOUNT_AUTO_SIGNUP = True
 ACCOUNT_LOGOUT_ON_GET = False
 # ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+
+
+#
+# dashboard
+#
+CONTROLCENTER_DASHBOARDS = (
+    ('dash', 'apps.dashboards.MyDashboard'),
+)

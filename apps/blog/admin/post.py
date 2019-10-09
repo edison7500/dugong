@@ -4,7 +4,6 @@ from django.contrib.contenttypes.admin import GenericStackedInline
 from taggit.models import Tag
 
 from apps.images.models import Image
-from .forms import PostForm
 
 
 # from blog.models import PostImage

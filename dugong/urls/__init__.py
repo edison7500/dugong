@@ -4,6 +4,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+from controlcenter.views import controlcenter
 from apps.blog.views import BlogListView
 
 handler500 = "apps.main.views.errors.page_error"
@@ -11,6 +12,7 @@ handler404 = "apps.main.views.errors.not_found"
 
 urlpatterns = [
     url(r"^admin/", include(admin.site.urls)),
+    url(r'^admin/dashboard/', controlcenter.urls),
     # url(r'^ajax_select/', include(ajax_select_urls)),
     # url(r"^comments/", include("django_comments.urls", namespace="comments")),
     url(r"^blog/", include("apps.blog.urls", namespace="blog")),
