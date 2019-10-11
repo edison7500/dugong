@@ -84,7 +84,7 @@ class PostFeeds(Feed):
         return "https://jiaxin.im/"
 
     def item_pubdate(self, item):
-        return item.last_update
+        return item.updated_at
 
     def item_description(self, item):
         content = strip_tags(item.html_content)

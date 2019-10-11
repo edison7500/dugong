@@ -1,6 +1,5 @@
 # 概览
 
-
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b064a3b506994e0198075f31d90d9637)](https://app.codacy.com/app/edison7500/dugong?utm_source=github.com&utm_medium=referral&utm_content=edison7500/dugong&utm_campaign=Badge_Grade_Dashboard)
 [![GitHub license](https://img.shields.io/github/license/edison7500/dugong.svg)](https://github.com/edison7500/dugong/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/edison7500/dugong.svg?branch=master)](https://travis-ci.org/edison7500/dugong)
@@ -11,18 +10,15 @@
 [![Python 3](https://pyup.io/repos/github/edison7500/dugong/python-3-shield.svg)](https://pyup.io/repos/github/edison7500/dugong/)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/edison7500/dugong.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fedison7500%2Fdugong)
 
-
 ### 系统环境
 * Ubuntu 16.04
 * Nginx
-* MySQL
-* Python3.7.x
-* Nodejs
-
+* MySQL 5.7
+* Python 3.7.x
+* Nodejs 8.x
 
 ### Web Framework
 * *django-1.11* [相关文档](https://docs.djangoproject.com/en/1.11/)
-
 
 ### 前端框架
 * *bulma* [相关文档](https://bulma.io/)
