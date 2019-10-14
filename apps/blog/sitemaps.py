@@ -10,10 +10,10 @@ class PostSitemap(Sitemap):
 
     def items(self):
         return Post.objects.filter(status=Post.publish).\
-            order_by('-created_date')
+            order_by('-created_at')
 
     def location(self, obj):
         return obj.get_absolute_url()
 
     def lastmod(self, obj):
-        return obj.created_date
+        return obj.created_at
