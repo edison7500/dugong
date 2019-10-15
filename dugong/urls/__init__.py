@@ -32,7 +32,7 @@ urlpatterns += [url(r"^account/", include("allauth.urls"))]
 #
 # search url config
 # ----------------------------------------------------------------------------------------------------------------------
-urlpatterns += [url(r"^search/", include("apps.main.urls.search", namespace="search"))]
+urlpatterns += [url(r"^search/", include("apps.search.urls.search", namespace="search"))]
 
 #
 # api url config
