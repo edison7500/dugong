@@ -5,44 +5,44 @@
 {% block title %}搜索 - Python 观察员{% endblock %}
 
 {% block content %}
-    <nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
-        <ul>
-            <li>
-                <a href="{% url 'homepage' %}" title="{% trans 'home' %}">
-                    <i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a>
-            </li>
-            <li class="is-active">
-                <a href="#" title="{% trans 'search' %}">
-                    <i class="fa fa-search"></i>&nbsp;{% trans 'search' %}</a></li>
-        </ul>
-    </nav>
-    <div class="columns is-desktop is-multiline is-centered clearfix" id="main-content">
-        <div class="column is-8" id="content">
-            <section>
-                <form method="get" action="{% url 'search:index' %}">
-                    <div class="field is-grouped">
-                        <p class="control is-expanded">
-                            <input  class="input" type="search" name="q" id="id_q" value="{{ query }}">
-                        </p>
-                        <p class="control">
-                            <button type="submit" class="button is-info">{% trans 'search' %}</button>
-                        </p>
-                    </div>
-                </form>
-            </section>
+	<nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
+		<ul>
+			<li>
+				<a href="{% url 'homepage' %}" title="{% trans 'home' %}">
+					<i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a>
+			</li>
+			<li class="is-active">
+				<a href="#" title="{% trans 'search' %}">
+					<i class="fa fa-search"></i>&nbsp;{% trans 'search' %}</a></li>
+		</ul>
+	</nav>
+	<div class="columns is-desktop is-multiline is-centered clearfix" id="main-content">
+		<div class="column is-8" id="content">
+			<section>
+				<form method="get" action="{% url 'search:index' %}">
+					<div class="field is-grouped">
+						<p class="control is-expanded">
+							<input class="input" type="search" name="q" id="id_q" value="{{ query }}">
+						</p>
+						<p class="control">
+							<button type="submit" class="button is-info">{% trans 'search' %}</button>
+						</p>
+					</div>
+				</form>
+			</section>
 
-            {% if page_obj.number > 0 %}
-                <section class="box" style="margin-top: 1rem;">
-                    {% for row in object_list %}
-                        {% include 'widgets/articles/_cell.html' with post=row %}
-                   {% endfor %}
-                </section>
-                
-            {% endif %}
-        </div>
-    </div>
+			{% if page_obj.number > 0 %}
+				<section class="box" style="margin-top: 1rem;">
+					{% for row in object_list %}
+						{% include 'widgets/articles/_cell.html' with post=row %}
+					{% endfor %}
+				</section>
 
-    {%  if page_obj.number > 2 %}
-        {% bulma_pagination page_obj extra=request.GET.urlencode %}
-    {% endif %}
-{% endblock  %}
+			{% endif %}
+		</div>
+	</div>
+
+	{% if page_obj.number > 2 %}
+		{% bulma_pagination page_obj extra=request.GET.urlencode %}
+	{% endif %}
+{% endblock %}
