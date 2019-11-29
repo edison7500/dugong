@@ -45,13 +45,6 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-    def get_absolute_url(self):
-        return reverse('blog:detail', args=[self.slug])
-
-    def render_markdown(self):
-        html = md.convert(self.content)
-        return html, md.toc
-
     @property
     def url(self):
         return self.get_absolute_url()
@@ -76,8 +69,17 @@ class Post(models.Model):
     def tag_string(self):
         return ",".join(self.tag_list())
 
+    def get_absolute_url(self):
+        return reverse('blog:detail', args=[self.slug])
+
+    def render_markdown(self):
+        html = md.convert(self.content)
+        return html, md.toc
+
+    def get_keywords(self) -> list:
+        return []
+
     def save(self, **kwargs):
         if len(self.slug) == 0:
             self.slug = uuslug(self.title, instance=self, max_length=30)
         return super(Post, self).save(**kwargs)
-
