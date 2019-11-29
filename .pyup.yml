@@ -7,9 +7,13 @@ update: insecure
 # default: empty, the default branch on GitHub
 branch: master
 
+schedule: "every weeks on monday"
 
 requirements:
-  - requirements/local.txt:
+  - requirements/staging.txt:
       update: all
+      pin: True
+  - requirements/local.txt:
+      update: False
   - requirements/production.txt:
       update: insecure
