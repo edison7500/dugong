@@ -23,7 +23,7 @@ django-webpack-loader==0.6
 djangorestframework==3.9.4
 djangorestframework-jwt==1.11
 django-editormd>=0.3
-django-oauth-toolkit==1.1.3
+django-oauth-toolkit==1.2.0
 django-ajax-selects==1.7.1
 django-controlcenter==0.2.9
 
