@@ -7,6 +7,8 @@ from apps.blog.views import (
     # BlogYearArchiveView,
 )
 
+app_name = "blog"
+
 urlpatterns = [
     url(r'^$', BlogListView.as_view(), name='list'),
     # url(r'^(?P<year>[0-9]{4})/$',

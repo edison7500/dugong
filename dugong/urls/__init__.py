@@ -8,8 +8,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 # from controlcenter.views import controlcenter
 from apps.blog.views import BlogListView
 
-handler500 = "apps.main.views.errors.page_error"
-handler404 = "apps.main.views.errors.not_found"
+# handler500 = "apps.main.views.errors.page_error"
+# handler404 = "apps.main.views.errors.not_found"
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -23,7 +23,7 @@ urlpatterns = [
 
 urlpatterns += [re_path(r"^images/", include("apps.images.urls", namespace="images"))]
 
-urlpatterns += [re_path(r"^archive/", include("apps.urls.archive", namespace="archive"))]
+urlpatterns += [path("archive/", include("apps.urls.archive", namespace="archive",))]
 
 #
 # django allauth url config

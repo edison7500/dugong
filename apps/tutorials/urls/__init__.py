@@ -5,6 +5,8 @@ from apps.tutorials.views.web import (
     TutorialDetailView
 )
 
+app_name = "tutorials"
+
 urlpatterns = [
     url(r'^$', TutorialListView.as_view(), name='list'),
     url(r'^(?P<slug>\d+)\.htm$', TutorialDetailView.as_view(), name='detail'),
