@@ -265,6 +265,6 @@ ACCOUNT_LOGOUT_ON_GET = False
 ##
 # DICT_FILE = os.path.join(BASE_DIR, "dict/blockchain.txt")
 # STOP_WORDS = os.path.join(BASE_DIR, "dict/stop_word.txt")
-STOP_WORDS = str(ROOT_DIR.path("dict/stop_word.txt"))
-IDF_PATH = str(ROOT_DIR.path("dict/idf.txt"))
+STOP_WORDS = str(ROOT_DIR.path("dugong/dict/stop_word.txt"))
+IDF_PATH = str(ROOT_DIR.path("dugong/dict/idf.txt"))
 

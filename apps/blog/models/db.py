@@ -1,3 +1,8 @@
+import re
+
+import jieba.analyse
+import logging
+from django.conf import settings
 from django.contrib.contenttypes.fields import GenericRelation
 from django.core.urlresolvers import reverse
 from django.db import models
@@ -13,6 +18,16 @@ from apps.images.models import Image
 from apps.ext.render.md import md
 
 from .manager import PostManager
+
+logger = logging.getLogger("django")
+
+stop_words = getattr(settings, "STOP_WORDS", None)
+idf_path = getattr(settings, "IDF_PATH", None)
+try:
+    jieba.analyse.set_stop_words(stop_words)
+    jieba.analyse.set_idf_path(idf_path=idf_path)
+except Exception as e:
+    logger.info(e)
 
 
 class Post(models.Model):
@@ -63,6 +78,13 @@ class Post(models.Model):
         html, toc = self.render_markdown()
         return toc
 
+    def process_content(self):
+        _content = "{}{}".format(self.title, strip_tags(self.html_content))
+        _content = re.sub("(\\d|\\W)+", " ", _content)
+        _content = re.sub(r"\s+", " ", _content)
+        _content = _content.lower()
+        return _content
+
     def tag_list(self):
         return [o.name for o in self.tags.all()]
 
@@ -76,7 +98,16 @@ class Post(models.Model):
         html = md.convert(self.content)
         return html, md.toc
 
-    def get_keywords(self) -> list:
+    def get_keywords(self, withWeight=False) -> list:
+        try:
+            return jieba.analyse.extract_tags(
+                self.process_content(),
+                topK=20,
+                withWeight=withWeight,
+                allowPOS=("ns", "n", "nr", "vn", "v", "eng"),
+            )
+        except Exception as e:
+            logger.exception(e)
         return []
 
     def save(self, **kwargs):

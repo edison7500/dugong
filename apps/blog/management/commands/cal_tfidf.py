@@ -9,7 +9,7 @@ from django.core.management.base import BaseCommand
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 
-from apps.blog.models import Post
+from apps.blog.models import Post, get_stop_words
 
 idf_path = getattr(settings, "IDF_PATH", None)
 
@@ -22,13 +22,12 @@ class Command(BaseCommand):
     help = "gen article tfidf file"
     docs = list()
 
-    def add_arguments(self, parser):
-        parser.add_argument("-d", "--delta", type=int, help="cal", default=30)
+    # def add_arguments(self, parser):
+    #     parser.add_argument("-d", "--delta", type=int, help="cal", default=30)
 
     def handle(self, *args, **options):
-        days = options["delta"]
-        since = datetime.now() - timedelta(days=days)
-        for row in Post.objects.filter(status=Post.POST_STARUS_CHOICES.published, created_at__gte=since):
+        # days = options["delta"]
+        for row in Post.objects.filter(status=Post.publish):
             self.docs.append(row.process_content())
 
         count_vect = CountVectorizer(tokenizer=jieba_token, min_df=1, stop_words=get_stop_words())
