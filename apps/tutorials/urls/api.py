@@ -4,6 +4,7 @@ from apps.tutorials.views.api import (
     TutorialsDetailView
 )
 
+app_name = "tutorials"
 
 urlpatterns = [
     url(r'^$', TutorialsListView.as_view(), name='list'),

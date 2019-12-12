@@ -2,7 +2,7 @@
 from xml.sax.saxutils import XMLGenerator
 
 from django.contrib.syndication.views import Feed
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 # from django.utils.feedgenerator import Atom1Feed
 from django.utils.encoding import smart_str

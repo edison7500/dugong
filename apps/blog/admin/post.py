@@ -6,9 +6,6 @@ from taggit.models import Tag
 from apps.images.models import Image
 
 
-# from blog.models import PostImage
-
-
 @register("tags")
 class TagsLookup(LookupChannel):
     model = Tag
