@@ -187,7 +187,9 @@ FILE_UPLOAD_PERMISSIONS = 644
 ###
 #  BULMA Default settings
 ###
-from .bulma import *
+from .bulma import BULMA as bulma_config
+
+BULMA = bulma_config
 
 # # django markdown
 # # ------------------------------------------------------
