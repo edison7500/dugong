@@ -29,7 +29,7 @@ django-controlcenter==0.2.9
 
 drf-yasg==1.17.0
 
-django-taggit==1.1.0
+django-taggit==1.2.0
 django-taggit-serializer==0.1.7
 oauthlib==2.1.0
 
