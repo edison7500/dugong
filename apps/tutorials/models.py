@@ -2,7 +2,8 @@ from urllib.parse import urlparse
 
 from django.conf import settings
 from django.contrib.contenttypes.fields import GenericRelation
-from django.core.urlresolvers import reverse
+# from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db import models
 from django.utils import timezone
 from django.utils.functional import cached_property
@@ -29,7 +30,7 @@ class TutorialManager(models.Manager):
 class Tutorial(models.Model):
     STATUS = Choices("draft", "published")
     author = models.ForeignKey(
-        settings.AUTH_USER_MODEL, default=1, related_name="tutorial"
+        settings.AUTH_USER_MODEL, default=1, related_name="tutorial", on_delete=models.CASCADE
     )
     title = models.CharField(_("title"), max_length=128, blank=True)
     slug = fields.RandomCharField(
