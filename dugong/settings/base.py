@@ -17,7 +17,7 @@ DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 # Internationalization
 # -------------------------------------------------------------------------------
-# https://docs.djangoproject.com/en/1.11/topics/i18n/
+# https://docs.djangoproject.com/en/2.2/topics/i18n/
 TIME_ZONE = "Asia/Shanghai"
 
 LANGUAGE_CODE = "zh-hans"
@@ -57,7 +57,7 @@ REST_FRAMEWORK_APPS = [
     "drf_yasg",
 ]
 THIRD_PARTY_APPS = [
-    "controlcenter",
+    # "controlcenter",
     "django_comments",
     "bulma",
     "taggit",
@@ -74,13 +74,7 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount.providers.github",
     "allauth.socialaccount.providers.google",
 ]
-LOCAL_APPS = [
-    "apps.ext",
-    "apps.blog",
-    "apps.tutorials",
-    "apps.images",
-    "apps.books",
-]
+LOCAL_APPS = ["apps.ext", "apps.blog", "apps.tutorials", "apps.images", "apps.books"]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + REST_FRAMEWORK_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -255,6 +249,4 @@ ACCOUNT_LOGOUT_ON_GET = False
 #
 # dashboard
 #
-CONTROLCENTER_DASHBOARDS = (
-    ('dash', 'apps.dashboards.MyDashboard'),
-)
+CONTROLCENTER_DASHBOARDS = (("dash", "apps.dashboards.MyDashboard"),)
