@@ -26,7 +26,7 @@
 		<div class="column is-8" id="content">
 			<div class="box">
 				{% for row in object_list %}
-					{% include 'blog/cell.html' with post=row %}
+                    {% include 'widgets/articles/_cell.html' with post=row %}
 				{% endfor %}
 			</div>
 		</div>
