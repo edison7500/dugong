@@ -3,7 +3,7 @@ from haystack.backends.elasticsearch2_backend import Elasticsearch2SearchEngine
 
 
 class IKSearchBackend(Elasticsearch2SearchBackend):
-    DEFAULT_ANALYZER = "ik_max_word"
+    DEFAULT_ANALYZER = "ik_smart"
 
     def __init__(self, connection_alias, **connection_options):
         super().__init__(connection_alias, **connection_options)

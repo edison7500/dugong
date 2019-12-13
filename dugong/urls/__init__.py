@@ -17,12 +17,12 @@ urlpatterns = [
     # re_path(r'^admin/dashboard/', controlcenter.urls),
     # url(r'^ajax_select/', include(ajax_select_urls)),
     # url(r"^comments/", include("django_comments.urls", namespace="comments")),
-    re_path(r"^blog/", include("apps.blog.urls", namespace="blog")),
+    path("blog/", include("apps.blog.urls", namespace="blog")),
     re_path(r"^tutorials/", include("apps.tutorials.urls", namespace="tutorials")),
     re_path(r"^o/", include("oauth2_provider.urls", namespace="oauth2_provider")),
 ]
 
-urlpatterns += [re_path(r"^images/", include("apps.images.urls", namespace="images"))]
+urlpatterns += [path("images/", include("apps.images.urls", namespace="images"))]
 
 urlpatterns += [path("archive/", include("apps.urls.archive", namespace="archive"))]
 
@@ -41,7 +41,7 @@ urlpatterns += [
 #
 # api url config
 # ----------------------------------------------------------------------------------------------------------------------
-urlpatterns += [re_path(r"^api/", include("dugong.urls.api", namespace="api"))]
+urlpatterns += [path("api/", include("dugong.urls.api", namespace="api"))]
 
 urlpatterns += [re_path(r"^$", BlogListView.as_view(), name="homepage")]
 
@@ -77,10 +77,10 @@ urlpatterns += staticfiles_urlpatterns()
 #
 # debug url config
 # ----------------------------------------------------------------------------------------------------------------------
-if settings.DEBUG:
-    if "debug_toolbar" in settings.INSTALLED_APPS:
-        import debug_toolbar
-        urlpatterns = [path("__debug__/", include(debug_toolbar.urls))] + urlpatterns
+# if settings.DEBUG:
+#     if "debug_toolbar" in settings.INSTALLED_APPS:
+#         import debug_toolbar
+#         urlpatterns = [path("__debug__/", include(debug_toolbar.urls))] + urlpatterns
 
 admin.site.site_header = "jiaxin.im"
 admin.site.site_title = "jiaxin.im"
