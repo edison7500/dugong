@@ -29,13 +29,13 @@ urlpatterns += [path("archive/", include("apps.urls.archive", namespace="archive
 #
 # django allauth url config
 # ----------------------------------------------------------------------------------------------------------------------
-urlpatterns += [re_path(r"^account/", include("allauth.urls"))]
+urlpatterns += [path("account/", include("allauth.urls"))]
 
 #
 # search url config
 # ----------------------------------------------------------------------------------------------------------------------
 urlpatterns += [
-    re_path(r"^search/", include("apps.search.urls.search", namespace="search"))
+    path("search/", include("apps.search.urls.search", namespace="search"))
 ]
 
 #
