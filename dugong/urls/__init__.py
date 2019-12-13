@@ -1,5 +1,6 @@
 # from ajax_select import urls as ajax_select_urls
 from django.conf import settings
+
 # from django.conf.urls import include, url
 from django.urls import path, re_path, include
 from django.contrib import admin
@@ -23,7 +24,7 @@ urlpatterns = [
 
 urlpatterns += [re_path(r"^images/", include("apps.images.urls", namespace="images"))]
 
-urlpatterns += [path("archive/", include("apps.urls.archive", namespace="archive",))]
+urlpatterns += [path("archive/", include("apps.urls.archive", namespace="archive"))]
 
 #
 # django allauth url config
@@ -33,7 +34,9 @@ urlpatterns += [re_path(r"^account/", include("allauth.urls"))]
 #
 # search url config
 # ----------------------------------------------------------------------------------------------------------------------
-urlpatterns += [re_path(r"^search/", include("apps.search.urls.search", namespace="search"))]
+urlpatterns += [
+    re_path(r"^search/", include("apps.search.urls.search", namespace="search"))
+]
 
 #
 # api url config
@@ -77,8 +80,7 @@ urlpatterns += staticfiles_urlpatterns()
 if settings.DEBUG:
     if "debug_toolbar" in settings.INSTALLED_APPS:
         import debug_toolbar
-
-        urlpatterns = [re_path(r"^__debug__/", include(debug_toolbar.urls))] + urlpatterns
+        urlpatterns = [path("__debug__/", include(debug_toolbar.urls))] + urlpatterns
 
 admin.site.site_header = "jiaxin.im"
 admin.site.site_title = "jiaxin.im"
