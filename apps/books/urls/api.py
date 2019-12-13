@@ -3,6 +3,7 @@ from apps.books.views.api import BookListCreateAPIView, BookRetrieveAPIView, Boo
 
 # router = SimpleRouter()
 # router.register(r'', BookViewSet, basename='books')
+app_name = "book"
 
 urlpatterns = [
     url(r'^$', BookListCreateAPIView.as_view(), name='index'),
