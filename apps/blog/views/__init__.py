@@ -1,4 +1,3 @@
-# coding=utf-8
 from django.http import Http404
 from django.views.generic import ListView, DetailView
 from django.views.generic.dates import ArchiveIndexView, YearArchiveView
