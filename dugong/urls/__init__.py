@@ -18,8 +18,8 @@ urlpatterns = [
     # url(r'^ajax_select/', include(ajax_select_urls)),
     # url(r"^comments/", include("django_comments.urls", namespace="comments")),
     path("blog/", include("apps.blog.urls", namespace="blog")),
-    re_path(r"^tutorials/", include("apps.tutorials.urls", namespace="tutorials")),
-    re_path(r"^o/", include("oauth2_provider.urls", namespace="oauth2_provider")),
+    path("tutorials/", include("apps.tutorials.urls", namespace="tutorials")),
+    path("o/", include("oauth2_provider.urls", namespace="oauth2_provider")),
 ]
 
 urlpatterns += [path("images/", include("apps.images.urls", namespace="images"))]
@@ -66,7 +66,7 @@ urlpatterns += [
 
 from apps.blog.feeds import PostFeeds
 
-urlpatterns += [re_path(r"^feed/posts/$", PostFeeds(), name="blog-post-feed")]
+urlpatterns += [path("feed/posts/", PostFeeds(), name="blog-post-feed")]
 
 from django.contrib.flatpages import views
 
