@@ -26,8 +26,8 @@ schema_view = get_schema_view(
 app_name = "api"
 
 urlpatterns = [
-    url(
-        r"^swagger/$",
+    path(
+        "swagger/",
         schema_view.with_ui("swagger", cache_timeout=86400),
         name="schema-swagger-ui",
     ),
