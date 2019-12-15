@@ -11,14 +11,14 @@
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/edison7500/dugong.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fedison7500%2Fdugong)
 
 ### 系统环境
-* Ubuntu 16.04
+* Ubuntu 18.04 LTS
 * Nginx
 * MySQL 5.7
 * Python 3.7.x
 * Nodejs 8.x
 
 ### Web Framework
-* *django-1.11* [相关文档](https://docs.djangoproject.com/en/1.11/)
+* *django-2.2* [相关文档](https://docs.djangoproject.com/en/2.2/)
 
 ### 前端框架
 * *bulma* [相关文档](https://bulma.io/)
