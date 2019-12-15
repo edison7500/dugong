@@ -9,7 +9,7 @@ from apps.users.serializers import UserDetailsSerializer
 class UserDetailsView(generics.RetrieveAPIView):
     serializer_class = UserDetailsSerializer
     permission_classes = [IsAuthenticated, TokenHasScope]
-    required_scopes = ['profile']
+    required_scopes = ["profile"]
 
     def get_object(self):
         return self.request.user

@@ -8,7 +8,8 @@ class UserDetailsSerializer(serializers.ModelSerializer):
     """
     User model w/o password
     """
+
     class Meta:
         model = UserModel
-        fields = ('id', 'username', 'email', 'first_name', 'last_name')
-        read_only_fields = ('email', 'username')
+        fields = ("id", "username", "email", "first_name", "last_name")
+        read_only_fields = ("email", "username")
