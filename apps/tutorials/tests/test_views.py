@@ -19,12 +19,12 @@ class TutorialListViewTestCase(TestCase):
         self.tutorial.save()
 
     def test_get_tutorial_list(self):
-        res = self.client.get(reverse('tutorials:list'))
+        res = self.client.get(reverse("tutorials:list"))
         self.assertIs(res.status_code, status.HTTP_200_OK)
-        self.assertTemplateUsed(res, template_name='tutorials/list.html')
+        self.assertTemplateUsed(res, template_name="tutorials/list.html")
 
     def test_get_tutorial_detail(self):
         _uri = self.tutorial.get_absolute_url()
         res = self.client.get(_uri)
         self.assertIs(res.status_code, status.HTTP_200_OK)
-        self.assertTemplateUsed(res, template_name='tutorials/detail.html')
+        self.assertTemplateUsed(res, template_name="tutorials/detail.html")

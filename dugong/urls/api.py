@@ -31,10 +31,11 @@ urlpatterns = [
         schema_view.with_ui("swagger", cache_timeout=86400),
         name="schema-swagger-ui",
     ),
-    url(r"^docs/$", schema_view.with_ui("redoc", cache_timeout=86400), name="schema-redoc"),
+    path("docs/", schema_view.with_ui("redoc", cache_timeout=86400), name="schema-redoc"),
     path("tutorials/", include("apps.tutorials.urls.api", namespace="tutorials")),
     # url(r"^opensource/", include("opensource.urls.api", namespace="opensource")),
     path("books/", include("apps.books.urls.api", namespace="books")),
+    path("images/", include("apps.images.urls.api", namespace="images")),
 ]
 
 

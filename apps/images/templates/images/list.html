@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'images/base.html' %}
 
-</body>
-</html>
+
+{% block content %}
+	<div class="columns is-multiline ">
+		{% for row in object_list %}
+			<div class="column is-4">
+				<figure>
+					<img src="{{ row.file.url }}">
+				</figure>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
