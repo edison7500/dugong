@@ -8,7 +8,6 @@
 [![Requirements Status](https://requires.io/github/edison7500/dugong/requirements.svg?branch=master)](https://requires.io/github/edison7500/dugong/requirements/?branch=master)
 [![Updates](https://pyup.io/repos/github/edison7500/dugong/shield.svg)](https://pyup.io/repos/github/edison7500/dugong/)
 [![Python 3](https://pyup.io/repos/github/edison7500/dugong/python-3-shield.svg)](https://pyup.io/repos/github/edison7500/dugong/)
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/edison7500/dugong.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fedison7500%2Fdugong)
 
 ### 系统环境
 * Ubuntu 18.04 LTS

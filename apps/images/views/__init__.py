@@ -1,12 +1,12 @@
 from django.views import generic
-from .models import Image
-from .forms import ImageForm
+from apps.images.models import Image
+from apps.images.forms import ImageForm
 
 
 class ImageListView(generic.ListView):
     model = Image
     queryset = Image.objects.all()
-    template_name = 'images/list.html'
+    template_name = "images/list.html"
 
 
 class ImageUploadView(generic.CreateView):
