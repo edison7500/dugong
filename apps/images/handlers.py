@@ -17,9 +17,6 @@ class UUIDFilename(object):
         return filename
 
 
-
-
-
 def remove_image_rim(np_img, boundary=0.8):
     _np_img = np_img
     h, w, c = np_img.shape
@@ -36,5 +33,4 @@ def remove_image_rim(np_img, boundary=0.8):
         return np_img
     rim = range(endpoint + half_h, h)
     np_img = np.delete(np_img, rim, axis=0)
-
     return np_img
