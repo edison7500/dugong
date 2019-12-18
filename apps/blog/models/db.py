@@ -9,7 +9,7 @@ from django.urls import reverse
 from django.utils.functional import cached_property
 from django.utils.html import strip_tags
 from django.utils.translation import ugettext_lazy as _
-from editormd.models import EditorMdField
+# from editormd.models import EditorMdField
 from taggit.managers import TaggableManager
 from uuslug import uuslug
 
@@ -40,7 +40,7 @@ class Post(models.Model):
     title = models.CharField(_('title'), max_length=255)
     slug = models.SlugField(max_length=30, default='',
                             unique=True, editable=False)
-    content = EditorMdField()
+    content = models.TextField(blank=True)
     status = models.IntegerField(_('status'), choices=POST_STARUS_CHOICES, default=preview)
     created_at = models.DateTimeField(_('created_at'), auto_now_add=True, db_index=True, editable=False)
     updated_at = models.DateTimeField(_('updated_at'), auto_now=True, db_index=True, editable=False)

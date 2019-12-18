@@ -10,7 +10,7 @@ from django.utils.functional import cached_property
 from django.utils.html import strip_tags
 from django.utils.translation import ugettext_lazy as _
 from django_extensions.db import fields
-from editormd.models import EditorMdField
+# from editormd.models import EditorMdField
 from model_utils import Choices
 from model_utils.fields import StatusField, MonitorField
 from taggit.managers import TaggableManager
@@ -37,7 +37,7 @@ class Tutorial(models.Model):
         length=12, unique=True, include_alpha=False, db_index=True, editable=False
     )
     status = StatusField(_("status"), choices_name="STATUS", default=STATUS.draft)
-    content = EditorMdField(blank=True, null=True)
+    content = models.TextField(blank=True, null=True)
     origin_link = models.URLField(
         _("origin_link"), max_length=255, null=True, unique=True
     )

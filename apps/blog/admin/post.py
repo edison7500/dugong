@@ -14,7 +14,7 @@ class TagsLookup(LookupChannel):
         return self.model.objects.filter(name=q)
 
     def format_item_display(self, item):
-        return u"<span class='tag'>%s</span>" % item.name
+        return "<span class='tag'>%s</span>" % item.name
 
 
 class PostImageInlineAdmin(GenericStackedInline):
