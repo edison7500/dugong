@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 import caching.base
 from django.db import migrations, models
-import editormd.models
+# import editormd.models
 
 
 class Migration(migrations.Migration):
@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=255, verbose_name='title')),
                 ('slug', models.SlugField(default='', editable=False, max_length=30, unique=True)),
-                ('content', editormd.models.EditorMdField()),
+                ('content', models.TextField(blank=True)),
                 ('status', models.IntegerField(choices=[(0, 'block'), (1, 'preview'), (2, 'publish')], default=1, verbose_name='status')),
                 ('created_date', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='created_date')),
                 ('last_update', models.DateTimeField(auto_now=True, db_index=True, verbose_name='last_update')),

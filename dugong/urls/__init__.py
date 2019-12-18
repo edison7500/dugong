@@ -1,12 +1,7 @@
-# from ajax_select import urls as ajax_select_urls
-from django.conf import settings
-
-# from django.conf.urls import include, url
-from django.urls import path, re_path, include
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.urls import path, re_path, include
 
-# from controlcenter.views import controlcenter
 from apps.blog.views import BlogListView
 
 # handler500 = "apps.main.views.errors.page_error"

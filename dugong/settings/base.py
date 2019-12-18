@@ -66,7 +66,7 @@ THIRD_PARTY_APPS = [
     "django_gravatar",
     "django_filters",
     "webpack_loader",
-    "editormd",
+    # "editormd",
     "oauth2_provider",
     "allauth",
     "allauth.account",
@@ -202,7 +202,7 @@ BULMA = bulma_config
 # }
 
 
-EDITORMD_UPLOAD_TO = "material/upload"
+# EDITORMD_UPLOAD_TO = "material/upload"
 
 SOCIALACCOUNT_PROVIDERS = {
     "google": {"SCOPE": ["profile", "email"], "AUTH_PARAMS": {"access_type": "online"}}
