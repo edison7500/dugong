@@ -9,7 +9,7 @@ from .handlers import remove_image_rim
 class ImageSerializer(serializers.Serializer):
     image = serializers.ImageField()
 
-    def _encode_image_data(self, im: Image):
+    def _encode_image_data(self, im):
         f = BytesIO()
         im.save(f, format="jpeg")
         return base64.b64encode(f.getvalue())
