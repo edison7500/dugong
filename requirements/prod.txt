@@ -6,8 +6,8 @@ gunicorn==20.0.4
 
 boto3==1.10.41
 django-storages==1.8.0
-mysqlclient==1.4.6
+psycopg2==2.8.4
+#mysqlclient==1.4.6
 #sentry-sdk==0.13.5
-
-elasticsearch==2.4.0
+#elasticsearch==2.4.0
 
