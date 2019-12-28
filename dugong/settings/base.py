@@ -61,7 +61,7 @@ THIRD_PARTY_APPS = [
     "django_comments",
     "bulma",
     "taggit",
-    "haystack",
+    # "haystack",
     "django_extensions",
     "django_gravatar",
     "django_filters",
@@ -150,17 +150,17 @@ REST_FRAMEWORK = {
 # django haystack
 # ----------------------------------------------------------------------------------------------------------------------
 # https://django-haystack.readthedocs.io/en/master/toc.html
-HAYSTACK_CONNECTIONS = {
-    "default": {
-        "ENGINE": "haystack.backends.whoosh_backend.WhooshEngine",
-        "PATH": str(ROOT_DIR.path("whoosh_index")),
-        "STORAGE": "file",
-        # 'POST_LIMIT': 128 * 1024 * 1024,
-        "INCLUDE_SPELLING": True,
-        "BATCH_SIZE": 100,
-    }
-}
-HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
+# HAYSTACK_CONNECTIONS = {
+#     "default": {
+#         "ENGINE": "haystack.backends.whoosh_backend.WhooshEngine",
+#         "PATH": str(ROOT_DIR.path("whoosh_index")),
+#         "STORAGE": "file",
+#         # 'POST_LIMIT': 128 * 1024 * 1024,
+#         "INCLUDE_SPELLING": True,
+#         "BATCH_SIZE": 100,
+#     }
+# }
+# HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
 
 WEBPACK_LOADER = {
     "DEFAULT": {
