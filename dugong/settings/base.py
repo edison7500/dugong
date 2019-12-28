@@ -236,7 +236,7 @@ TAGGIT_CASE_INSENSITIVE = True
 #
 # GEOIP database
 # ----------------------------------------------------------------------------------------------------------------------
-GEOIP_PATH_MMDB = str(ROOT_DIR.path("GeoLite2-Country"))
+# GEOIP_PATH_MMDB = str(ROOT_DIR.path("GeoLite2-Country"))
 
 # django allauth
 # ----------------------------------------------------------------------------------------------------------------------

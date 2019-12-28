@@ -33,7 +33,7 @@ urlpatterns = [
     ),
     path("docs/", schema_view.with_ui("redoc", cache_timeout=86400), name="schema-redoc"),
 
-    path("blog", include("apps.blog.urls.api", namespace="blog")),
+    path("blog/", include("apps.blog.urls.api", namespace="blog")),
     path("tutorials/", include("apps.tutorials.urls.api", namespace="tutorials")),
     # url(r"^opensource/", include("opensource.urls.api", namespace="opensource")),
     path("books/", include("apps.books.urls.api", namespace="books")),
