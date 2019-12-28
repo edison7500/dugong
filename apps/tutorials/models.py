@@ -2,6 +2,7 @@ from urllib.parse import urlparse
 
 from django.conf import settings
 from django.contrib.contenttypes.fields import GenericRelation
+
 # from django.core.urlresolvers import reverse
 from django.urls import reverse
 from django.db import models
@@ -10,6 +11,7 @@ from django.utils.functional import cached_property
 from django.utils.html import strip_tags
 from django.utils.translation import ugettext_lazy as _
 from django_extensions.db import fields
+
 # from editormd.models import EditorMdField
 from model_utils import Choices
 from model_utils.fields import StatusField, MonitorField
@@ -30,7 +32,11 @@ class TutorialManager(models.Manager):
 class Tutorial(models.Model):
     STATUS = Choices("draft", "published")
     author = models.ForeignKey(
-        settings.AUTH_USER_MODEL, default=1, related_name="tutorial", on_delete=models.CASCADE
+        settings.AUTH_USER_MODEL,
+        blank=True,
+        null=True,
+        related_name="tutorial",
+        on_delete=models.CASCADE,
     )
     title = models.CharField(_("title"), max_length=128, blank=True)
     slug = fields.RandomCharField(
