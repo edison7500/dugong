@@ -1,7 +1,5 @@
 -r base.txt
 
-gevent==1.4.0
-greenlet==0.4.15
 gunicorn==20.0.4
 
 boto3==1.10.41

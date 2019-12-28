@@ -12,7 +12,7 @@
 ### 系统环境
 * Ubuntu 18.04 LTS
 * Nginx
-* MySQL 5.7
+* Postgres 10.x
 * Python 3.7.x
 * Nodejs 8.x
 

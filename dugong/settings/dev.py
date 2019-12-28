@@ -5,9 +5,17 @@ SECRET_KEY = env("SECRET_KEY", default="only dev replace me")
 
 ALLOWED_HOSTS = ["*"]
 
-"""
-    session configure
-"""
+# DATABASES
+# ------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/dev/ref/settings/#databases
+DATABASES = {
+    "default": env.db("DATABASE_URL", default=str(ROOT_DIR.path("db.sqlite3")))
+}
+DATABASES["default"]["ATOMIC_REQUESTS"] = True
+
+#
+# django session configure
+#
 SESSION_ENGINE = "django.contrib.sessions.backends.file"
 SESSION_FILE_PATH = "/tmp/"
 
