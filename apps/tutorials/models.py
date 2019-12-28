@@ -98,7 +98,7 @@ class Tutorial(models.Model):
     def domain_link(self):
         if self.origin_link:
             o = urlparse(self.origin_link)
-            return "{scheme}://{host}".format(scheme=o.scheme, host=o.netloc)
+            return f"{o.scheme}://{o.netloc}"
         return "https://jiaxin.im"
 
     @property

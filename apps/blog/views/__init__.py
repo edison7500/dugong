@@ -48,7 +48,7 @@ class BlogDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(BlogDetailView, self).get_context_data(**kwargs)
         context["meta"] = {
-            "title": u"{title} | Python观察员".format(title=self.object.title),
+            "title": f"{self.object.title} | Python观察员",
             "desc": (self.object.digest[:75] + "...")
             if len(self.object.digest) > 75
             else self.object.digest,
