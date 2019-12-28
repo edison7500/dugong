@@ -7,11 +7,10 @@ from apps.blog.models import Post
 
 
 class BlogListView(ArchiveIndexView):
-    http_method_names = ["get", "head"]
     model = Post
     template_name = "blog/list.html"
     paginate_by = 20
-    queryset = Post.objects.filter(status=Post.publish)
+    queryset = Post.objects.published()
     date_field = "created_at"
     date_list_period = "year"
     allow_empty = True
@@ -19,7 +18,7 @@ class BlogListView(ArchiveIndexView):
 
     def get_dated_items(self):
         qs = self.get_dated_queryset()
-        date_list = self.get_date_list(qs, ordering='DESC')[:5]
+        date_list = self.get_date_list(qs, ordering="DESC")[:5]
 
         if not date_list:
             qs = qs.none()
@@ -28,22 +27,20 @@ class BlogListView(ArchiveIndexView):
 
 
 class BlogYearArchiveView(YearArchiveView):
-    http_method_names = ["get", "head"]
     model = Post
     date_field = "created_at"
     template_name = "archive/blogs/post_archive_year.html"
-    queryset = Post.objects.filter(status=Post.publish)
+    queryset = Post.objects.published()
     make_object_list = True
     allow_future = True
     paginate_by = 20
 
 
 class BlogDetailView(DetailView):
-    http_method_names = ["get", "head"]
     model = Post
     template_name = "blog/detail.html"
     slug_field = "slug"
-    queryset = Post.objects.filter(status=Post.publish)
+    queryset = Post.objects.published()
 
     def get_context_data(self, **kwargs):
         context = super(BlogDetailView, self).get_context_data(**kwargs)
@@ -67,7 +64,7 @@ class BlogDetailView(DetailView):
 class PostTagListView(ListView):
     # http_method_names = ["get", "head"]
     model = Post
-    queryset = Post.objects.all()
+    queryset = Post.objects.published()
     template_name = "blog/tag/list.html"
     paginate_by = 30
 
