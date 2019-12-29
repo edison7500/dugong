@@ -1,8 +1,8 @@
-from django.conf.urls import url
+from django.urls import path
 from ..views import IndexSearchView
 
-app_name = "serach"
+app_name = "search"
 
 urlpatterns = [
-    url(r"^$", IndexSearchView.as_view(), name="index"),
+    path("", IndexSearchView.as_view(), name="index"),
 ]
