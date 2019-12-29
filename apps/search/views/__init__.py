@@ -1,7 +1,9 @@
 import logging
+
+from django.contrib.postgres.search import SearchQuery, SearchVector
 # from haystack.generic_views import SearchView
 from django.views import generic
-from django.contrib.postgres.search import SearchQuery, SearchVector
+
 from apps.blog.models import Post
 
 logger = logging.getLogger("django")
@@ -15,7 +17,6 @@ class IndexSearchView(generic.ListView):
 
     def get_search_query(self):
         keywords = self.request.GET.get("q")
-        logger.info(keywords)
         return SearchQuery(keywords)
 
     def get_queryset(self):
