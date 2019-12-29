@@ -1,4 +1,4 @@
-from haystack.forms import SearchForm
+# from haystack.forms import SearchForm
 
 
 # class Search
