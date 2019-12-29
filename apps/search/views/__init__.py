@@ -1,6 +1,7 @@
 import logging
 
 from django.contrib.postgres.search import SearchQuery, SearchVector
+
 # from haystack.generic_views import SearchView
 from django.views import generic
 
@@ -23,7 +24,7 @@ class IndexSearchView(generic.ListView):
         _keywords = self.get_search_query()
         if _keywords:
             qs = Post.objects.annotate(search=self.vector).filter(
-                search=_keywords
+                search=_keywords, status=Post.publish
             )
         else:
             qs = Post.objects.none()
