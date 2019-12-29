@@ -11,7 +11,7 @@ logger = logging.getLogger("django")
 
 
 class BookAPITestCase(APITestCase):
-    def setUp(self) -> None:
+    def setUp(self):
         self.admin = AdminUserFactory()
         Token.objects.create(user=self.admin)
 

@@ -8,7 +8,6 @@ env.read_env(str(ROOT_DIR.path(".env")))
 DEBUG = env("DJANGO_DEBUG", default=True)  # False if not in os.environ
 
 
-
 # Internationalization
 # -------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -43,6 +42,7 @@ DJANGO_APPS = [
     "django.contrib.sites",
     "django.contrib.flatpages",
     "django.contrib.sitemaps",
+    "django.contrib.postgres",
 ]
 REST_FRAMEWORK_APPS = [
     "rest_framework",
@@ -248,7 +248,6 @@ ACCOUNT_LOGOUT_ON_GET = False
 # )
 
 
-
 ##
 # import dict
 ##
@@ -256,4 +255,3 @@ ACCOUNT_LOGOUT_ON_GET = False
 # STOP_WORDS = os.path.join(BASE_DIR, "dict/stop_word.txt")
 # STOP_WORDS = str(ROOT_DIR.path("dugong/dict/stop_word.txt"))
 # IDF_PATH = str(ROOT_DIR.path("dugong/dict/idf.txt"))
-
