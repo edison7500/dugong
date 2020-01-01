@@ -6,3 +6,10 @@ from ..serializers import PostSerializer
 class PostListAPIView(generics.ListAPIView):
     queryset = Post.objects.published()
     serializer_class = PostSerializer
+
+
+class PostDetailAPIView(generics.RetrieveAPIView):
+    queryset = Post.objects.published()
+    serializer_class = PostSerializer
+    # lookup_url_kwarg = "slug"
+    lookup_field = "slug"

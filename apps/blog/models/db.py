@@ -71,6 +71,10 @@ class Post(models.Model):
     def url(self):
         return self.get_absolute_url()
 
+    @property
+    def created_at_ts(self) -> float:
+        return self.created_at.timestamp()
+
     @cached_property
     def digest(self):
         return strip_tags(self.html_content)
