@@ -66,7 +66,7 @@ class PostsFeedGenerator(Rss201rev2Feed):
 class PostFeeds(Feed):
     feed_type = PostsFeedGenerator
     title = "Python观察员"
-    link = reverse("blog:list")
+    link = reverse("blog:index")
     author_email = "edison7500@gmail.com"
     feed_copyright = "since 2008 jiaxin.im All rights reserved."
     description = "Python观察员，python，django，scrapy，ios"

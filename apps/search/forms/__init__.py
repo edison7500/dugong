@@ -9,9 +9,7 @@ NULL_FILTER = Q(pk=None)
 def search_filter(search_fields, query_string):
     """search_fields example: ['name', 'category__name', '@description', '=id']
     """
-
     query_string = query_string.strip()
-
     filters = []
     first = True
 
@@ -37,11 +35,8 @@ def search_param(field_name, is_first_word):
 
 
 def split_text_query(query):
-    """Filter out stopwords but only if there are useful words"""
-
     split_query = list(smart_split(query))
     filtered_query = [bit for bit in split_query]
-
     return filtered_query if len(filtered_query) else split_query
 
 
@@ -49,14 +44,14 @@ class SearchForm(forms.Form):
     queryset = None
     search_fields = None
 
-    q = forms.CharField(label=_("search"), required=False)
+    q = forms.CharField(label=_("search"), required=True)
 
     def clean_q(self):
         return self.cleaned_data["q"].strip()
 
     def search(self):
         qs = self.queryset
-        query = self.cleaned_data.get('q')
+        query = self.cleaned_data.get("q")
 
         if query:
             qs = qs.filter(search_filter(self.search_fields, query))
@@ -71,4 +66,5 @@ def search_form_factory(queryset, search_fields):
     class _Form(SearchForm):
         queryset = _queryset
         search_fields = _search_fields
+
     return _Form
