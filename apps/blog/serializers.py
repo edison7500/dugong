@@ -7,9 +7,9 @@ logger = logging.getLogger("django")
 
 
 class PostSerializer(serializers.ModelSerializer):
+    digest = serializers.CharField()
     html_content = serializers.CharField()
     created_at_ts = serializers.IntegerField()
-    # digest = serializers.CharField()
 
     class Meta:
         model = Post
