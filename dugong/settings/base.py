@@ -42,7 +42,7 @@ DJANGO_APPS = [
     "django.contrib.sites",
     "django.contrib.flatpages",
     "django.contrib.sitemaps",
-    "django.contrib.postgres",
+    # "django.contrib.postgres",
 ]
 REST_FRAMEWORK_APPS = [
     "rest_framework",
