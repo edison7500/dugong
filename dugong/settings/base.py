@@ -167,24 +167,6 @@ from .bulma import BULMA as bulma_config
 
 BULMA = bulma_config
 
-# # django markdown
-# # ------------------------------------------------------
-# # https://github.com/edison7500/django_markdown/tree/master
-# MARKDOWN_EDITOR_SKIN = 'simple'
-# MARKDOWN_PREVIEW_TEMPLATE = "markdown/preview.html"
-# MARKDOWN_EXTENSIONS = [
-#     'extra',
-#     'codehilite',
-#     'wikilinks',
-# ]
-# MARKDOWN_EXTENSION_CONFIGS = {
-#     'codehilite': {
-#         'linenums': False,
-#     },
-#     'encoding': "utf-8",
-# }
-
-
 # EDITORMD_UPLOAD_TO = "material/upload"
 
 SOCIALACCOUNT_PROVIDERS = {
