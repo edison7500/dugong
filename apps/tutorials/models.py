@@ -3,7 +3,6 @@ from urllib.parse import urlparse
 from django.conf import settings
 from django.contrib.contenttypes.fields import GenericRelation
 
-# from django.core.urlresolvers import reverse
 from django.urls import reverse
 from django.db import models
 from django.utils import timezone
@@ -11,17 +10,12 @@ from django.utils.functional import cached_property
 from django.utils.html import strip_tags
 from django.utils.translation import ugettext_lazy as _
 from django_extensions.db import fields
-
-# from editormd.models import EditorMdField
 from model_utils import Choices
 from model_utils.fields import StatusField, MonitorField
 from taggit.managers import TaggableManager
 
 from apps.images.models import Image
 from apps.ext.render.md import md
-
-
-# upload_dir = UUIDFilename('tutorial/images/')
 
 
 class TutorialManager(models.Manager):
@@ -101,15 +95,23 @@ class Tutorial(models.Model):
             return f"{o.scheme}://{o.netloc}"
         return "https://jiaxin.im"
 
-    @property
+    @cached_property
     def cover(self):
         if self.images.count() == 0:
             return ""
         cover = self.images.filter(is_cover=True).first()
         if cover:
-            return cover.file.url
+            _cover_url = cover.file.url
         else:
-            return self.images.first()
+            _cover_url = self.images.first()
+
+        if not _cover_url.startswith("http"):
+            _cover_url = f"https://img.jiaxin.im/dugong/{_cover_url}"
+        return _cover_url
+
+    @property
+    def created_at_ts(self) -> float:
+        return self.created_datetime.timestamp()
 
     def tag_list(self):
         return [{"id": o.pk, "name": o.name} for o in self.tags.all()]
