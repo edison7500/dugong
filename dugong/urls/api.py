@@ -9,7 +9,6 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
-
 schema_view = get_schema_view(
     openapi.Info(
         title="Jiaxin.im API",
@@ -39,7 +38,6 @@ urlpatterns = [
     path("books/", include("apps.books.urls.api", namespace="books")),
     path("images/", include("apps.images.urls.api", namespace="images")),
 ]
-
 
 urlpatterns += [
     url(r"^auth/", include("rest_auth.urls")),

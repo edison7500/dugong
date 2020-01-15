@@ -29,9 +29,7 @@ urlpatterns += [path("account/", include("allauth.urls"))]
 #
 # search url config
 # ----------------------------------------------------------------------------------------------------------------------
-urlpatterns += [
-    path("search/", include("apps.search.urls.search", namespace="search"))
-]
+urlpatterns += [path("search/", include("apps.search.urls.search", namespace="search"))]
 
 #
 # api url config

@@ -5,41 +5,41 @@
 {% block title %}博客 - Python 观察员{% endblock %}
 
 {% block content %}
-	<nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
-		<ul>
-			<li>
-				<a href="{% url 'homepage' %}" title="{% trans 'home' %}">
-					<i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a>
-			</li>
-			<li class="is-active">
-				<a href="#" title="{% trans 'blog' %}">
-					<i class="fas fa-pencil-alt"></i>&nbsp;{% trans 'blog' %}</a></li>
-		</ul>
-	</nav>
+    <nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
+        <ul>
+            <li>
+                <a href="{% url 'homepage' %}" title="{% trans 'home' %}">
+                    <i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a>
+            </li>
+            <li class="is-active">
+                <a href="#" title="{% trans 'blog' %}">
+                    <i class="fas fa-pencil-alt"></i>&nbsp;{% trans 'blog' %}</a></li>
+        </ul>
+    </nav>
 
-	<div class="columns is-desktop is-multiline clearfix" id="main-content">
-		<!--<div id="modal"></div>-->
-		<div class="column is-8" id="content">
-			<section class="box">
-				{% for row in object_list %}
-					{% include 'widgets/articles/_cell.html' with post=row %}
-				{% endfor %}
-			</section>
-		</div>
+    <div class="columns is-desktop is-multiline clearfix" id="main-content">
+        <!--<div id="modal"></div>-->
+        <div class="column is-8" id="content">
+            <section class="box">
+                {% for row in object_list %}
+                    {% include 'widgets/articles/_cell.html' with post=row %}
+                {% endfor %}
+            </section>
+        </div>
 
-		<div class="column is-4" id="sidebar">
-			<div class="sidebar__inner">
-				{% include "sidebar/_github.html" %}
-				<nav class="panel">
-					<p class="panel-heading">Archive</p>
-					{% for row in date_list %}
-						<a class="panel-block" href="{% url 'archive:blog_year' year=row|date:'Y' %}"
-							 title="{{ row|date:"Y" }}">{{ row|date:"Y" }}</a>
-					{% endfor %}
-				</nav>
-			</div>
-		</div>
-	</div>
+        <div class="column is-4" id="sidebar">
+            <div class="sidebar__inner">
+                {% include "sidebar/_github.html" %}
+                <nav class="panel">
+                    <p class="panel-heading">Archive</p>
+                    {% for row in date_list %}
+                        <a class="panel-block" href="{% url 'archive:blog_year' year=row|date:'Y' %}"
+                           title="{{ row|date:"Y" }}">{{ row|date:"Y" }}</a>
+                    {% endfor %}
+                </nav>
+            </div>
+        </div>
+    </div>
 
-	{% bulma_pagination page_obj extra=request.GET.urlencode %}
+    {% bulma_pagination page_obj extra=request.GET.urlencode %}
 {% endblock %}
