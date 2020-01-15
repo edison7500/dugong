@@ -1,15 +1,18 @@
 import logging
 
 from rest_framework import serializers
+from taggit_serializer.serializers import TagListSerializerField, TaggitSerializer
+
 from .models import Post
 
 logger = logging.getLogger("django")
 
 
-class PostSerializer(serializers.ModelSerializer):
+class PostSerializer(TaggitSerializer, serializers.ModelSerializer):
+    digest = serializers.CharField()
     html_content = serializers.CharField()
+    tags = TagListSerializerField()
     created_at_ts = serializers.IntegerField()
-    # digest = serializers.CharField()
 
     class Meta:
         model = Post

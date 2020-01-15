@@ -42,7 +42,7 @@ DJANGO_APPS = [
     "django.contrib.sites",
     "django.contrib.flatpages",
     "django.contrib.sitemaps",
-    "django.contrib.postgres",
+    # "django.contrib.postgres",
 ]
 REST_FRAMEWORK_APPS = [
     "rest_framework",
@@ -55,6 +55,7 @@ THIRD_PARTY_APPS = [
     "django_comments",
     "bulma",
     "taggit",
+    "taggit_serializer",
     # "haystack",
     "django_extensions",
     "django_gravatar",
@@ -127,6 +128,9 @@ TEMPLATES = [
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_jwt.authentication.JSONWebTokenAuthentication",
         "rest_framework.authentication.SessionAuthentication",
@@ -140,21 +144,6 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 20,
     "DATETIME_FORMAT": "%Y-%m-%d %H:%M:%S",
 }
-
-# django haystack
-# ----------------------------------------------------------------------------------------------------------------------
-# https://django-haystack.readthedocs.io/en/master/toc.html
-# HAYSTACK_CONNECTIONS = {
-#     "default": {
-#         "ENGINE": "haystack.backends.whoosh_backend.WhooshEngine",
-#         "PATH": str(ROOT_DIR.path("whoosh_index")),
-#         "STORAGE": "file",
-#         # 'POST_LIMIT': 128 * 1024 * 1024,
-#         "INCLUDE_SPELLING": True,
-#         "BATCH_SIZE": 100,
-#     }
-# }
-# HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
 
 WEBPACK_LOADER = {
     "DEFAULT": {
@@ -177,24 +166,6 @@ FILE_UPLOAD_PERMISSIONS = 644
 from .bulma import BULMA as bulma_config
 
 BULMA = bulma_config
-
-# # django markdown
-# # ------------------------------------------------------
-# # https://github.com/edison7500/django_markdown/tree/master
-# MARKDOWN_EDITOR_SKIN = 'simple'
-# MARKDOWN_PREVIEW_TEMPLATE = "markdown/preview.html"
-# MARKDOWN_EXTENSIONS = [
-#     'extra',
-#     'codehilite',
-#     'wikilinks',
-# ]
-# MARKDOWN_EXTENSION_CONFIGS = {
-#     'codehilite': {
-#         'linenums': False,
-#     },
-#     'encoding': "utf-8",
-# }
-
 
 # EDITORMD_UPLOAD_TO = "material/upload"
 

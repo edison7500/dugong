@@ -11,5 +11,4 @@ class PostListAPIView(generics.ListAPIView):
 class PostDetailAPIView(generics.RetrieveAPIView):
     queryset = Post.objects.published()
     serializer_class = PostSerializer
-    # lookup_url_kwarg = "slug"
     lookup_field = "slug"

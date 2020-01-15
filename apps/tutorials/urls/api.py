@@ -1,12 +1,12 @@
-from django.conf.urls import url
-from apps.tutorials.views.api import (
-    TutorialsListView,
-    TutorialsDetailView
-)
+from django.urls import path
+from apps.tutorials.views.api import TutorialsListView, TutorialsDetailView
 
 app_name = "tutorials"
 
 urlpatterns = [
-    url(r'^$', TutorialsListView.as_view(), name='list'),
-    url(r'^(?P<slug>\d+)/?$', TutorialsDetailView.as_view(), name='detail'),
+    path("", TutorialsListView.as_view(), name="list"),
+    path("<slug:slug>/", TutorialsDetailView.as_view(), name="detail"),
 ]
+
+
+
