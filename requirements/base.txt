@@ -37,7 +37,7 @@ enum34==1.1.6
 funcsigs==1.0.2
 html5lib==1.0.1
 ipaddress==1.0.18
-jieba==0.39
+jieba==0.41
 Jinja2==2.10.1
 Markdown==2.6.11
 MarkupSafe==1.0
