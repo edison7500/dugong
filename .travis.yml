@@ -22,7 +22,7 @@ script:
   - yarn
   - yarn run dev
   - cd ..
-  - python manage.py test
+  - python manage.py test --parallel
 after_success:
   - pip install python-coveralls
   - coveralls

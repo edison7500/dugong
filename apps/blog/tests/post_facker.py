@@ -13,3 +13,4 @@ class PostFaker(factory.django.DjangoModelFactory):
 
     title = faker.name()
     content = faker.text()
+    # status = Post.publish

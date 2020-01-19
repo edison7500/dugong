@@ -1,35 +1,20 @@
 import logging
 import re
 
-# import jieba.analyse
-from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
-
-# from django.core.urlresolvers import reverse
+from django.contrib.contenttypes.fields import GenericRelation
 from django.urls import reverse
 from django.utils.functional import cached_property
 from django.utils.html import strip_tags
 from django.utils.translation import ugettext_lazy as _
 
-# from editormd.models import EditorMdField
 from taggit.managers import TaggableManager
 from uuslug import uuslug
-
 from apps.ext.render.md import md
-
-# from utils.render_md import md
 from apps.images.models import Image
 from .manager import PostManager
 
 logger = logging.getLogger("django")
-
-# stop_words = getattr(settings, "STOP_WORDS", None)
-# idf_path = getattr(settings, "IDF_PATH", None)
-# try:
-#     jieba.analyse.set_stop_words(stop_words)
-#     jieba.analyse.set_idf_path(idf_path=idf_path)
-# except Exception as e:
-#     logger.info(e)
 
 
 class Post(models.Model):
@@ -68,7 +53,7 @@ class Post(models.Model):
         return self.title
 
     @property
-    def url(self):
+    def url(self) -> str:
         return self.get_absolute_url()
 
     @property
@@ -108,18 +93,6 @@ class Post(models.Model):
     def render_markdown(self):
         html = md.convert(self.content)
         return html, md.toc
-
-    # def get_keywords(self, withWeight=False) -> list:
-    #     try:
-    #         return jieba.analyse.extract_tags(
-    #             self.process_content(),
-    #             topK=20,
-    #             withWeight=withWeight,
-    #             allowPOS=("ns", "n", "nr", "vn", "v", "eng"),
-    #         )
-    #     except Exception as e:
-    #         logger.exception(e)
-    #     return []
 
     def save(self, **kwargs):
         if len(self.slug) == 0:
