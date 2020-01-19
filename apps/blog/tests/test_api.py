@@ -10,7 +10,6 @@ class PostAPITestCase(APITestCase):
     def setUp(self) -> None:
         self.post = PostFaker()
 
-
     def test_post_list_api(self):
         url = reverse("api:blog:index")
         req = self.client.get(url)

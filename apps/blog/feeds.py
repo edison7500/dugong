@@ -1,18 +1,11 @@
-# coding=utf-8
 from xml.sax.saxutils import XMLGenerator
-
 from django.contrib.syndication.views import Feed
 from django.urls import reverse
-
-# from django.utils.feedgenerator import Atom1Feed
 from django.utils.encoding import smart_str
 from django.utils.feedgenerator import Rss201rev2Feed
 from django.utils.html import strip_tags, escape
 
 from apps.blog.models import Post
-
-
-# from utils.render_md import md
 
 
 class SimplerXMLGenerator(XMLGenerator):

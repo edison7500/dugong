@@ -37,7 +37,7 @@ DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
-    "django.contrib.messages",
+    # "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
     "django.contrib.flatpages",
@@ -113,7 +113,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.template.context_processors.static",
                 "django.contrib.auth.context_processors.auth",
-                "django.contrib.messages.context_processors.messages",
+                # "django.contrib.messages.context_processors.messages",
             ],
             "string_if_invalid": 'Invalid: "%s"',
         },
@@ -205,12 +205,3 @@ ACCOUNT_USERNAME_VALIDATORS = "apps.users.validators.custom_username_validators"
 SOCIALACCOUNT_AUTO_SIGNUP = True
 ACCOUNT_LOGOUT_ON_GET = False
 # ACCOUNT_EMAIL_VERIFICATION = "mandatory"
-
-
-# #
-# # dashboard
-# #
-# CONTROLCENTER_DASHBOARDS = (
-#     ('dash', 'apps.dashboards.MyDashboard'),
-# )
-
