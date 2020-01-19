@@ -56,12 +56,10 @@ THIRD_PARTY_APPS = [
     "bulma",
     "taggit",
     "taggit_serializer",
-    # "haystack",
     "django_extensions",
     "django_gravatar",
     "django_filters",
     "webpack_loader",
-    # "editormd",
     "oauth2_provider",
     "allauth",
     "allauth.account",
@@ -167,8 +165,6 @@ from .bulma import BULMA as bulma_config
 
 BULMA = bulma_config
 
-# EDITORMD_UPLOAD_TO = "material/upload"
-
 SOCIALACCOUNT_PROVIDERS = {
     "google": {"SCOPE": ["profile", "email"], "AUTH_PARAMS": {"access_type": "online"}}
 }
@@ -218,11 +214,3 @@ ACCOUNT_LOGOUT_ON_GET = False
 #     ('dash', 'apps.dashboards.MyDashboard'),
 # )
 
-
-##
-# import dict
-##
-# DICT_FILE = os.path.join(BASE_DIR, "dict/blockchain.txt")
-# STOP_WORDS = os.path.join(BASE_DIR, "dict/stop_word.txt")
-# STOP_WORDS = str(ROOT_DIR.path("dugong/dict/stop_word.txt"))
-# IDF_PATH = str(ROOT_DIR.path("dugong/dict/idf.txt"))
