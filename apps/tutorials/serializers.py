@@ -4,12 +4,6 @@ from taggit_serializer.serializers import TagListSerializerField, TaggitSerializ
 from apps.tutorials.models import Tutorial
 
 
-# class TutorialImageSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Image
-#         fields = ()
-
-
 class TutorialSerializer(TaggitSerializer, serializers.ModelSerializer):
     digest = serializers.CharField(read_only=True)
     absolute_url = serializers.CharField(source="get_absolute_url", read_only=True)
@@ -19,7 +13,6 @@ class TutorialSerializer(TaggitSerializer, serializers.ModelSerializer):
     )
     created_at_ts = serializers.IntegerField()
 
-    # images = TutorialImageSerializer(read_only=True, many=True)
     images = serializers.SerializerMethodField(source="get_images")
     tags = TagListSerializerField()
 

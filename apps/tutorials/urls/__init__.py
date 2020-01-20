@@ -1,13 +1,11 @@
-from django.conf.urls import url
+# from django.conf.urls import url
+from django.urls import path
 
-from apps.tutorials.views.web import (
-    TutorialListView,
-    TutorialDetailView
-)
+from apps.tutorials.views.web import TutorialListView, TutorialDetailView
 
 app_name = "tutorials"
 
 urlpatterns = [
-    url(r'^$', TutorialListView.as_view(), name='list'),
-    url(r'^(?P<slug>\d+)\.htm$', TutorialDetailView.as_view(), name='detail'),
+    path("", TutorialListView.as_view(), name="list"),
+    path("<slug:slug>.htm", TutorialDetailView.as_view(), name="detail"),
 ]
