@@ -1,20 +1,19 @@
-from ajax_select import register, LookupChannel
+# from ajax_select import register, LookupChannel
 from django.contrib import admin
 from django.contrib.contenttypes.admin import GenericStackedInline
-from taggit.models import Tag
 
 from apps.images.models import Image
 
 
-@register("tags")
-class TagsLookup(LookupChannel):
-    model = Tag
-
-    def get_query(self, q, request):
-        return self.model.objects.filter(name=q)
-
-    def format_item_display(self, item):
-        return "<span class='tag'>%s</span>" % item.name
+# @register("tags")
+# class TagsLookup(LookupChannel):
+#     model = Tag
+#
+#     def get_query(self, q, request):
+#         return self.model.objects.filter(name=q)
+#
+#     def format_item_display(self, item):
+#         return "<span class='tag'>%s</span>" % item.name
 
 
 class PostImageInlineAdmin(GenericStackedInline):
