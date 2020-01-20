@@ -2,7 +2,7 @@
 from django.contrib import admin
 from taggit.models import Tag
 
-from apps.books.forms import BookForm
+# from apps.books.forms import BookForm
 from apps.books.models import Book
 
 
@@ -32,10 +32,10 @@ class BookAdmin(admin.ModelAdmin):
     search_fields = ["title"]
     list_per_page = 30
 
-    form = BookForm
+    # form = BookForm
 
-    def get_queryset(self, request):
-        return super().get_queryset(request).prefetch_related('tags')
+    # def get_queryset(self, request):
+    #     return super().get_queryset(request).prefetch_related('tags')
 
 
 admin.site.register(Book, BookAdmin)
