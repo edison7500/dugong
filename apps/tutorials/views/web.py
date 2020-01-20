@@ -27,20 +27,20 @@ class TutorialDetailView(DetailView):
         return _context
 
 
-class TutorialCreateView(LoginRequiredMixin, CreateView):
-    template_name = "tutorials/create.html"
-    form_class = TutorialForm
-
-
-class TutorialUpdateView(LoginRequiredMixin, UpdateView):
-    template_name = "tutorials/update.html"
-    form_class = TutorialForm
-    slug_field = "slug"
-    queryset = Tutorial.objects.all()
-
-    def get_object(self, queryset=None):
-        obj = super(TutorialUpdateView, self).get_object(queryset)
-        if obj.author == self.request.user:
-            return obj
-        else:
-            raise Http404
+# class TutorialCreateView(LoginRequiredMixin, CreateView):
+#     template_name = "tutorials/create.html"
+#     form_class = TutorialForm
+#
+#
+# class TutorialUpdateView(LoginRequiredMixin, UpdateView):
+#     template_name = "tutorials/update.html"
+#     form_class = TutorialForm
+#     slug_field = "slug"
+#     queryset = Tutorial.objects.all()
+#
+#     def get_object(self, queryset=None):
+#         obj = super(TutorialUpdateView, self).get_object(queryset)
+#         if obj.author == self.request.user:
+#             return obj
+#         else:
+#             raise Http404
