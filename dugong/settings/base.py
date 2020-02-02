@@ -67,7 +67,14 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount.providers.github",
     "allauth.socialaccount.providers.google",
 ]
-LOCAL_APPS = ["apps.ext", "apps.blog", "apps.tutorials", "apps.images", "apps.books"]
+LOCAL_APPS = [
+    "apps.ext",
+    "apps.blog",
+    "apps.tutorials",
+    "apps.images",
+    "apps.books",
+    "apps.exchangerates",
+]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + REST_FRAMEWORK_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -126,9 +133,7 @@ TEMPLATES = [
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-    ),
+    "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",),
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_jwt.authentication.JSONWebTokenAuthentication",
         "rest_framework.authentication.SessionAuthentication",
