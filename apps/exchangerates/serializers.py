@@ -7,3 +7,4 @@ class ExChangeRateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ExChangeRate
+        exclude = ["id"]

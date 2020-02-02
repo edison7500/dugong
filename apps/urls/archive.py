@@ -1,8 +1,10 @@
-from django.conf.urls import url
+from django.urls import re_path
 from apps.blog.views import BlogYearArchiveView
 
 app_name = "archive"
 
 urlpatterns = [
-    url("^blog/(?P<year>[0-9]{4})/?$", BlogYearArchiveView.as_view(), name="blog_year")
+    re_path(
+        "^blog/(?P<year>[0-9]{4})/?$", BlogYearArchiveView.as_view(), name="blog_year"
+    )
 ]
