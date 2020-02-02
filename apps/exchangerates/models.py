@@ -1,7 +1,9 @@
+import logging
 from django.db import models
 from django.contrib.postgres.fields import JSONField
 
 
+logger = logging.getLogger("django")
 # Create your models here.
 
 
@@ -14,3 +16,16 @@ class ExChangeRate(models.Model):
 
     def __str__(self):
         return f"{self.date}"
+
+    @property
+    def exchange_rates(self, base="USD"):
+        if base.upper() != "EUC":
+            base_rate = self.rates[base]
+            logger.info(base_rate)
+            _rates = {
+                currency: rate / base_rate for currency, rate in self.rates.items()
+            }
+            _rates["EUR"] = 1.0 / base_rate
+        else:
+            _rates = self.rates
+        return _rates
