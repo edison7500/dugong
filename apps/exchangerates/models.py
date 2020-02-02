@@ -17,9 +17,9 @@ class ExChangeRate(models.Model):
     def __str__(self):
         return f"{self.date}"
 
-    @property
     def exchange_rates(self, base="USD"):
-        if base.upper() != "EUC":
+        base = base.upper()
+        if base != "EUC":
             base_rate = self.rates[base]
             logger.info(base_rate)
             _rates = {
