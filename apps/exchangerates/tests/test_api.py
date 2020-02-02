@@ -11,5 +11,4 @@ class ExChangeRateAPITestCase(APITestCase):
     def test_exchange_rate_list_view(self):
         url = reverse("api:exchangerate:index")
         req = self.client.get(url)
-        self.assertEqual(req.status_code, status.HTTP_200_OK
-                         )
+        self.assertEqual(req.status_code, status.HTTP_200_OK)
