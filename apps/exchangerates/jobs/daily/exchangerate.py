@@ -17,7 +17,7 @@ class Job(BaseJob):
     help = "exchange rate job."
 
     def execute(self):
-        req = requests.get(LAST_90_DAYS_RATES_URL)
+        req = requests.get(HISTORIC_RATES_URL)
         namespaces = {
             "gesmes": "http://www.gesmes.org/xml/2002-08-01",
             "eurofxref": "http://www.ecb.int/vocabulary/2002-08-01/eurofxref",
