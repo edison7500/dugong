@@ -5,8 +5,8 @@ from rest_framework.test import APITestCase
 
 class ExChangeRateAPITestCase(APITestCase):
 
-    def setUp(self) -> None:
-        pass
+    # def setUp(self) -> None:
+    #     pass
 
     def test_exchange_rate_list_view(self):
         url = reverse("api:exchangerate:index")
