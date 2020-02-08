@@ -11,7 +11,7 @@ class TutorialsListView(generics.ListAPIView):
 class TutorialsDetailView(generics.RetrieveAPIView):
     serializer_class = TutorialSerializer
     queryset = Tutorial.objects.published()
-    lookup_field = 'slug'
+    lookup_field = "slug"
 
 
 # class TutorialImageListAPIView(generics.ListCreateAPIView):

@@ -11,27 +11,62 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Book',
+            name="Book",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('slug', django_extensions.db.fields.RandomCharField(blank=True, db_index=True, editable=False, include_alpha=False, length=12, unique=True)),
-                ('created_at', models.DateTimeField(db_index=True, default=django.utils.timezone.now, editable=False, verbose_name='created_at')),
-                ('updated_at', models.DateTimeField(db_index=True, default=django.utils.timezone.now, editable=False, verbose_name='updated_at')),
-                ('title', models.CharField(max_length=255)),
-                ('author', models.CharField(max_length=255)),
-                ('bio', models.TextField(blank=True)),
-                ('origin_link', models.URLField(blank=True, max_length=255, null=True)),
-                ('download_link', models.URLField(max_length=255)),
-                ('identified', models.CharField(db_index=True, editable=False, max_length=32, null=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "slug",
+                    django_extensions.db.fields.RandomCharField(
+                        blank=True,
+                        db_index=True,
+                        editable=False,
+                        include_alpha=False,
+                        length=12,
+                        unique=True,
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        db_index=True,
+                        default=django.utils.timezone.now,
+                        editable=False,
+                        verbose_name="created_at",
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        db_index=True,
+                        default=django.utils.timezone.now,
+                        editable=False,
+                        verbose_name="updated_at",
+                    ),
+                ),
+                ("title", models.CharField(max_length=255)),
+                ("author", models.CharField(max_length=255)),
+                ("bio", models.TextField(blank=True)),
+                ("origin_link", models.URLField(blank=True, max_length=255, null=True)),
+                ("download_link", models.URLField(max_length=255)),
+                (
+                    "identified",
+                    models.CharField(
+                        db_index=True, editable=False, max_length=32, null=True
+                    ),
+                ),
             ],
-            options={
-                'ordering': ['-created_at'],
-                'abstract': False,
-            },
-        ),
+            options={"ordering": ["-created_at"], "abstract": False},
+        )
     ]

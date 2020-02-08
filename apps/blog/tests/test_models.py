@@ -1,11 +1,11 @@
 from apps.blog.models import Post
 from apps.blog.tests.post_facker import PostFaker
 from django.test import TestCase
+
 # from taggit.models import Tag
 
 
 class PostModelTest(TestCase):
-
     def setUp(self):
         PostFaker()
 
@@ -30,9 +30,3 @@ class PostModelTest(TestCase):
         tag_count = post.tags.count()
         self.assertIsNot(tag_count, 0)
         # self.assertIsInstance(post.first_tag, Tag)
-
-
-
-
-
-

@@ -42,9 +42,7 @@ class BookAPITestCase(APITestCase):
             "bio": f.text(),
             "origin_link": f.url(),
             "download_link": f.url(),
-            "tags": [
-                f.word()
-            ]
+            "tags": [f.word()],
         }
 
         auth_token = self.admin.auth_token.key

@@ -6,7 +6,7 @@ from django.conf import settings
 class Command(LabelCommand):
 
     frontend_dir = settings.STATICFILES_DIRS[0]
-    commands = ['install', 'build', 'dev']
+    commands = ["install", "build", "dev"]
 
     @classmethod
     def validate(cls, label):

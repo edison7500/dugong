@@ -6,7 +6,6 @@ from .post_facker import PostFaker
 
 
 class PostAPITestCase(APITestCase):
-
     def setUp(self) -> None:
         self.post = PostFaker()
 

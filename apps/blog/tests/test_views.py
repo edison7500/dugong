@@ -13,11 +13,11 @@ class PostViewTest(TestCase):
         PostFaker()
 
     def test_post_template(self):
-        response = self.client.get(reverse('blog:index'))
-        self.assertTemplateUsed(response, 'blog/list.html')
+        response = self.client.get(reverse("blog:index"))
+        self.assertTemplateUsed(response, "blog/list.html")
 
     def test_list_view(self):
-        res = self.client.get(reverse('blog:index'))
+        res = self.client.get(reverse("blog:index"))
         self.assertEqual(res.status_code, 200)
 
     def test_post_view(self):
@@ -25,6 +25,6 @@ class PostViewTest(TestCase):
         post.status = Post.publish
         post.save()
 
-        path = reverse('blog:detail', args=[post.slug])
+        path = reverse("blog:detail", args=[post.slug])
         res = self.client.get(path)
         self.assertEqual(res.status_code, 200)

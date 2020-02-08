@@ -7,4 +7,3 @@ class UserProfileView(LoginRequiredMixin, generic.DetailView):
     template_name = "account/profile.html"
     model = User
     queryset = User.objects.filter(is_active=True)
-

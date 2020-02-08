@@ -9,18 +9,28 @@ import taggit.managers
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('taggit', '0003_taggeditem_add_unique_index'),
-        ('blog', '0001_initial'),
+        ("taggit", "0003_taggeditem_add_unique_index"),
+        ("blog", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='post',
-            options={'ordering': ['-created_date'], 'verbose_name': 'posts', 'verbose_name_plural': 'posts'},
+            name="post",
+            options={
+                "ordering": ["-created_date"],
+                "verbose_name": "posts",
+                "verbose_name_plural": "posts",
+            },
         ),
         migrations.AddField(
-            model_name='post',
-            name='tags',
-            field=taggit.managers.TaggableManager(blank=True, help_text='A comma-separated list of tags.', through='taggit.TaggedItem', to='taggit.Tag', verbose_name='Tags'),
+            model_name="post",
+            name="tags",
+            field=taggit.managers.TaggableManager(
+                blank=True,
+                help_text="A comma-separated list of tags.",
+                through="taggit.TaggedItem",
+                to="taggit.Tag",
+                verbose_name="Tags",
+            ),
         ),
     ]

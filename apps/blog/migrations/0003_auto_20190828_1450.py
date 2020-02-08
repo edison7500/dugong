@@ -7,18 +7,18 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('blog', '0002_auto_20190604_1721'),
-    ]
+    dependencies = [("blog", "0002_auto_20190604_1721")]
 
     operations = [
         migrations.AlterModelOptions(
-            name='post',
-            options={'ordering': ['-created_at'], 'verbose_name': 'posts', 'verbose_name_plural': 'posts'},
+            name="post",
+            options={
+                "ordering": ["-created_at"],
+                "verbose_name": "posts",
+                "verbose_name_plural": "posts",
+            },
         ),
         migrations.RenameField(
-            model_name='post',
-            old_name='created_date',
-            new_name='created_at',
+            model_name="post", old_name="created_date", new_name="created_at"
         ),
     ]

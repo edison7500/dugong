@@ -7,6 +7,3 @@ urlpatterns = [
     path("", TutorialsListView.as_view(), name="list"),
     path("<slug:slug>/", TutorialsDetailView.as_view(), name="detail"),
 ]
-
-
-

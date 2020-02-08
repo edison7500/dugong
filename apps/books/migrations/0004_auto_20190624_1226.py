@@ -7,14 +7,12 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('books', '0003_book_status'),
-    ]
+    dependencies = [("books", "0003_book_status")]
 
     operations = [
         migrations.AlterField(
-            model_name='book',
-            name='download_link',
+            model_name="book",
+            name="download_link",
             field=models.URLField(blank=True, max_length=512, null=True),
-        ),
+        )
     ]

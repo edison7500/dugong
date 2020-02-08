@@ -29,4 +29,4 @@ class ImageAbstractModel(models.Model):
         abstract = True
         verbose_name = _("photo")
         verbose_name_plural = _("photos")
-        ordering = ["-uploaded_at", ]
+        ordering = ["-uploaded_at"]

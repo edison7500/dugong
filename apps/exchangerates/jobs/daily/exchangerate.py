@@ -25,12 +25,12 @@ class Job(BaseJob):
 
         if req.status_code == 200:
             envelope = ElementTree.fromstring(req.content)
-            data = envelope.findall("./eurofxref:Cube/eurofxref:Cube[@time]", namespaces)
+            data = envelope.findall(
+                "./eurofxref:Cube/eurofxref:Cube[@time]", namespaces
+            )
             for d in data:
                 time = datetime.strptime(d.attrib["time"], "%Y-%m-%d").date()
-                rates = {
-                    c.attrib["currency"]: float(c.attrib["rate"]) for c in list(d)
-                }
+                rates = {c.attrib["currency"]: float(c.attrib["rate"]) for c in list(d)}
                 e = ExChangeRate()
                 e.date = time
                 e.rates = rates

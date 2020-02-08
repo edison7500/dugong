@@ -22,9 +22,7 @@ class BookRetrieveAPIView(generics.RetrieveUpdateDestroyAPIView):
 
 
 class BookCheckAPIView(generics.RetrieveAPIView):
-    permission_classes = [
-        permissions.IsAdminUser
-    ]
+    permission_classes = [permissions.IsAdminUser]
     queryset = Book.objects.all()
     serializer_class = BookSerializer
     lookup_field = "identified"

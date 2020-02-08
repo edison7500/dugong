@@ -3,7 +3,6 @@ from django.urls import reverse
 
 
 class SearchViewTestCase(TestCase):
-
     def test_search_index_view(self):
         _url = reverse("search:index")
         res = self.client.get(_url)

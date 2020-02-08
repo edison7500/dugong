@@ -7,14 +7,18 @@ import django.db.models.deletion
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('tutorials', '0002_tutorial_tags'),
-    ]
+    dependencies = [("tutorials", "0002_tutorial_tags")]
 
     operations = [
         migrations.AlterField(
-            model_name='tutorial',
-            name='author',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='tutorial', to=settings.AUTH_USER_MODEL),
-        ),
+            model_name="tutorial",
+            name="author",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="tutorial",
+                to=settings.AUTH_USER_MODEL,
+            ),
+        )
     ]

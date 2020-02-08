@@ -7,14 +7,14 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('books', '0002_book_tags'),
-    ]
+    dependencies = [("books", "0002_book_tags")]
 
     operations = [
         migrations.AddField(
-            model_name='book',
-            name='status',
-            field=models.PositiveSmallIntegerField(choices=[(0, 'draft'), (1, 'published')], default=0),
-        ),
+            model_name="book",
+            name="status",
+            field=models.PositiveSmallIntegerField(
+                choices=[(0, "draft"), (1, "published")], default=0
+            ),
+        )
     ]
