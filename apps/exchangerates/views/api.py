@@ -2,6 +2,7 @@ import logging
 from rest_framework import generics
 from rest_framework.generics import get_object_or_404
 
+from apps.exchangerates.filters import ExChangeRateFilter
 from apps.exchangerates.models import ExChangeRate
 from apps.exchangerates.serializers import ExChangeRateSerializer
 
@@ -10,6 +11,7 @@ logger = logging.getLogger("django")
 
 class ExChangeRateListAPIView(generics.ListAPIView):
     serializer_class = ExChangeRateSerializer
+    filterset_class = ExChangeRateFilter
 
     def get_queryset(self):
         qs = ExChangeRate.objects.all()

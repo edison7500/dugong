@@ -37,6 +37,25 @@ MIDDLEWARE += [
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#internal-ips
 # INTERNAL_IPS = ["127.0.0.1"]
 
+# REST FRAMEWORK
+# ------------------------------------------------------------------------------
+# http://www.django-rest-framework.org/api-guide/settings/
+REST_FRAMEWORK = {
+    # "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",),
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_jwt.authentication.JSONWebTokenAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+        "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
+    ),
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
+    "DEFAULT_FILTER_BACKENDS": ("django_filters.rest_framework.DjangoFilterBackend",),
+    # "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "DEFAULT_PAGINATION_CLASS": "apps.ext.rest.pagination.ExtensionPagination",
+    "PAGE_SIZE": 20,
+    "DATETIME_FORMAT": "%Y-%m-%d %H:%M:%S",
+}
+
 #
 # GEOIP database
 # ----------------------------------------------------------------------------------------------------------------------
