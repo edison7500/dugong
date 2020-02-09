@@ -21,7 +21,7 @@ class ExChangeRate(models.Model):
         base = base.upper()
         if base != "EUC":
             base_rate = self.rates[base]
-            logger.info(base_rate)
+            # logger.info(base_rate)
             _rates = {
                 currency: rate / base_rate for currency, rate in self.rates.items()
             }
