@@ -34,8 +34,10 @@ class ExChangeRateListView(generic.ListView):
         # logger.info(context)
         # date = map(lambda x: x.date, context["object_list"])
         line_chart = pygal.Line()
-        line_chart.title = 'ExChangeRate'
+        line_chart.title = "ExChangeRate"
         line_chart.x_labels = map(lambda x: x.date, context["object_list"])
-        cny = list(map(lambda y: y.exchange_rates().get("CNY", None), context["object_list"]))
+        cny = list(
+            map(lambda y: y.exchange_rates().get("CNY", None), context["object_list"])
+        )
         line_chart.add("CNY", cny)
         return line_chart.render_django_response()

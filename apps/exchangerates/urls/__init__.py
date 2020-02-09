@@ -3,6 +3,4 @@ from apps.exchangerates.views import ExChangeRateListView
 
 app_name = "exchangerates"
 
-urlpatterns = [
-    path("", ExChangeRateListView.as_view(), name="index"),
-]
+urlpatterns = [path("", ExChangeRateListView.as_view(), name="index")]

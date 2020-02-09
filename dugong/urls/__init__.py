@@ -11,7 +11,9 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("blog/", include("apps.blog.urls", namespace="blog")),
     path("tutorials/", include("apps.tutorials.urls", namespace="tutorials")),
-    path("exchangerates/", include("apps.exchangerates.urls", namespace="exchangerates")),
+    path(
+        "exchangerates/", include("apps.exchangerates.urls", namespace="exchangerates")
+    ),
     path("o/", include("oauth2_provider.urls", namespace="oauth2_provider")),
 ]
 
