@@ -17,8 +17,6 @@ class ImageAbstractModel(models.Model):
     file = models.ImageField(upload_to=upload_dir, width_field="width", height_field="height")
     width = models.IntegerField(default=0, editable=False)
     height = models.IntegerField(default=0, editable=False)
-    description = models.CharField(max_length=255, blank=True)
-    is_cover = models.BooleanField(default=False)
 
     # Content-object field
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, null=True)
