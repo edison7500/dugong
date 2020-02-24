@@ -27,6 +27,6 @@ class ImageAbstractModel(models.Model):
 
     class Meta:
         abstract = True
-        verbose_name = _("photo")
-        verbose_name_plural = _("photos")
+        verbose_name = _("image")
+        verbose_name_plural = _("image")
         ordering = ["-uploaded_at"]

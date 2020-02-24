@@ -72,7 +72,6 @@ LOCAL_APPS = [
     "apps.blog",
     "apps.tutorials",
     "apps.images",
-    "apps.books",
     "apps.exchangerates",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
