@@ -8,7 +8,7 @@ md = markdown.Markdown(
     output_format="html",
     extensions=[
         "markdown.extensions.extra",
-        "markdown.extensions.headerid",
+        # "markdown.extensions.headerid",
         "markdown.extensions.codehilite",
         "markdown.extensions.sane_lists",
         "markdown.extensions.toc",
