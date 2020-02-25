@@ -19,6 +19,7 @@ def get_photo_exif(sender, instance: Photo, raw, **kwargs):
         _exif = get_exif(instance.file)
         key_str = f"{instance.title} - {instance.uploaded_at.timestamp()}"
         key = md5(key_str.encode("utf-8")).hexdigest()
+        logger.info(_exif)
         cache.set(key, _exif, timeout=None)
 
 
@@ -28,7 +29,8 @@ def save_photo_exif(sender, instance: Photo, created, **kwargs):
         key_str = f"{instance.title} - {instance.uploaded_at.timestamp()}"
         key = md5(key_str.encode("utf-8")).hexdigest()
         exif = cache.get(key)
+        # logger.info(exif)
         Exif.objects.create(
             photo=instance,
-            info=json.dumps(exif),
+            info=exif,
         )

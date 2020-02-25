@@ -59,17 +59,17 @@ class Photo(models.Model):
 
 class Exif(models.Model):
     photo = models.OneToOneField("Photo", related_name="exif", on_delete=models.CASCADE)
-    info = JSONField()
+    info = JSONField(encoder=json.JSONEncoder)
 
-    def info_to_dict(self) -> dict:
-        return json.loads(self.info)
+    def __str__(self):
+        return f"{self.camera} - {self.lens}"
 
     @property
     def camera(self):
-        _make = self.info_to_dict().get("Make")
-        _model = self.info_to_dict().get("Model")
+        _make = self.info.get("Make")
+        _model = self.info.get("Model")
         return f"{_make} - {_model}"
 
     @property
     def lens(self):
-        return self.info_to_dict().get("LensModel")
+        return self.info.get("LensModel")
