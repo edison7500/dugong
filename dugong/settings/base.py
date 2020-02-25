@@ -72,6 +72,7 @@ LOCAL_APPS = [
     "apps.blog",
     "apps.tutorials",
     "apps.images",
+    "apps.photos",
     "apps.exchangerates",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -90,6 +91,9 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
+
+MEDIA_URL = "/upload/"
+MEDIA_ROOT = "upload/"
 
 # MIDDLEWARE
 # ------------------------------------------------------------------------------
@@ -197,13 +201,24 @@ ANYMAIL = {"SENDGRID_API_KEY": env("SENDGRID_API_KEY", default="<replace>")}
 #
 TAGGIT_CASE_INSENSITIVE = True
 
-#
-# GEOIP database
+# django cache
 # ----------------------------------------------------------------------------------------------------------------------
-# GEOIP_PATH_MMDB = str(ROOT_DIR.path("GeoLite2-Country"))
+#
+CACHES = {
+    'default': {
+        'BACKEND': 'diskcache.DjangoCache',
+        'LOCATION': '/tmp/cache',
+        'SHARDS': 4,
+        'DATABASE_TIMEOUT': 1.0,
+        'OPTIONS': {
+            'size_limit': 2 ** 32  # 4 gigabytes
+        },
+    },
+}
 
 # django allauth
 # ----------------------------------------------------------------------------------------------------------------------
+#
 ACCOUNT_USERNAME_VALIDATORS = "apps.users.validators.custom_username_validators"
 SOCIALACCOUNT_AUTO_SIGNUP = True
 ACCOUNT_LOGOUT_ON_GET = False

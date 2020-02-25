@@ -2,4 +2,7 @@ from django.apps import AppConfig
 
 
 class PhotosConfig(AppConfig):
-    name = 'photos'
+    name = "apps.photos"
+
+    def ready(self):
+        import apps.photos.signals

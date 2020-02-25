@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, re_path, include
@@ -6,6 +8,7 @@ from apps.blog.views import BlogListView
 
 # handler500 = "apps.main.views.errors.page_error"
 # handler404 = "apps.main.views.errors.not_found"
+from apps.photos.views import ImageProcessView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -14,6 +17,8 @@ urlpatterns = [
     path(
         "exchangerates/", include("apps.exchangerates.urls", namespace="exchangerates")
     ),
+    path("<int:size>/upload/img/<str:filename>", ImageProcessView.as_view()),
+    
     path("o/", include("oauth2_provider.urls", namespace="oauth2_provider")),
 ]
 
@@ -58,22 +63,16 @@ urlpatterns += [
 ]
 
 from apps.blog.feeds import PostFeeds
-
-urlpatterns += [path("feed/posts/", PostFeeds(), name="blog-post-feed")]
-
 from django.contrib.flatpages import views
 
+urlpatterns += [path("feed/posts/", PostFeeds(), name="blog-post-feed")]
 urlpatterns += [re_path(r"^pages/(?P<url>.*/?)$", views.flatpage)]
-
 urlpatterns += staticfiles_urlpatterns()
 
-#
-# debug url config
-# ----------------------------------------------------------------------------------------------------------------------
-# if settings.DEBUG:
-#     if "debug_toolbar" in settings.INSTALLED_APPS:
-#         import debug_toolbar
-#         urlpatterns = [path("__debug__/", include(debug_toolbar.urls))] + urlpatterns
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+    )
 
 admin.site.site_header = "jiaxin.im"
 admin.site.site_title = "jiaxin.im"

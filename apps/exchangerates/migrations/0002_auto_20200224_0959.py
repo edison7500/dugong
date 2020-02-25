@@ -5,13 +5,10 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('exchangerates', '0001_initial'),
-    ]
+    dependencies = [("exchangerates", "0001_initial")]
 
     operations = [
         migrations.AlterModelOptions(
-            name='exchangerate',
-            options={'ordering': ['-date']},
-        ),
+            name="exchangerate", options={"ordering": ["-date"]}
+        )
     ]

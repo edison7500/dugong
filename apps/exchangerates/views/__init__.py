@@ -12,7 +12,9 @@ class ExChangeRateListView(generic.ListView):
     paginate_by = 14
 
     def render_to_response(self, context, **response_kwargs):
-        date_list = list(map(lambda x: x.date.strftime("%m-%d"), context["object_list"]))
+        date_list = list(
+            map(lambda x: x.date.strftime("%m-%d"), context["object_list"])
+        )
         date_list.reverse()
         cny = list(
             map(lambda y: y.exchange_rates().get("CNY", None), context["object_list"])

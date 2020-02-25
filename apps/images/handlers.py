@@ -1,6 +1,8 @@
 import uuid
 import numpy as np
+from hashlib import md5
 from django.utils.deconstruct import deconstructible
+from django.utils.encoding import smart_str
 
 
 @deconstructible
@@ -13,6 +15,13 @@ class UUIDFilename(object):
         uuid_filename = uuid.uuid5(uuid.NAMESPACE_DNS, filename)
         filename = f"{self.sub_path}{uuid_filename.hex}{ext}"
         return filename
+
+
+def hexdigest_filename(instance, filename):
+    ext = filename.split(".")[-1]
+    data = instance.file.read()
+    hex = md5(data).hexdigest()
+    return smart_str(f"img/{hex}.{ext}")
 
 
 def remove_image_rim(np_img, boundary=0.8):
