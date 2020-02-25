@@ -1,13 +1,11 @@
-from django.conf.urls import url, include
-from django.urls import path
+from django.urls import path, include
+from drf_yasg import openapi
+from drf_yasg.views import get_schema_view
+from rest_framework import permissions
 from rest_framework.urlpatterns import format_suffix_patterns
 
 # from rest_framework_swagger.views import get_swagger_view
 from apps.users.views.api import UserDetailsView
-
-from rest_framework import permissions
-from drf_yasg.views import get_schema_view
-from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -35,8 +33,6 @@ urlpatterns = [
     ),
     path("blog/", include("apps.blog.urls.api", namespace="blog")),
     path("tutorials/", include("apps.tutorials.urls.api", namespace="tutorials")),
-    # url(r"^opensource/", include("opensource.urls.api", namespace="opensource")),
-    # path("books/", include("apps.books.urls.api", namespace="books")),
     path("images/", include("apps.images.urls.api", namespace="images")),
     path(
         "exchangerate/",
@@ -45,8 +41,8 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    url(r"^auth/", include("rest_auth.urls")),
-    url(r"^rest/profile/?$", UserDetailsView.as_view(), name="oauth_user_profile"),
+    path("auth/", include("rest_auth.urls")),
+    path("rest/profile/", UserDetailsView.as_view(), name="oauth_user_profile"),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
