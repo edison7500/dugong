@@ -49,6 +49,10 @@ class Photo(models.Model):
         return f"/{size}{self.file.url}"
 
     @property
+    def camera(self):
+        return self.exif.camera
+
+    @property
     def lens(self):
         return self.exif.lens
 
@@ -59,6 +63,12 @@ class Exif(models.Model):
 
     def info_to_dict(self) -> dict:
         return json.loads(self.info)
+
+    @property
+    def camera(self):
+        _make = self.info_to_dict().get("Make")
+        _model = self.info_to_dict().get("Model")
+        return f"{_make} - {_model}"
 
     @property
     def lens(self):
