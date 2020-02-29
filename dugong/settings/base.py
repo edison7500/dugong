@@ -205,15 +205,13 @@ TAGGIT_CASE_INSENSITIVE = True
 # ----------------------------------------------------------------------------------------------------------------------
 #
 CACHES = {
-    'default': {
-        'BACKEND': 'diskcache.DjangoCache',
-        'LOCATION': '/tmp/cache',
-        'SHARDS': 4,
-        'DATABASE_TIMEOUT': 1.0,
-        'OPTIONS': {
-            'size_limit': 2 ** 32  # 4 gigabytes
-        },
-    },
+    "default": {
+        "BACKEND": "diskcache.DjangoCache",
+        "LOCATION": "/tmp/cache",
+        "SHARDS": 4,
+        "DATABASE_TIMEOUT": 1.0,
+        "OPTIONS": {"size_limit": 2 ** 32},  # 4 gigabytes
+    }
 }
 
 # django allauth
