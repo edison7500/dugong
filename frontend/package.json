@@ -1,0 +1,20 @@
+{
+  "name": "dugong",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bulma": "^0.8.0",
+    "node-gyp": "^6.1.0",
+    "sticky-sidebar": "^3.3.1"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "webpack": "^4.41.6"
+  }
+}
