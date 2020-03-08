@@ -1,3 +1,3 @@
-from .db import Photo, Exif
+from .db import Category, Photo, Exif
 
-__all__ = ["Photo", "Exif"]
+__all__ = ["Category", "Photo", "Exif"]

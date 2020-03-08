@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+@import "./node_modules/bulma/sass/utilities/initial-variables";
+
+@import "var";
+
+@import "./node_modules/bulma/bulma";
+
+@import "layout/layout";
+@import "compenonts/pygements";
+
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
