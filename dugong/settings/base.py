@@ -51,9 +51,7 @@ REST_FRAMEWORK_APPS = [
     "drf_yasg",
 ]
 THIRD_PARTY_APPS = [
-    # "controlcenter",
     "django_comments",
-    "bulma",
     "taggit",
     "mptt",
     "taggit_serializer",
@@ -166,16 +164,7 @@ WEBPACK_LOADER = {
 FILE_UPLOAD_TEMP_DIR = tempfile.mkdtemp()
 FILE_UPLOAD_PERMISSIONS = 0o644
 
-###
-#  BULMA Default settings
-###
-from .bulma import BULMA as bulma_config
 
-BULMA = bulma_config
-
-SOCIALACCOUNT_PROVIDERS = {
-    "google": {"SCOPE": ["profile", "email"], "AUTH_PARAMS": {"access_type": "online"}}
-}
 
 OAUTH2_PROVIDER = {
     # this is the list of available scopes
@@ -222,3 +211,7 @@ ACCOUNT_USERNAME_VALIDATORS = "apps.users.validators.custom_username_validators"
 SOCIALACCOUNT_AUTO_SIGNUP = True
 ACCOUNT_LOGOUT_ON_GET = False
 # ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+
+SOCIALACCOUNT_PROVIDERS = {
+    "google": {"SCOPE": ["profile", "email"], "AUTH_PARAMS": {"access_type": "online"}}
+}
