@@ -1,5 +1,6 @@
 {% extends 'base/bulma_base.html' %}
 {% load i18n %}
+{% load dugong_tags %}
 
 {% block title %}博客 - Python 观察员{% endblock %}
 
@@ -40,4 +41,5 @@
 		</div>
 	</div>
 
+	{% dugong_pagination page_obj url=request.url pages_to_show=4 %}
 {% endblock %}

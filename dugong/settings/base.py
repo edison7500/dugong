@@ -7,7 +7,6 @@ env.read_env(str(ROOT_DIR.path(".env")))
 
 DEBUG = env("DJANGO_DEBUG", default=True)  # False if not in os.environ
 
-
 # Internationalization
 # -------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -124,7 +123,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
-            "string_if_invalid": 'Invalid: "%s"',
+            # "string_if_invalid": 'Invalid: "%s"',
         },
     }
 ]
@@ -163,8 +162,6 @@ WEBPACK_LOADER = {
 
 FILE_UPLOAD_TEMP_DIR = tempfile.mkdtemp()
 FILE_UPLOAD_PERMISSIONS = 0o644
-
-
 
 OAUTH2_PROVIDER = {
     # this is the list of available scopes
