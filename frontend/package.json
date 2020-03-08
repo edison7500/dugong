@@ -9,12 +9,17 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "bulma": "^0.8.0",
     "node-gyp": "^6.1.0",
     "sticky-sidebar": "^3.3.1"
   },
   "devDependencies": {
+    "bulma": "^0.8.0",
+    "css-loader": "^3.4.2",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
     "rimraf": "^3.0.2",
+    "sass-loader": "^8.0.2",
     "webpack": "^4.41.6"
   }
 }

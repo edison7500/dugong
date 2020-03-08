@@ -55,6 +55,7 @@ THIRD_PARTY_APPS = [
     "django_comments",
     "bulma",
     "taggit",
+    "mptt",
     "taggit_serializer",
     "django_extensions",
     "django_gravatar",
