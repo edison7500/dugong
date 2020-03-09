@@ -1,6 +1,6 @@
 {% extends 'base/bulma_base.html' %}
 {% load i18n cache %}
-{% load bulma_tags %}
+{% load dugong_tags %}
 
 {% block content %}
     <nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
@@ -31,5 +31,5 @@
             </div>
         </div>
     </div>
-    {% bulma_pagination page_obj extra=request.GET.urlencode %}
+    {% dugong_pagination page_obj url=request.url %}
 {% endblock %}

@@ -1,6 +1,5 @@
 {% extends 'account/base.html' %}
 {% load i18n %}
-{% load bulma_tags %}
 
 {% block title %}{% trans 'Sign Up' %} - Python观察员{% endblock %}
 
@@ -9,7 +8,7 @@
     <div class="box auth">
         <form method="post" action="{% url 'account_signup' %}">
             {% csrf_token %}
-            {{ form|bulma }}
+            {{ form }}
             <div class="field">
                 <button type="submit" class="button is-primary is-block is-fullwidth">{% trans 'Sign Up' %}</button>
             </div>

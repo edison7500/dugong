@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html {% if LANGUAGE_CODE %} lang="{{ LANGUAGE_CODE }}"{% endif %}>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}django bulma{% endblock title %}</title>
+    {% block extra_css %}{% endblock extra_css %}
+</head>
+<body>
+
+{% block header %}{% endblock header %}
+
+{% block hero %}{% endblock hero %}
+
+<section class="section">
+  <div class="container">
+{#    {% block messages %}#}
+{#      {% if messages %}#}
+{#        <div class="messages columns is-desktop">#}
+{#          <div class="column is-4 is-offset-4">#}
+{#            {% for message in messages %}#}
+{#              <div class="message {% if message.tags %}is-{{ message.tags|bulma_message_tag }}{% endif %}">#}
+{#                <div class="message-body">{{ message }}</div>#}
+{#              </div>#}
+{#            {% endfor %}#}
+{#          </div>#}
+{#        </div>#}
+{#      {% endif %}#}
+{#    {% endblock messages %}#}
+
+    {% block content_area %}
+      {% block content_title %}{% endblock content_title %}
+      {% block content %}{% endblock content %}
+    {% endblock content_area %}
+  </div>
+</section>
+
+        {% block modal %}{% endblock modal %}
+
+        {% block footer %}{% endblock footer %}
+
+        {% block javascript %}{% endblock javascript %}
+        {% block extra_javascript %}{% endblock extra_javascript %}
+    </body>
+</html>

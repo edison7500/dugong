@@ -7,6 +7,23 @@ from django.utils import timezone
 from django.utils.translation import ugettext as _
 
 from apps.images.handlers import hexdigest_filename
+from apps.ext.models import Category as BaseCategory
+
+
+class Category(BaseCategory):
+    image = models.ImageField(
+        upload_to=hexdigest_filename,
+        width_field="width",
+        height_field="height",
+        null=True,
+        blank=True,
+    )
+    width = models.IntegerField(default=0, editable=False)
+    height = models.IntegerField(default=0, editable=False)
+    description = models.TextField(blank=True, default="")
+
+    class MPTTMeta:
+        order_insertion_by = ['name']
 
 
 class Photo(models.Model):
@@ -15,6 +32,10 @@ class Photo(models.Model):
     )
     title = models.CharField(_("title"), max_length=255)
     description = models.TextField(blank=True, default="")
+
+    category = models.ForeignKey(
+        "Category", on_delete=models.SET_NULL, null=True, blank=True
+    )
 
     file = models.ImageField(
         upload_to=hexdigest_filename, width_field="width", height_field="height"

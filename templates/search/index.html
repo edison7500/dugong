@@ -1,6 +1,6 @@
 {% extends "base/bulma_base.html" %}
 {% load i18n %}
-{% load bulma_tags %}
+{% load dugong_tags %}
 
 {% block title %}搜索 - Python 观察员{% endblock %}
 
@@ -42,6 +42,6 @@
 	</div>
 
 	{% if page_obj.number > 2 %}
-		{% bulma_pagination page_obj extra=request.GET.urlencode %}
+		{% dugong_pagination page_obj url=request.url size="small" %}
 	{% endif %}
 {% endblock %}

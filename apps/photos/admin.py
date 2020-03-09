@@ -1,7 +1,14 @@
 from django.contrib import admin
 from django.utils.html import format_html
+from mptt.admin import DraggableMPTTAdmin
 
-from apps.photos.models import Photo
+from apps.photos.models import Category, Photo
+
+
+class CategoryAdmin(DraggableMPTTAdmin):
+    list_display = ["tree_actions", "name"]
+    list_display_links = ["name"]
+    MPTT_ADMIN_LEVEL_INDENT = 20
 
 
 class PhotoAdmin(admin.ModelAdmin):
@@ -13,4 +20,5 @@ class PhotoAdmin(admin.ModelAdmin):
     photo.allow_tags = True
 
 
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(Photo, PhotoAdmin)

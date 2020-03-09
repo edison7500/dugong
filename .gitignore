@@ -184,3 +184,4 @@ GeoLite2*
 .eslintrc.js
 webpack-stats.json
 upload/
+node_modules

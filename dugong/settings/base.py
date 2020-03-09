@@ -7,7 +7,6 @@ env.read_env(str(ROOT_DIR.path(".env")))
 
 DEBUG = env("DJANGO_DEBUG", default=True)  # False if not in os.environ
 
-
 # Internationalization
 # -------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -51,10 +50,9 @@ REST_FRAMEWORK_APPS = [
     "drf_yasg",
 ]
 THIRD_PARTY_APPS = [
-    # "controlcenter",
     "django_comments",
-    "bulma",
     "taggit",
+    "mptt",
     "taggit_serializer",
     "django_extensions",
     "django_gravatar",
@@ -125,7 +123,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
-            "string_if_invalid": 'Invalid: "%s"',
+            # "string_if_invalid": 'Invalid: "%s"',
         },
     }
 ]
@@ -164,17 +162,6 @@ WEBPACK_LOADER = {
 
 FILE_UPLOAD_TEMP_DIR = tempfile.mkdtemp()
 FILE_UPLOAD_PERMISSIONS = 0o644
-
-###
-#  BULMA Default settings
-###
-from .bulma import BULMA as bulma_config
-
-BULMA = bulma_config
-
-SOCIALACCOUNT_PROVIDERS = {
-    "google": {"SCOPE": ["profile", "email"], "AUTH_PARAMS": {"access_type": "online"}}
-}
 
 OAUTH2_PROVIDER = {
     # this is the list of available scopes
@@ -221,3 +208,7 @@ ACCOUNT_USERNAME_VALIDATORS = "apps.users.validators.custom_username_validators"
 SOCIALACCOUNT_AUTO_SIGNUP = True
 ACCOUNT_LOGOUT_ON_GET = False
 # ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+
+SOCIALACCOUNT_PROVIDERS = {
+    "google": {"SCOPE": ["profile", "email"], "AUTH_PARAMS": {"access_type": "online"}}
+}
