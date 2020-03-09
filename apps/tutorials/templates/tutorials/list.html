@@ -1,5 +1,5 @@
 {% extends 'base/bulma_base.html' %}
-{% load bulma_tags %}
+{% load dugong_tags %}
 
 
 {% block title %}教程 - Python观察员{% endblock %}
@@ -25,5 +25,5 @@
         {% endfor %}
     </div>
 
-    {% bulma_pagination page_obj extra=request.GET.urlencode %}
+    {% dugong_pagination page_obj extra=request.GET.urlencode %}
 {% endblock %}
