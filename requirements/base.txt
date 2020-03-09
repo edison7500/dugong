@@ -65,4 +65,4 @@ numpy==1.18.1
 #
 # install from github
 # ----------------------------------------------------------------------------------------------------------------------
--e git+https://github.com/edison7500/django-bulma.git#egg=django_bulma
+# -e git+https://github.com/edison7500/django-bulma.git#egg=django_bulma
