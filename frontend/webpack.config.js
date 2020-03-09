@@ -3,7 +3,7 @@ const argv = require("yargs").argv;
 const path = require("path");
 const webpack = require("webpack");
 
-let debug = argv.mode != "production";
+let debug = argv.mode !== "production";
 
 
 module.exports = {
