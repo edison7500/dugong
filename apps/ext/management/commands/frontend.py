@@ -5,7 +5,7 @@ from django.conf import settings
 
 class Command(LabelCommand):
 
-    frontend_dir = settings.STATICFILES_DIRS[0]
+    frontend_dir = getattr(settings, "FRONTEND_DIR")
     commands = ["install", "build", "dev"]
 
     @classmethod

@@ -1,12 +1,10 @@
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
-from django.http import Http404
-from braces.views import LoginRequiredMixin
+from django.views.generic import ListView, DetailView
+
 from apps.tutorials.models import Tutorial
-from apps.tutorials.forms.tutorial import TutorialForm
 
 
 class TutorialListView(ListView):
-    http_method_names = ["head", "get"]
+    # http_method_names = ["head", "get"]
     template_name = "tutorials/list.html"
     model = Tutorial
     queryset = Tutorial.objects.published()
@@ -14,10 +12,9 @@ class TutorialListView(ListView):
 
 
 class TutorialDetailView(DetailView):
-    http_method_names = ["head", "get"]
+    # http_method_names = ["head", "get"]
     template_name = "tutorials/detail.html"
     model = Tutorial
-    # queryset = Tutorial.objects.filter(status=Tutorial.STATUS.published)
     queryset = Tutorial.objects.published()
     slug_field = "slug"
 

@@ -89,6 +89,7 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
+FRONTEND_DIR = str(ROOT_DIR.path("frontend"))
 
 MEDIA_URL = "/upload/"
 MEDIA_ROOT = "upload/"

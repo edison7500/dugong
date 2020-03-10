@@ -97,20 +97,12 @@ class Tutorial(models.Model):
 
     @cached_property
     def cover(self):
-        if self.images.count() == 0:
+        _covers = self.images.filter(is_cover=True)
+        if _covers.count() == 0:
             return ""
-        try:
-            cover = self.images.filter(is_cover=True).first()
-            if cover:
-                _cover_url = cover.file.url
-            else:
-                _cover_url = self.images.first()
-        except FileNotFoundError:
-            _cover_url = ""
-
-        if not _cover_url.startswith("http"):
-            _cover_url = f"https://img.jiaxin.im/dugong/{_cover_url}"
-        return _cover_url
+        else:
+            cover = _covers[0]
+        return cover.file.url
 
     @property
     def created_at_ts(self) -> float:

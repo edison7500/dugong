@@ -13,8 +13,6 @@ from apps.ext.models import Category as BaseCategory
 class Category(BaseCategory):
     image = models.ImageField(
         upload_to=hexdigest_filename,
-        width_field="width",
-        height_field="height",
         null=True,
         blank=True,
     )
@@ -38,7 +36,7 @@ class Photo(models.Model):
     )
 
     file = models.ImageField(
-        upload_to=hexdigest_filename, width_field="width", height_field="height"
+        upload_to=hexdigest_filename,
     )
     width = models.IntegerField(default=0, editable=False)
     height = models.IntegerField(default=0, editable=False)

@@ -14,9 +14,7 @@ upload_dir = UUIDFilename(upload_image_dir)
 
 
 class ImageAbstractModel(models.Model):
-    file = models.ImageField(
-        upload_to=upload_dir, width_field="width", height_field="height"
-    )
+    file = models.ImageField(upload_to=upload_dir)
     width = models.IntegerField(default=0, editable=False)
     height = models.IntegerField(default=0, editable=False)
 
