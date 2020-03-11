@@ -13,7 +13,7 @@ class UUIDFilename(object):
     def __call__(self, instance, filename):
         ext = filename.split(".")[-1]
         uuid_filename = uuid.uuid5(uuid.NAMESPACE_DNS, filename)
-        filename = f"{self.sub_path}{uuid_filename.hex}{ext}"
+        filename = f"{self.sub_path}{uuid_filename.hex}.{ext}"
         return filename
 
 
