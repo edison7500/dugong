@@ -65,7 +65,7 @@ class Photo(models.Model):
 
     @property
     def thumb(self, size=64):
-        return f"/{size}{self.file.url}"
+        return f"/{size}/{self.file.name}"
 
     @property
     def camera(self):
