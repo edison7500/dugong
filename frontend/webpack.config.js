@@ -1,7 +1,7 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const argv = require("yargs").argv;
 const path = require("path");
-const webpack = require("webpack");
+// const webpack = require("webpack");
 
 let debug = argv.mode !== "production";
 
