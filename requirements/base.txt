@@ -30,7 +30,6 @@ diskcache==4.1.0
 
 docopt==0.6.2
 enum34==1.1.6
-funcsigs==1.0.2
 html5lib==1.0.1
 ipaddress==1.0.18
 jieba==0.41
@@ -60,7 +59,6 @@ xmltodict==0.11.0
 
 
 numpy==1.18.1
-
 
 #
 # install from github
