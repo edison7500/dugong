@@ -4,9 +4,10 @@ import LazyLoad from "vanilla-lazyload";
 //   elements_selector: ".lazy"
 // });
 
-class ImageLazyLoad {
+export class ImageLazyLoad {
   constructor() {
     this.lazyLoadInstance = new LazyLoad({
+      container: document.getElementById("scrollingPanel"),
       elements_selector: ".lazy"
     });
   }
@@ -16,4 +17,3 @@ class ImageLazyLoad {
   }
 }
 
-export {ImageLazyLoad}

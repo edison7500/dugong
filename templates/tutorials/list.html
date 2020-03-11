@@ -5,28 +5,28 @@
 {% block title %}教程 - Python观察员{% endblock %}
 
 {% block content %}
-    <div class="columns is-multiline" id="scrollingPanel">
-        {% for obj in object_list %}
-            <div class="column is-one-third is-block-tablet">
-                <div class="card">
-                    <div class="card-image">
-                        <figure class="image is-3by2">
-                            <img class="lazy"
-																 src="{% static 'img/placeholder.jpg' %}"
-																 data-src="{{ obj.cover }}"
-																 alt="{{ obj.title }}" title="{{ obj.title }}">
-                        </figure>
-                    </div>
-                    <div class="card-content" style="padding-bottom: 60px;">
-                        <h1 class="title" style="font-size: 16px; float: left; line-height: 1.35;">
-                            <a title="{{ obj.title }}" href="{{ obj.get_absolute_url }}" target="_blank">
-                                {{ obj.title }}</a>
-                        </h1>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
+	<div class="columns is-multiline" id="scrollingPanel">
+		{% for obj in object_list %}
+			<div class="column is-one-third is-block-tablet">
+				<div class="card">
+					<div class="card-image">
+						<figure class="image is-3by2">
+							<img class="lazy"
+									 src="{% static 'img/placeholder.jpg' %}"
+									 data-src="{{ obj.cover }}"
+									 alt="{{ obj.title }}" title="{{ obj.title }}">
+						</figure>
+					</div>
+					<div class="card-content" style="padding-bottom: 60px;">
+						<h1 class="title" style="font-size: 16px; float: left; line-height: 1.35;">
+							<a title="{{ obj.title }}" href="{{ obj.get_absolute_url }}" target="_blank">
+								{{ obj.title }}</a>
+						</h1>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
 
-    {% dugong_pagination page_obj url=request.url size="small" %}
+	{% dugong_pagination page_obj url=request.url size="small" %}
 {% endblock %}

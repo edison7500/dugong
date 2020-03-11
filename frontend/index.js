@@ -1,6 +1,7 @@
 import StickySidebar from "sticky-sidebar";
 import {ImageLazyLoad} from "./src/lazyload";
-new ImageLazyLoad().run()
+
+new ImageLazyLoad().run();
 
 require("./scss/dugong.scss");
 
