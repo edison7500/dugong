@@ -20,6 +20,10 @@ class Category(BaseCategory):
     height = models.IntegerField(default=0, editable=False)
     description = models.TextField(blank=True, default="")
 
+    class Meta:
+        verbose_name = _("category")
+        verbose_name_plural = _("category")
+
     class MPTTMeta:
         order_insertion_by = ['name']
 
