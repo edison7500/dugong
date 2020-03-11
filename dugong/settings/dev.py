@@ -26,7 +26,6 @@ SESSION_FILE_PATH = "/tmp/"
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#middleware
 MIDDLEWARE += [
     # "debug_toolbar.middleware.DebugToolbarMiddleware",
-    # "geoip_ext.middleware.GeoIPMiddleware",
 ]  # noqa F405
 # https://django-debug-toolbar.readthedocs.io/en/latest/configuration.html#debug-toolbar-config
 # DEBUG_TOOLBAR_CONFIG = {

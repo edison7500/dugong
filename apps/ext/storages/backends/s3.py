@@ -8,5 +8,5 @@ bucket_name = getattr(settings, "AWS_STORAGE_BUCKET_NAME")
 class StaticStorage(S3Boto3Storage):
     bucket_name = bucket_name
     location = "static"
-    gzip = setting("STATIC_AWS_IS_GZIPPED", False)
+    gzip = setting("STATIC_AWS_IS_GZIPPED", True)
     custom_domain = setting("STATIC_AWS_S3_CUSTOM_DOMAIN")
