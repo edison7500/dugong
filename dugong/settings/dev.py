@@ -76,6 +76,6 @@ AWS_QUERYSTRING_AUTH = False
 # STATIC
 # ----------------------------------------------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-# STATICFILES_STORAGE = "apps.ext.storages.backends.s3.StaticStorage"
-# STATIC_AWS_IS_GZIPPED = True
-# STATIC_AWS_S3_CUSTOM_DOMAIN = env("STATIC_AWS_S3_CUSTOM_DOMAIN", default=None)
+STATICFILES_STORAGE = "apps.ext.storages.backends.s3.StaticStorage"
+STATIC_AWS_IS_GZIPPED = True
+STATIC_AWS_S3_CUSTOM_DOMAIN = env("STATIC_AWS_S3_CUSTOM_DOMAIN", default=None)
