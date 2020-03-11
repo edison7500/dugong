@@ -7,7 +7,6 @@ import LazyLoad from "vanilla-lazyload";
 export class ImageLazyLoad {
   constructor() {
     this.lazyLoadInstance = new LazyLoad({
-      container: document.getElementById("scrollingPanel"),
       elements_selector: ".lazy"
     });
   }
