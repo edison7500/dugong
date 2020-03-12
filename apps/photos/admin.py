@@ -13,11 +13,17 @@ class CategoryAdmin(DraggableMPTTAdmin):
 
 class PhotoAdmin(admin.ModelAdmin):
     list_display = ["title", "photo", "shape", "size", "camera", "lens", "uploaded_at"]
+    readonly_fields = [
+        "thumbnail"
+    ]
 
     list_per_page = 30
     
     def photo(self, obj):
-        return format_html(f'<img src="{obj.thumb}" alt="{obj.title}" />')
+        return format_html(f'<img src="{obj.thumb}" alt="{obj.title}" width="64" />')
+
+    def thumbnail(self, obj):
+        return format_html(f'<img src="{obj.thumb}" alt="{obj.title}" width="64" />')
 
     photo.allow_tags = True
 

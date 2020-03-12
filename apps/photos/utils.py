@@ -1,5 +1,6 @@
 from pprint import pprint
 
+from collections import OrderedDict
 from PIL import Image
 from PIL.ExifTags import TAGS
 from django.utils.encoding import smart_str
@@ -25,13 +26,12 @@ def process_components_configuration(value):
 
 
 def get_exif(fp) -> dict:
-    ret = {}
+    ret = OrderedDict()
     im = Image.open(fp)
     info = im._getexif()
-    pprint(info, indent=2)
     for tag, value in info.items():
         decode = TAGS.get(tag, tag)
-        if decode in ["GPSInfo"]:
+        if decode in ["GPSInfo", "CFAPattern"]:
             continue
         elif decode == "ComponentsConfiguration":
             value = process_components_configuration(value)
