@@ -18,10 +18,10 @@ class PhotoAdmin(admin.ModelAdmin):
     ]
 
     def photo(self, obj):
-        return format_html(f'<img src="{obj.thumb}" alt="{obj.title}" width="64" height="64" />')
+        return format_html(f'<img src="{obj.thumb}" alt="{obj.title}" width="64" />')
 
     def thumbnail(self, obj):
-        return format_html(f'<img src="{obj.thumb}" alt="{obj.title}" width="64" height="64" />')
+        return format_html(f'<img src="{obj.thumb}" alt="{obj.title}" width="64" />')
 
     photo.allow_tags = True
 
