@@ -9,7 +9,6 @@ class ProcessImageMixin(object):
     def resize_image(self):
         _size = self.kwargs.get("size", 300)
         _filename = self.kwargs.get("filename", None)
-        assert _filename is not None, Http404
         try:
             data = default_storage.open(f"img/{_filename}").read()
         except FileNotFoundError:

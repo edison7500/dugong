@@ -1,10 +1,8 @@
-import json
 import logging
 from hashlib import md5
-from pprint import pprint
 
-from django.db.models.signals import pre_save, post_save
 from django.core.cache import cache
+from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
 
 from .models import Photo, Exif
