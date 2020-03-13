@@ -84,6 +84,8 @@ class Exif(models.Model):
     photo = models.OneToOneField("Photo", related_name="exif", on_delete=models.CASCADE)
     info = JSONField(encoder=json.JSONEncoder)
 
+    shot_time = models.DateTimeField(default=timezone.now, editable=False, db_index=True)
+
     def __str__(self):
         return f"{self.camera} - {self.lens}"
 
