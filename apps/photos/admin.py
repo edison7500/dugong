@@ -20,6 +20,8 @@ class PhotoAdmin(admin.ModelAdmin):
     def shot_time(self, obj):
         return obj.exif.shot_time
 
+    shot_time.admin_order_field = 'exif__shot_time'
+
     def photo(self, obj):
         return format_html(f'<img src="{obj.thumb}" alt="{obj.title}" width="64" />')
 

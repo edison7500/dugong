@@ -50,7 +50,7 @@ class Photo(models.Model):
     )
 
     class Meta:
-        ordering = ["-uploaded_at"]
+        ordering = ["-exif__shot_time"]
 
     def __str__(self):
         return self.title
