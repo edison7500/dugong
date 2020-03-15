@@ -6,13 +6,13 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const merge = require("webpack-merge");
 let config = require("./webpack.config");
 
-let publicPath = "https://img.jiaxin.im/dugong/static/dist/";
+// let publicPath = "https://static.jiaxin.im/dugong/static/dist/";
 
 
 module.exports = merge(config, {
-  output: {
-    publicPath: publicPath,
-  },
+  // output: {
+  //   publicPath: publicPath,
+  // },
   optimization: {
     minimize: true,
     minimizer: [
