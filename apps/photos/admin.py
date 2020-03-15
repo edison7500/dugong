@@ -12,7 +12,16 @@ class CategoryAdmin(DraggableMPTTAdmin):
 
 
 class PhotoAdmin(admin.ModelAdmin):
-    list_display = ["title", "photo", "shape", "size", "camera", "lens", "shot_time", "uploaded_at"]
+    list_display = [
+        "title",
+        "photo",
+        "shape",
+        "size",
+        "camera",
+        "lens",
+        "shot_time",
+        "uploaded_at",
+    ]
     readonly_fields = ["thumbnail"]
 
     list_per_page = 30
@@ -20,7 +29,7 @@ class PhotoAdmin(admin.ModelAdmin):
     def shot_time(self, obj):
         return obj.exif.shot_time
 
-    shot_time.admin_order_field = 'exif__shot_time'
+    shot_time.admin_order_field = "exif__shot_time"
 
     def photo(self, obj):
         return format_html(f'<img src="{obj.thumb}" alt="{obj.title}" width="64" />')

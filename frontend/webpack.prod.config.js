@@ -6,13 +6,8 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const merge = require("webpack-merge");
 let config = require("./webpack.config");
 
-// let publicPath = "https://static.jiaxin.im/dugong/static/dist/";
-
 
 module.exports = merge(config, {
-  // output: {
-  //   publicPath: publicPath,
-  // },
   optimization: {
     minimize: true,
     minimizer: [
@@ -21,9 +16,6 @@ module.exports = merge(config, {
     ],
   },
   plugins: [
-    // new UglifyJsPlugin({
-    //   sourceMap: false,
-    // }),
     new CleanWebpackPlugin(),
     new BundleTracker({
       filename: "../static/webpack-stats.json",
