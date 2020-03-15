@@ -18,3 +18,4 @@ class ImageProcessView(ProcessImageMixin, generic.View):
 class ImageListView(generic.ListView):
     model = Photo
     queryset = Photo.objects.all()
+    template_name = "photo/index.html"
