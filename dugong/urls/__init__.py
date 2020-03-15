@@ -17,7 +17,7 @@ urlpatterns = [
     path(
         "exchangerates/", include("apps.exchangerates.urls", namespace="exchangerates")
     ),
-    path("<int:size>/upload/img/<str:filename>", ImageProcessView.as_view()),
+    path("upload/<int:size>/img/<str:filename>", ImageProcessView.as_view()),
     
     path("o/", include("oauth2_provider.urls", namespace="oauth2_provider")),
 ]

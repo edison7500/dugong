@@ -1,4 +1,5 @@
 import logging
+from datetime import datetime
 from hashlib import md5
 
 from django.core.cache import cache
@@ -33,4 +34,15 @@ def save_photo_exif(sender, instance: Photo, created, **kwargs):
         Exif.objects.create(
             photo=instance,
             info=exif,
+            shot_time=get_shot_time(exif)
         )
+
+
+def get_shot_time(exif):
+    logger.info(exif)
+    dt_string = f'{exif["DateTimeDigitized"]} +0800'
+    try:
+        dt = datetime.strptime(dt_string, "%Y:%m:%d %H:%M:%S %z")
+    except ValueError:
+        dt = datetime.now()
+    return dt
