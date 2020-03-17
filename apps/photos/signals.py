@@ -21,6 +21,7 @@ def get_photo_exif(sender, instance: Photo, raw, **kwargs):
         logger.info(_exif)
         setattr(instance, "width", instance.file.width)
         setattr(instance, "height", instance.file.height)
+        setattr(instance, "size", instance.file.size)
         cache.set(key, _exif, timeout=None)
 
 
