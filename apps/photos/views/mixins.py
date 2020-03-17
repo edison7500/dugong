@@ -14,7 +14,7 @@ class ProcessImageMixin(object):
         except FileNotFoundError:
             raise Http404
         im = Image.open(io.BytesIO(data))
-        im.thumbnail((_size, _size))
+        im.thumbnail((_size, _size), Image.ANTIALIAS)
         buffer = io.BytesIO()
         im.save(buffer, im.format)
         return buffer, im.format
