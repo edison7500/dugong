@@ -1,6 +1,7 @@
 import json
 
 from django.conf import settings
+from django.utils.functional import cached_property
 from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.utils import timezone
@@ -60,17 +61,9 @@ class Photo(models.Model):
     def shape(self):
         return self.width, self.height
 
-    # @property
-    # def size(self):
-    #     try:
-    #         _size = f"{round(self.file.size / 1000)} KB"
-    #     except FileNotFoundError:
-    #         _size = "zero"
-    #     return _size
-
-    @property
-    def thumb(self, size=64):
-        return f"/upload/{size}/{self.file.name}"
+    @cached_property
+    def thumb(self):
+        return self.resize_image()
 
     @property
     def camera(self):
@@ -79,6 +72,9 @@ class Photo(models.Model):
     @property
     def lens(self):
         return self.exif.lens
+
+    def resize_image(self, size=128):
+        return f"/upload/{size}/{self.file.name}"
 
 
 class Exif(models.Model):

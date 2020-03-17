@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
+from django.utils.translation import ugettext as _
 from mptt.admin import DraggableMPTTAdmin
 
 from apps.photos.models import Category, Photo
@@ -22,21 +23,31 @@ class PhotoAdmin(admin.ModelAdmin):
         "shot_time",
         "uploaded_at",
     ]
-    readonly_fields = ["thumbnail"]
+    readonly_fields = ["user", "thumbnail"]
+
+    fieldsets = (
+        (_("photo-info"), {"fields": ("user", "thumbnail")}),
+        (_("photo"), {"fields": ("title", "description", "category", "file")}),
+    )
 
     list_per_page = 30
 
+    def save_model(self, request, obj, form, change):
+        obj.user = request.user
+        super().save_model(request, obj, form, change)
+
     def shot_time(self, obj):
         return obj.exif.shot_time
-
-    shot_time.admin_order_field = "exif__shot_time"
 
     def photo(self, obj):
         return format_html(f'<img src="{obj.thumb}" alt="{obj.title}" width="64" />')
 
     def thumbnail(self, obj):
-        return format_html(f'<img src="{obj.thumb}" alt="{obj.title}" width="64" />')
+        return format_html(
+            f'<img src="{obj.resize_image(300)}" alt="{obj.title}" width="150" />'
+        )
 
+    shot_time.admin_order_field = "exif__shot_time"
     photo.allow_tags = True
 
 
