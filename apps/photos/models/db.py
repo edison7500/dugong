@@ -42,8 +42,9 @@ class Photo(models.Model):
     file = models.ImageField(
         upload_to=hexdigest_filename,
     )
-    width = models.IntegerField(default=0, editable=False)
-    height = models.IntegerField(default=0, editable=False)
+    width = models.PositiveIntegerField(default=0, editable=False, db_index=True)
+    height = models.PositiveIntegerField(default=0, editable=False, db_index=True)
+    size = models.PositiveIntegerField(default=0, editable=False, db_index=True);
 
     uploaded_at = models.DateTimeField(
         default=timezone.now, db_index=True, editable=False
@@ -59,13 +60,13 @@ class Photo(models.Model):
     def shape(self):
         return self.width, self.height
 
-    @property
-    def size(self):
-        try:
-            _size = f"{round(self.file.size / 1000)} KB"
-        except FileNotFoundError:
-            _size = "zero"
-        return _size
+    # @property
+    # def size(self):
+    #     try:
+    #         _size = f"{round(self.file.size / 1000)} KB"
+    #     except FileNotFoundError:
+    #         _size = "zero"
+    #     return _size
 
     @property
     def thumb(self, size=64):
