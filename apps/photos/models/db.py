@@ -10,6 +10,8 @@ from django.utils.translation import ugettext as _
 from apps.images.handlers import hexdigest_filename
 from apps.ext.models import Category as BaseCategory
 
+debug = getattr(settings, "DEBUG", True)
+
 
 class Category(BaseCategory):
     image = models.ImageField(
@@ -74,7 +76,10 @@ class Photo(models.Model):
         return self.exif.lens
 
     def resize_image(self, size=128):
-        return f"/upload/{size}/{self.file.name}"
+        _img_url = f"/upload/{size}/{self.file.name}"
+        if not debug:
+            _img_url = f"https://image.jiaxin.im{_img_url}"
+        return _img_url
 
 
 class Exif(models.Model):
