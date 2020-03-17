@@ -13,7 +13,7 @@ class ImageProcessView(ProcessImageMixin, generic.View):
         res = HttpResponse(
             content=buffer.getvalue(), content_type=f"image/{ext.lower()}"
         )
-        # res["Cache-Control"] = "public, max-age=31536000"
+        res["Cache-Control"] = "public, max-age=31536000"
         return res
 
 
