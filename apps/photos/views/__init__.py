@@ -10,9 +10,11 @@ logger = logging.getLogger("django")
 class ImageProcessView(ProcessImageMixin, generic.View):
     def get(self, request, *args, **kwargs):
         buffer, ext = self.resize_image()
-        return HttpResponse(
+        res = HttpResponse(
             content=buffer.getvalue(), content_type=f"image/{ext.lower()}"
         )
+        res["Cache-Control"] = "public, max-age=31536000"
+        return res
 
 
 class ImageListView(generic.ListView):
