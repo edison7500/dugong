@@ -16,8 +16,8 @@ class Category(BaseCategory):
         null=True,
         blank=True,
     )
-    width = models.IntegerField(default=0, editable=False)
-    height = models.IntegerField(default=0, editable=False)
+    width = models.PositiveIntegerField(default=0, editable=False)
+    height = models.PositiveIntegerField(default=0, editable=False)
     description = models.TextField(blank=True, default="")
 
     class Meta:
