@@ -35,7 +35,7 @@ class Photo(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, related_name="photos", on_delete=models.CASCADE
     )
-    title = models.CharField(_("title"), max_length=255)
+    # title = models.CharField(_("title"), max_length=255)
     description = models.TextField(blank=True, default="")
 
     category = models.ForeignKey(

@@ -14,7 +14,6 @@ class CategoryAdmin(DraggableMPTTAdmin):
 
 class PhotoAdmin(admin.ModelAdmin):
     list_display = [
-        "title",
         "photo",
         "shape",
         "size",
@@ -27,7 +26,7 @@ class PhotoAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (_("photo-info"), {"fields": ("user", "thumbnail")}),
-        (_("photo"), {"fields": ("title", "description", "category", "file")}),
+        (_("photo"), {"fields": ("description", "category", "file")}),
     )
 
     list_per_page = 30
