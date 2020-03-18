@@ -39,11 +39,11 @@ class PhotoAdmin(admin.ModelAdmin):
         return obj.exif.shot_time
 
     def photo(self, obj):
-        return format_html(f'<img src="{obj.thumb}" alt="{obj.title}" width="64" />')
+        return format_html(f'<img src="{obj.thumb}" width="64" />')
 
     def thumbnail(self, obj):
         return format_html(
-            f'<img src="{obj.resize_image(300)}" alt="{obj.title}" width="150" />'
+            f'<img src="{obj.resize_image(300)}" width="150" />'
         )
 
     shot_time.admin_order_field = "exif__shot_time"
