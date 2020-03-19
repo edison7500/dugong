@@ -56,9 +56,6 @@ class Photo(models.Model):
     class Meta:
         ordering = ["-exif__shot_time"]
 
-    def __str__(self):
-        return self.title
-
     @property
     def shape(self):
         return self.width, self.height

@@ -16,7 +16,7 @@ logger = logging.getLogger("django")
 def get_photo_exif(sender, instance: Photo, raw, **kwargs):
     if isinstance(instance, sender):
         _exif = get_exif(instance.file)
-        key_str = f"{instance.pk} - {instance.uploaded_at.timestamp()}"
+        key_str = f"{instance.user_id} - {instance.uploaded_at.timestamp()}"
         key = md5(key_str.encode("utf-8")).hexdigest()
         logger.info(_exif)
         setattr(instance, "width", instance.file.width)
@@ -28,7 +28,7 @@ def get_photo_exif(sender, instance: Photo, raw, **kwargs):
 @receiver(post_save, sender=Photo)
 def save_photo_exif(sender, instance: Photo, created, **kwargs):
     if created and isinstance(instance, sender):
-        key_str = f"{instance.pk} - {instance.uploaded_at.timestamp()}"
+        key_str = f"{instance.user_id} - {instance.uploaded_at.timestamp()}"
         key = md5(key_str.encode("utf-8")).hexdigest()
         exif = cache.get(key)
         logger.info(exif)
