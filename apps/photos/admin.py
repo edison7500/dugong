@@ -42,9 +42,15 @@ class PhotoAdmin(admin.ModelAdmin):
         return format_html(f'<img src="{obj.thumb}" width="64" />')
 
     def thumbnail(self, obj):
-        return format_html(
-            f'<img src="{obj.resize_image(300)}" width="150" />'
-        )
+        print(obj)
+        if obj.file:
+            return format_html(
+                f'<img src="{obj.resize_image(300)}" width="150" />'
+            )
+        else:
+            return format_html(
+                f'<img src="https://static.jiaxin.im/dugong/static/img/placeholder.jpg" width="150" />'
+            )
 
     shot_time.admin_order_field = "exif__shot_time"
     photo.allow_tags = True
