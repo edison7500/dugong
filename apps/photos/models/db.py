@@ -56,6 +56,9 @@ class Photo(models.Model):
     class Meta:
         ordering = ["-exif__shot_time"]
 
+    def __str__(self):
+        return f"{self.file.name} - {self.uploaded_at}"
+
     @property
     def shape(self):
         return self.width, self.height
