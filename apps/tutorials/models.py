@@ -102,7 +102,7 @@ class Tutorial(models.Model):
             return ""
         else:
             cover = _covers[0]
-        return cover.file.url
+        return cover.resize_image(size=600)
 
     @property
     def created_at_ts(self) -> float:
