@@ -15,6 +15,7 @@ class CategoryAdmin(DraggableMPTTAdmin):
 class PhotoAdmin(admin.ModelAdmin):
     list_display = [
         "photo",
+        "user",
         "shape",
         "size",
         "camera",
