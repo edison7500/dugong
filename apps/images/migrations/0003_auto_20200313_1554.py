@@ -6,14 +6,14 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('images', '0002_auto_20200224_0959'),
-    ]
+    dependencies = [("images", "0002_auto_20200224_0959")]
 
     operations = [
         migrations.AlterField(
-            model_name='image',
-            name='file',
-            field=models.ImageField(upload_to=apps.images.handlers.UUIDFilename('images/')),
-        ),
+            model_name="image",
+            name="file",
+            field=models.ImageField(
+                upload_to=apps.images.handlers.UUIDFilename("images/")
+            ),
+        )
     ]

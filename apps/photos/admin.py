@@ -11,6 +11,11 @@ class CategoryAdmin(DraggableMPTTAdmin):
     list_display_links = ["name"]
     MPTT_ADMIN_LEVEL_INDENT = 20
 
+    def get_queryset(self, request):
+        qs = super().get_queryset()
+
+        return qs
+
 
 class PhotoAdmin(admin.ModelAdmin):
     list_display = [
@@ -45,9 +50,7 @@ class PhotoAdmin(admin.ModelAdmin):
     def thumbnail(self, obj):
         print(obj)
         if obj.file:
-            return format_html(
-                f'<img src="{obj.resize_image(300)}" width="150" />'
-            )
+            return format_html(f'<img src="{obj.resize_image(300)}" width="150" />')
         else:
             return format_html(
                 f'<img src="https://static.jiaxin.im/dugong/static/img/placeholder.jpg" width="150" />'

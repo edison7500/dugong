@@ -5,23 +5,13 @@ from PIL import Image
 from PIL.ExifTags import TAGS
 from django.utils.encoding import smart_str
 
-ComponentsConfiguration = {
-    0: "-",
-    1: "Y",
-    2: "Cb",
-    3: "Cr",
-    4: "R",
-    5: "G",
-    6: "B",
-}
+ComponentsConfiguration = {0: "-", 1: "Y", 2: "Cb", 3: "Cr", 4: "R", 5: "G", 6: "B"}
 
 
 def process_components_configuration(value):
     r = []
     for s in value:
-        r.append(
-            ComponentsConfiguration[s]
-        )
+        r.append(ComponentsConfiguration[s])
     return "".join(r)
 
 

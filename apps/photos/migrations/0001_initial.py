@@ -12,33 +12,71 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-    ]
+    dependencies = [migrations.swappable_dependency(settings.AUTH_USER_MODEL)]
 
     operations = [
         migrations.CreateModel(
-            name='Photo',
+            name="Photo",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255, verbose_name='标题')),
-                ('description', models.TextField(blank=True, default='')),
-                ('file', models.ImageField(height_field='height', upload_to=apps.images.handlers.hexdigest_filename, width_field='width')),
-                ('width', models.IntegerField(default=0, editable=False)),
-                ('height', models.IntegerField(default=0, editable=False)),
-                ('uploaded_at', models.DateTimeField(db_index=True, default=django.utils.timezone.now, editable=False)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='photos', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=255, verbose_name="标题")),
+                ("description", models.TextField(blank=True, default="")),
+                (
+                    "file",
+                    models.ImageField(
+                        height_field="height",
+                        upload_to=apps.images.handlers.hexdigest_filename,
+                        width_field="width",
+                    ),
+                ),
+                ("width", models.IntegerField(default=0, editable=False)),
+                ("height", models.IntegerField(default=0, editable=False)),
+                (
+                    "uploaded_at",
+                    models.DateTimeField(
+                        db_index=True, default=django.utils.timezone.now, editable=False
+                    ),
+                ),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="photos",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
-            options={
-                'ordering': ['-uploaded_at'],
-            },
+            options={"ordering": ["-uploaded_at"]},
         ),
         migrations.CreateModel(
-            name='Exif',
+            name="Exif",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('info', django.contrib.postgres.fields.jsonb.JSONField()),
-                ('photo', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='exif', to='photos.Photo')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("info", django.contrib.postgres.fields.jsonb.JSONField()),
+                (
+                    "photo",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="exif",
+                        to="photos.Photo",
+                    ),
+                ),
             ],
         ),
     ]

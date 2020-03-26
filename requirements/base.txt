@@ -28,9 +28,7 @@ django-taggit-serializer==0.1.7
 diskcache==4.1.0
 
 docopt==0.6.2
-enum34==1.1.6
 html5lib==1.0.1
-ipaddress==1.0.18
 jieba==0.41
 Jinja2==2.11.1
 Markdown==3.2.1
@@ -56,10 +54,5 @@ wcwidth==0.1.7
 webencodings==0.5.1
 xmltodict==0.11.0
 
-
 numpy==1.18.1
 
-#
-# install from github
-# ----------------------------------------------------------------------------------------------------------------------
-# -e git+https://github.com/edison7500/django-bulma.git#egg=django_bulma

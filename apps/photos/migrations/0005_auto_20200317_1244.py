@@ -6,43 +6,42 @@ import django.utils.timezone
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('photos', '0004_auto_20200313_1554'),
-    ]
+    dependencies = [("photos", "0004_auto_20200313_1554")]
 
     operations = [
         migrations.AlterModelOptions(
-            name='photo',
-            options={'ordering': ['-exif__shot_time']},
+            name="photo", options={"ordering": ["-exif__shot_time"]}
         ),
         migrations.AddField(
-            model_name='photo',
-            name='size',
+            model_name="photo",
+            name="size",
             field=models.PositiveIntegerField(db_index=True, default=0, editable=False),
         ),
         migrations.AlterField(
-            model_name='category',
-            name='height',
+            model_name="category",
+            name="height",
             field=models.PositiveIntegerField(default=0, editable=False),
         ),
         migrations.AlterField(
-            model_name='category',
-            name='width',
+            model_name="category",
+            name="width",
             field=models.PositiveIntegerField(default=0, editable=False),
         ),
         migrations.AlterField(
-            model_name='exif',
-            name='shot_time',
-            field=models.DateTimeField(db_index=True, default=django.utils.timezone.now),
+            model_name="exif",
+            name="shot_time",
+            field=models.DateTimeField(
+                db_index=True, default=django.utils.timezone.now
+            ),
         ),
         migrations.AlterField(
-            model_name='photo',
-            name='height',
+            model_name="photo",
+            name="height",
             field=models.PositiveIntegerField(db_index=True, default=0, editable=False),
         ),
         migrations.AlterField(
-            model_name='photo',
-            name='width',
+            model_name="photo",
+            name="width",
             field=models.PositiveIntegerField(db_index=True, default=0, editable=False),
         ),
     ]

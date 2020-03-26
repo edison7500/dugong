@@ -14,11 +14,7 @@ debug = getattr(settings, "DEBUG", True)
 
 
 class Category(BaseCategory):
-    image = models.ImageField(
-        upload_to=hexdigest_filename,
-        null=True,
-        blank=True,
-    )
+    image = models.ImageField(upload_to=hexdigest_filename, null=True, blank=True)
     width = models.PositiveIntegerField(default=0, editable=False)
     height = models.PositiveIntegerField(default=0, editable=False)
     description = models.TextField(blank=True, default="")
@@ -28,7 +24,7 @@ class Category(BaseCategory):
         verbose_name_plural = _("category")
 
     class MPTTMeta:
-        order_insertion_by = ['name']
+        order_insertion_by = ["name"]
 
 
 class Photo(models.Model):
@@ -42,12 +38,10 @@ class Photo(models.Model):
         "Category", on_delete=models.SET_NULL, null=True, blank=True
     )
 
-    file = models.ImageField(
-        upload_to=hexdigest_filename,
-    )
+    file = models.ImageField(upload_to=hexdigest_filename)
     width = models.PositiveIntegerField(default=0, editable=False, db_index=True)
     height = models.PositiveIntegerField(default=0, editable=False, db_index=True)
-    size = models.PositiveIntegerField(default=0, editable=False, db_index=True);
+    size = models.PositiveIntegerField(default=0, editable=False, db_index=True)
 
     uploaded_at = models.DateTimeField(
         default=timezone.now, db_index=True, editable=False

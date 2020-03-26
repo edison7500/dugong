@@ -32,11 +32,7 @@ def save_photo_exif(sender, instance: Photo, created, **kwargs):
         key = md5(key_str.encode("utf-8")).hexdigest()
         exif = cache.get(key)
         logger.info(exif)
-        Exif.objects.create(
-            photo=instance,
-            info=exif,
-            shot_time=get_shot_time(exif)
-        )
+        Exif.objects.create(photo=instance, info=exif, shot_time=get_shot_time(exif))
 
 
 def get_shot_time(exif):
