@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.db.models import Count
 from django.utils.html import format_html
 from django.utils.translation import ugettext as _
 from mptt.admin import DraggableMPTTAdmin
@@ -7,14 +8,21 @@ from apps.photos.models import Category, Photo
 
 
 class CategoryAdmin(DraggableMPTTAdmin):
-    list_display = ["tree_actions", "name"]
+    list_display = ["tree_actions", "name", "photo_count"]
     list_display_links = ["name"]
     MPTT_ADMIN_LEVEL_INDENT = 20
 
     def get_queryset(self, request):
-        qs = super().get_queryset()
+        qs = super().get_queryset(request)
 
-        return qs
+        return qs.annotate(
+            _photo_count=Count("photo")
+        )
+
+    def photo_count(self, obj):
+        return obj._photo_count
+
+    photo_count.admin_order_field = "_photo_count"
 
 
 class PhotoAdmin(admin.ModelAdmin):
