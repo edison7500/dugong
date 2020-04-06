@@ -11,7 +11,7 @@ class ProcessImageMixin(object):
         _filename = self.kwargs.get("filename", None)
         try:
             data = default_storage.open(f"img/{_filename}").read()
-        except FileNotFoundError:
+        except (FileNotFoundError, OSError):
             raise Http404
         im = Image.open(io.BytesIO(data))
         im.thumbnail((_size, _size), Image.ANTIALIAS)
