@@ -17,6 +17,12 @@ class ImageProcessView(ProcessImageMixin, generic.View):
         return res
 
 
+class PlaceHolderView(generic.View):
+
+    def get(self, request, *args, **kwargs):
+        return
+
+
 class PhotoListView(generic.ListView):
     model = Photo
     queryset = Photo.objects.all()
