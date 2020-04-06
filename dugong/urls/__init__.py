@@ -14,6 +14,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("blog/", include("apps.blog.urls", namespace="blog")),
     path("tutorials/", include("apps.tutorials.urls", namespace="tutorials")),
+    path("photos/", include("apps.photos.urls", namespace="photos")),
     path(
         "exchangerates/", include("apps.exchangerates.urls", namespace="exchangerates")
     ),

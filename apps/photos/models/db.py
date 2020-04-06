@@ -75,6 +75,9 @@ class Photo(models.Model):
             _img_url = f"https://image.jiaxin.im{_img_url}"
         return _img_url
 
+    def gallery_image(self):
+        return self.resize_image(1280)
+
 
 class Exif(models.Model):
     photo = models.OneToOneField("Photo", related_name="exif", on_delete=models.CASCADE)

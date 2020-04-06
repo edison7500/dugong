@@ -17,7 +17,7 @@ class ImageProcessView(ProcessImageMixin, generic.View):
         return res
 
 
-class ImageListView(generic.ListView):
+class PhotoListView(generic.ListView):
     model = Photo
     queryset = Photo.objects.all()
     template_name = "photo/index.html"

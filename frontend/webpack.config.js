@@ -1,7 +1,7 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const argv = require("yargs").argv;
 const path = require("path");
-// const webpack = require("webpack");
+const webpack = require("webpack");
 
 let debug = argv.mode !== "production";
 
@@ -21,6 +21,10 @@ module.exports = {
       filename: debug ? "[id]-[contenthash].css" : "[contenthash:8].min.css",
       chunkFilename: debug ? "[id].css" : "[id]-[contenthash].min.css",
     }),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    })
   ],
 
   module: {

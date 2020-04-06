@@ -1,17 +1,27 @@
-import StickySidebar from "sticky-sidebar";
-import {ImageLazyLoad} from "./src/lazyload";
-
-new ImageLazyLoad().run();
-
 require("./scss/dugong.scss");
 
-new StickySidebar("#sidebar", {
-  topSpacing: 50,
-  bottomSpacing: 50,
-  additionalMarginTop: 30,
-  resizeSensor: false,
-  // minWidth: 300,
-  containerSelector: "#main-content",
-  innerWrapperSelector: ".sidebar__inner",
-  stickyClass: "is-affixed",
-});
+// import StickySidebar from "sticky-sidebar";
+import {ImageLazyLoad} from "./src/utils/lazyload";
+import {SSbar} from "./src/utils/sticky_sidebar";
+
+
+new ImageLazyLoad().run();
+new SSbar();
+
+// let sidebar = document.getElementById("sidebar");
+//
+// if (sidebar) {
+//   new StickySidebar(sidebar, {
+//     topSpacing: 20,
+//     bottomSpacing: 20,
+//     // additionalMarginTop: 30,
+//     resizeSensor: true,
+//     // minWidth: 300,
+//     containerSelector: "#main-content",
+//     // containerSelector: false,
+//     innerWrapperSelector: ".sidebar__inner",
+//     stickyClass: "is-affixed",
+//   });
+// }
+
+

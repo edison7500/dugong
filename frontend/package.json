@@ -4,14 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --config webpack.local.config.js --mode development --progress --colors -d",
-    "build": "webpack --config webpack.prod.config.js --mode production --progress --colors"
+    "dev": "webpack --config webpack.local.config.js --mode development --progress --profile",
+    "watch": "webpack --config webpack.local.config.js --mode development --progress -d -w",
+    "build": "webpack --config webpack.prod.config.js --mode production --progress"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.1",
+    "jquery": "^3.4.1",
+    "jquery-lazyload": "^1.9.7",
     "node-gyp": "^6.1.0",
+    "npm": "^6.14.4",
     "sticky-sidebar": "^3.3.1"
   },
   "devDependencies": {
@@ -20,7 +24,6 @@
     "css-loader": "^3.4.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^5.1.0",
-    "font-awesome-sass-loader": "^2.0.1",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",

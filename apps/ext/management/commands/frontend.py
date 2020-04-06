@@ -6,7 +6,7 @@ from django.conf import settings
 class Command(LabelCommand):
 
     frontend_dir = getattr(settings, "FRONTEND_DIR")
-    commands = ["install", "build", "dev"]
+    commands = ["install", "build", "dev", "watch"]
 
     @classmethod
     def validate(cls, label):
@@ -23,6 +23,9 @@ class Command(LabelCommand):
 
     def handle_dev(self, **options):
         self.npm_run(["run", "dev"])
+
+    def handle_watch(self, **options):
+        self.npm_run(["run", "watch"])
 
     def handle_build(self, **options):
         self.npm_run(["run", "build"])

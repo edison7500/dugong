@@ -2,8 +2,21 @@
 {% load i18n %}
 {% load dugong_tags %}
 
-
 {% block content %}
-
+	<div class="columns is-multiline">
+		{% for row in object_list %}
+			<div class="column is-one-quarter">
+				<div class="card">
+					<figure class="image is-4by3">
+						<img class="lazy"
+								 src="https://bulma.io/images/placeholders/1280x960.png"
+								 data-original="{{ row.gallery_image }}"
+								 alt="Placeholder image"
+						>
+					</figure>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
 
 {% endblock %}
