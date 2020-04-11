@@ -3,33 +3,33 @@
 {% load dugong_tags %}
 
 {% block content %}
-    <nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
-        <ul>
-            <li>
-                <a href="{% url 'homepage' %}" title="{% trans 'home' %}">
-                    <i class="fa fa-home"></i>&nbsp;{% trans 'home' %}
-                </a>
-            </li>
-            <li class="is-active">
-                <a href="#" title="{{ tag.name }}">
-                    <i class="fa fa-tag"></i>&nbsp;{{ tag.name }}
-                </a>
-            </li>
-        </ul>
-    </nav>
+	<nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
+		<ul>
+			<li>
+				<a href="{% url 'homepage' %}" title="{% trans 'home' %}">
+					<i class="fas fa-home"></i>&nbsp;{% trans 'home' %}
+				</a>
+			</li>
+			<li class="is-active">
+				<a href="#" title="{{ tag.name }}">
+					<i class="fas fa-tag"></i>&nbsp;{{ tag.name }}
+				</a>
+			</li>
+		</ul>
+	</nav>
 
-    <div class="columns is-desktop is-multiline">
-        <div class="column is-8" style="background-color: #fff;">
-            {% for row in object_list %}
-                {% include 'widgets/articles/_cell.html' with post=row %}
-            {% endfor %}
-        </div>
+	<div class="columns is-desktop is-multiline">
+		<div class="column is-8" style="background-color: #fff;">
+			{% for row in object_list %}
+				{% include 'widgets/articles/_cell.html' with post=row %}
+			{% endfor %}
+		</div>
 
-        <div class="column is-4">
-            <div class="sidebar__inner">
-                {% include "sidebar/_github.html"  %}
-            </div>
-        </div>
-    </div>
-    {% dugong_pagination page_obj url=request.url %}
+		<div class="column is-4">
+			<div class="sidebar__inner">
+				{% include "sidebar/_github.html" %}
+			</div>
+		</div>
+	</div>
+	{% dugong_pagination page_obj url=request.url size="small" pages_to_show=4 %}
 {% endblock %}
