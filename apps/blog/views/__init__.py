@@ -30,7 +30,7 @@ class BlogYearArchiveView(YearArchiveView):
     model = Post
     date_field = "created_at"
     template_name = "archive/blogs/post_archive_year.html"
-    queryset = Post.objects.published()
+    queryset = Post.objects.published().prefetch_related("tags")
     make_object_list = True
     allow_future = True
     paginate_by = 20
@@ -40,7 +40,7 @@ class BlogDetailView(DetailView):
     model = Post
     template_name = "blog/detail.html"
     slug_field = "slug"
-    queryset = Post.objects.published()
+    queryset = Post.objects.published().prefetch_related("tags")
 
     def get_context_data(self, **kwargs):
         context = super(BlogDetailView, self).get_context_data(**kwargs)
@@ -64,7 +64,7 @@ class BlogDetailView(DetailView):
 class PostTagListView(ListView):
     # http_method_names = ["get", "head"]
     model = Post
-    queryset = Post.objects.published()
+    queryset = Post.objects.published().prefetch_related("tags")
     template_name = "blog/tag/list.html"
     paginate_by = 30
 
