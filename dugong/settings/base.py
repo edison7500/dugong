@@ -1,9 +1,9 @@
 import environ
 import tempfile
 
-ROOT_DIR = environ.Path(__file__) - 3  # three folder back (/a/b/c/ - 3 = /)
+BASE_DIR = environ.Path(__file__) - 3  # three folder back (/a/b/c/ - 3 = /)
 env = environ.Env()
-env.read_env(str(ROOT_DIR.path(".env")))
+env.read_env(str(BASE_DIR.path(".env")))
 
 DEBUG = env("DJANGO_DEBUG", default=True)  # False if not in os.environ
 
@@ -24,7 +24,7 @@ USE_X_FORWARDED_HOST = True
 
 SITE_ID = 1
 
-LOCALE_PATHS = (str(ROOT_DIR.path("dugong/conf/locale")),)
+LOCALE_PATHS = (str(BASE_DIR.path("dugong/conf/locale")),)
 
 ROOT_URLCONF = "dugong.urls"
 
@@ -83,13 +83,13 @@ STATIC_ROOT = "/tmp/static"
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
-STATICFILES_DIRS = [str(ROOT_DIR.path("static"))]
+STATICFILES_DIRS = [str(BASE_DIR.path("static"))]
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
-FRONTEND_DIR = str(ROOT_DIR.path("frontend"))
+FRONTEND_DIR = str(BASE_DIR.path("frontend"))
 
 MEDIA_URL = "/upload/"
 MEDIA_ROOT = "upload/"
@@ -113,7 +113,7 @@ MIDDLEWARE = [
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [str(ROOT_DIR.path("templates"))],
+        "DIRS": [str(BASE_DIR.path("templates"))],
         "APP_DIRS": True,
         "OPTIONS": {
             "debug": DEBUG,
@@ -154,7 +154,7 @@ WEBPACK_LOADER = {
         "CACHE": not DEBUG,
         "BUNDLE_DIR_NAME": "dist/",  # must end with slash
         # 'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
-        "STATS_FILE": str(ROOT_DIR.path("static/webpack-stats.json")),
+        "STATS_FILE": str(BASE_DIR.path("static/webpack-stats.json")),
         "POLL_INTERVAL": 0.1,
         "TIMEOUT": None,
         "IGNORE": [".+\.hot-update.js", ".+\.map"],
