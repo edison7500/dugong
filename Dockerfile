@@ -1,4 +1,4 @@
-FROM python:3.7.5
+FROM python:3.7.7
 ENV PYTHONUNBUFFERED 1
 ADD requirements /tmp/requirements
 RUN pip install --upgrade pip

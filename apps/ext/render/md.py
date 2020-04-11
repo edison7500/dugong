@@ -1,8 +1,6 @@
 import markdown
 
-
 _extension_configs = {"codehilite": {"linenums": True}}
-
 
 md = markdown.Markdown(
     output_format="html",

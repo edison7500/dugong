@@ -19,8 +19,4 @@ class ExtensionPagination(pagination.PageNumberPagination):
                 ("results", data),
             ]
         )
-        # if self.request.iso_code
-        # if hasattr(self.request, "iso_code"):
-        #     ret.update({"iso_code": self.request.iso_code})
-
         return Response(data=ret)
