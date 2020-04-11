@@ -43,6 +43,10 @@ urlpatterns += [path("api/", include("dugong.urls.api", namespace="api"))]
 
 urlpatterns += [re_path(r"^$", BlogListView.as_view(), name="homepage")]
 
+urlpatterns += [
+    path("placeholder/", include("placeholder.urls")),
+]
+
 #
 # site map config
 #

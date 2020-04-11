@@ -1,5 +1,5 @@
 coreapi==2.3.3
-Django==2.2.11 # pyup: >=2.2,<3.0
+Django==2.2.12 # pyup: >=2.2,<3.0
 django-allauth==0.41.0
 django-braces==1.14.0
 django-cache-machine==1.1.0
@@ -56,3 +56,5 @@ xmltodict==0.11.0
 
 numpy==1.18.1
 
+
+https://github.com/edison7500/django-placeholder/archive/v0.0.1.tar.gz
