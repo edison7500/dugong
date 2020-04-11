@@ -10,7 +10,7 @@ class BlogListView(ArchiveIndexView):
     model = Post
     template_name = "blog/list.html"
     paginate_by = 20
-    queryset = Post.objects.published()
+    queryset = Post.objects.published().prefetch_related("tags")
     date_field = "created_at"
     date_list_period = "year"
     allow_empty = True
