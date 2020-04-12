@@ -8,7 +8,7 @@ branches:
 before_install:
   - curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
   - sudo apt-get install nodejs -y -q
-  - pip install -U pip 
+  - pip install -U pip
 install:
   - pip install -r requirements/local.txt
   - pip install flake8
