@@ -38,10 +38,22 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(sass|scss|less|css)$/i,
+        test: /\.(sa|sc|c)ss$/i,
         use: [
           {loader: MiniCssExtractPlugin.loader},
-          {loader: "css-loader"},
+          {
+            loader: "css-loader",
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              plugins: function () {
+                return [
+                  require('autoprefixer')
+                ];
+              }
+            }
+          },
           {
             loader: "sass-loader",
             options: {
