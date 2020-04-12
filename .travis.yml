@@ -16,6 +16,7 @@ before_script:
   - export DJANGO_SETTINGS_MODULE=dugong.settings.stage
   - mv .env.example .env
 script:
+  - python manage.py frontend install
   - python manage.py frontend dev
   - python manage.py test --parallel
 after_success:

@@ -1,12 +1,12 @@
 {
   "name": "dugong",
   "version": "1.0.0",
-  "description": "",
+  "description": "dugong fronted",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --config webpack.local.config.js --mode development --progress --profile",
-    "watch": "webpack --config webpack.local.config.js --mode development --progress -d -w",
-    "build": "webpack --config webpack.prod.config.js --mode production --progress"
+    "dev": "webpack --config webpack.config.js --mode development --progress --profile",
+    "watch": "webpack --config webpack.config.js --mode development --progress -d -w",
+    "build": "webpack --config webpack.prod.config.js --mode production --progress -p"
   },
   "author": "",
   "license": "MIT",

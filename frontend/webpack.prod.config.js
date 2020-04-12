@@ -1,5 +1,3 @@
-const {CleanWebpackPlugin} = require("clean-webpack-plugin");
-const BundleTracker = require("webpack-bundle-tracker");
 // const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -15,11 +13,4 @@ module.exports = merge(config, {
       new TerserPlugin(),
     ],
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new BundleTracker({
-      filename: "../static/webpack-stats.json",
-      relativePath: true
-    }),
-  ]
 });

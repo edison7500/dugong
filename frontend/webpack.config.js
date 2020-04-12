@@ -1,3 +1,5 @@
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const BundleTracker = require('webpack-bundle-tracker');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const argv = require("yargs").argv;
 const path = require("path");
@@ -21,6 +23,8 @@ module.exports = {
       filename: debug ? "[id]-[contenthash].css" : "[contenthash:8].min.css",
       chunkFilename: debug ? "[id].css" : "[id]-[contenthash].min.css",
     }),
+    new CleanWebpackPlugin(),
+    new BundleTracker({filename: "../static/webpack-stats.json"}),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery"
