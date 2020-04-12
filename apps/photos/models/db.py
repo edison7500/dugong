@@ -76,7 +76,7 @@ class Photo(models.Model):
         return _img_url
 
     def gallery_image(self):
-        return self.resize_image(1280)
+        return self.resize_image(600)
 
 
 class Exif(models.Model):
