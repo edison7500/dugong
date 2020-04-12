@@ -11,9 +11,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@fancyapps/fancybox": "^3.5.7",
     "@fortawesome/fontawesome-free": "^5.12.1",
-    "csscomb-loader": "0.0.2",
     "jquery": "^3.4.1",
     "jquery-colorbox": "^1.6.4",
     "jquery-lazyload": "^1.9.7",
