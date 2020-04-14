@@ -1,2 +1,0 @@
-{{ object.title }}
-{{ object.html_content|striptags }}
