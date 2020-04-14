@@ -11,8 +11,8 @@ class SSbar {
 
   initialize(sidebar) {
     this.sticky = new StickySidebar(sidebar, {
-        topSpacing: 20,
-        bottomSpacing: 20,
+        topSpacing: 50,
+        bottomSpacing: 60,
         // additionalMarginTop: 30,
         resizeSensor: false,
         // minWidth: 300,

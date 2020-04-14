@@ -1,0 +1,25 @@
+{% extends "base/bulma_base.html" %}
+
+{% block content %}
+	<div class="section">
+		<div class="columns is-centered">
+			<div class="column is-6">
+				<div class="content is-large">
+					<h1>
+						<i class="fas fa-grin-beam-sweat"></i>&nbsp;{{ title }} <span>(403)</span>
+					</h1>
+					<p>{{ main }}</p>
+					{% if no_referer %}
+						<p>{{ no_referer1 }}</p>
+						<p>{{ no_referer2 }}</p>
+						<p>{{ no_referer3 }}</p>
+					{% endif %}
+					{% if no_cookie %}
+						<p>{{ no_cookie1 }}</p>
+						<p>{{ no_cookie2 }}</p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

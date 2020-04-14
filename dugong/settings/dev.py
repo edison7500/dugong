@@ -18,6 +18,8 @@ DATABASES["default"]["ATOMIC_REQUESTS"] = True
 #
 SESSION_ENGINE = "django.contrib.sessions.backends.file"
 SESSION_FILE_PATH = "/tmp/"
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
 
 # django-debug-toolbar
 # ------------------------------------------------------------------------------
