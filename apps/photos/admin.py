@@ -39,8 +39,8 @@ class PhotoAdmin(admin.ModelAdmin):
     readonly_fields = ["user", "thumbnail"]
 
     fieldsets = (
-        (_("photo-info"), {"fields": ("user", "thumbnail")}),
-        (_("photo"), {"fields": ("description", "category", "file")}),
+        (_("photo-info"), {"fields": ("user", "thumbnail", "file")}),
+        (_("photo"), {"fields": ("description", "category")}),
     )
 
     list_per_page = 30

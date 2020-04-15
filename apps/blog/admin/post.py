@@ -30,5 +30,5 @@ class PostAdmin(admin.ModelAdmin):
     inlines = (PostImageInlineAdmin,)
     # form = PostForm
 
-    # def get_queryset(self, request):
-    #     return super().get_queryset(request).prefetch_related("tags")
+    def get_queryset(self, request):
+        return super().get_queryset(request).prefetch_related("tags")
