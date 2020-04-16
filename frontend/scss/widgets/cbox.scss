@@ -1,3 +1,5 @@
+@import "~bulma/sass/components/modal";
+
 #cboxOverlay {
   position: fixed;
   width: 100%;
@@ -7,3 +9,8 @@
   left: 0;
   filter: alpha(opacity=50);
 }
+
+//#colorbox {
+//  @extend .modal;
+//}
+
