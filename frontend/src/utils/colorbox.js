@@ -15,6 +15,7 @@ class Colorbox {
       fixed: true,
       rel: "gal",
       current: "",
+      className: "modal-background",
       previous: this.previous,
       next: this.next,
       close: this.close,
