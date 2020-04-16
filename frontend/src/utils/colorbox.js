@@ -15,10 +15,13 @@ class Colorbox {
       fixed: true,
       rel: "gal",
       current: "",
+      className: "modal",
       previous: this.previous,
       next: this.next,
       close: this.close,
-      scrolling:false,
+      scrolling: false,
+      maxWidth: "75%",
+      maxHeight: "75%",
     });
   }
 }
