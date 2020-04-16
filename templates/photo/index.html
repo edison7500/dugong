@@ -2,6 +2,9 @@
 {% load i18n %}
 {% load dugong_tags %}
 
+
+{% block title %}{% trans 'photos' %}{% endblock %}
+
 {% block content %}
 	<div class="columns is-multiline">
 		{% for row in object_list %}
