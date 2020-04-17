@@ -3,9 +3,9 @@ import "jquery-colorbox"
 
 class Colorbox {
   constructor() {
-    this.close = `<i class='fas fa-times'></i>`;
-    this.previous = `<i class="fas fa-chevron-left"></i>`;
-    this.next = `<i class="fas fa-chevron-right"></i>`;
+    this.close = "<i class='fas fa-times'></i>";
+    this.previous = "<i class='fas fa-chevron-left'></i>";
+    this.next = "<i class='fas fa-chevron-right'></i>";
     this.init();
   }
 
@@ -26,4 +26,4 @@ class Colorbox {
   }
 }
 
-export {Colorbox}
+export {Colorbox};
