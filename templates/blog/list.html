@@ -17,8 +17,8 @@
 		</ul>
 	</nav>
 
-	<div class="columns is-desktop is-multiline clearfix" id="main-content">
-		<div class="column is-8" id="content">
+	<div class="columns is-multiline clearfix" id="main-content">
+		<div class="column is-8-desktop is-12-mobile" id="content">
 			<section class="box">
 				{% for row in object_list %}
 					{% include 'widgets/articles/_cell.html' with post=row %}
@@ -26,7 +26,7 @@
 			</section>
 		</div>
 
-		<div class="column is-4" id="sidebar">
+		<div class="column is-4-desktop is-hidden-mobile" id="sidebar">
 			<div class="sidebar__inner">
 				{% include "sidebar/_github.html" %}
 				<nav class="panel">
