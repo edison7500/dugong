@@ -38,6 +38,10 @@ urlpatterns = [
         "exchangerate/",
         include("apps.exchangerates.urls.api", namespace="exchangerate"),
     ),
+
+    path(
+        "eprint/", include("apps.eprint.urls.api"),
+    )
 ]
 
 urlpatterns += [

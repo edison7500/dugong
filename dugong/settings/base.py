@@ -72,6 +72,7 @@ LOCAL_APPS = [
     "apps.images",
     "apps.photos",
     "apps.exchangerates",
+    "apps.eprint",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + REST_FRAMEWORK_APPS + THIRD_PARTY_APPS + LOCAL_APPS
