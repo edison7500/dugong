@@ -15,7 +15,7 @@ class Eprint(models.Model):
     authors = ArrayField(models.CharField(max_length=255, ), blank=True, )
     summary = models.TextField(blank=True, null=True)
     category = models.CharField(max_length=255)
-    keywords = ArrayField(models.CharField(max_length=255), blank=True, null=True)
+    keywords = ArrayField(models.CharField(max_length=255), blank=True, default=list)
     origin_link = models.URLField(max_length=255, unique=True)
     published_at = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
 
