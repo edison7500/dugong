@@ -2,20 +2,20 @@
 {% load i18n static %}
 
 {% block content %}
-    <div class="columns is-desktop is-centered">
-        <div class="column is-12-desktop">
-            <div class="box">
-                <form method="post">{% csrf_token %}
-                    <fieldset>
-                        {{ form }}
-                        <div class="field">
-                            <button type="submit" class="button is-primary">{% trans 'update' %}</button>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-    </div>
+	<div class="columns is-desktop is-centered">
+		<div class="column is-12-desktop">
+			<div class="box">
+				<form method="post">{% csrf_token %}
+					<fieldset>
+						{{ form }}
+						<div class="field">
+							<button type="submit" class="button is-primary">{% trans 'update' %}</button>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
 {% endblock %}
 
 
