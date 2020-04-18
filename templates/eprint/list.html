@@ -1,0 +1,44 @@
+{% extends "base/bulma_base.html" %}
+{% load i18n %}
+{% load dugong_tags %}
+
+
+{% block title %}{% trans 'cryptology' %}{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="columns is-desktop is-multiline clearfix is-centered">
+			<div class="column is-8">
+				{% for row in object_list %}
+					<div class="box">
+						<article class="media">
+							<div class="media-content">
+								<h1 class="title typo-h1" style="font-size: 20px; line-height: 1.3em;">
+									<a href="#" title="{{ row.title }}">{{ row.title }}</a>
+								</h1>
+								<div class="typo-p">
+									{{ row.html_summary|safe }}
+								</div>
+								<nav class="level" style="margin-top: 10px;">
+									<div class="level-left">
+										<div class="tags">
+											{% for keyword in row.keywords|slice:3 %}
+												<span class="tag">{{ keyword }}</span>
+											{% endfor %}
+										</div>
+									</div>
+								</nav>
+							</div>
+
+						</article>
+					</div>
+				{% endfor %}
+			</div>
+
+			<div class="column is-8">
+				{% dugong_pagination page_obj url=request.url size="small" pages_to_show=4 %}
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

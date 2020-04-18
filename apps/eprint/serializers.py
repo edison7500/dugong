@@ -5,4 +5,4 @@ from .models import Eprint
 class EprintSerializer(serializers.ModelSerializer):
     class Meta:
         model = Eprint
-        fields = "__all__"
+        exclude = ["id"]

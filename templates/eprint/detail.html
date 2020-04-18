@@ -1,0 +1,30 @@
+{% extends "base/bulma_base.html" %}
+
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+	<div class="columns is-desktop is-multiline is-centered">
+		<div class="column is-8 content">
+			<div class="box">
+				<h1 class="typo-h1 title">{{ object.title }}</h1>
+				<div class="meta" style="margin-bottom: 20px;">
+					<time><i class="fa fa-calendar-alt"></i>&nbsp;{{ object.created_at|date:'Y-m-d' }}</time>
+				</div>
+				<article>
+					{{ object.html_content|safe }}
+				</article>
+
+				<hr class="typo-hr">
+
+				<nav class="level is-desktop">
+					<div class="level-left tags">
+						{% for tag in object.tags.all %}
+							<a class="level-item tag is-small" href="{% url 'blog:tags' tag.pk %}"
+								 title="{{ tag.name }}">{{ tag.name }}</a>
+						{% endfor %}
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+{% endblock %}
