@@ -2,7 +2,6 @@
 {% load i18n %}
 {% load dugong_tags %}
 
-
 {% block title %}{% trans 'cryptology' %}{% endblock %}
 
 {% block content %}
@@ -13,18 +12,31 @@
 					<div class="box">
 						<article class="media">
 							<div class="media-content">
-								<h1 class="title typo-h1" style="font-size: 20px; line-height: 1.3em;">
-									<a href="#" title="{{ row.title }}">{{ row.title }}</a>
+								<h1 class="title is-5">
+									<a href="{{ row.get_absolute_url }}" title="{{ row.title }}">{{ row.title }}</a>
 								</h1>
-								<div class="typo-p">
+								<nav class="level">
+									<div class="left">
+										<div class="tags">
+											{#											<i class="far fa-user tag"></i>&nbsp;#}
+											{% for author in row.author %}
+												<span class="tag is-success is-light">{{ author }}</span>
+											{% endfor %}
+										</div>
+									</div>
+								</nav>
+								<div class="content">
 									{{ row.html_summary|safe }}
 								</div>
 								<nav class="level" style="margin-top: 10px;">
 									<div class="level-left">
-										<div class="tags">
-											{% for keyword in row.keywords|slice:3 %}
-												<span class="tag">{{ keyword }}</span>
-											{% endfor %}
+										<div class="level-item">
+											<span class="tag is-info  is-light">{{ row.category }}</span>
+										</div>
+									</div>
+									<div class="level-right">
+										<div class="level-item">
+											<i class="fas fa-calendar-alt"></i>&nbsp;{{ row.published_at }}
 										</div>
 									</div>
 								</nav>

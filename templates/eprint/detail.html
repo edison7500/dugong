@@ -1,27 +1,57 @@
 {% extends "base/bulma_base.html" %}
+{% load i18n %}
 
 {% block title %}{{ object.title }}{% endblock %}
 
 {% block content %}
+	<div class="columns is-desktop">
+		<div class="column is-8 is-offset-2">
+			<nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
+				<ul>
+					<li>
+						<a href="{% url 'homepage' %}" title="{% trans 'home' %}">
+							<i class="fa fa-home"></i>&nbsp;{% trans 'home' %}
+						</a></li>
+					<li>
+						<a href="{% url 'eprint:index' %}" title="{% trans 'eprint' %}">
+							<i class="fas fa-pencil-alt"></i>&nbsp;{% trans 'eprint' %}</a>
+					</li>
+					<li>
+						<a href="{% url 'eprint:index' %}" title="{% trans 'category' %}">
+							<i class="fas fa-category"></i>&nbsp;{{ object.category }}</a>
+					</li>
+					<li class="is-active">
+						<a href="#" title="{{ object.title }}" aria-current="page">{{ object.title }}</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+
 	<div class="columns is-desktop is-multiline is-centered">
 		<div class="column is-8 content">
 			<div class="box">
-				<h1 class="typo-h1 title">{{ object.title }}</h1>
-				<div class="meta" style="margin-bottom: 20px;">
-					<time><i class="fa fa-calendar-alt"></i>&nbsp;{{ object.created_at|date:'Y-m-d' }}</time>
+				<h1 class="title is-3">{{ object.title }}</h1>
+
+				<div class="tags is-grouped is-grouped-multiline">
+					{% for keyword in object.keywords %}
+						<span class="tag">{{ keyword }}</span>
+					{% endfor %}
 				</div>
+
+				<hr/>
 				<article>
-					{{ object.html_content|safe }}
+					{{ object.html_summary|safe }}
 				</article>
-
-				<hr class="typo-hr">
-
+				<br/>
 				<nav class="level is-desktop">
-					<div class="level-left tags">
-						{% for tag in object.tags.all %}
-							<a class="level-item tag is-small" href="{% url 'blog:tags' tag.pk %}"
-								 title="{{ tag.name }}">{{ tag.name }}</a>
-						{% endfor %}
+					<div class="level-left">
+						<i class="fas fa-calendar-alt"></i>&nbsp;{{ object.published_at }}
+					</div>
+					<div class="level-right">
+						<a href="{{ object.get_pdf_url }}" target="_blank" title="{{ object.title }}">
+							<i class="fas fa-file-pdf"></i>
+						</a>
 					</div>
 				</nav>
 			</div>
