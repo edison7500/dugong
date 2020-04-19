@@ -10,3 +10,4 @@ class EprintViewTestCase(TestCase):
         res = self.client.get(_url)
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertTemplateUsed(res, "eprint/list.html")
+        self.assertTemplateUsed(res, "eprint/snippets/categories.html")
