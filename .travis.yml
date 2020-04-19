@@ -15,6 +15,7 @@ install:
   - pip install -r requirements/local.txt
   - pip install flake8
 before_script:
+  - psql -c 'create database dugong;' -U postgres
   - export DJANGO_SETTINGS_MODULE=dugong.settings.stage
   - mv .env.example .env
 script:
