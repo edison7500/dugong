@@ -28,7 +28,7 @@
 		</div>
 	</div>
 
-	<div class="columns  is-multiline is-centered">
+	<div class="columns is-multiline is-centered">
 		<div class="column is-8-desktop is-12-mobile">
 			<div class="box content">
 				<h1 class="title is-3">{{ object.title }}</h1>
@@ -46,7 +46,7 @@
 				<br/>
 				<nav class="level is-desktop">
 					<div class="level-left">
-						<i class="fas fa-calendar-alt"></i>&nbsp;{{ object.published_at }}
+						<i class="fas fa-calendar-alt"></i>&nbsp;{{ object.received_at }}
 					</div>
 					<div class="level-right">
 						<a href="{{ object.get_pdf_url }}" target="_blank" title="{{ object.title }}">

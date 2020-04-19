@@ -6,8 +6,31 @@
 
 {% block content %}
 	<div class="container">
-		<div class="columns is-desktop is-multiline clearfix is-centered">
-			<div class="column is-8">
+		<div class="columns is-centered">
+			<div class="column is-8-desktop is-hidden-mobile">
+				<nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
+					<ul>
+						<li>
+							<a href="{% url 'homepage' %}" title="{% trans 'home' %}">
+								<i class="fa fa-home"></i>&nbsp;{% trans 'home' %}
+							</a></li>
+						<li>
+							<a href="{% url 'eprint:index' %}" title="{% trans 'eprint' %}">
+								<i class="fas fa-file-pdf"></i>&nbsp;{% trans 'eprint' %}</a>
+						</li>
+						<li>
+							<a href="#" title="{% if category %}{{ category }}{% else %}{% trans 'all' %}{% endif %}">
+								<i class="fas fa-category"></i>
+								&nbsp;{% if category %}{{ category }}{% else %}{% trans 'all' %}{% endif %}
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+		<div class="columns is-multiline is-centered">
+			<div class="column is-8-desktop">
 				{% for row in object_list %}
 					<div class="box">
 						<article class="media">
@@ -18,7 +41,6 @@
 								<nav class="level">
 									<div class="left">
 										<div class="tags">
-											{#											<i class="far fa-user tag"></i>&nbsp;#}
 											{% for author in row.authors %}
 												<span class="tag is-success is-light">{{ author }}</span>
 											{% endfor %}
@@ -29,11 +51,16 @@
 									{{ row.html_summary|safe }}
 								</div>
 								<nav class="level" style="margin-top: 10px;">
-									<div class="level-left">
-										<div class="level-item">
-											<span class="tag is-info is-light">{{ row.category }}</span>
+									{% if row.category %}
+										<div class="level-left">
+											<div class="level-item">
+												<a href="{% url 'eprint:index' %}?category={{ row.category }}"
+													 class="tag is-info is-light">
+													{{ row.category }}
+												</a>
+											</div>
 										</div>
-									</div>
+									{% endif %}
 									<div class="level-right">
 										<div class="level-item">
 											<i class="fas fa-calendar-alt"></i>&nbsp;{{ row.received_at }}
