@@ -1,7 +1,6 @@
-from django.db import models
 from django.contrib.postgres.fields import ArrayField
+from django.db import models
 from django.urls import reverse
-from django.utils import timezone
 from django_extensions.db import fields
 
 from apps.ext.render.md import md
@@ -17,10 +16,11 @@ class Eprint(models.Model):
     category = models.CharField(max_length=255, blank=True, null=True)
     keywords = ArrayField(models.CharField(max_length=255), blank=True, default=list)
     origin_link = models.URLField(max_length=255, unique=True)
-    published_at = models.DateTimeField(default=timezone.now, db_index=True, editable=False)
+    received_at = models.DateField(db_index=True, null=True)
+    last_revised_at = models.DateField(db_index=True, null=True)
 
     class Meta:
-        ordering = ["-published_at"]
+        ordering = ["-received_at"]
 
     def __str__(self):
         return self.title
