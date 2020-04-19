@@ -1,4 +1,6 @@
 from django.views import generic
+
+from ..filters import EprintFilterSet
 from ..models import Eprint
 
 
@@ -14,10 +16,8 @@ class EprintListView(generic.ListView):
 
     def get_queryset(self):
         qs = super().get_queryset()
-        if self.category:
-            return qs.filter(category=self.category)
-        else:
-            return qs
+        eprint_filter_list = EprintFilterSet(self.request.GET, queryset=qs)
+        return eprint_filter_list.qs
 
     def get_context_data(self, **kwargs):
         _context = super().get_context_data(**kwargs)
