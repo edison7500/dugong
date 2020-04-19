@@ -17,7 +17,7 @@
 							<i class="fas fa-pencil-alt"></i>&nbsp;{% trans 'eprint' %}</a>
 					</li>
 					<li>
-						<a href="{% url 'eprint:index' %}" title="{% trans 'category' %}">
+						<a href="{% url 'eprint:index' %}?category={{ object.category }}" title="object.category">
 							<i class="fas fa-category"></i>&nbsp;{{ object.category }}</a>
 					</li>
 					<li class="is-active">
