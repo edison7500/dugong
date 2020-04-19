@@ -3,6 +3,7 @@ from django.db import models
 from django.urls import reverse
 from django_extensions.db import fields
 
+from apps.eprint.models.manager import EprintManager
 from apps.ext.render.md import md
 
 
@@ -18,6 +19,8 @@ class Eprint(models.Model):
     origin_link = models.URLField(max_length=255, unique=True)
     received_at = models.DateField(db_index=True, null=True)
     last_revised_at = models.DateField(db_index=True, null=True)
+
+    objects = EprintManager()
 
     class Meta:
         ordering = ["-received_at"]
