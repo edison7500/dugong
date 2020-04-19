@@ -17,8 +17,7 @@ install:
 before_script:
   - psql -c 'create database dugong;' -U postgres
   - export DJANGO_SETTINGS_MODULE=dugong.settings.stage
-  - export DATABASE_URL=psql://postgres@localhost:5432/dugong
-  - mv .env.example .env
+  - mv env.example .env
 script:
   - python manage.py frontend install
   - python manage.py frontend dev
