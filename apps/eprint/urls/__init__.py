@@ -3,7 +3,7 @@ from ..views import EprintListView, EprintDetailView
 
 urlpatterns = [
     path("", EprintListView.as_view(), name="index"),
-    path("<int:slug>/", EprintDetailView.as_view(), name="detail"),
+    path("<slug:slug>/", EprintDetailView.as_view(), name="detail"),
 ]
 
 app_name = "eprint"
