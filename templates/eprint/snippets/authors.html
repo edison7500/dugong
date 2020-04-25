@@ -1,0 +1,12 @@
+{% load i18n %}
+
+<nav class="panel">
+	<p class="panel-heading">
+		{% trans "author" %}
+	</p>
+	{% for row in authors %}
+		<a class="panel-block is-active" href="{% url 'eprint:index' %}?author={{ row.author }}">
+			{{ row.author }}&nbsp;<span>{{ row.eprint_count }}</span>
+		</a>
+	{% endfor %}
+</nav>

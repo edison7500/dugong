@@ -11,3 +11,11 @@ def show_eprint_categories():
     return {
         "categories": categories,
     }
+
+
+@register.inclusion_tag("eprint/snippets/authors.html")
+def show_eprint_authors():
+    authors = Eprint.objects.authors()[:10]
+    return {
+        "authors": authors,
+    }
