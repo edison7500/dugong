@@ -6,7 +6,8 @@
 	</p>
 	{% for row in categories %}
 		<a class="panel-block is-active" href="{% url 'eprint:index' %}?category={{ row.category }}">
-			{{ row.category }}&nbsp;<span>{{ row.eprint_count }}</span>
+			<strong>{{ row.category }}</strong>&nbsp;
+			<span>{{ row.eprint_count }}</span>
 		</a>
 	{% endfor %}
 </nav>
