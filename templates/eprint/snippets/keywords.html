@@ -1,0 +1,12 @@
+{% load i18n %}
+
+<nav class="panel">
+	<p class="panel-heading">
+		{% trans "keywords" %}
+	</p>
+	{% for row in keywords %}
+		<a class="panel-block is-active" href="{% url 'eprint:index' %}?keyword={{ row.keyword }}">
+			<strong>{{ row.keyword }}</strong>&nbsp;<span>{{ row.eprint_count }}</span>
+		</a>
+	{% endfor %}
+</nav>
