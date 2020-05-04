@@ -1,5 +1,7 @@
+import tempfile
 from .base import *  # noqa
 from .base import env
+
 
 SECRET_KEY = env("SECRET_KEY", default="only dev replace me")
 
@@ -17,7 +19,7 @@ DATABASES["default"]["ATOMIC_REQUESTS"] = True
 # django session configure
 #
 SESSION_ENGINE = "django.contrib.sessions.backends.file"
-SESSION_FILE_PATH = "/tmp/"
+SESSION_FILE_PATH = tempfile.mktemp(dir="/tmp")
 # SESSION_COOKIE_SECURE = True
 # CSRF_COOKIE_SECURE = True
 
