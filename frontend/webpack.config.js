@@ -1,5 +1,5 @@
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
-const BundleTracker = require('webpack-bundle-tracker');
+const BundleTracker = require("webpack-bundle-tracker");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const argv = require("yargs").argv;
 const path = require("path");
@@ -49,7 +49,7 @@ module.exports = {
             options: {
               plugins: function () {
                 return [
-                  require('autoprefixer')
+                  require("autoprefixer")
                 ];
               }
             }
@@ -68,7 +68,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/i,
-        loader: 'url-loader',
+        loader: "url-loader",
         options: {limit: 12000}
       },
       {
