@@ -11,22 +11,9 @@
 
 {% block footer %}{% include 'base/snippets/footer.html' %}{% endblock %}
 
-{% block track_js %}
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-22063793-3"></script>
-	<script>
-    window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
 
-    gtag('js', new Date());
-    gtag('config', 'UA-22063793-3');
-	</script>
-{% endblock %}
-
-{% block extra_javascript %}
+{% block javascript %}
 	{#	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>#}
 	{% render_bundle 'main' 'js' %}
 {% endblock %}
