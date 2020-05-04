@@ -3,7 +3,7 @@ ENV PYTHONUNBUFFERED 1
 ADD requirements /tmp/requirements
 RUN pip install --upgrade pip
 RUN pip install -r /tmp/requirements/prod.txt && rm -rf /tmp/requirements
-RUN mkdir -p /opt/dugong
+ADD . /opt/dugong
 WORKDIR /opt/dugong
 
 EXPOSE 8000

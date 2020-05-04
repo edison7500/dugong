@@ -19,3 +19,11 @@ def show_eprint_authors():
     return {
         "authors": authors,
     }
+
+
+@register.inclusion_tag("eprint/snippets/keywords.html")
+def show_eprint_keywords():
+    keywords = Eprint.objects.keywords().filter(eprint_count__gt=5)
+    return {
+        "keywords": keywords,
+    }

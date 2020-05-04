@@ -33,3 +33,13 @@ class EprintDetailView(generic.DetailView):
     slug_url_kwarg = "slug"
     slug_field = "slug"
     template_name = "eprint/detail.html"
+
+
+class EprintKeyWordsView(generic.ListView):
+    model = Eprint
+    template_name = "eprint/keywords.html"
+    paginate_by = 50
+
+    def get_queryset(self):
+        qs = Eprint.objects.keywords()
+        return qs
