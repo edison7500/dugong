@@ -196,7 +196,7 @@ TAGGIT_CASE_INSENSITIVE = True
 CACHES = {
     "default": {
         "BACKEND": "diskcache.DjangoCache",
-        "LOCATION": "/tmp/cache",
+        "LOCATION": env("CACHE_PATH"),
         "SHARDS": 4,
         "DATABASE_TIMEOUT": 1.0,
         "OPTIONS": {"size_limit": 2 ** 32},  # 4 gigabytes

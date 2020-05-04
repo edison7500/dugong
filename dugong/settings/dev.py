@@ -18,7 +18,7 @@ DATABASES["default"]["ATOMIC_REQUESTS"] = True
 # django session configure
 #
 SESSION_ENGINE = "django.contrib.sessions.backends.file"
-SESSION_FILE_PATH = env("SESSION_PATH", default="/tmp")
+SESSION_FILE_PATH = env("SESSION_PATH")
 # SESSION_COOKIE_SECURE = True
 # CSRF_COOKIE_SECURE = True
 
