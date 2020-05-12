@@ -54,16 +54,16 @@
 									{{ row.html_summary|safe }}
 								</div>
 								<nav class="level" style="margin-top: 10px;">
-									{% if row.category %}
-										<div class="level-left">
+									<div class="level-left">
+										{% if row.category %}
 											<div class="level-item">
 												<a href="{% url 'eprint:index' %}?category={{ row.category }}"
 													 class="tag is-info is-light">
 													{{ row.category }}
 												</a>
 											</div>
-										</div>
-									{% endif %}
+										{% endif %}
+									</div>
 									<div class="level-right">
 										<div class="level-item">
 											<i class="fas fa-calendar-alt"></i>&nbsp;{{ row.received_at }}
