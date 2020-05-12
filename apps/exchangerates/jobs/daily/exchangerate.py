@@ -7,7 +7,9 @@ from django_extensions.management.jobs import BaseJob
 
 from apps.exchangerates.models import ExChangeRate
 
-HISTORIC_RATES_URL = "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.xml"
+HISTORIC_RATES_URL = (
+    "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.xml"
+)
 LAST_90_DAYS_RATES_URL = (
     "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml"
 )
@@ -30,7 +32,10 @@ class Job(BaseJob):
             )
             for d in data:
                 time = datetime.strptime(d.attrib["time"], "%Y-%m-%d").date()
-                rates = {c.attrib["currency"]: float(c.attrib["rate"]) for c in list(d)}
+                rates = {
+                    c.attrib["currency"]: float(c.attrib["rate"])
+                    for c in list(d)
+                }
                 e = ExChangeRate()
                 e.date = time
                 e.rates = rates

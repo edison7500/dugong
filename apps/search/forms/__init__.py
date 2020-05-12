@@ -15,7 +15,8 @@ def search_filter(search_fields, query_string):
 
     for bit in split_text_query(query_string):
         queries = [
-            Q(**{search_param(field_name, first): bit}) for field_name in search_fields
+            Q(**{search_param(field_name, first): bit})
+            for field_name in search_fields
         ]
         filters.append(reduce(Q.__or__, queries))
         first = False

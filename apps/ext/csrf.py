@@ -5,7 +5,9 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.version import get_docs_version
 
 
-def csrf_failure(request, reason="", template_name="base/errors/403_csrf.html"):
+def csrf_failure(
+    request, reason="", template_name="base/errors/403_csrf.html"
+):
     """
     Default view used when request fails CSRF protection
     """

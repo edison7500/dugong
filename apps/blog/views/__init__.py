@@ -73,7 +73,9 @@ class PostTagListView(ListView):
             self.thing_tag = Tag.objects.get(pk=self.kwargs.pop("tid"))
         except Tag.DoesNotExist:
             raise Http404
-        qs = super().get_queryset().filter(tags__name__in=[self.thing_tag.name])
+        qs = (
+            super().get_queryset().filter(tags__name__in=[self.thing_tag.name])
+        )
         return qs
 
     def get_context_data(self, **kwargs):

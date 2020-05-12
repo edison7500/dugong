@@ -15,9 +15,7 @@ class CategoryAdmin(DraggableMPTTAdmin):
     def get_queryset(self, request):
         qs = super().get_queryset(request)
 
-        return qs.annotate(
-            _photo_count=Count("photo")
-        )
+        return qs.annotate(_photo_count=Count("photo"))
 
     def photo_count(self, obj):
         return obj._photo_count
@@ -58,7 +56,9 @@ class PhotoAdmin(admin.ModelAdmin):
     def thumbnail(self, obj):
         print(obj)
         if obj.file:
-            return format_html(f'<img src="{obj.resize_image(300)}" width="150" />')
+            return format_html(
+                f'<img src="{obj.resize_image(300)}" width="150" />'
+            )
         else:
             return format_html(
                 f'<img src="https://static.jiaxin.im/dugong/static/img/placeholder.jpg" width="150" />'

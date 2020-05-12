@@ -87,5 +87,9 @@ class PostFeeds(Feed):
         return escape(desc[0] + u"。")
 
     def item_extra_kwargs(self, item):
-        extra = {"content_encoded": ("<![CDATA[%s]]>" % smart_str(item.html_content))}
+        extra = {
+            "content_encoded": (
+                "<![CDATA[%s]]>" % smart_str(item.html_content)
+            )
+        }
         return extra

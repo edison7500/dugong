@@ -35,7 +35,10 @@ class Migration(migrations.Migration):
                 ),
                 ("description", models.CharField(blank=True, max_length=255)),
                 ("is_cover", models.BooleanField(default=False)),
-                ("object_id", models.PositiveIntegerField(db_index=True, null=True)),
+                (
+                    "object_id",
+                    models.PositiveIntegerField(db_index=True, null=True),
+                ),
                 (
                     "uploaded_at",
                     models.DateTimeField(default=django.utils.timezone.now),

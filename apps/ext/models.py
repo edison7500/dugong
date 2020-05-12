@@ -7,7 +7,11 @@ from mptt.models import MPTTModel, TreeForeignKey
 
 class BaseModel(models.Model):
     slug = fields.RandomCharField(
-        length=12, unique=True, include_alpha=False, db_index=True, editable=False
+        length=12,
+        unique=True,
+        include_alpha=False,
+        db_index=True,
+        editable=False,
     )
 
     created_at = models.DateTimeField(
@@ -26,7 +30,11 @@ class BaseModel(models.Model):
 class Category(MPTTModel):
     name = models.CharField(max_length=50, unique=True)
     parent = TreeForeignKey(
-        "self", on_delete=models.CASCADE, null=True, blank=True, related_name="children"
+        "self",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="children",
     )
 
     class Meta:

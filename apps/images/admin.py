@@ -6,7 +6,13 @@ from .models import Image
 
 
 class ImagesAdmin(admin.ModelAdmin):
-    list_display = ["file", "description", "is_cover", "content_type", "uploaded_at"]
+    list_display = [
+        "file",
+        "description",
+        "is_cover",
+        "content_type",
+        "uploaded_at",
+    ]
     list_filter = ["is_cover"]
 
 

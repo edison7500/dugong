@@ -4,7 +4,6 @@ from rest_framework import status
 
 
 class EprintViewTestCase(TestCase):
-
     def test_get_a_list_views(self):
         _url = reverse("eprint:index")
         res = self.client.get(_url)

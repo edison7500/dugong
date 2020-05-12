@@ -24,7 +24,9 @@ SESSION_FILE_PATH = "/tmp/"
 # django-debug-toolbar
 # ------------------------------------------------------------------------------
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#prerequisites
-INSTALLED_APPS += ["debug_toolbar", ]  # noqa F405
+INSTALLED_APPS += [
+    "debug_toolbar",
+]  # noqa F405
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#middleware
 MIDDLEWARE += [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
@@ -50,7 +52,9 @@ REST_FRAMEWORK = {
         "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
     ),
     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
-    "DEFAULT_FILTER_BACKENDS": ("django_filters.rest_framework.DjangoFilterBackend",),
+    "DEFAULT_FILTER_BACKENDS": (
+        "django_filters.rest_framework.DjangoFilterBackend",
+    ),
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     # "DEFAULT_PAGINATION_CLASS": "apps.ext.rest.pagination.ExtensionPagination",
     "PAGE_SIZE": 20,
@@ -62,7 +66,7 @@ REST_FRAMEWORK = {
 
 # django storage configure
 # --------------------------------------------------------------------
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
 AWS_S3_REGION_NAME = env("AWS_S3_REGION_NAME")
 AWS_S3_ENDPOINT_URL = env("AWS_S3_ENDPOINT_URL")

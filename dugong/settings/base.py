@@ -75,7 +75,9 @@ LOCAL_APPS = [
     "apps.eprint",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
-INSTALLED_APPS = DJANGO_APPS + REST_FRAMEWORK_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+INSTALLED_APPS = (
+    DJANGO_APPS + REST_FRAMEWORK_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+)
 
 # STATIC
 # ------------------------------------------------------------------------------
@@ -144,7 +146,9 @@ REST_FRAMEWORK = {
         "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
     ),
     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
-    "DEFAULT_FILTER_BACKENDS": ("django_filters.rest_framework.DjangoFilterBackend",),
+    "DEFAULT_FILTER_BACKENDS": (
+        "django_filters.rest_framework.DjangoFilterBackend",
+    ),
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 20,
     "DATETIME_FORMAT": "%Y-%m-%d %H:%M:%S",
@@ -154,11 +158,10 @@ WEBPACK_LOADER = {
     "DEFAULT": {
         "CACHE": not DEBUG,
         "BUNDLE_DIR_NAME": "dist/",  # must end with slash
-        # 'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
         "STATS_FILE": str(BASE_DIR.path("static/webpack-stats.json")),
         "POLL_INTERVAL": 0.1,
         "TIMEOUT": None,
-        "IGNORE": [".+\.hot-update.js", ".+\.map"],
+        "IGNORE": [".+\.hot-update.js", ".+\.map"],  # noqa W605
     }
 }
 
@@ -211,11 +214,16 @@ CSRF_FAILURE_VIEW = "apps.ext.csrf.csrf_failure"
 # django allauth
 # ----------------------------------------------------------------------------------------------------------------------
 #
-ACCOUNT_USERNAME_VALIDATORS = "apps.users.validators.custom_username_validators"
+ACCOUNT_USERNAME_VALIDATORS = (
+    "apps.users.validators.custom_username_validators"
+)
 SOCIALACCOUNT_AUTO_SIGNUP = True
 ACCOUNT_LOGOUT_ON_GET = False
 # ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 
 SOCIALACCOUNT_PROVIDERS = {
-    "google": {"SCOPE": ["profile", "email"], "AUTH_PARAMS": {"access_type": "online"}}
+    "google": {
+        "SCOPE": ["profile", "email"],
+        "AUTH_PARAMS": {"access_type": "online"},
+    }
 }

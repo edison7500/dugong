@@ -14,7 +14,9 @@ debug = getattr(settings, "DEBUG", True)
 
 
 class Category(BaseCategory):
-    image = models.ImageField(upload_to=hexdigest_filename, null=True, blank=True)
+    image = models.ImageField(
+        upload_to=hexdigest_filename, null=True, blank=True
+    )
     width = models.PositiveIntegerField(default=0, editable=False)
     height = models.PositiveIntegerField(default=0, editable=False)
     description = models.TextField(blank=True, default="")
@@ -29,7 +31,9 @@ class Category(BaseCategory):
 
 class Photo(models.Model):
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, related_name="photos", on_delete=models.CASCADE
+        settings.AUTH_USER_MODEL,
+        related_name="photos",
+        on_delete=models.CASCADE,
     )
     # title = models.CharField(_("title"), max_length=255)
     description = models.TextField(blank=True, default="")
@@ -39,9 +43,15 @@ class Photo(models.Model):
     )
 
     file = models.ImageField(upload_to=hexdigest_filename)
-    width = models.PositiveIntegerField(default=0, editable=False, db_index=True)
-    height = models.PositiveIntegerField(default=0, editable=False, db_index=True)
-    size = models.PositiveIntegerField(default=0, editable=False, db_index=True)
+    width = models.PositiveIntegerField(
+        default=0, editable=False, db_index=True
+    )
+    height = models.PositiveIntegerField(
+        default=0, editable=False, db_index=True
+    )
+    size = models.PositiveIntegerField(
+        default=0, editable=False, db_index=True
+    )
 
     uploaded_at = models.DateTimeField(
         default=timezone.now, db_index=True, editable=False
@@ -83,7 +93,9 @@ class Photo(models.Model):
 
 
 class Exif(models.Model):
-    photo = models.OneToOneField("Photo", related_name="exif", on_delete=models.CASCADE)
+    photo = models.OneToOneField(
+        "Photo", related_name="exif", on_delete=models.CASCADE
+    )
     info = JSONField(encoder=json.JSONEncoder)
 
     shot_time = models.DateTimeField(default=timezone.now, db_index=True)

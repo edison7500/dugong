@@ -34,9 +34,15 @@ class Tutorial(models.Model):
     )
     title = models.CharField(_("title"), max_length=128, blank=True)
     slug = fields.RandomCharField(
-        length=12, unique=True, include_alpha=False, db_index=True, editable=False
+        length=12,
+        unique=True,
+        include_alpha=False,
+        db_index=True,
+        editable=False,
     )
-    status = StatusField(_("status"), choices_name="STATUS", default=STATUS.draft)
+    status = StatusField(
+        _("status"), choices_name="STATUS", default=STATUS.draft
+    )
     content = models.TextField(blank=True, null=True)
     origin_link = models.URLField(
         _("origin_link"), max_length=255, null=True, unique=True

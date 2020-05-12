@@ -17,15 +17,20 @@ urlpatterns = [
     path("photos/", include("apps.photos.urls", namespace="photos")),
     path("eprint/", include("apps.eprint.urls", namespace="eprint")),
     path(
-        "exchangerates/", include("apps.exchangerates.urls", namespace="exchangerates")
+        "exchangerates/",
+        include("apps.exchangerates.urls", namespace="exchangerates"),
     ),
     path("upload/<int:size>/img/<str:filename>", ImageProcessView.as_view()),
     path("o/", include("oauth2_provider.urls", namespace="oauth2_provider")),
 ]
 
-urlpatterns += [path("images/", include("apps.images.urls", namespace="images"))]
+urlpatterns += [
+    path("images/", include("apps.images.urls", namespace="images"))
+]
 
-urlpatterns += [path("archive/", include("apps.urls.archive", namespace="archive"))]
+urlpatterns += [
+    path("archive/", include("apps.urls.archive", namespace="archive"))
+]
 
 #
 # django allauth url config
@@ -35,7 +40,9 @@ urlpatterns += [path("account/", include("allauth.urls"))]
 #
 # search url config
 # ----------------------------------------------------------------------------------------------------------------------
-urlpatterns += [path("search/", include("apps.search.urls.search", namespace="search"))]
+urlpatterns += [
+    path("search/", include("apps.search.urls.search", namespace="search"))
+]
 
 #
 # api url config
@@ -51,12 +58,12 @@ urlpatterns += [
 #
 # site map config
 #
-from apps.blog.sitemaps import PostSitemap
+from apps.blog.sitemaps import PostSitemap  # noqa E402
 
 sitemaps = {"blog": PostSitemap}
 
-from django.contrib.sitemaps import views
-from django.views.decorators.cache import cache_page
+from django.contrib.sitemaps import views  # noqa E402
+from django.views.decorators.cache import cache_page  # noqa E402
 
 urlpatterns += [
     re_path(
@@ -67,22 +74,24 @@ urlpatterns += [
     )
 ]
 
-from apps.blog.feeds import PostFeeds
-from django.contrib.flatpages import views
+from apps.blog.feeds import PostFeeds  # noqa E402
+from django.contrib.flatpages import views  # noqa E402
 
 urlpatterns += [path("feed/posts/", PostFeeds(), name="blog-post-feed")]
 urlpatterns += [re_path(r"^pages/(?P<url>.*/?)$", views.flatpage)]
 urlpatterns += staticfiles_urlpatterns()
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+    )
 
 if settings.DEBUG:
     import debug_toolbar
 
     urlpatterns = [
-                      path("__debug__/", include(debug_toolbar.urls)),
-                  ] + urlpatterns
+        path("__debug__/", include(debug_toolbar.urls)),
+    ] + urlpatterns
 
 admin.site.site_header = "jiaxin.im"
 admin.site.site_title = "jiaxin.im"

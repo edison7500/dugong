@@ -11,25 +11,32 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterModelOptions(
-            name="category", options={"verbose_name": "分类", "verbose_name_plural": "分类"}
+            name="category",
+            options={"verbose_name": "分类", "verbose_name_plural": "分类"},
         ),
         migrations.AddField(
             model_name="exif",
             name="shot_time",
             field=models.DateTimeField(
-                db_index=True, default=django.utils.timezone.now, editable=False
+                db_index=True,
+                default=django.utils.timezone.now,
+                editable=False,
             ),
         ),
         migrations.AlterField(
             model_name="category",
             name="image",
             field=models.ImageField(
-                blank=True, null=True, upload_to=apps.images.handlers.hexdigest_filename
+                blank=True,
+                null=True,
+                upload_to=apps.images.handlers.hexdigest_filename,
             ),
         ),
         migrations.AlterField(
             model_name="photo",
             name="file",
-            field=models.ImageField(upload_to=apps.images.handlers.hexdigest_filename),
+            field=models.ImageField(
+                upload_to=apps.images.handlers.hexdigest_filename
+            ),
         ),
     ]

@@ -1,13 +1,20 @@
 from rest_framework import serializers
-from taggit_serializer.serializers import TagListSerializerField, TaggitSerializer
+from taggit_serializer.serializers import (
+    TagListSerializerField,
+    TaggitSerializer,
+)
 
 from apps.tutorials.models import Tutorial
 
 
 class TutorialSerializer(TaggitSerializer, serializers.ModelSerializer):
     digest = serializers.CharField(read_only=True)
-    absolute_url = serializers.CharField(source="get_absolute_url", read_only=True)
-    cover_url = serializers.URLField(source="cover", required=False, read_only=True)
+    absolute_url = serializers.CharField(
+        source="get_absolute_url", read_only=True
+    )
+    cover_url = serializers.URLField(
+        source="cover", required=False, read_only=True
+    )
     created_at = serializers.DateTimeField(
         source="created_datetime", required=False, read_only=True
     )

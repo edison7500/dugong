@@ -23,7 +23,13 @@ class PostImageInlineAdmin(GenericStackedInline):
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ("title", "status", "tag_string", "created_at", "updated_at")
+    list_display = (
+        "title",
+        "status",
+        "tag_string",
+        "created_at",
+        "updated_at",
+    )
     list_filter = ("status",)
     search_fields = ("title",)
     list_per_page = 30

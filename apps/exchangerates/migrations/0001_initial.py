@@ -23,7 +23,12 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("date", models.DateField(db_index=True, editable=False, unique=True)),
+                (
+                    "date",
+                    models.DateField(
+                        db_index=True, editable=False, unique=True
+                    ),
+                ),
                 ("rates", django.contrib.postgres.fields.jsonb.JSONField()),
             ],
         )

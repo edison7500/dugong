@@ -13,7 +13,10 @@ def jieba_tokenize(text):
 def get_pipeline():
     pipeline = Pipeline(
         [
-            ("vector", CountVectorizer(tokenizer=jieba_tokenize, lowercase=False)),
+            (
+                "vector",
+                CountVectorizer(tokenizer=jieba_tokenize, lowercase=False),
+            ),
             ("transform", TfidfTransformer()),
             ("bayes", MultinomialNB()),
         ]

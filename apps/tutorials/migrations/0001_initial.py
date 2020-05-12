@@ -30,7 +30,9 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "title",
-                    models.CharField(blank=True, max_length=128, verbose_name="title"),
+                    models.CharField(
+                        blank=True, max_length=128, verbose_name="title"
+                    ),
                 ),
                 (
                     "slug",
@@ -46,7 +48,10 @@ class Migration(migrations.Migration):
                 (
                     "status",
                     model_utils.fields.StatusField(
-                        choices=[("draft", "draft"), ("published", "published")],
+                        choices=[
+                            ("draft", "draft"),
+                            ("published", "published"),
+                        ],
                         default="draft",
                         max_length=100,
                         no_check_for_status=True,
@@ -66,7 +71,9 @@ class Migration(migrations.Migration):
                 (
                     "created_datetime",
                     models.DateTimeField(
-                        db_index=True, default=django.utils.timezone.now, editable=False
+                        db_index=True,
+                        default=django.utils.timezone.now,
+                        editable=False,
                     ),
                 ),
                 (

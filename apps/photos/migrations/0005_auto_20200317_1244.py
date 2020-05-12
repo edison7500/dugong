@@ -15,7 +15,9 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="photo",
             name="size",
-            field=models.PositiveIntegerField(db_index=True, default=0, editable=False),
+            field=models.PositiveIntegerField(
+                db_index=True, default=0, editable=False
+            ),
         ),
         migrations.AlterField(
             model_name="category",
@@ -37,11 +39,15 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="photo",
             name="height",
-            field=models.PositiveIntegerField(db_index=True, default=0, editable=False),
+            field=models.PositiveIntegerField(
+                db_index=True, default=0, editable=False
+            ),
         ),
         migrations.AlterField(
             model_name="photo",
             name="width",
-            field=models.PositiveIntegerField(db_index=True, default=0, editable=False),
+            field=models.PositiveIntegerField(
+                db_index=True, default=0, editable=False
+            ),
         ),
     ]

@@ -46,7 +46,10 @@ class Migration(migrations.Migration):
                 ("description", models.TextField(blank=True, default="")),
                 ("lft", models.PositiveIntegerField(editable=False)),
                 ("rght", models.PositiveIntegerField(editable=False)),
-                ("tree_id", models.PositiveIntegerField(db_index=True, editable=False)),
+                (
+                    "tree_id",
+                    models.PositiveIntegerField(db_index=True, editable=False),
+                ),
                 ("level", models.PositiveIntegerField(editable=False)),
                 (
                     "parent",

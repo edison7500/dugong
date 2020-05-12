@@ -31,7 +31,7 @@ class ImageRemoveRimView(generic.FormView):
     def get_context_data(self, **kwargs):
         _context = super().get_context_data(**kwargs)
         if hasattr(self, "im_b64"):
-            _context.update({
-                "im_b64": str(self.im_b64, "utf-8"),
-            })
+            _context.update(
+                {"im_b64": str(self.im_b64, "utf-8"),}
+            )
         return _context

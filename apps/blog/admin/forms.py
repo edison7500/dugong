@@ -9,4 +9,6 @@ class PostForm(ModelForm):
         model = Post
         fields = "__all__"
 
-    tags = AutoCompleteSelectMultipleField("tags", required=False, help_text=None)
+    tags = AutoCompleteSelectMultipleField(
+        "tags", required=False, help_text=None
+    )

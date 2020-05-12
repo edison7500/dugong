@@ -53,7 +53,12 @@ def url_replace_param(url, name, value):
 
 
 def get_pagination_context(
-    page, pages_to_show=11, url=None, size=None, extra=None, parameter_name="page"
+    page,
+    pages_to_show=11,
+    url=None,
+    size=None,
+    extra=None,
+    parameter_name="page",
 ):
     pages_to_show = int(pages_to_show)
     if pages_to_show < 1:

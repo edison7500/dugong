@@ -25,7 +25,7 @@ def hexdigest_filename(instance, filename):
 
 
 def remove_image_rim(np_img, boundary=0.8):
-    _np_img = np_img
+    # _np_img = np_img
     h, w, c = np_img.shape
     endpoint = 0
     half_h = h - int(h / 2)

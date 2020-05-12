@@ -29,24 +29,27 @@ urlpatterns = [
         name="schema-swagger-ui",
     ),
     path(
-        "docs/", schema_view.with_ui("redoc", cache_timeout=86400), name="schema-redoc"
+        "docs/",
+        schema_view.with_ui("redoc", cache_timeout=86400),
+        name="schema-redoc",
     ),
     path("blog/", include("apps.blog.urls.api", namespace="blog")),
-    path("tutorials/", include("apps.tutorials.urls.api", namespace="tutorials")),
+    path(
+        "tutorials/", include("apps.tutorials.urls.api", namespace="tutorials")
+    ),
     path("images/", include("apps.images.urls.api", namespace="images")),
     path(
         "exchangerate/",
         include("apps.exchangerates.urls.api", namespace="exchangerate"),
     ),
-
-    path(
-        "eprint/", include("apps.eprint.urls.api"),
-    )
+    path("eprint/", include("apps.eprint.urls.api"),),
 ]
 
 urlpatterns += [
     path("auth/", include("rest_auth.urls")),
-    path("rest/profile/", UserDetailsView.as_view(), name="oauth_user_profile"),
+    path(
+        "rest/profile/", UserDetailsView.as_view(), name="oauth_user_profile"
+    ),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

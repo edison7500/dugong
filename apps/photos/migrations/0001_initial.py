@@ -42,7 +42,9 @@ class Migration(migrations.Migration):
                 (
                     "uploaded_at",
                     models.DateTimeField(
-                        db_index=True, default=django.utils.timezone.now, editable=False
+                        db_index=True,
+                        default=django.utils.timezone.now,
+                        editable=False,
                     ),
                 ),
                 (

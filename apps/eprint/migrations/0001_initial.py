@@ -9,26 +9,62 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Eprint',
+            name="Eprint",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('slug', django_extensions.db.fields.RandomCharField(blank=True, db_index=True, editable=False, include_alpha=False, length=12, unique=True)),
-                ('title', models.CharField(max_length=255)),
-                ('authors', django.contrib.postgres.fields.ArrayField(base_field=models.CharField(max_length=255), blank=True, size=None)),
-                ('summary', models.TextField(blank=True, null=True)),
-                ('category', models.CharField(blank=True, max_length=255, null=True)),
-                ('keywords', django.contrib.postgres.fields.ArrayField(base_field=models.CharField(max_length=255), blank=True, default=list, size=None)),
-                ('origin_link', models.URLField(max_length=255, unique=True)),
-                ('received_at', models.DateField(db_index=True, null=True)),
-                ('last_revised_at', models.DateField(db_index=True, null=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "slug",
+                    django_extensions.db.fields.RandomCharField(
+                        blank=True,
+                        db_index=True,
+                        editable=False,
+                        include_alpha=False,
+                        length=12,
+                        unique=True,
+                    ),
+                ),
+                ("title", models.CharField(max_length=255)),
+                (
+                    "authors",
+                    django.contrib.postgres.fields.ArrayField(
+                        base_field=models.CharField(max_length=255),
+                        blank=True,
+                        size=None,
+                    ),
+                ),
+                ("summary", models.TextField(blank=True, null=True)),
+                (
+                    "category",
+                    models.CharField(blank=True, max_length=255, null=True),
+                ),
+                (
+                    "keywords",
+                    django.contrib.postgres.fields.ArrayField(
+                        base_field=models.CharField(max_length=255),
+                        blank=True,
+                        default=list,
+                        size=None,
+                    ),
+                ),
+                ("origin_link", models.URLField(max_length=255, unique=True)),
+                ("received_at", models.DateField(db_index=True, null=True)),
+                (
+                    "last_revised_at",
+                    models.DateField(db_index=True, null=True),
+                ),
             ],
-            options={
-                'ordering': ['-received_at'],
-            },
+            options={"ordering": ["-received_at"],},
         ),
     ]

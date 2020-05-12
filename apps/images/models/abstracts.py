@@ -19,7 +19,9 @@ class ImageAbstractModel(models.Model):
     height = models.IntegerField(default=0, editable=False)
 
     # Content-object field
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, null=True)
+    content_type = models.ForeignKey(
+        ContentType, on_delete=models.CASCADE, null=True
+    )
     object_id = models.PositiveIntegerField(db_index=True, null=True)
     content_object = GenericForeignKey("content_type", "object_id")
 

@@ -26,7 +26,9 @@ class Post(models.Model):
     ]
 
     title = models.CharField(_("title"), max_length=255)
-    slug = models.SlugField(max_length=30, default="", unique=True, editable=False)
+    slug = models.SlugField(
+        max_length=30, default="", unique=True, editable=False
+    )
     content = models.TextField(blank=True)
     status = models.IntegerField(
         _("status"), choices=POST_STARUS_CHOICES, default=preview

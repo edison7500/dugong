@@ -27,7 +27,10 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("title", models.CharField(max_length=255, verbose_name="title")),
+                (
+                    "title",
+                    models.CharField(max_length=255, verbose_name="title"),
+                ),
                 (
                     "slug",
                     models.SlugField(
@@ -46,13 +49,17 @@ class Migration(migrations.Migration):
                 (
                     "created_date",
                     models.DateTimeField(
-                        auto_now_add=True, db_index=True, verbose_name="created_date"
+                        auto_now_add=True,
+                        db_index=True,
+                        verbose_name="created_date",
                     ),
                 ),
                 (
                     "last_update",
                     models.DateTimeField(
-                        auto_now=True, db_index=True, verbose_name="last_update"
+                        auto_now=True,
+                        db_index=True,
+                        verbose_name="last_update",
                     ),
                 ),
             ],

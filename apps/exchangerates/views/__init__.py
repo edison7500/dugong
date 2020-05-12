@@ -17,7 +17,10 @@ class ExChangeRateListView(generic.ListView):
         )
         date_list.reverse()
         cny = list(
-            map(lambda y: y.exchange_rates().get("CNY", None), context["object_list"])
+            map(
+                lambda y: y.exchange_rates().get("CNY", None),
+                context["object_list"],
+            )
         )
         cny.reverse()
 

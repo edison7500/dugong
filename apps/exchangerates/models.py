@@ -23,7 +23,8 @@ class ExChangeRate(models.Model):
             base_rate = self.rates[base]
             # logger.info(base_rate)
             _rates = {
-                currency: rate / base_rate for currency, rate in self.rates.items()
+                currency: rate / base_rate
+                for currency, rate in self.rates.items()
             }
             _rates["EUR"] = 1.0 / base_rate
         else:
