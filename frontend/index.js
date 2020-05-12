@@ -6,7 +6,7 @@ import {Colorbox} from "./src/utils/colorbox";
 
 
 new ImageLazyLoad().run();
-new SSbar();
-new Colorbox();
+SSbar();
+Colorbox();
 
 

@@ -19,6 +19,8 @@ before_script:
   - export DJANGO_SETTINGS_MODULE=dugong.settings.stage
   - mv env.example .env
 script:
+  - export CACHE_PATH=/tmp/cache
+  - export SESSION_PATH=/tmp/
   - python manage.py frontend install
   - python manage.py frontend dev
   - python manage.py test --parallel
