@@ -19,7 +19,11 @@
             <p class="control has-icons-left has-icons-right">
               {{ field|add_class:"input" }}
               <span class="icon is-small is-left">
-                <i class="fas fa-envelope"></i>
+                {% ifequal field.id_for_label "id_login" %}
+                  <i class="fas fa-user"></i>
+                {% else %}
+                  <i class="fas fa-lock"></i>
+                {% endifequal %}
               </span>
             </p>
           {% else %}
