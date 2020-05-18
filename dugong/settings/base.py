@@ -51,14 +51,14 @@ REST_FRAMEWORK_APPS = [
 ]
 THIRD_PARTY_APPS = [
     "django_comments",
-    "taggit",
     "mptt",
+    "taggit",
     "taggit_serializer",
     "django_extensions",
     "django_gravatar",
     "django_filters",
     "webpack_loader",
-    "oauth2_provider",
+    # "oauth2_provider",
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
