@@ -1,3 +1,4 @@
+.env
+.git
 frontend/*
 static/assets/*
-.git
