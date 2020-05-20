@@ -6,6 +6,7 @@ RUN pip install --upgrade pip
 RUN pip install -r /tmp/requirements/prod.txt && rm -rf /tmp/requirements
 COPY . /opt/dugong
 WORKDIR /opt/dugong
+RUN touch .env
 
 EXPOSE 8000
 
