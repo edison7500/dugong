@@ -6,14 +6,6 @@ SECRET_KEY = env("SECRET_KEY", default="only dev replace me")
 
 ALLOWED_HOSTS = ["*"]
 
-# DATABASES
-# ------------------------------------------------------------------------------
-# https://docs.djangoproject.com/en/dev/ref/settings/#databases
-DATABASES = {
-    "default": env.db("DATABASE_URL", default=str(BASE_DIR.path("db.sqlite3")))
-}
-DATABASES["default"]["ATOMIC_REQUESTS"] = True
-
 #
 # django session configure
 #
