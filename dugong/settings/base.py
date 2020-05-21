@@ -7,6 +7,14 @@ env.read_env(str(BASE_DIR.path(".env")))
 
 DEBUG = env("DJANGO_DEBUG", default=True)  # False if not in os.environ
 
+# DATABASES
+# ------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/dev/ref/settings/#databases
+DATABASES = {
+    "default": env.db("DATABASE_URL", default=str(BASE_DIR.path("db.sqlite3")))
+}
+DATABASES["default"]["ATOMIC_REQUESTS"] = True
+
 # Internationalization
 # -------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -50,15 +58,16 @@ REST_FRAMEWORK_APPS = [
     "drf_yasg",
 ]
 THIRD_PARTY_APPS = [
+    "widget_tweaks",
     "django_comments",
-    "taggit",
     "mptt",
+    "taggit",
     "taggit_serializer",
     "django_extensions",
     "django_gravatar",
     "django_filters",
     "webpack_loader",
-    "oauth2_provider",
+    # "oauth2_provider",
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
@@ -138,12 +147,11 @@ TEMPLATES = [
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",),
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_jwt.authentication.JSONWebTokenAuthentication",
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
-        "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
+        # "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
     ),
     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
     "DEFAULT_FILTER_BACKENDS": (

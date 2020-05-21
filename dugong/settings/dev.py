@@ -6,14 +6,6 @@ SECRET_KEY = env("SECRET_KEY", default="only dev replace me")
 
 ALLOWED_HOSTS = ["*"]
 
-# DATABASES
-# ------------------------------------------------------------------------------
-# https://docs.djangoproject.com/en/dev/ref/settings/#databases
-DATABASES = {
-    "default": env.db("DATABASE_URL", default=str(BASE_DIR.path("db.sqlite3")))
-}
-DATABASES["default"]["ATOMIC_REQUESTS"] = True
-
 #
 # django session configure
 #
@@ -50,7 +42,7 @@ REST_FRAMEWORK = {
         "rest_framework_jwt.authentication.JSONWebTokenAuthentication",
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
-        "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
+        # "oauth2_provider.contrib.rest_framework.OAuth2Authentication",
     ),
     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
     "DEFAULT_FILTER_BACKENDS": (
