@@ -204,15 +204,15 @@ TAGGIT_CASE_INSENSITIVE = True
 # django cache
 # ----------------------------------------------------------------------------------------------------------------------
 #
-CACHES = {
-    "default": {
-        "BACKEND": "diskcache.DjangoCache",
-        "LOCATION": env("CACHE_PATH", default="/tmp/cache"),
-        "SHARDS": 4,
-        "DATABASE_TIMEOUT": 1.0,
-        "OPTIONS": {"size_limit": 2 ** 32},  # 4 gigabytes
-    }
-}
+# CACHES = {
+#     "default": {
+#         "BACKEND": "diskcache.DjangoCache",
+#         "LOCATION": env("CACHE_PATH", default="/tmp/cache"),
+#         "SHARDS": 4,
+#         "DATABASE_TIMEOUT": 1.0,
+#         "OPTIONS": {"size_limit": 2 ** 32},  # 4 gigabytes
+#     }
+# }
 
 # csrf view
 # ----------------------------------------------------------------------------------------------------------------------
