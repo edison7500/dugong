@@ -9,5 +9,4 @@ django-debug-toolbar==2.2
 django-nose==1.4.6
 
 ptpython==3.0.1
-psycopg2==2.8.4
 

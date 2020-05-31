@@ -10,7 +10,7 @@ ALLOWED_HOSTS = ["*"]
 # django session configure
 #
 SESSION_ENGINE = "django.contrib.sessions.backends.file"
-SESSION_FILE_PATH = env("SESSION_PATH")
+SESSION_FILE_PATH = env("SESSION_PATH", default="/tmp/session")
 # SESSION_COOKIE_SECURE = True
 # CSRF_COOKIE_SECURE = True
 
