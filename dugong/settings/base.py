@@ -80,7 +80,7 @@ LOCAL_APPS = [
     "apps.tutorials",
     "apps.images",
     "apps.photos",
-    "apps.exchangerates",
+    # "apps.exchangerates",
     "apps.eprint",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

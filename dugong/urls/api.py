@@ -38,10 +38,10 @@ urlpatterns = [
         "tutorials/", include("apps.tutorials.urls.api", namespace="tutorials")
     ),
     path("images/", include("apps.images.urls.api", namespace="images")),
-    path(
-        "exchangerate/",
-        include("apps.exchangerates.urls.api", namespace="exchangerate"),
-    ),
+    # path(
+    #     "exchangerate/",
+    #     include("apps.exchangerates.urls.api", namespace="exchangerate"),
+    # ),
     path("eprint/", include("apps.eprint.urls.api"),),
 ]
 

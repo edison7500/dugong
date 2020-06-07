@@ -16,10 +16,10 @@ urlpatterns = [
     path("tutorials/", include("apps.tutorials.urls", namespace="tutorials")),
     path("photos/", include("apps.photos.urls", namespace="photos")),
     path("eprint/", include("apps.eprint.urls", namespace="eprint")),
-    path(
-        "exchangerates/",
-        include("apps.exchangerates.urls", namespace="exchangerates"),
-    ),
+    # path(
+    #     "exchangerates/",
+    #     include("apps.exchangerates.urls", namespace="exchangerates"),
+    # ),
     path("upload/<int:size>/img/<str:filename>", ImageProcessView.as_view()),
     # path("o/", include("oauth2_provider.urls", namespace="oauth2_provider")),
 ]
