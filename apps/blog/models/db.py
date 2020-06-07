@@ -71,12 +71,15 @@ class Post(CacheMixin, models.Model):
             self.set_value_to_cache("digest", value, timeout=86400)
         return value
 
-    @cached_property
+    @property
     def html_content(self):
-        html, toc = self.render_markdown()
-        return html
+        value = self.get_value_from_cache("html:content")
+        if value is None:
+            value, toc = self.render_markdown()
+            self.set_value_to_cache("html:content", value, timeout=86400)
+        return value
 
-    @cached_property
+    @property
     def toc(self):
         html, toc = self.render_markdown()
         return toc
