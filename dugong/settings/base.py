@@ -59,7 +59,7 @@ REST_FRAMEWORK_APPS = [
 ]
 THIRD_PARTY_APPS = [
     "widget_tweaks",
-    "django_comments",
+    # "django_comments",
     "mptt",
     "taggit",
     "taggit_serializer",
