@@ -10,6 +10,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from taggit.managers import TaggableManager
 from uuslug import uuslug
+from apps.ext.models import CacheMixin
 from apps.ext.render.md import md
 from apps.images.models import Image
 from .manager import PostManager
@@ -17,7 +18,7 @@ from .manager import PostManager
 logger = logging.getLogger("django")
 
 
-class Post(models.Model):
+class Post(CacheMixin, models.Model):
     (block, preview, publish) = range(3)
     POST_STARUS_CHOICES = [
         (block, _("block")),
@@ -62,9 +63,13 @@ class Post(models.Model):
     def created_at_ts(self) -> float:
         return self.created_at.timestamp()
 
-    @cached_property
+    @property
     def digest(self):
-        return strip_tags(self.html_content)
+        value = self.get_value_from_cache("digest")
+        if value is None:
+            value = strip_tags(self.html_content)
+            self.set_value_to_cache("digest", value, timeout=86400)
+        return value
 
     @cached_property
     def html_content(self):
@@ -77,7 +82,7 @@ class Post(models.Model):
         return toc
 
     def process_content(self):
-        _content = "{}{}".format(self.title, strip_tags(self.html_content))
+        _content = f"{self.title}{strip_tags(self.html_content)}"
         _content = re.sub("(\\d|\\W)+", " ", _content)
         _content = re.sub(r"\s+", " ", _content)
         _content = _content.lower()

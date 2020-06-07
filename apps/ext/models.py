@@ -1,3 +1,4 @@
+from django.core.cache import cache
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
@@ -42,3 +43,16 @@ class Category(MPTTModel):
 
     def __str__(self):
         return self.name
+
+
+class CacheMixin(object):
+    def __get_prefix_key(self):
+        return f"{self.__class__.__name__}:{self.pk}"
+
+    def set_value_to_cache(self, key, value, timeout=3600):
+        _cache_key = f"{self.__get_prefix_key()}:{key}"
+        cache.set(_cache_key, value, timeout=timeout)
+
+    def get_value_from_cache(self, key):
+        _cache_key = f"{self.__get_prefix_key()}:{key}"
+        return cache.get(_cache_key)
