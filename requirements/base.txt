@@ -22,7 +22,6 @@ drf-yasg==1.17.1
 django-mptt==0.11.0
 django-widget-tweaks==1.4.8
 
-
 django-taggit==1.3.0
 django-taggit-serializer==0.1.7
 
