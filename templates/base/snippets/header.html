@@ -24,9 +24,12 @@
 				<a class="navbar-item" href="{% url 'search:index' %}" title="{% trans 'search' %}">
 					<i class="fa fa-search"></i>
 				</a>
-				<a class="navbar-item" target="_blank" href="https://github.com/edison7500/dugong" title="site code">
-					<i class="fab fa-github-alt"></i></a>
-				<a class="navbar-item" href="/pages/about/" title="{% trans 'about' %}">
+				<a class="navbar-item" href="{% url 'blog-post-feed' %}">
+					<i class="fa fa-rss"></i>
+				</a>
+{#				<a class="navbar-item" target="_blank" href="https://github.com/edison7500/dugong" title="site code">#}
+{#					<i class="fab fa-github-alt"></i></a>#}
+				<a class="navbar-item" href="/pages/about/" title="{% trans 'about' %}" rel="nofollow">
 					<i class="fa fa-info"></i>&nbsp;{% trans 'about' %}</a>
 			</div>
 		</div>
