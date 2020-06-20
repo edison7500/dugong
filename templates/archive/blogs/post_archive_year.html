@@ -2,7 +2,7 @@
 {% load i18n cache %}
 {% load dugong_tags %}
 
-{% block title %}博客 - {{ year|date:'Y' }} - Python 观察员{% endblock %}
+{% block title %}{{ year|date:'Y' }} - 博客 - Python 观察员{% endblock %}
 
 {% block content %}
 	<nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
@@ -30,33 +30,38 @@
 			</div>
 		</div>
 
-		<div class="column is-4" id="sidebar">
-			<nav class="panel">
-				<p class="panel-heading">github</p>
-				<a href="https://github.com/edison7500/dugong" target="_blank" title="Python观察员" class="panel-block">
-					<span class="panel-icon"><i class="fa fa-github-alt"></i></span>
-					dugong
-				</a>
-				<a href="https://github.com/edison7500/django-bulma" target="_blank" title="django-bulma" class="panel-block">
-					<span class="panel-icon"><i class="fa fa-github-alt"></i></span>
-					django-bulma
-				</a>
-				<a href="https://github.com/edison7500/django-leancloud-sms" target="_blank" title="django-leancloud-sms"
-					 class="panel-block">
-					<span class="panel-icon"><i class="fa fa-github-alt"></i></span>
-					django-leancloud-sms
-				</a>
-				<a href="https://github.com/edison7500/flask-oss" target="_blank" title="flask-oss" class="panel-block">
-					<span class="panel-icon"><i class="fa fa-github-alt"></i></span>
-					flask-oss
-				</a>
-				<a href="https://github.com/edison7500/django-sendcloud" target="_blank" title="django-sendcloud"
-					 class="panel-block">
-					<span class="panel-icon"><i class="fa fa-github-alt"></i></span>
-					django-sendcloud
-				</a>
-			</nav>
+		<div class="column is-4">
+			<div class="sidebar__inner">
+				{% include "sidebar/_github.html" %}
+			</div>
 		</div>
+		{#		<div class="column is-4" id="sidebar">#}
+		{#			<nav class="panel">#}
+		{#				<p class="panel-heading">github</p>#}
+		{#				<a href="https://github.com/edison7500/dugong" target="_blank" title="Python观察员" class="panel-block">#}
+		{#					<span class="panel-icon"><i class="fa fa-github-alt"></i></span>#}
+		{#					dugong#}
+		{#				</a>#}
+		{#				<a href="https://github.com/edison7500/django-bulma" target="_blank" title="django-bulma" class="panel-block">#}
+		{#					<span class="panel-icon"><i class="fa fa-github-alt"></i></span>#}
+		{#					django-bulma#}
+		{#				</a>#}
+		{#				<a href="https://github.com/edison7500/django-leancloud-sms" target="_blank" title="django-leancloud-sms"#}
+		{#					 class="panel-block">#}
+		{#					<span class="panel-icon"><i class="fa fa-github-alt"></i></span>#}
+		{#					django-leancloud-sms#}
+		{#				</a>#}
+		{#				<a href="https://github.com/edison7500/flask-oss" target="_blank" title="flask-oss" class="panel-block">#}
+		{#					<span class="panel-icon"><i class="fa fa-github-alt"></i></span>#}
+		{#					flask-oss#}
+		{#				</a>#}
+		{#				<a href="https://github.com/edison7500/django-sendcloud" target="_blank" title="django-sendcloud"#}
+		{#					 class="panel-block">#}
+		{#					<span class="panel-icon"><i class="fa fa-github-alt"></i></span>#}
+		{#					django-sendcloud#}
+		{#				</a>#}
+		{#			</nav>#}
+		{#		</div>#}
 	</div>
 
 	{% dugong_pagination page_obj url=request.url size="small" pages_to_show=4 %}
