@@ -5,40 +5,40 @@
 {% block title %}博客 - Python 观察员{% endblock %}
 
 {% block content %}
-	<nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
-		<ul>
-			<li>
-				<a href="{% url 'homepage' %}" title="{% trans 'home' %}">
-					<i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a>
-			</li>
-			<li class="is-active">
-				<a href="#" title="{% trans 'blog' %}">
-					<i class="fas fa-pencil-alt"></i>&nbsp;{% trans 'blog' %}</a></li>
-		</ul>
-	</nav>
+  <nav class="breadcrumb has-dot-separator" aria-label="breadcrumbs">
+    <ul>
+      <li>
+        <a href="{% url 'homepage' %}" title="{% trans 'home' %}">
+          <i class="fa fa-home"></i>&nbsp;{% trans 'home' %}</a>
+      </li>
+      <li class="is-active">
+        <a href="#" title="{% trans 'blog' %}">
+          <i class="fas fa-pencil-alt"></i>&nbsp;{% trans 'blog' %}</a></li>
+    </ul>
+  </nav>
 
-	<div class="columns is-multiline clearfix" id="main-content">
-		<div class="column is-8-desktop is-12-mobile" id="content">
-			<section class="box">
-				{% for row in object_list %}
-					{% include 'widgets/articles/_cell.html' with post=row %}
-				{% endfor %}
-			</section>
-		</div>
+  <div class="columns is-multiline clearfix" id="main-content">
+    <div class="column is-8-desktop is-12-mobile" id="content">
+      <section class="box">
+        {% for row in object_list %}
+          {% include 'widgets/articles/_cell.html' with post=row %}
+        {% endfor %}
+      </section>
+    </div>
 
-		<div class="column is-4-desktop is-hidden-mobile" id="sidebar">
-			<div class="sidebar__inner">
-				{% include "sidebar/_github.html" %}
-				<nav class="panel">
-					<p class="panel-heading">Archive</p>
-					{% for row in date_list %}
-						<a class="panel-block" href="{% url 'archive:blog_year' year=row|date:'Y' %}"
-							 title="{{ row|date:"Y" }}">{{ row|date:"Y" }}</a>
-					{% endfor %}
-				</nav>
-			</div>
-		</div>
-	</div>
+    <div class="column is-4-desktop is-hidden-mobile" id="sidebar">
+      <div class="sidebar__inner">
+        {% include "sidebar/_github.html" %}
+        <nav class="panel">
+          <p class="panel-heading">Archive</p>
+          {% for row in date_list %}
+            <a class="panel-block" href="{% url 'archive:blog_year' year=row|date:'Y' %}"
+               title="{{ row|date:"Y" }}">{{ row|date:"Y" }}</a>
+          {% endfor %}
+        </nav>
+      </div>
+    </div>
+  </div>
 
-	{% dugong_pagination page_obj url=request.url size="small" pages_to_show=4 %}
+  {% dugong_pagination page_obj url=request.url size="small" pages_to_show=4 %}
 {% endblock %}
