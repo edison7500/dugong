@@ -9,6 +9,10 @@ COPY . /opt/dugong
 WORKDIR /opt/dugong
 RUN touch .env
 
+# cleanup
+RUN rm -rf /opt/dugong/frontend/
+RUN rm -rf /var/lib/apt/lists/*
+
 EXPOSE 8000
 
 # CMD  ["/usr/bin/supervisord"]
