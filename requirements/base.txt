@@ -4,12 +4,12 @@ djangorestframework==3.11.1
 djangorestframework-jwt==1.11
 django-allauth==0.43.0
 django-cache-machine==1.1.0
-django-extensions==3.0.9
+django-extensions==3.1.0
 django-filter==2.4.0
 #django-formtools==2.2
 django-gravatar2==1.4.4
-django-htmlmin==0.11.0
-django-model-utils==4.0.0
+#django-htmlmin==0.11.0
+django-model-utils==4.1.1
 django-rest-auth==0.9.5
 django-simple-captcha==0.5.13
 django-uuslug==1.2.0
@@ -41,7 +41,7 @@ pymdown-extensions==6.3
 python-dateutil==2.8.1
 python-slugify==1.2.4
 python3-openid==3.1.0
-requests==2.24.0
+requests==2.25.0
 requests-oauthlib==0.8.0
 
 numpy==1.19.1
