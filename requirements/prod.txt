@@ -3,8 +3,8 @@
 gevent==20.9.0
 gunicorn==20.0.4
 
-boto3==1.16.4
-django-storages==1.10.1
+boto3==1.16.56
+django-storages==1.11.1
 
 redis==3.5.3
 django-redis==4.12.1
