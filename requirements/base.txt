@@ -1,10 +1,10 @@
 coreapi==2.3.3
-Django==2.2.17 # pyup: >=2.2,<3.0
+Django==2.2.18 # pyup: >=2.2,<3.0
 djangorestframework==3.11.1
 djangorestframework-jwt==1.11
 django-allauth==0.44.0
 django-cache-machine==1.1.0
-django-extensions==3.1.0
+django-extensions==3.1.1
 django-filter==2.4.0
 django-gravatar2==1.4.4
 django-model-utils==4.1.1
