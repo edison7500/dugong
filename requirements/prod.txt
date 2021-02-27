@@ -3,7 +3,7 @@
 gevent==21.1.2
 gunicorn==20.0.4
 
-boto3==1.17.5
+boto3==1.17.17
 django-storages==1.11.1
 
 redis==3.5.3
