@@ -41,6 +41,7 @@ python3-openid==3.1.0
 requests==2.25.1
 requests-oauthlib==0.8.0
 
+numpy==1.20.1
 psycopg2==2.8.6
 
 https://github.com/edison7500/django-placeholder/archive/v0.0.1.tar.gz
