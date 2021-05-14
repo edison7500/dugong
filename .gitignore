@@ -163,9 +163,7 @@ dugong/settings/production.py
 *.rdb
 
 
-whoosh_index
 static/node_modules
-static/package-lock.json
 
 dugong/settings/prod.py
 .env
