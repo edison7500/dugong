@@ -1,9 +1,8 @@
 # build static
 FROM node:12.22.1-buster-slim as frontend
-RUN mkdir /opt/dugong
 COPY . /opt/dugong
-WORKDIR /opt/dugong/frontend
-RUN npm install
+WORKDIR /opt/dugong/frontend/
+RUN npm i
 RUN npm run build
 
 
@@ -28,5 +27,3 @@ RUN rm -rf /opt/dugong/frontend/
 RUN rm -rf /var/lib/apt/lists/*
 
 EXPOSE 8000
-
-# CMD  ["/usr/bin/supervisord"]
