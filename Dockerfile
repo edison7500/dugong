@@ -1,7 +1,8 @@
 # build static
 FROM node:12.22.1-buster-slim as frontend
+RUN mkdir /opt/dugong
 COPY . /opt/dugong
-WORKDIR /opt/dugong/frontend/
+WORKDIR /opt/dugong/frontend
 RUN npm install
 RUN npm run build
 
