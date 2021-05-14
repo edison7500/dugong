@@ -3,8 +3,7 @@
 {% load render_bundle from webpack_loader %}
 
 {% block extra_css %}
-	{% render_bundle 'main' 'css' %}
-	{#	<link type="text/css" rel="stylesheet" href="{% static 'css/pygments.css' %}">#}
+  {% render_bundle 'main' 'css' %}
 {% endblock extra_css %}
 
 {% block header %}{% include 'base/snippets/header.html' %}{% endblock %}
@@ -12,8 +11,6 @@
 {% block footer %}{% include 'base/snippets/footer.html' %}{% endblock %}
 
 
-
 {% block javascript %}
-	{#	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>#}
-	{% render_bundle 'main' 'js' %}
+  {% render_bundle 'main' 'js' %}
 {% endblock %}

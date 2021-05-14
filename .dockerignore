@@ -1,4 +1,5 @@
 .env
 .git
+docker-compose.yml
 static/dist/*
 frontend/node_modules
