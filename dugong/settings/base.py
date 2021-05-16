@@ -80,8 +80,6 @@ LOCAL_APPS = [
     "apps.tutorials",
     "apps.images",
     "apps.photos",
-    # "apps.exchangerates",
-    # "apps.eprint",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = (
@@ -175,14 +173,14 @@ WEBPACK_LOADER = {
 FILE_UPLOAD_TEMP_DIR = tempfile.mkdtemp()
 FILE_UPLOAD_PERMISSIONS = 0o644
 
-OAUTH2_PROVIDER = {
-    # this is the list of available scopes
-    "SCOPES": {
-        "read": "Read scope",
-        "write": "Write scope",
-        "profile": "Access to user profile",
-    }
-}
+# OAUTH2_PROVIDER = {
+#     # this is the list of available scopes
+#     "SCOPES": {
+#         "read": "Read scope",
+#         "write": "Write scope",
+#         "profile": "Access to user profile",
+#     }
+# }
 
 REST_USE_JWT = True
 REST_AUTH_SERIALIZERS = {
