@@ -55,15 +55,15 @@ class Post(CacheMixin, models.Model):
     def __str__(self):
         return self.title
 
-    @property
+    @cached_property
     def url(self) -> str:
         return self.get_absolute_url()
 
-    @property
+    @cached_property
     def created_at_ts(self) -> float:
         return self.created_at.timestamp()
 
-    @property
+    @cached_property
     def digest(self):
         value = self.get_value_from_cache("digest")
         if value is None:
@@ -71,7 +71,7 @@ class Post(CacheMixin, models.Model):
             self.set_value_to_cache("digest", value, timeout=86400)
         return value
 
-    @property
+    @cached_property
     def html_content(self):
         value = self.get_value_from_cache("html:content")
         if value is None:
