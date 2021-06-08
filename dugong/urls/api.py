@@ -4,7 +4,6 @@ from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 from rest_framework.urlpatterns import format_suffix_patterns
 
-# from rest_framework_swagger.views import get_swagger_view
 from apps.users.views.api import UserDetailsView
 
 schema_view = get_schema_view(
@@ -28,21 +27,11 @@ urlpatterns = [
         schema_view.with_ui("swagger", cache_timeout=86400),
         name="schema-swagger-ui",
     ),
-    # path(
-    #     "docs/",
-    #     schema_view.with_ui("redoc", cache_timeout=86400),
-    #     name="schema-redoc",
-    # ),
     path("blog/", include("apps.blog.urls.api", namespace="blog")),
     path(
         "tutorials/", include("apps.tutorials.urls.api", namespace="tutorials")
     ),
     path("images/", include("apps.images.urls.api", namespace="images")),
-    # path(
-    #     "exchangerate/",
-    #     include("apps.exchangerates.urls.api", namespace="exchangerate"),
-    # ),
-    # path("eprint/", include("apps.eprint.urls.api"),),
 ]
 
 urlpatterns += [
