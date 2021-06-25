@@ -31,7 +31,7 @@ urlpatterns = [
     path(
         "tutorials/", include("apps.tutorials.urls.api", namespace="tutorials")
     ),
-    path("images/", include("apps.images.urls.api", namespace="images")),
+    # path("images/", include("apps.images.urls.api", namespace="images")),
 ]
 
 urlpatterns += [
