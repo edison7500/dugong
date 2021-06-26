@@ -20,7 +20,7 @@ RUN touch .env
 # copy static files from build
 COPY --from=frontend /opt/dugong/static/dist /opt/dugong/static/dist
 COPY --from=frontend /opt/dugong/static/webpack-stats.json /opt/dugong/static/webpack-stats.json
-#RUN python manage.py collectstatic --no-input -i webpack-stats.json --settings=dugong.settings.stage
+RUN python manage.py collectstatic --no-input -i webpack-stats.json --settings=dugong.settings.stage
 
 # cleanup
 RUN rm -rf /opt/dugong/frontend/
