@@ -6,9 +6,9 @@ RUN npm i
 RUN npm run build
 
 
-FROM python:3.7.10-slim-buster
+FROM python:3.7.11-slim-buster
 ENV PYTHONUNBUFFERED 1
-RUN apt-get update && apt-get install -y  gcc libpq-dev
+RUN apt-get update && apt-get install -y gcc libpq-dev
 COPY requirements /tmp/requirements
 RUN pip install --upgrade pip
 RUN pip install -r /tmp/requirements/prod.txt --compile && rm -rf /tmp/requirements
