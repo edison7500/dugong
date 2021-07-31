@@ -26,4 +26,11 @@ COPY --from=frontend /opt/dugong/static/webpack-stats.json /opt/dugong/static/we
 RUN rm -rf /opt/dugong/frontend/
 RUN rm -rf /var/lib/apt/lists/*
 
+RUN  /usr/local/bin/python manage.py compile_pyc
+
+RUN useradd -s /sbin/nologin -u 1001 -d /opt/dugong dugong
+RUN chown dugong .
+
+USER dugong
+
 EXPOSE 8000
