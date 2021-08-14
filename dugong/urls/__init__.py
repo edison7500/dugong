@@ -6,8 +6,6 @@ from django.urls import path, re_path, include
 
 from apps.blog.views import BlogListView
 
-# handler500 = "apps.main.views.errors.page_error"
-# handler404 = "apps.main.views.errors.not_found"
 from apps.photos.views import ImageProcessView
 
 urlpatterns = [
@@ -42,7 +40,7 @@ urlpatterns += [
 #
 # api url config
 # ----------------------------------------------------------------------------------------------------------------------
-urlpatterns += [path("api/", include("dugong.urls.api", namespace="api"))]
+# urlpatterns += [path("api/", include("dugong.urls.api", namespace="api"))]
 
 urlpatterns += [re_path(r"^$", BlogListView.as_view(), name="homepage")]
 
