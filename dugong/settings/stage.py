@@ -8,9 +8,9 @@ ALLOWED_HOSTS = ["*"]
 
 # django session
 # -----------------------------------------------------------------------------
-# https://docs.djangoproject.com/en/1.11/topics/http/sessions/
+# https://docs.djangoproject.com/en/2.2/topics/http/sessions/
 SESSION_ENGINE = "django.contrib.sessions.backends.file"
-SESSION_FILE_PATH = env("SESSION_PATH")
+SESSION_FILE_PATH = env("SESSION_PATH", default="/tmp/")
 
 INSTALLED_APPS += ["django_nose"]
 
