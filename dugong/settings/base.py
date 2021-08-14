@@ -53,8 +53,8 @@ DJANGO_APPS = [
 ]
 REST_FRAMEWORK_APPS = [
     "rest_framework",
-    "rest_framework.authtoken",
-    "rest_auth.registration",
+    # "rest_framework.authtoken",
+    # "rest_auth.registration",
     "drf_yasg",
 ]
 THIRD_PARTY_APPS = [
