@@ -14,7 +14,7 @@
 * Nginx
 * Postgres 10.x
 * Python 3.7.x
-* Nodejs 10.x
+* Nodejs 14.x
 
 ### Web Framework
 * *django-2.2* [相关文档](https://docs.djangoproject.com/en/2.2/)
