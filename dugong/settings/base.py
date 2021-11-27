@@ -59,7 +59,6 @@ REST_FRAMEWORK_APPS = [
 ]
 THIRD_PARTY_APPS = [
     "widget_tweaks",
-    # "django_comments",
     "mptt",
     "taggit",
     "taggit_serializer",
@@ -220,3 +219,5 @@ SOCIALACCOUNT_PROVIDERS = {
         "AUTH_PARAMS": {"access_type": "online"},
     }
 }
+
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"

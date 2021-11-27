@@ -35,7 +35,7 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    path("auth/", include("rest_auth.urls")),
+    # path("auth/", include("rest_auth.urls")),
     path("o/profile/", UserDetailsView.as_view(), name="oauth_user_profile"),
 ]
 
