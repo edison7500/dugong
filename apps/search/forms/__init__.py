@@ -7,8 +7,7 @@ NULL_FILTER = Q(pk=None)
 
 
 def search_filter(search_fields, query_string):
-    """search_fields example: ['name', 'category__name', '@description', '=id']
-    """
+    """search_fields example: ['name', 'category__name', '@description', '=id']"""
     query_string = query_string.strip()
     filters = []
     first = True
