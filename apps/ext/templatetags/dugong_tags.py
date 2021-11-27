@@ -33,7 +33,7 @@ def url_replace_param(url, name, value):
     else:
         params[name] = value
         # path = f"{url_components.path}?{name}={value}/"
-    logger.info(params)
+    # logger.info(params)
 
     # noinspection DjangoSafeString
     url = mark_safe(
