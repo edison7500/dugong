@@ -66,6 +66,7 @@ THIRD_PARTY_APPS = [
     "django_gravatar",
     "django_filters",
     "webpack_loader",
+    "django_celery_beat",
     # "oauth2_provider",
     "allauth",
     "allauth.account",
@@ -182,10 +183,10 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 #     }
 # }
 
-REST_USE_JWT = True
-REST_AUTH_SERIALIZERS = {
-    "USER_DETAILS_SERIALIZER": "apps.users.serializers.UserDetailsSerializer"
-}
+# REST_USE_JWT = True
+# REST_AUTH_SERIALIZERS = {
+#     "USER_DETAILS_SERIALIZER": "apps.users.serializers.UserDetailsSerializer"
+# }
 
 #
 # django any mail
