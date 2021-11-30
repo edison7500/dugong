@@ -2,7 +2,7 @@ import json
 
 from django.conf import settings
 from django.utils.functional import cached_property
-from django.contrib.postgres.fields import JSONField
+from django.db.models import JSONField
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext as _

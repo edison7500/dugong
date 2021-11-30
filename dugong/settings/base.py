@@ -79,6 +79,7 @@ LOCAL_APPS = [
     "apps.tutorials",
     "apps.images",
     "apps.photos",
+    "apps.cryptonews",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = (
@@ -145,7 +146,7 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_jwt.authentication.JSONWebTokenAuthentication",
+        # "rest_framework_jwt.authentication.JSONWebTokenAuthentication",
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ),
@@ -197,7 +198,6 @@ ANYMAIL = {"SENDGRID_API_KEY": env("SENDGRID_API_KEY", default="<replace>")}
 #
 TAGGIT_CASE_INSENSITIVE = True
 
-
 # csrf view
 # ----------------------------------------------------------------------------------------------------------------------
 #
@@ -222,13 +222,8 @@ SOCIALACCOUNT_PROVIDERS = {
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
-#
-# CELERY_BROKER_URL = os.getenv(
-#     "CELERY_BROKER_URL", default="redis://10.0.0.81:32770/12"
-# )
-
 CELERY_BROKER_URL = env(
-    "CELERY_BROKER_URL", default="redis://10.0.0.250:6379/12"
+    "CELERY_BROKER_URL", default="redis://127.0.0.1:6379/12"
 )
 CELERY_TIMEZONE = TIME_ZONE
 CELERY_TASK_SERIALIZER = "msgpack"

@@ -37,6 +37,7 @@ urlpatterns = [
 urlpatterns += [
     # path("auth/", include("rest_auth.urls")),
     path("o/profile/", UserDetailsView.as_view(), name="oauth_user_profile"),
+    path("crypto-news/", include("apps.cryptonews.urls.api")),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
