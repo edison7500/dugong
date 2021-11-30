@@ -1,8 +1,16 @@
 from django.db import models
 from django.utils import timezone
+from django_extensions.db import fields
 
 
 class News(models.Model):
+    slug = fields.RandomCharField(
+        length=12,
+        unique=True,
+        include_alpha=False,
+        db_index=True,
+        editable=False,
+    )
     title = models.CharField(max_length=1024)
     content = models.TextField(blank=True, default="")
     published_at = models.DateTimeField(default=timezone.now, db_index=True)

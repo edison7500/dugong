@@ -5,4 +5,7 @@ from .models import News
 class CryptoNewsSerializer(serializers.ModelSerializer):
     class Meta:
         model = News
-        fields = "__all__"
+        exclude = [
+            "id",
+        ]
+        # fields = "__all__"
