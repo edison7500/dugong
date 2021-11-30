@@ -6,6 +6,5 @@ gunicorn==20.1.0
 boto3==1.17.17
 django-storages==1.11.1
 
-redis==3.5.3
 django-redis==5.0.0
 
