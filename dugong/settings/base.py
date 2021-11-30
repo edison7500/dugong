@@ -221,3 +221,15 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
+#
+# CELERY_BROKER_URL = os.getenv(
+#     "CELERY_BROKER_URL", default="redis://10.0.0.81:32770/12"
+# )
+
+CELERY_BROKER_URL = env(
+    "CELERY_BROKER_URL", default="redis://10.0.0.250:6379/12"
+)
+CELERY_TIMEZONE = TIME_ZONE
+CELERY_TASK_SERIALIZER = "msgpack"
+CELERY_ACCEPT_CONTENT = ["msgpack"]
