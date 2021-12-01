@@ -7,7 +7,7 @@ app = Celery()
 
 logger = logging.getLogger("django")
 
-crawler_url = getattr(settings, "CRAWLER_URL", "http://127.0.0.1:6800")
+crawler_url = getattr(settings, "CRAWLER_URL")
 
 
 @app.task

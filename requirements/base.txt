@@ -24,7 +24,6 @@ django-redis==5.1.0
 celery==5.2.1
 django-celery-beat==2.2.1
 
-
 # redis
 redis==3.5.3
 msgpack==1.0.3
