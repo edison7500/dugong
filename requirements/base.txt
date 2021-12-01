@@ -24,6 +24,7 @@ django-celery-beat==2.2.1
 
 
 # redis
+hiredis==2.0.0
 redis==4.0.2
 msgpack==1.0.3
 
