@@ -3,9 +3,9 @@ from .models import News
 
 
 class CryptoNewsSerializer(serializers.ModelSerializer):
+    # domain = serializers.CharField()
+    channel = serializers.CharField(default="jiaxindevchannels")
+
     class Meta:
         model = News
-        exclude = [
-            "id",
-        ]
-        # fields = "__all__"
+        exclude = ["id", "slug", "content"]

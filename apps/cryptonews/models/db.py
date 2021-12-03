@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
+from django.utils.functional import cached_property
 from django_extensions.db import fields
+from urllib import parse
 
 
 class News(models.Model):
@@ -23,3 +25,8 @@ class News(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.published_at} - {self.origin_link}"
+
+    @cached_property
+    def domain(self):
+        o = parse.urlparse(self.origin_link)
+        return o.netloc
