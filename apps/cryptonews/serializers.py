@@ -13,7 +13,7 @@ class CryptoNewsSerializer(serializers.ModelSerializer):
 class PushExchangeAnnSerializer(serializers.ModelSerializer):
 
     channel = serializers.CharField(
-        default="jiaxindevchannels", read_only=True
+        default="ExchangeAnnChannel", read_only=True
     )
 
     class Meta:
