@@ -3,7 +3,7 @@ from .models import News
 
 
 class CryptoNewsSerializer(serializers.ModelSerializer):
-    # domain = serializers.CharField()
+    domain = serializers.CharField(read_only=True)
 
     class Meta:
         model = News
