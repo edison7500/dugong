@@ -31,7 +31,10 @@ class Command(BaseCommand):
         ser = PushExchangeAnnSerializer(instance=news)
         _data = ser.data
 
-        if news.domain in ["upbit.com"] and translate_url is not None:
+        if (
+            news.domain in ["upbit.com", "cafe.bithumb.com"]
+            and translate_url is not None
+        ):
             _title = _data["title"]
             _title = translate_text(_title, "ko", "en")
             _data.update({"title": _title})
