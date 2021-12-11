@@ -41,7 +41,7 @@ class Command(BaseCommand):
         # ):
         _title = _data["title"]
         _title = p.sub("", _title).strip()
-        _data.update({"title": f"[upbit] {_title}"})
+        _data.update({"title": f"[Upbit] {_title}"})
 
         _data.update({"channel": "testAnnChannel"})
         requests.post(url="http://tg-bot:5000/push", json=_data)

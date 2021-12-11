@@ -1,3 +1,4 @@
+import re
 import requests
 import logging
 from datetime import datetime, timedelta
@@ -9,6 +10,21 @@ from apps.cryptonews.utils.translator import translate_text
 logger = logging.getLogger("django")
 
 debug = getattr(settings, "DEBUG")
+
+p = re.compile(r"^\[.*?\]")
+
+
+def format_title(title, domain) -> str:
+    _title = title.copy()
+    _title = p.sub("", _title).strip()
+    # _data.update({"title": f"[Upbit] {_title}"})
+
+    if domain == "upbit.com":
+        _title = f"[Upbit] {_title}"
+    elif domain == "cafe.bithumb.com":
+        _title = f"[Bithumb] {_title}"
+
+    return _title
 
 
 def push_crypto_new(sender, instance: News, created, **kwargs):
@@ -23,7 +39,10 @@ def push_crypto_new(sender, instance: News, created, **kwargs):
             _data = ser.data
             if instance.domain in ["upbit.com", "cafe.bithumb.com"]:
                 _title = _data["title"]
-                _title = translate_text(_title, "ko", "en")
-                _data.update({"title": _title})
+                _title = translate_text(_title, "ko", "zh")
+
+                # _title = p.sub("", _title).strip()
+                # _data.update({"title": f"[Upbit] {_title}"})
+                _data.update({"title": format_title(_title)})
 
             requests.post(url="http://tg-bot:5000/push", json=_data)
