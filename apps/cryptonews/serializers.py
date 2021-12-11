@@ -11,10 +11,11 @@ class CryptoNewsSerializer(serializers.ModelSerializer):
 
 
 class PushExchangeAnnSerializer(serializers.ModelSerializer):
-
     channel = serializers.CharField(
         default="ExchangeAnnChannel", read_only=True
     )
+
+    disable_web_page_preview = serializers.BooleanField(default=True)
 
     class Meta:
         model = News
