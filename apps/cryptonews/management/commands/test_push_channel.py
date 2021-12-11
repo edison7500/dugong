@@ -9,6 +9,6 @@ class Command(BaseCommand):
         news = News.objects.first()
         ser = PushExchangeAnnSerializer(instance=news)
         _data = ser.data
-        _data.update("channel", "testAnnChannel")
+        _data.update({"channel", "testAnnChannel"})
         print(_data)
         # requests.post(url="http://tg-bot:5000/push", json=ser.data)
