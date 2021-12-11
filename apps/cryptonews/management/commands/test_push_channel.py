@@ -39,5 +39,5 @@ class Command(BaseCommand):
             _title = translate_text(_title, "ko", "en")
             _data.update({"title": _title})
 
-        _data.update({"channel": "testAnnChannel"})
+        # _data.update({"channel": "testAnnChannel"})
         requests.post(url="http://tg-bot:5000/push", json=_data)

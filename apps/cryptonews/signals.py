@@ -21,7 +21,7 @@ def push_crypto_new(sender, instance: News, created, **kwargs):
         _expire = datetime.utcnow() - timedelta(hours=1)  # noqa
         if _expire.timestamp() < instance.published_at.timestamp():
             _data = ser.data
-            if instance.domain in ["upbit.com"]:
+            if instance.domain in ["upbit.com", "cafe.bithumb.com"]:
                 _title = _data["title"]
                 _title = translate_text(_title, "ko", "en")
                 _data.update({"title": _title})
