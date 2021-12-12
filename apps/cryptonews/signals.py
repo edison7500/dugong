@@ -23,6 +23,8 @@ def format_title(title, domain) -> str:
         _title = f"[Upbit] {_title}"
     elif domain == "cafe.bithumb.com":
         _title = f"[Bithumb] {_title}"
+    elif domain == "www.huobi.com":
+        _title = f"[Huobi] {_title}"
 
     return _title
 
@@ -37,12 +39,10 @@ def push_crypto_new(sender, instance: News, created, **kwargs):
         _expire = datetime.utcnow() - timedelta(hours=1)  # noqa
         if _expire.timestamp() < instance.published_at.timestamp():
             _data = ser.data
+            _title = _data["title"]
+
             if instance.domain in ["upbit.com", "cafe.bithumb.com"]:
-                _title = _data["title"]
                 _title = translate_text(_title, "ko", "zh")
 
-                # _title = p.sub("", _title).strip()
-                # _data.update({"title": f"[Upbit] {_title}"})
-                _data.update({"title": format_title(_title)})
-
+            _data.update({"title": format_title(_title)})
             requests.post(url="http://tg-bot:5000/push", json=_data)
