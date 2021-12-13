@@ -15,7 +15,7 @@ p = re.compile(r"^\[.*?\]")
 
 
 def format_title(title, domain) -> str:
-    _title = title.copy()
+    _title = title
     _title = p.sub("", _title).strip()
     # _data.update({"title": f"[Upbit] {_title}"})
 
