@@ -27,7 +27,7 @@ urlpatterns = [
         schema_view.with_ui("swagger", cache_timeout=86400),
         name="schema-swagger-ui",
     ),
-    path("blog/", include("apps.blog.urls.api", namespace="blog")),
+    path("posts/", include("apps.blog.urls.api", namespace="blog")),
     path(
         "tutorials/", include("apps.tutorials.urls.api", namespace="tutorials")
     ),
