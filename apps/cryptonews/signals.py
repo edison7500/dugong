@@ -23,7 +23,7 @@ def format_title(title, domain) -> str:
         _title = f"[Upbit] {_title}"
     elif domain == "cafe.bithumb.com":
         _title = f"[Bithumb] {_title}"
-    elif domain == "www.huobi.com":
+    elif domain == "www.huobi.li":
         _title = f"[Huobi] {_title}"
 
     return _title
