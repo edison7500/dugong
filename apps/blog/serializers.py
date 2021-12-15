@@ -21,4 +21,5 @@ class PostSerializer(TaggitSerializer, serializers.ModelSerializer):
         model = Post
         exclude = [
             "id",
+            "status",
         ]
