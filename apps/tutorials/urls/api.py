@@ -1,9 +1,10 @@
-from django.urls import path
-from apps.tutorials.views.api import TutorialsListView, TutorialsDetailView
+from rest_framework import routers
+from apps.tutorials.views.api import TutorialsViewSet
+
+router = routers.SimpleRouter()
 
 app_name = "tutorials"
 
-urlpatterns = [
-    path("", TutorialsListView.as_view(), name="list"),
-    path("<slug:slug>/", TutorialsDetailView.as_view(), name="detail"),
-]
+router.register(r"", TutorialsViewSet, basename="tutorials")
+
+urlpatterns = router.urls

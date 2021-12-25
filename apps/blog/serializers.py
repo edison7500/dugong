@@ -12,8 +12,8 @@ logger = logging.getLogger("django")
 
 
 class PostSerializer(TaggitSerializer, serializers.ModelSerializer):
-    # digest = serializers.CharField()
-    content = serializers.CharField()
+    digest = serializers.CharField()
+    # content = serializers.CharField()
     tags = TagListSerializerField()
     created_at_ts = serializers.IntegerField()
 
