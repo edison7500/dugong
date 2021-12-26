@@ -1,6 +1,7 @@
 import re
 import requests
 import logging
+import opencc
 from datetime import datetime, timedelta
 from django.conf import settings
 from apps.cryptonews.models import News
@@ -13,6 +14,10 @@ debug = getattr(settings, "DEBUG")
 
 p = re.compile(r"^\[.*?\]", re.IGNORECASE)
 gate_pattern = re.compile("^gite\\.io", re.IGNORECASE)
+binance_pattern = re.compile("^幣安")
+
+hk_converter = opencc.OpenCC("hk2s")
+tw_converter = opencc.OpenCC("tw2s")
 
 
 def format_title(title, domain) -> str:
@@ -25,10 +30,13 @@ def format_title(title, domain) -> str:
     elif domain == "cafe.bithumb.com":
         _title = f"[Bithumb] {_title}"
     elif domain == "www.huobi.li":
-        _title = f"[Huobi] {_title}"
+        _title = hk_converter.convert(f"[Huobi] {_title}")
     elif domain == "www.gate.io":
         _title = gate_pattern.sub("", _title).strip()
         _title = f"[Gate] {_title}"
+    elif domain == "www.binance.com":
+        _title = binance_pattern.sub("", _title).strip()
+        _title = tw_converter.convert(f"[Binance] {_title}")
 
     return _title
 
