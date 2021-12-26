@@ -5,17 +5,6 @@ from django.contrib.contenttypes.admin import GenericStackedInline
 from apps.images.models import Image
 
 
-# @register("tags")
-# class TagsLookup(LookupChannel):
-#     model = Tag
-#
-#     def get_query(self, q, request):
-#         return self.model.objects.filter(name=q)
-#
-#     def format_item_display(self, item):
-#         return "<span class='tag'>%s</span>" % item.name
-
-
 class PostImageInlineAdmin(GenericStackedInline):
     model = Image
     fields = ["file", "description"]
@@ -34,6 +23,7 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ("title",)
     list_per_page = 30
     inlines = (PostImageInlineAdmin,)
+
     # form = PostForm
 
     def get_queryset(self, request):

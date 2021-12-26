@@ -11,7 +11,8 @@ logger = logging.getLogger("django")
 
 debug = getattr(settings, "DEBUG")
 
-p = re.compile(r"^\[.*?\]")
+p = re.compile(r"^\[.*?\]", re.IGNORECASE)
+gate_pattern = re.compile("^gite\\.io", re.IGNORECASE)
 
 
 def format_title(title, domain) -> str:
@@ -25,6 +26,9 @@ def format_title(title, domain) -> str:
         _title = f"[Bithumb] {_title}"
     elif domain == "www.huobi.li":
         _title = f"[Huobi] {_title}"
+    elif domain == "www.gate.io":
+        _title = gate_pattern.sub("", _title).strip()
+        _title = f"[Gate] {_title}"
 
     return _title
 
