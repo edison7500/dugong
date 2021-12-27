@@ -70,8 +70,8 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
-    "allauth.socialaccount.providers.github",
-    "allauth.socialaccount.providers.google",
+    # "allauth.socialaccount.providers.github",
+    # "allauth.socialaccount.providers.google",
 ]
 LOCAL_APPS = [
     "apps.ext",
@@ -200,12 +200,12 @@ SOCIALACCOUNT_AUTO_SIGNUP = True
 ACCOUNT_LOGOUT_ON_GET = False
 # ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 
-SOCIALACCOUNT_PROVIDERS = {
-    "google": {
-        "SCOPE": ["profile", "email"],
-        "AUTH_PARAMS": {"access_type": "online"},
-    }
-}
+# SOCIALACCOUNT_PROVIDERS = {
+#     "google": {
+#         "SCOPE": ["profile", "email"],
+#         "AUTH_PARAMS": {"access_type": "online"},
+#     }
+# }
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 

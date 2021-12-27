@@ -13,7 +13,7 @@ logger = logging.getLogger("django")
 debug = getattr(settings, "DEBUG")
 
 p = re.compile(r"^\[.*?\]", re.IGNORECASE)
-gate_pattern = re.compile("^gite\\.io", re.IGNORECASE)
+gate_pattern = re.compile("^gate\\.io", re.IGNORECASE)
 binance_pattern = re.compile("^幣安")
 
 hk_converter = opencc.OpenCC("hk2s")
