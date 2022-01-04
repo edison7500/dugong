@@ -7,7 +7,9 @@ class CryptoNewsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = News
-        exclude = ["id"]
+        # exclude = ["id"]
+        fields = "__all__"
+        read_only_fields = ["id", "slug"]
 
 
 class PushExchangeAnnSerializer(serializers.ModelSerializer):

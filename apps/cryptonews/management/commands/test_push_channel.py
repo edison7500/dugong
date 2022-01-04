@@ -11,18 +11,6 @@ from apps.cryptonews.serializers import PushExchangeAnnSerializer
 translate_url = getattr(settings, "TRANSLATE_BOT_URL")
 
 
-# def translate_text(text, source="ok", target="en") -> str:
-#     _r = requests.post(
-#         translate_url,
-#         json={
-#             "text": text,
-#             "source": source,
-#             "target": target,
-#         },
-#     )
-#     _data = json.loads(_r.text)
-#     return _data["TranslatedText"]
-
 p = re.compile(r"^\[.*?\]")
 
 
@@ -35,10 +23,6 @@ class Command(BaseCommand):
         ser = PushExchangeAnnSerializer(instance=news)
         _data = ser.data
 
-        # if (
-        #     news.domain in ["upbit.com", "cafe.bithumb.com"]
-        #     and translate_url is not None
-        # ):
         _title = _data["title"]
         _title = p.sub("", _title).strip()
         _data.update({"title": f"[Upbit] {_title}"})

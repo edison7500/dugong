@@ -91,7 +91,7 @@ class Post(CacheMixin, models.Model):
         _content = _content.lower()
         return _content
 
-    def tag_list(self):
+    def tag_list(self) -> list:
         return [o.name for o in self.tags.all()]
 
     def tag_string(self):
