@@ -1,7 +1,7 @@
 from uuslug import uuslug
 
 
-def generate_slug(sender, instance, raw, using, update_fields):
+def generate_slug(sender, instance, raw, using, update_fields, **kwargs):
     if isinstance(instance, sender) and len(instance.slug) == 0:
         # if len(instance.slug) == 0:
         instance.slug = uuslug(

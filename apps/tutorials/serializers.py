@@ -1,13 +1,14 @@
 from rest_framework import serializers
-from taggit_serializer.serializers import (
-    TagListSerializerField,
-    TaggitSerializer,
-)
+
+# from taggit_serializer.serializers import (
+#     TagListSerializerField,
+#     TaggitSerializer,
+# )
 
 from apps.tutorials.models import Tutorial
 
 
-class TutorialSerializer(TaggitSerializer, serializers.ModelSerializer):
+class TutorialSerializer(serializers.ModelSerializer):
     digest = serializers.CharField(read_only=True)
     absolute_url = serializers.CharField(
         source="get_absolute_url", read_only=True
@@ -21,7 +22,7 @@ class TutorialSerializer(TaggitSerializer, serializers.ModelSerializer):
     created_at_ts = serializers.IntegerField()
 
     images = serializers.SerializerMethodField(source="get_images")
-    tags = TagListSerializerField()
+    # tags = TagListSerializerField()
 
     class Meta:
         model = Tutorial

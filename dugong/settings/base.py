@@ -60,7 +60,7 @@ THIRD_PARTY_APPS = [
     "widget_tweaks",
     "mptt",
     "taggit",
-    "taggit_serializer",
+    # "taggit_serializer",
     "django_extensions",
     "django_gravatar",
     "django_filters",
