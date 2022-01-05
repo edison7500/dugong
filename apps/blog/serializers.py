@@ -27,7 +27,4 @@ class PostSerializer(serializers.ModelSerializer):
         ]
 
     def get_tags(self, obj) -> list:
-        return [
-            {"id": tag.id, "name": tag.name, "slug": tag.slug}
-            for tag in obj.tags.all()
-        ]
+        return [{"name": tag.name, "slug": tag.slug} for tag in obj.tags.all()]
