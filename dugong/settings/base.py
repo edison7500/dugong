@@ -15,6 +15,8 @@ DATABASES = {
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
 # Internationalization
 # -------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -60,7 +62,6 @@ THIRD_PARTY_APPS = [
     "widget_tweaks",
     "mptt",
     "taggit",
-    # "taggit_serializer",
     "django_extensions",
     "django_gravatar",
     "django_filters",
@@ -207,7 +208,6 @@ ACCOUNT_LOGOUT_ON_GET = False
 #     }
 # }
 
-DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 CELERY_BROKER_URL = env(
     "CELERY_BROKER_URL", default="redis://127.0.0.1:6379/12"
@@ -217,6 +217,5 @@ CELERY_TASK_SERIALIZER = "msgpack"
 CELERY_ACCEPT_CONTENT = ["msgpack"]
 
 CRAWLER_URL = env("CRAWLER_URL", default="http://127.0.0.1:6800")
-
 
 TRANSLATE_BOT_URL = env("TRANSLATE_BOT_URL")

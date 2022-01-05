@@ -9,3 +9,4 @@ class PostAPIViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = PostSerializer
     lookup_field = "slug"
     lookup_url_kwarg = "slug"
+    filterset_fields = ["tags__slug"]
