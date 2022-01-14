@@ -56,6 +56,7 @@ DJANGO_APPS = [
 REST_FRAMEWORK_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
+    "dj_rest_auth",
     "drf_yasg",
 ]
 THIRD_PARTY_APPS = [
@@ -67,7 +68,6 @@ THIRD_PARTY_APPS = [
     "django_filters",
     "webpack_loader",
     "django_celery_beat",
-    # "oauth2_provider",
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
