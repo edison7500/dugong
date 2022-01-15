@@ -56,7 +56,8 @@ DJANGO_APPS = [
 REST_FRAMEWORK_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
-    "dj_rest_auth",
+    "rest_framework_simplejwt",
+    # "dj_rest_auth",
     "drf_yasg",
 ]
 THIRD_PARTY_APPS = [
@@ -71,8 +72,6 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
-    # "allauth.socialaccount.providers.github",
-    # "allauth.socialaccount.providers.google",
 ]
 LOCAL_APPS = [
     "apps.ext",
@@ -81,6 +80,7 @@ LOCAL_APPS = [
     "apps.images",
     "apps.photos",
     "apps.cryptonews",
+    "apps.users.providers.web3",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = (
@@ -150,6 +150,7 @@ REST_FRAMEWORK = {
         # "rest_framework_jwt.authentication.JSONWebTokenAuthentication",
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
     "DEFAULT_FILTER_BACKENDS": (
@@ -173,7 +174,6 @@ WEBPACK_LOADER = {
 
 FILE_UPLOAD_TEMP_DIR = tempfile.mkdtemp()
 FILE_UPLOAD_PERMISSIONS = 0o644
-
 
 #
 # django any mail
@@ -208,6 +208,9 @@ ACCOUNT_LOGOUT_ON_GET = False
 #     }
 # }
 
+# REST_SESSION_LOGIN = False
+REST_USE_JWT = True
+OLD_PASSWORD_FIELD_ENABLED = False
 
 CELERY_BROKER_URL = env(
     "CELERY_BROKER_URL", default="redis://127.0.0.1:6379/12"
