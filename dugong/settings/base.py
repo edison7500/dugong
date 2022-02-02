@@ -56,7 +56,7 @@ DJANGO_APPS = [
 REST_FRAMEWORK_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
-    "rest_framework_simplejwt",
+    # "rest_framework_simplejwt",
     # "dj_rest_auth",
     "drf_yasg",
 ]
@@ -150,7 +150,7 @@ REST_FRAMEWORK = {
         # "rest_framework_jwt.authentication.JSONWebTokenAuthentication",
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
+        # "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
     "DEFAULT_FILTER_BACKENDS": (
