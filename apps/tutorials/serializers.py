@@ -11,7 +11,7 @@ from apps.tutorials.models import Tutorial
 
 
 class TutorialSerializer(serializers.ModelSerializer):
-    digest = serializers.CharField(read_only=True)
+    # digest = serializers.CharField(read_only=True)
     absolute_url = serializers.CharField(
         source="get_absolute_url", read_only=True
     )
@@ -31,7 +31,7 @@ class TutorialSerializer(serializers.ModelSerializer):
             "cover_url",
             "absolute_url",
             "title",
-            "digest",
+            # "digest",
             "content",
             "origin_link",
             # "images",
@@ -42,13 +42,4 @@ class TutorialSerializer(serializers.ModelSerializer):
         )
 
     def get_tags(self, obj) -> List[Dict]:
-        print(obj.tags.all())
         return [{"name": tag.name, "slug": tag.slug} for tag in obj.tags.all()]
-
-        # return []
-
-    # def get_images(self, obj) -> List:
-    # _images = obj.images.all().values_list("file", flat=True)
-    # return list(_images)
-
-    # return []
