@@ -1,3 +1,5 @@
+from typing import List, Dict
+
 from rest_framework import serializers
 
 # from taggit_serializer.serializers import (
@@ -16,13 +18,11 @@ class TutorialSerializer(serializers.ModelSerializer):
     cover_url = serializers.URLField(
         source="cover", required=False, read_only=True
     )
+    tags = serializers.SerializerMethodField()
     created_at = serializers.DateTimeField(
         source="created_datetime", required=False, read_only=True
     )
     created_at_ts = serializers.IntegerField()
-
-    images = serializers.SerializerMethodField(source="get_images")
-    # tags = TagListSerializerField()
 
     class Meta:
         model = Tutorial
@@ -33,15 +33,22 @@ class TutorialSerializer(serializers.ModelSerializer):
             "title",
             "digest",
             "content",
-            "html_content",
             "origin_link",
-            "images",
+            # "images",
             "tags",
             "created_at",
             "created_at_ts",
             "published_at",
         )
 
-    def get_images(self, obj):
-        _images = obj.images.all().values_list("file", flat=True)
-        return list(_images)
+    def get_tags(self, obj) -> List[Dict]:
+        print(obj.tags.all())
+        return [{"name": tag.name, "slug": tag.slug} for tag in obj.tags.all()]
+
+        # return []
+
+    # def get_images(self, obj) -> List:
+    # _images = obj.images.all().values_list("file", flat=True)
+    # return list(_images)
+
+    # return []
