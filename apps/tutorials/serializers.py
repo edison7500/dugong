@@ -1,17 +1,9 @@
 from typing import List, Dict
-
 from rest_framework import serializers
-
-# from taggit_serializer.serializers import (
-#     TagListSerializerField,
-#     TaggitSerializer,
-# )
-
 from apps.tutorials.models import Tutorial
 
 
 class TutorialSerializer(serializers.ModelSerializer):
-    # digest = serializers.CharField(read_only=True)
     absolute_url = serializers.CharField(
         source="get_absolute_url", read_only=True
     )
