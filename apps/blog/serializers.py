@@ -13,7 +13,7 @@ logger = logging.getLogger("django")
 
 
 class PostSerializer(serializers.ModelSerializer):
-    digest = serializers.CharField()
+    digest = serializers.SerializerMethodField()
     tags = serializers.SerializerMethodField()
     created_at_ts = serializers.IntegerField()
 
@@ -28,3 +28,8 @@ class PostSerializer(serializers.ModelSerializer):
 
     def get_tags(self, obj) -> list:
         return [{"name": tag.name, "slug": tag.slug} for tag in obj.tags.all()]
+
+    def get_digest(self, obj) -> str:
+        _digest: str = obj.digest
+        _digest = _digest.replace("\n", " ")
+        return f"{_digest[:100]}"

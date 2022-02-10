@@ -47,7 +47,7 @@ class Tutorial(models.Model):
     origin_link = models.URLField(
         _("origin_link"), max_length=255, null=True, unique=True
     )
-    created_datetime = models.DateTimeField(
+    created_at = models.DateTimeField(
         default=timezone.now, db_index=True, editable=False
     )
     published_at = MonitorField(monitor="status", when=["published"])
@@ -105,14 +105,18 @@ class Tutorial(models.Model):
     def cover(self):
         _covers = self.images.filter(is_cover=True)
         if _covers.count() == 0:
-            return ""
+            return "https://static.jiaxin.im/dugong/static/img/placeholder.jpg"
         else:
             cover = _covers[0]
         return cover.file.url
 
     @property
     def created_at_ts(self) -> float:
-        return self.created_datetime.timestamp()
+        return self.created_at.timestamp()
+
+    @property
+    def published_at_ts(self) -> float:
+        return self.published_at.timestamp()
 
     def tag_list(self):
         return [{"id": o.pk, "name": o.name} for o in self.tags.all()]

@@ -68,8 +68,8 @@ REST_FRAMEWORK = {
     "DEFAULT_FILTER_BACKENDS": (
         "django_filters.rest_framework.DjangoFilterBackend",
     ),
-    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
-    # "DEFAULT_PAGINATION_CLASS": "apps.ext.rest.pagination.ExtensionPagination",
+    # "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "DEFAULT_PAGINATION_CLASS": "apps.ext.rest.pagination.ExtensionPagination",
     "PAGE_SIZE": 20,
     "DATETIME_FORMAT": "%Y-%m-%d %H:%M:%S",
 }

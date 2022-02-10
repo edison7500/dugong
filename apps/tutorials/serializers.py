@@ -11,10 +11,9 @@ class TutorialSerializer(serializers.ModelSerializer):
         source="cover", required=False, read_only=True
     )
     tags = serializers.SerializerMethodField()
-    created_at = serializers.DateTimeField(
-        source="created_datetime", required=False, read_only=True
-    )
+
     created_at_ts = serializers.IntegerField()
+    published_at_ts = serializers.IntegerField()
 
     class Meta:
         model = Tutorial
@@ -28,9 +27,9 @@ class TutorialSerializer(serializers.ModelSerializer):
             "origin_link",
             # "images",
             "tags",
-            "created_at",
+            # "created_at",
             "created_at_ts",
-            "published_at",
+            "published_at_ts",
         )
 
     def get_tags(self, obj) -> List[Dict]:
