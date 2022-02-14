@@ -54,29 +54,7 @@ SESSION_FILE_PATH = env("SESSION_PATH", default="/tmp")
 # # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#internal-ips
 # INTERNAL_IPS = ["127.0.0.1"]
 
-# REST FRAMEWORK
-# ------------------------------------------------------------------------------
-# http://www.django-rest-framework.org/api-guide/settings/
-REST_FRAMEWORK = {
-    # "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",),
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        # "rest_framework_jwt.authentication.JSONWebTokenAuthentication",
-        "rest_framework.authentication.SessionAuthentication",
-        "rest_framework.authentication.TokenAuthentication",
-    ),
-    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
-    "DEFAULT_FILTER_BACKENDS": (
-        "django_filters.rest_framework.DjangoFilterBackend",
-        "rest_framework.filters.SearchFilter",
-    ),
-    # "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
-    "DEFAULT_PAGINATION_CLASS": "apps.ext.rest.pagination.ExtensionPagination",
-    "PAGE_SIZE": 20,
-    "DATETIME_FORMAT": "%Y-%m-%d %H:%M:%S",
-}
-
-# MEDIA_URL = "https://img.jiaxin.im/dugong/upload/"
-
+#
 # django storage configure
 # --------------------------------------------------------------------
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
