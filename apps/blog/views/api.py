@@ -10,3 +10,4 @@ class PostAPIViewSet(viewsets.ReadOnlyModelViewSet):
     lookup_field = "slug"
     lookup_url_kwarg = "slug"
     filterset_fields = ["tags__slug"]
+    search_fields = ["title"]
