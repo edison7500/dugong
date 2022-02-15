@@ -50,7 +50,7 @@ class PostsFeedGenerator(Rss201rev2Feed):
 
         if item["content_encoded"] is not None:
             handler.addQuickElement(
-                u"content:encoded", item["content_encoded"], escape=False
+                "content:encoded", item["content_encoded"], escape=False
             )
 
     # return Article.objects.published().order_by('-pub_time')[0:20]
@@ -59,7 +59,7 @@ class PostsFeedGenerator(Rss201rev2Feed):
 class PostFeeds(Feed):
     feed_type = PostsFeedGenerator
     title = "Python观察员"
-    link = reverse("blog:index")
+    link = "https://www.jiaxin.im"
     author_email = "edison7500@gmail.com"
     feed_copyright = "since 2008 jiaxin.im All rights reserved."
     description = "Python观察员，python，django，scrapy，ios"
@@ -71,10 +71,11 @@ class PostFeeds(Feed):
         return escape(item.title)
 
     def item_link(self, item):
-        return reverse("blog:detail", args=[item.slug])
+        return f"https://www.jiaxin.im/blog/{item.slug}/"
+        # return reverse("blog:detail", args=[item.slug])
 
     def item_author_name(self, item):
-        return "https://jiaxin.im/"
+        return "jiaxin"
 
     def item_pubdate(self, item):
         return item.updated_at
@@ -82,9 +83,9 @@ class PostFeeds(Feed):
     def item_description(self, item):
         content = strip_tags(item.html_content)
         # content = strip_tags(item.article.bleached_content)
-        desc = content.split(u"。")
+        desc = content.split("。")
         # return "<![CDATA[%s]]>" % (desc[0] + u'。')
-        return escape(desc[0] + u"。")
+        return escape(desc[0] + "。")
 
     def item_extra_kwargs(self, item):
         extra = {

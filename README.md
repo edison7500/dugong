@@ -10,28 +10,26 @@
 [![Python 3](https://pyup.io/repos/github/edison7500/dugong/python-3-shield.svg)](https://pyup.io/repos/github/edison7500/dugong/)
 
 ### 系统环境
+
 * Ubuntu 18.04 LTS
 * Nginx
 * Postgres 10.x
 * Python 3.7.x
-* Nodejs 14.x
 
 ### Web Framework
-* *django-2.2* [相关文档](https://docs.djangoproject.com/en/2.2/)
 
-### 前端框架
-* *bulma* [相关文档](https://bulma.io/)
-
+* *django-3.2* [相关文档](https://docs.djangoproject.com/en/3.2/)
 
 ### Build
+
 ```
 pip install -r requirements/local.txt  # development
 
 pip install -r requirements/production.txt # production
 ```
 
-
 ### 教程
+
 * [利用 Django 建站攻略 （一）安装](https://jiaxin.im/blog/li-yong-django-jian-zhan-gong/)
 * [利用 Django 建站攻略 （二）建模](https://jiaxin.im/blog/li-yong-django-jian-zhan-gon-1/)
 * [利用 Django 建站攻略 （三）视图](https://jiaxin.im/blog/li-yong-django-jian-zhan-gon-2/)

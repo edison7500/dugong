@@ -161,17 +161,6 @@ REST_FRAMEWORK = {
     "SEARCH_PARAM": "q",
 }
 
-WEBPACK_LOADER = {
-    "DEFAULT": {
-        "CACHE": not DEBUG,
-        "BUNDLE_DIR_NAME": "dist/",  # must end with slash
-        "STATS_FILE": str(BASE_DIR.path("static/webpack-stats.json")),
-        "POLL_INTERVAL": 0.1,
-        "TIMEOUT": None,
-        "IGNORE": [".+\.hot-update.js", ".+\.map"],  # noqa W605
-    }
-}
-
 FILE_UPLOAD_TEMP_DIR = tempfile.mkdtemp()
 FILE_UPLOAD_PERMISSIONS = 0o644
 
