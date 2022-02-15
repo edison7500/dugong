@@ -4,8 +4,6 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, re_path, include
 
-from apps.blog.views import BlogListView
-
 from apps.photos.views import ImageProcessView
 
 urlpatterns = [
