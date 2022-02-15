@@ -4,7 +4,7 @@ from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 from rest_framework.urlpatterns import format_suffix_patterns
 
-from apps.users.views.api import UserDetailsView
+# from apps.users.views.api import UserDetailsView
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -35,7 +35,7 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    path("o/profile/", UserDetailsView.as_view(), name="oauth_user_profile"),
+    # path("o/profile/", UserDetailsView.as_view(), name="oauth_user_profile"),
     path("crypto-news/", include("apps.cryptonews.urls.api")),
 ]
 
