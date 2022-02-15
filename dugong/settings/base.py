@@ -70,7 +70,6 @@ THIRD_PARTY_APPS = [
     "django_celery_beat",
     "allauth",
     "allauth.account",
-    "allauth.socialaccount",
 ]
 LOCAL_APPS = [
     "apps.ext",
@@ -79,7 +78,6 @@ LOCAL_APPS = [
     "apps.images",
     "apps.photos",
     "apps.cryptonews",
-    "apps.users.providers.web3",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = (
