@@ -67,7 +67,6 @@ THIRD_PARTY_APPS = [
     "django_extensions",
     "django_gravatar",
     "django_filters",
-    "webpack_loader",
     "django_celery_beat",
     "allauth",
     "allauth.account",
