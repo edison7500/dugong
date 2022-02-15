@@ -11,9 +11,8 @@
 
 ### 系统环境
 
-* Ubuntu 18.04 LTS
-* Nginx
-* Postgres 10.x
+* Ubuntu 20.04 LTS
+* Postgres 12.x
 * Python 3.7.x
 
 ### Web Framework
