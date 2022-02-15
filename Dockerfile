@@ -23,7 +23,7 @@ RUN touch .env
 #RUN python manage.py collectstatic --no-input -i webpack-stats.json -i admin -i rest_framework --settings=dugong.settings.dev
 
 # cleanup
-RUN #rm -rf /opt/dugong/frontend/
+#RUN rm -rf /opt/dugong/frontend/
 RUN rm -rf /var/lib/apt/lists/*
 
 RUN useradd -s /sbin/nologin -u 1001 -d /opt/dugong dugong
