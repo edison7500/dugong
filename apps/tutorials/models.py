@@ -64,10 +64,11 @@ class Tutorial(models.Model):
         verbose_name_plural = _("tutorial")
 
     def __str__(self):
-        return "{title}".format(title=self.title)
+        return f"{self.title}"
 
-    def get_absolute_url(self):
-        return reverse("tutorials:detail", args=[self.slug])
+    def get_absolute_url(self) -> str:
+        return f"https://jiaxin.im/tutorials/{self.slug}/"
+        # return reverse("tutorials:detail", args=[self.slug])
 
     def render_markdown(self):
         html = md.convert(self.content)
