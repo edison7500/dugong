@@ -61,7 +61,7 @@ REST_FRAMEWORK_APPS = [
     "drf_yasg",
 ]
 THIRD_PARTY_APPS = [
-    "widget_tweaks",
+    # "widget_tweaks",
     "mptt",
     "taggit",
     "django_extensions",
