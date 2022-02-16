@@ -161,14 +161,14 @@ REST_FRAMEWORK = {
 FILE_UPLOAD_TEMP_DIR = tempfile.mkdtemp()
 FILE_UPLOAD_PERMISSIONS = 0o644
 
-#
 # django any mail
+# ----------------------------------------------------------------------------------------------------------------------
 #
 EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
 ANYMAIL = {"SENDGRID_API_KEY": env("SENDGRID_API_KEY", default="<replace>")}
 
-#
 # django taggit
+# ----------------------------------------------------------------------------------------------------------------------
 #
 TAGGIT_CASE_INSENSITIVE = True
 
@@ -187,17 +187,14 @@ SOCIALACCOUNT_AUTO_SIGNUP = True
 ACCOUNT_LOGOUT_ON_GET = False
 # ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 
-# SOCIALACCOUNT_PROVIDERS = {
-#     "google": {
-#         "SCOPE": ["profile", "email"],
-#         "AUTH_PARAMS": {"access_type": "online"},
-#     }
-# }
 
 # REST_SESSION_LOGIN = False
 REST_USE_JWT = True
 OLD_PASSWORD_FIELD_ENABLED = False
 
+# celery
+# ----------------------------------------------------------------------------------------------------------------------
+#
 CELERY_BROKER_URL = env(
     "CELERY_BROKER_URL", default="redis://127.0.0.1:6379/12"
 )
