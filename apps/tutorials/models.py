@@ -68,7 +68,6 @@ class Tutorial(models.Model):
 
     def get_absolute_url(self) -> str:
         return f"https://jiaxin.im/tutorials/{self.slug}/"
-        # return reverse("tutorials:detail", args=[self.slug])
 
     def render_markdown(self):
         html = md.convert(self.content)
@@ -125,14 +124,15 @@ class Tutorial(models.Model):
     def tag_string(self):
         return ",".join(o.name for o in self.tags.all())
 
-    def get_seo(self):
-        seo_info = {
-            "title": self.title,
-            "desc": (self.digest[:75] + "...")
-            if len(self.digest) > 75
-            else self.digest,
-            "url": self.get_absolute_url(),
-            "cover_url": self.cover,
-            "tags": self.tag_string().split(","),
-        }
-        return seo_info
+    #
+    # def get_seo(self):
+    #     seo_info = {
+    #         "title": self.title,
+    #         "desc": (self.digest[:75] + "...")
+    #         if len(self.digest) > 75
+    #         else self.digest,
+    #         "url": self.get_absolute_url(),
+    #         "cover_url": self.cover,
+    #         "tags": self.tag_string().split(","),
+    #     }
+    #     return seo_info
