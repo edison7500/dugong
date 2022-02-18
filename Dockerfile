@@ -1,8 +1,7 @@
 FROM python:3.7.12-slim-buster
 ENV PYTHONUNBUFFERED 1
-RUN apt-get update && apt-get install -y gcc libpq-dev opencc
+RUN apt-get update && apt-get install -y opencc
 COPY requirements /tmp/requirements
-RUN pip install --upgrade pip
 RUN pip install -r /tmp/requirements/prod.txt --compile && rm -rf /tmp/requirements
 RUN mkdir /opt/dugong
 COPY . /opt/dugong
