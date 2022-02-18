@@ -65,7 +65,7 @@ THIRD_PARTY_APPS = [
     "mptt",
     "taggit",
     "django_extensions",
-    "django_gravatar",
+    # "django_gravatar",
     "django_filters",
     "django_celery_beat",
     "allauth",
