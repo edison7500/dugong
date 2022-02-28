@@ -118,6 +118,7 @@ class Tutorial(models.Model):
     def published_at_ts(self) -> float:
         return self.published_at.timestamp()
 
+    @cached_property
     def tag_list(self):
         return [{"id": o.pk, "name": o.name} for o in self.tags.all()]
 
