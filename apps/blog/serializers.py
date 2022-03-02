@@ -17,6 +17,7 @@ class PostSerializer(serializers.ModelSerializer):
     digest = serializers.SerializerMethodField()
     tags = serializers.SerializerMethodField()
     created_at_ts = serializers.IntegerField()
+    updated_at_ts = serializers.IntegerField()
 
     class Meta:
         model = Post
