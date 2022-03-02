@@ -1,15 +1,14 @@
 import logging
 import re
+from typing import List
 
-from django.db import models
 from django.contrib.contenttypes.fields import GenericRelation
-from django.urls import reverse
+from django.db import models
 from django.utils.functional import cached_property
 from django.utils.html import strip_tags
 from django.utils.translation import ugettext_lazy as _
-
 from taggit.managers import TaggableManager
-from uuslug import uuslug
+
 from apps.ext.models import CacheMixin
 from apps.ext.render.md import md
 from apps.images.models import Image
@@ -64,6 +63,10 @@ class Post(CacheMixin, models.Model):
         return self.created_at.timestamp()
 
     @cached_property
+    def updated_at_ts(self) -> float:
+        return self.updated_at.timestamp()
+
+    @cached_property
     def digest(self):
         value = self.get_value_from_cache("digest")
         if value is None:
@@ -91,7 +94,7 @@ class Post(CacheMixin, models.Model):
         _content = _content.lower()
         return _content
 
-    def tag_list(self) -> list:
+    def tag_list(self) -> List[str]:
         return [o.name for o in self.tags.all()]
 
     def tag_string(self):
