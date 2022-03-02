@@ -1,4 +1,5 @@
 import logging
+from typing import List, Dict
 
 from rest_framework import serializers
 
@@ -26,7 +27,7 @@ class PostSerializer(serializers.ModelSerializer):
             "updated_at",
         ]
 
-    def get_tags(self, obj) -> list:
+    def get_tags(self, obj) -> List[Dict]:
         return [{"name": tag.name, "slug": tag.slug} for tag in obj.tags.all()]
 
     def get_digest(self, obj) -> str:
