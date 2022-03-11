@@ -16,11 +16,6 @@ urlpatterns += [
 ]
 
 #
-# django allauth url config
-# ----------------------------------------------------------------------------------------------------------------------
-# urlpatterns += [path("account/", include("allauth.urls"))]
-
-#
 # api url config
 # ----------------------------------------------------------------------------------------------------------------------
 urlpatterns += [path("api/", include("dugong.urls.api", namespace="api"))]

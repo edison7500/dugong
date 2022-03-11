@@ -37,6 +37,9 @@ def format_title(title, domain) -> str:
     elif domain == "www.binance.com":
         _title = binance_pattern.sub("", _title).strip()
         _title = tw_converter.convert(f"[Binance] {_title}")
+    elif domain == "www.kucoin.com":
+        _title = binance_pattern.sub("", _title).strip()
+        _title = tw_converter.convert(f"[KuCoin] {_title}")
 
     return _title
 
