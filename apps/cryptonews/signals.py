@@ -15,6 +15,7 @@ debug = getattr(settings, "DEBUG")
 p = re.compile(r"^\[.*?\]", re.IGNORECASE)
 gate_pattern = re.compile("^gate\\.io", re.IGNORECASE)
 binance_pattern = re.compile("^幣安")
+# kucoin_pattern = re.compile(r"^kucoin", re.IGNORECASE)
 
 hk_converter = opencc.OpenCC("hk2s")
 tw_converter = opencc.OpenCC("tw2s")
@@ -38,8 +39,9 @@ def format_title(title, domain) -> str:
         _title = binance_pattern.sub("", _title).strip()
         _title = tw_converter.convert(f"[Binance] {_title}")
     elif domain == "www.kucoin.com":
-        _title = binance_pattern.sub("", _title).strip()
-        _title = tw_converter.convert(f"[KuCoin] {_title}")
+        _title = f"[KuCoin] {_title}"
+        # _title = kucoin_pattern.sub("", _title).strip()
+        # _title = tw_converter.convert(f"[KuCoin] {_title}")
 
     return _title
 
