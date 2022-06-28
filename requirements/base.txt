@@ -15,6 +15,11 @@ django-taggit==3.0.0
 django-taggit-serializer==0.1.7
 django-redis==5.1.0
 
+# martor
+# https://github.com/agusmakmun/django-markdown-editor
+# ----------------------------------------------------------------------------------------------------------------------
+martor==1.6.13
+
 
 # celery
 celery==5.2.2

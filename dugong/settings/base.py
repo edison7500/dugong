@@ -62,6 +62,7 @@ THIRD_PARTY_APPS = [
     "mptt",
     "taggit",
     "django_extensions",
+    "martor",
     # "django_gravatar",
     "django_filters",
     "django_celery_beat",
@@ -202,3 +203,40 @@ CELERY_ACCEPT_CONTENT = ["msgpack"]
 CRAWLER_URL = env("CRAWLER_URL", default="http://127.0.0.1:6800")
 
 TRANSLATE_BOT_URL = env("TRANSLATE_BOT_URL")
+
+
+# Choices are: "semantic", "bootstrap"
+MARTOR_THEME = "semantic"
+
+# Global martor settings
+# Input: string boolean, `true/false`
+MARTOR_ENABLE_CONFIGS = {
+    "emoji": "true",  # to enable/disable emoji icons.
+    "imgur": "false",  # to enable/disable imgur/custom uploader.
+    "mention": "false",  # to enable/disable mention
+    "jquery": "true",  # to include/revoke jquery (require for admin default django)
+    "living": "false",  # to enable/disable live updates in preview
+    "spellcheck": "false",  # to enable/disable spellcheck in form textareas
+    "hljs": "true",  # to enable/disable hljs highlighting in preview
+}
+
+# To show the toolbar buttons
+MARTOR_TOOLBAR_BUTTONS = [
+    "bold",
+    "italic",
+    "horizontal",
+    "heading",
+    "pre-code",
+    "blockquote",
+    "unordered-list",
+    "ordered-list",
+    "link",
+    "image-link",
+    "image-upload",
+    "emoji",
+    "direct-mention",
+    "toggle-maximize",
+]
+
+# To setup the martor editor with title label or not (default is False)
+MARTOR_ENABLE_LABEL = False
