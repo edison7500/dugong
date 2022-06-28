@@ -204,9 +204,8 @@ CRAWLER_URL = env("CRAWLER_URL", default="http://127.0.0.1:6800")
 
 TRANSLATE_BOT_URL = env("TRANSLATE_BOT_URL")
 
-
 # Choices are: "semantic", "bootstrap"
-MARTOR_THEME = "semantic"
+MARTOR_THEME = "bootstrap"
 
 # Global martor settings
 # Input: string boolean, `true/false`
@@ -240,3 +239,20 @@ MARTOR_TOOLBAR_BUTTONS = [
 
 # To setup the martor editor with title label or not (default is False)
 MARTOR_ENABLE_LABEL = False
+
+# If you need to use your own themed "bootstrap" or "semantic ui" dependency
+# replace the values with the file in your static files dir
+# MARTOR_ALTERNATIVE_JS_FILE_THEME = "semantic-themed/semantic.min.js"  # default None
+# MARTOR_ALTERNATIVE_CSS_FILE_THEME = "semantic-themed/semantic.min.css"  # default None
+# MARTOR_ALTERNATIVE_JQUERY_JS_FILE = "jquery/dist/jquery.min.js"  # default None
+
+# URL schemes that are allowed within links
+ALLOWED_URL_SCHEMES = [
+    "file",
+    "ftp",
+    "ftps",
+    "http",
+    "https",
+    "mailto",
+    # "sftp", "ssh", "tel", "telnet", "tftp", "vnc", "xmpp",
+]
