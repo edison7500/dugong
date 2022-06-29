@@ -31,7 +31,5 @@ class PostAdmin(admin.ModelAdmin):
         models.TextField: {"widget": AdminMartorWidget},
     }
 
-    # form = PostForm
-
     def get_queryset(self, request):
         return super().get_queryset(request).prefetch_related("tags")

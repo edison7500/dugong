@@ -94,11 +94,13 @@ class Post(CacheMixin, models.Model):
         _content = _content.lower()
         return _content
 
-    def tag_list(self) -> List[str]:
-        return [o.name for o in self.tags.all()]
+    # def tag_list(self) -> List[str]:
+    #     return self.tags.names()
+    # return [o.name for o in self.tags.all()]
 
-    def tag_string(self):
-        return ",".join(self.tag_list())
+    @cached_property
+    def tag_string(self) -> str:
+        return ",".join(self.tags.names())
 
     def get_absolute_url(self) -> str:
         return f"/posts/{self.slug}/"
