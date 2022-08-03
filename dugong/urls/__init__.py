@@ -32,22 +32,9 @@ from apps.blog.sitemaps import PostSitemap  # noqa E402
 
 sitemaps = {"blog": PostSitemap}
 
-# from django.contrib.sitemaps import views  # noqa E402
-# from django.views.decorators.cache import cache_page  # noqa E402
-
-# urlpatterns += [
-#     re_path(
-#         r"^sitemap\.xml$",
-#         cache_page(86400)(views.sitemap),
-#         {"sitemaps": sitemaps},
-#         name="post_sitemaps",
-#     )
-# ]
-
 # from apps.blog.feeds import PostFeeds  # noqa E402
 from django.contrib.flatpages import views  # noqa E402
 
-# urlpatterns += [path("feed/posts/", PostFeeds(), name="blog-post-feed")]
 # urlpatterns += [re_path(r"^pages/(?P<url>.*/?)$", views.flatpage)]
 urlpatterns += staticfiles_urlpatterns()
 

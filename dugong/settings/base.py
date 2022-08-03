@@ -237,7 +237,7 @@ MARTOR_TOOLBAR_BUTTONS = [
     "toggle-maximize",
 ]
 
-# To setup the martor editor with title label or not (default is False)
+# To set up the martor editor with title label or not (default is False)
 MARTOR_ENABLE_LABEL = False
 
 # If you need to use your own themed "bootstrap" or "semantic ui" dependency
