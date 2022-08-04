@@ -27,7 +27,7 @@ django-celery-beat==2.2.1
 
 # redis
 redis==3.5.3
-msgpack==1.0.3
+msgpack==1.0.4
 
 docopt==0.6.2
 html5lib==1.1
