@@ -51,7 +51,7 @@ def push_crypto_new(sender, instance: News, created, **kwargs):
         ser = PushExchangeAnnSerializer(instance=instance)
         logger.info(ser.data)
 
-        _expire = datetime.utcnow() - timedelta(hours=1)  # noqa
+        _expire = datetime.utcnow() - timedelta(hours=12)  # noqa
         if _expire.timestamp() < instance.published_at.timestamp():
             _data = ser.data
             _title = _data["title"]
