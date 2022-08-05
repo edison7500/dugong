@@ -16,6 +16,10 @@ class PushExchangeAnnSerializer(serializers.ModelSerializer):
     chat_id = serializers.CharField(
         default="@ExchangeAnnChannel", read_only=True
     )
+    parse_mode = serializers.CharField(
+        default="MarkdownV2",
+        read_only=True,
+    )
     disable_web_page_preview = serializers.BooleanField(
         default=True, read_only=True
     )
@@ -26,4 +30,5 @@ class PushExchangeAnnSerializer(serializers.ModelSerializer):
             "id",
             "content",
             "slug",
+            "published_at",
         ]

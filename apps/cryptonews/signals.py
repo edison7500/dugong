@@ -51,15 +51,17 @@ def push_crypto_new(sender, instance: News, created, **kwargs):
         ser = PushExchangeAnnSerializer(instance=instance)
         logger.info(ser.data)
 
-        _expire = datetime.utcnow() - timedelta(hours=12)  # noqa
-        if _expire.timestamp() < instance.published_at.timestamp():
+        _expire = datetime.utcnow() + timedelta(hours=12)  # noqa
+        if _expire.timestamp() > instance.published_at.timestamp():
             _data = ser.data
-            _title = _data["title"]
+            _title = _data.pop("title")
+            _origin_link = _data.pop("origin_link")
 
             if instance.domain in ["upbit.com", "cafe.bithumb.com"]:
                 _title = translate_text(_title, "ko", "zh")
 
-            _data.update({"title": format_title(_title, instance.domain)})
+            _text = f"*{format_title(_title, instance.domain)}* -  [link]({_origin_link})"
+            _data.update({"text": _text})
             requests.post(
                 url="https://tg-bot.notfound404.workers.dev/sendMessage",
                 json=_data,
