@@ -49,23 +49,17 @@ def format_title(title, domain) -> str:
 def push_crypto_new(sender, instance: News, created, **kwargs):
     if isinstance(instance, sender) and created:
         ser = PushExchangeAnnSerializer(instance=instance)
-        _expire = datetime.utcnow() + timedelta(hours=12)  # noqa
-        if _expire.timestamp() > instance.published_at.timestamp():
+        if debug:
+            logger.info(ser.data)
+            return
+
+        _expire = datetime.utcnow() - timedelta(hours=1)  # noqa
+        if _expire.timestamp() < instance.published_at.timestamp():
             _data = ser.data
-            _title = _data.pop("title")
-            _origin_link = _data.pop("origin_link")
+            _title = _data["title"]
 
             if instance.domain in ["upbit.com", "cafe.bithumb.com"]:
                 _title = translate_text(_title, "ko", "zh")
 
-            _text = f"*{format_title(_title, instance.domain)}* - [link]({_origin_link})"
-            _data.update({"text": _text})
-
-            logger.info(_data)
-
-            r = requests.post(
-                url="https://tg-bot.notfound404.workers.dev/sendMessage",
-                json=_data,
-            )
-
-            logger.info(r.json())
+            _data.update({"title": format_title(_title, instance.domain)})
+            requests.post(url="http://tg-bot:5000/push", json=_data)
