@@ -58,12 +58,14 @@ def push_crypto_new(sender, instance: News, created, **kwargs):
             if instance.domain in ["upbit.com", "cafe.bithumb.com"]:
                 _title = translate_text(_title, "ko", "zh")
 
-            _text = f"*{format_title(_title, instance.domain)}* -  [link]({_origin_link})"
+            _text = f"*{format_title(_title, instance.domain)}* - [link]({_origin_link})"
             _data.update({"text": _text})
 
             logger.info(_data)
 
-            requests.post(
+            r = requests.post(
                 url="https://tg-bot.notfound404.workers.dev/sendMessage",
                 json=_data,
             )
+
+            logger.info(r.json())
