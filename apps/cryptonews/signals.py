@@ -49,8 +49,6 @@ def format_title(title, domain) -> str:
 def push_crypto_new(sender, instance: News, created, **kwargs):
     if isinstance(instance, sender) and created:
         ser = PushExchangeAnnSerializer(instance=instance)
-        logger.info(ser.data)
-
         _expire = datetime.utcnow() + timedelta(hours=12)  # noqa
         if _expire.timestamp() > instance.published_at.timestamp():
             _data = ser.data
@@ -62,6 +60,9 @@ def push_crypto_new(sender, instance: News, created, **kwargs):
 
             _text = f"*{format_title(_title, instance.domain)}* -  [link]({_origin_link})"
             _data.update({"text": _text})
+
+            logger.info(_data)
+
             requests.post(
                 url="https://tg-bot.notfound404.workers.dev/sendMessage",
                 json=_data,
