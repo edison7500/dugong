@@ -62,4 +62,7 @@ def push_crypto_new(sender, instance: News, created, **kwargs):
                 _title = translate_text(_title, "ko", "zh")
 
             _data.update({"title": format_title(_title, instance.domain)})
-            requests.post(url="http://tg-bot:5000/push", json=_data)
+            requests.post(
+                url="https://tg-bot.notfound404.workers.dev/sendMessage",
+                json=_data,
+            )

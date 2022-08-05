@@ -16,6 +16,9 @@ class PushExchangeAnnSerializer(serializers.ModelSerializer):
     channel = serializers.CharField(
         default="ExchangeAnnChannel", read_only=True
     )
+    disable_web_page_preview = serializers.BooleanField(
+        default=True, read_only=True
+    )
 
     class Meta:
         model = News
