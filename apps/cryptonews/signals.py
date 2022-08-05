@@ -49,9 +49,7 @@ def format_title(title, domain) -> str:
 def push_crypto_new(sender, instance: News, created, **kwargs):
     if isinstance(instance, sender) and created:
         ser = PushExchangeAnnSerializer(instance=instance)
-        if debug:
-            logger.info(ser.data)
-            return
+        logger.info(ser.data)
 
         _expire = datetime.utcnow() - timedelta(hours=1)  # noqa
         if _expire.timestamp() < instance.published_at.timestamp():
