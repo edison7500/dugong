@@ -61,7 +61,7 @@ class PhotoAdmin(admin.ModelAdmin):
             )
         else:
             return format_html(
-                f'<img src="https://static.jiaxin.im/dugong/static/img/placeholder.jpg" width="150" />'
+                '<img src="https://static.jiaxin.im/dugong/static/img/placeholder.jpg" width="150" />'
             )
 
     shot_time.admin_order_field = "exif__shot_time"

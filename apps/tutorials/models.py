@@ -3,7 +3,7 @@ from urllib.parse import urlparse
 from django.conf import settings
 from django.contrib.contenttypes.fields import GenericRelation
 
-from django.urls import reverse
+# from django.urls import reverse
 from django.db import models
 from django.utils import timezone
 from django.utils.functional import cached_property

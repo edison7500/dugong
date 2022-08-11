@@ -1,4 +1,4 @@
-from typing import List, Dict
+# from typing import List, Dict
 from rest_framework import serializers
 from apps.tutorials.models import Tutorial
 

@@ -1,7 +1,8 @@
 import logging
-import base64
-from io import BytesIO
-from PIL import Image
+
+# import base64
+# from io import BytesIO
+# from PIL import Image
 
 # import numpy as np
 from django import forms

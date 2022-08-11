@@ -1,6 +1,7 @@
 from xml.sax.saxutils import XMLGenerator
 from django.contrib.syndication.views import Feed
-from django.urls import reverse
+
+# from django.urls import reverse
 from django.utils.encoding import smart_str
 from django.utils.feedgenerator import Rss201rev2Feed
 from django.utils.html import strip_tags, escape
@@ -39,10 +40,10 @@ class PostsFeedGenerator(Rss201rev2Feed):
 
     def rss_attributes(self):
         attrs = super(PostsFeedGenerator, self).rss_attributes()
-        attrs["xmlns:content"] = "http://purl.org/rss/1.0/modules/content/"
-        attrs["xmlns:media"] = "http://search.yahoo.com/mrss/"
-        attrs["xmlns:georss"] = "http://www.georss.org/georss"
-        attrs["xmlns:dc"] = "http://purl.org/dc/elements/1.1/"
+        attrs["xmlns:content"] = "https://purl.org/rss/1.0/modules/content/"
+        attrs["xmlns:media"] = "https://search.yahoo.com/mrss/"
+        attrs["xmlns:georss"] = "https://www.georss.org/georss"
+        attrs["xmlns:dc"] = "https://purl.org/dc/elements/1.1/"
         return attrs
 
     def add_item_elements(self, handler, item):

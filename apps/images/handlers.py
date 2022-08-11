@@ -5,6 +5,7 @@ from hashlib import md5
 from django.utils.deconstruct import deconstructible
 from django.utils.encoding import smart_str
 
+
 #
 #
 @deconstructible

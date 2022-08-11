@@ -1,6 +1,7 @@
 import logging
 import re
-from typing import List
+
+# from typing import List
 
 from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
