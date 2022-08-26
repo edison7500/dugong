@@ -2,7 +2,8 @@ import logging
 from django.http import HttpResponse
 from django.views import generic
 from .mixins import ProcessImageMixin
-from ..models import Photo
+
+# from ..models import Photo
 
 logger = logging.getLogger("django")
 
@@ -17,8 +18,8 @@ class ImageProcessView(ProcessImageMixin, generic.View):
         return res
 
 
-class PhotoListView(generic.ListView):
-    model = Photo
-    queryset = Photo.objects.all()
-    template_name = "photo/index.html"
-    paginate_by = 16
+# class PhotoListView(generic.ListView):
+#     model = Photo
+#     queryset = Photo.objects.all()
+#     template_name = "photo/index.html"
+#     paginate_by = 16

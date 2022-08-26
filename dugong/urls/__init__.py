@@ -4,11 +4,11 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
 
-from apps.photos.views import ImageProcessView
+# from apps.photos.views import ImageProcessView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("upload/<int:size>/img/<str:filename>", ImageProcessView.as_view()),
+    # path("upload/<int:size>/img/<str:filename>", ImageProcessView.as_view()),
     path("martor/", include("martor.urls")),
 ]
 
