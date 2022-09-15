@@ -33,7 +33,7 @@ from apps.blog.sitemaps import PostSitemap  # noqa E402
 sitemaps = {"blog": PostSitemap}
 
 # from apps.blog.feeds import PostFeeds  # noqa E402
-from django.contrib.flatpages import views  # noqa E402
+# from django.contrib.flatpages import views  # noqa E402
 
 # urlpatterns += [re_path(r"^pages/(?P<url>.*/?)$", views.flatpage)]
 urlpatterns += staticfiles_urlpatterns()
