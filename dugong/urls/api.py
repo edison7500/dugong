@@ -13,6 +13,7 @@ urlpatterns = [
 
 urlpatterns += [
     path("crypto-news/", include("apps.cryptonews.urls.api")),
+    path("toolboxes/", include("apps.toolbox.urls")),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
