@@ -8,3 +8,5 @@ class CryptoNewsViewSet(viewsets.ModelViewSet):
     queryset = News.objects.all()
     serializer_class = CryptoNewsSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    lookup_url_kwarg = "slug"
+    lookup_field = "slug"
