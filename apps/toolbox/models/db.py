@@ -49,6 +49,7 @@ class ToolBox(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True, default="")
     url = models.URLField(max_length=255)
+    is_published = models.BooleanField(default=True)
 
     tags = TaggableManager(blank=True)
 

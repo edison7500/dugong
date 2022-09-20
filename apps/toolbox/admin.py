@@ -14,10 +14,19 @@ class CategoryMPTTModelAdmin(MPTTModelAdmin):
 
 class ToolBoxAdmin(admin.ModelAdmin):
     # class Meta:
-    list_display = ["slug", "logo_thumb", "category", "title", "created_at"]
-    list_filter = ["category"]
+    list_display = [
+        "slug",
+        "logo_thumb",
+        "category",
+        "title",
+        "is_published",
+        "created_at",
+        "updated_at",
+    ]
+    list_filter = ["category", "is_published"]
     search_fields = ["title"]
     list_per_page = 50
+    ordering = ["-created_at"]
 
     readonly_fields = ["slug", "logo_thumb"]
 
