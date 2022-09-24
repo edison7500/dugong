@@ -8,6 +8,7 @@ from django_extensions.db import fields
 from mptt.models import MPTTModel, TreeForeignKey
 from taggit.managers import TaggableManager
 
+from .manager import ToolBoxManager
 from apps.images.handlers import UUIDFilename
 
 upload_dir = UUIDFilename("upload/")
@@ -55,6 +56,8 @@ class ToolBox(models.Model):
 
     created_at = models.DateTimeField(default=timezone.now, editable=False)
     updated_at = models.DateTimeField(auto_now_add=True, editable=False)
+
+    objects = ToolBoxManager()
 
     class Meta:
         verbose_name = "toolbox"

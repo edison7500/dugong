@@ -4,6 +4,5 @@ from .serializers import ToolboxSerializer
 
 
 class ToolBoxAPIViewSet(viewsets.ReadOnlyModelViewSet):
-
     serializer_class = ToolboxSerializer
-    queryset = ToolBox.objects.filter(is_published=True)
+    queryset = ToolBox.objects.published().order_by("updated_at")
