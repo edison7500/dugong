@@ -5,4 +5,4 @@ from .serializers import ToolboxSerializer
 
 class ToolBoxAPIViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = ToolboxSerializer
-    queryset = ToolBox.objects.published().order_by("updated_at")
+    queryset = ToolBox.objects.published().order_by("-updated_at")
