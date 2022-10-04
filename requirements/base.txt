@@ -1,6 +1,6 @@
-Django==3.2.15 # pyup: >=3.2,<4.0
+Django==3.2.16 # pyup: >=3.2,<4.0
 djangorestframework==3.14.0
-django-allauth==0.47.0
+django-allauth==0.51.0
 django-extensions==3.2.1
 django-filter==22.1
 # django-gravatar2==1.4.4
