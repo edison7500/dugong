@@ -18,7 +18,7 @@ django-redis==5.2.0
 # martor
 # https://github.com/agusmakmun/django-markdown-editor
 # ----------------------------------------------------------------------------------------------------------------------
-martor==1.6.13
+martor==1.6.14
 
 # celery
 celery==5.2.7
