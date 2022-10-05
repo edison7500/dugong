@@ -21,8 +21,8 @@ django-redis==5.2.0
 martor==1.6.13
 
 # celery
-celery==5.2.2
-django-celery-beat==2.2.1
+celery==5.2.7
+django-celery-beat==2.3.0
 
 # redis
 redis==4.3.4
