@@ -22,6 +22,8 @@ class News(models.Model):
 
     class Meta:
         ordering = ["-published_at"]
+        verbose_name = "news"
+        verbose_name_plural = "news"
 
     def __str__(self):
         return f"{self.title} - {self.published_at} - {self.origin_link}"
