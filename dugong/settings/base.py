@@ -65,7 +65,6 @@ THIRD_PARTY_APPS = [
     "martor",
     # "django_gravatar",
     "django_filters",
-    "django_celery_beat",
     "allauth",
     "allauth.account",
 ]
@@ -188,19 +187,6 @@ ACCOUNT_LOGOUT_ON_GET = False
 REST_USE_JWT = True
 OLD_PASSWORD_FIELD_ENABLED = False
 
-# celery
-# ----------------------------------------------------------------------------------------------------------------------
-#
-CELERY_BROKER_URL = env(
-    "CELERY_BROKER_URL", default="redis://127.0.0.1:6379/12"
-)
-CELERY_TIMEZONE = TIME_ZONE
-CELERY_TASK_SERIALIZER = "msgpack"
-CELERY_ACCEPT_CONTENT = ["msgpack"]
-
-CRAWLER_URL = env("CRAWLER_URL", default="http://127.0.0.1:6800")
-
-TRANSLATE_BOT_URL = env("TRANSLATE_BOT_URL")
 
 # Choices are: "semantic", "bootstrap"
 MARTOR_THEME = "bootstrap"
