@@ -6,7 +6,7 @@ RUN pip install -r /tmp/requirements/prod.txt --compile && rm -rf /tmp/requireme
 RUN mkdir /opt/dugong
 COPY . /opt/dugong
 WORKDIR /opt/dugong
-RUN /usr/bin/touch .env
+RUN echo "# env file" > .env
 
 # cleanup
 RUN rm -rf /var/lib/apt/lists/*
