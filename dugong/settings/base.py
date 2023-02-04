@@ -74,7 +74,6 @@ LOCAL_APPS = [
     "apps.blog",
     "apps.tutorials",
     "apps.images",
-    "apps.cryptonews",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = (
