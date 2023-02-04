@@ -1,12 +1,12 @@
 FROM python:3.9.16-slim-buster
 ENV PYTHONUNBUFFERED 1
-RUN apt-get update && apt-get install -y gcc opencc
+RUN apt update && apt install -y gcc opencc
 COPY requirements /tmp/requirements
-RUN pip install -r /tmp/requirements/prod.txt --compile && rm -rf /tmp/requirements
+RUN pip install -r /tmp/requirements/prod.txt --compile --no-cache-dir && rm -rf /tmp/requirements
 RUN mkdir /opt/dugong
+RUN touch /opt/dugong/.env
 COPY . /opt/dugong
 WORKDIR /opt/dugong
-RUN touch .env
 
 # cleanup
 RUN rm -rf /var/lib/apt/lists/*
