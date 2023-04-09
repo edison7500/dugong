@@ -1,3 +1,5 @@
 .env
 .git
+.github
 docker-compose.yml
+Dockerfile
