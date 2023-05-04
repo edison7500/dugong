@@ -10,6 +10,7 @@ WORKDIR /opt/dugong
 
 # cleanup
 RUN rm -rf /var/lib/apt/lists/*
+RUN pip cache purge
 
 RUN useradd -s /sbin/nologin -u 1001 -d /opt/dugong dugong
 RUN chown dugong .
