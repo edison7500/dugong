@@ -14,7 +14,7 @@
 
 ### Web Framework
 
-* *django-3.2* [相关文档](https://docs.djangoproject.com/en/3.2/)
+* *django-4.2* [相关文档](https://docs.djangoproject.com/en/4.2/)
 
 ### Build
 
