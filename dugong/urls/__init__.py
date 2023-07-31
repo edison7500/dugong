@@ -9,7 +9,7 @@ from django.urls import path, include
 urlpatterns = [
     path("admin/", admin.site.urls),
     # path("upload/<int:size>/img/<str:filename>", ImageProcessView.as_view()),
-    path("martor/", include("martor.urls")),
+    # path("martor/", include("martor.urls")),
 ]
 
 urlpatterns += [
