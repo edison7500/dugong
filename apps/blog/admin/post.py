@@ -1,9 +1,9 @@
 # from ajax_select import register, LookupChannel
-from django.db import models
+# from django.db import models
 from django.contrib import admin
 from django.contrib.contenttypes.admin import GenericStackedInline
 
-from martor.widgets import AdminMartorWidget
+# from martor.widgets import AdminMartorWidget
 
 from apps.images.models import Image
 
@@ -27,9 +27,9 @@ class PostAdmin(admin.ModelAdmin):
     list_per_page = 30
     inlines = (PostImageInlineAdmin,)
 
-    formfield_overrides = {
-        models.TextField: {"widget": AdminMartorWidget},
-    }
+    # formfield_overrides = {
+    #     models.TextField: {"widget": AdminMartorWidget},
+    # }
 
     def get_queryset(self, request):
         return super().get_queryset(request).prefetch_related("tags")

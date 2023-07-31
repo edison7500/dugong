@@ -62,7 +62,7 @@ THIRD_PARTY_APPS = [
     "mptt",
     "taggit",
     "django_extensions",
-    "martor",
+    # "martor",
     # "django_gravatar",
     "django_filters",
     "allauth",
@@ -188,41 +188,41 @@ REST_USE_JWT = True
 OLD_PASSWORD_FIELD_ENABLED = False
 
 
-# Choices are: "semantic", "bootstrap"
-MARTOR_THEME = "bootstrap"
+# # Choices are: "semantic", "bootstrap"
+# MARTOR_THEME = "bootstrap"
+#
+# # Global martor settings
+# # Input: string boolean, `true/false`
+# MARTOR_ENABLE_CONFIGS = {
+#     "emoji": "true",  # to enable/disable emoji icons.
+#     "imgur": "false",  # to enable/disable imgur/custom uploader.
+#     "mention": "false",  # to enable/disable mention
+#     "jquery": "true",  # to include/revoke jquery (require for admin default django)
+#     "living": "false",  # to enable/disable live updates in preview
+#     "spellcheck": "false",  # to enable/disable spellcheck in form textareas
+#     "hljs": "true",  # to enable/disable hljs highlighting in preview
+# }
+#
+# # To show the toolbar buttons
+# MARTOR_TOOLBAR_BUTTONS = [
+#     "bold",
+#     "italic",
+#     "horizontal",
+#     "heading",
+#     "pre-code",
+#     "blockquote",
+#     "unordered-list",
+#     "ordered-list",
+#     "link",
+#     "image-link",
+#     "image-upload",
+#     "emoji",
+#     "direct-mention",
+#     "toggle-maximize",
+# ]
 
-# Global martor settings
-# Input: string boolean, `true/false`
-MARTOR_ENABLE_CONFIGS = {
-    "emoji": "true",  # to enable/disable emoji icons.
-    "imgur": "false",  # to enable/disable imgur/custom uploader.
-    "mention": "false",  # to enable/disable mention
-    "jquery": "true",  # to include/revoke jquery (require for admin default django)
-    "living": "false",  # to enable/disable live updates in preview
-    "spellcheck": "false",  # to enable/disable spellcheck in form textareas
-    "hljs": "true",  # to enable/disable hljs highlighting in preview
-}
-
-# To show the toolbar buttons
-MARTOR_TOOLBAR_BUTTONS = [
-    "bold",
-    "italic",
-    "horizontal",
-    "heading",
-    "pre-code",
-    "blockquote",
-    "unordered-list",
-    "ordered-list",
-    "link",
-    "image-link",
-    "image-upload",
-    "emoji",
-    "direct-mention",
-    "toggle-maximize",
-]
-
-# To set up the martor editor with title label or not (default is False)
-MARTOR_ENABLE_LABEL = False
+# # To set up the martor editor with title label or not (default is False)
+# MARTOR_ENABLE_LABEL = False
 
 # If you need to use your own themed "bootstrap" or "semantic ui" dependency
 # replace the values with the file in your static files dir
@@ -230,13 +230,13 @@ MARTOR_ENABLE_LABEL = False
 # MARTOR_ALTERNATIVE_CSS_FILE_THEME = "semantic-themed/semantic.min.css"  # default None
 # MARTOR_ALTERNATIVE_JQUERY_JS_FILE = "jquery/dist/jquery.min.js"  # default None
 
-# URL schemes that are allowed within links
-ALLOWED_URL_SCHEMES = [
-    "file",
-    "ftp",
-    "ftps",
-    "http",
-    "https",
-    "mailto",
-    # "sftp", "ssh", "tel", "telnet", "tftp", "vnc", "xmpp",
-]
+# # URL schemes that are allowed within links
+# ALLOWED_URL_SCHEMES = [
+#     "file",
+#     "ftp",
+#     "ftps",
+#     "http",
+#     "https",
+#     "mailto",
+#     # "sftp", "ssh", "tel", "telnet", "tftp", "vnc", "xmpp",
+# ]
