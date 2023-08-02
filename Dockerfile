@@ -1,4 +1,4 @@
-FROM python:3.9.16-slim-buster
+FROM python:3.9.17-slim-buster
 ENV PYTHONUNBUFFERED 1
 RUN apt update && apt install -y gcc opencc
 COPY requirements /tmp/requirements
