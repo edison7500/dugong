@@ -10,7 +10,7 @@
 
 * Ubuntu 20.04 LTS
 * Postgres 12.x
-* Python 3.7.x
+* Python 3.9.x
 
 ### Web Framework
 
