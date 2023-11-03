@@ -1,4 +1,4 @@
-Django==4.2.6 # pyup: >=4.2,<5.0
+Django==4.2.7 # pyup: >=4.2,<5.0
 djangorestframework==3.14.0
 django-allauth==0.54.0
 django-extensions==3.2.3
