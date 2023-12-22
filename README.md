@@ -10,11 +10,11 @@
 
 * Ubuntu 20.04 LTS
 * Postgres 12.x
-* Python 3.9.x
+* Python 3.11.x
 
 ### Web Framework
 
-* *django-4.2* [相关文档](https://docs.djangoproject.com/en/4.2/)
+* *django-4.2.* [相关文档](https://docs.djangoproject.com/en/4.2/)
 
 ### Build
 
