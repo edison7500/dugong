@@ -1,4 +1,4 @@
-Django==4.2.7 # pyup: >=4.2,<5.0
+Django==4.2.8 # pyup: >=4.2,<5.0
 djangorestframework==3.14.0
 django-allauth==0.54.0
 django-extensions==3.2.3
@@ -7,7 +7,7 @@ django-filter==23.2
 django-model-utils==4.3.1
 #django-simple-captcha==0.5.17
 django-uuslug==1.2.0
-django-environ==0.9.0
+django-environ==0.11.2
 django-mptt==0.14.0
 
 django-taggit==4.0.0
@@ -33,6 +33,6 @@ python-dateutil==2.8.2
 python-slugify==1.2.4
 python3-openid==3.1.0
 
-psycopg2-binary==2.8.6 # pyup: >=2.8,<2.9
+psycopg2-binary==2.9.9 # pyup: >=2.8,<2.9
 
 https://github.com/edison7500/django-placeholder/archive/v0.0.1.tar.gz
