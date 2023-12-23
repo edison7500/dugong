@@ -21,7 +21,7 @@
 ```
 pip install -r requirements/local.txt  # development
 
-pip install -r requirements/production.txt # production
+pip install -r requirements/prod.txt # production
 ```
 
 ### 教程
