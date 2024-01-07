@@ -6,15 +6,13 @@
 [![Coverage Status](https://coveralls.io/repos/github/edison7500/dugong/badge.svg?branch=master)](https://coveralls.io/github/edison7500/dugong?branch=master)
 [![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-### 系统环境
-
-* Ubuntu 20.04 LTS
-* Postgres 12.x
-* Python 3.11.x
-
-### Web Framework
-
-* *django-4.2.* [相关文档](https://docs.djangoproject.com/en/4.2/)
+## Technologies
+- 🐍 Django REST framework
+- 🐘 PostgreSQL
+- 🏓 Redis
+- 🧹 Frake8 and black
+- 📸 Pillow
+- ☁️ DigitalOcean
 
 ### Build
 
