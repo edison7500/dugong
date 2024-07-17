@@ -1,8 +1,6 @@
 import logging
 import re
 
-# from typing import List
-
 from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 from django.utils.functional import cached_property
@@ -95,16 +93,12 @@ class Post(CacheMixin, models.Model):
         _content = _content.lower()
         return _content
 
-    # def tag_list(self) -> List[str]:
-    #     return self.tags.names()
-    # return [o.name for o in self.tags.all()]
-
     @cached_property
     def tag_string(self) -> str:
         return ",".join(self.tags.names())
 
     def get_absolute_url(self) -> str:
-        return f"/posts/{self.slug}/"
+        return f"/blog/{self.slug}/"
 
     def render_markdown(self):
         html = md.convert(self.content)
