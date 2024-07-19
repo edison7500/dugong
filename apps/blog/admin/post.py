@@ -15,8 +15,10 @@ class PostImageInlineAdmin(GenericStackedInline):
 
 
 class PostAdmin(admin.ModelAdmin):
+    date_hierarchy = "created_at"
     list_display = (
         "title",
+        "slug",
         "status",
         "tag_string",
         "created_at",
