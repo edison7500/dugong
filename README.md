@@ -7,6 +7,7 @@
 [![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 ## Technologies
+
 - 🐍 Django REST framework
 - 🐘 PostgreSQL
 - 🏓 Redis
@@ -16,7 +17,7 @@
 
 ### Build
 
-```
+```.bash
 pip install -r requirements/local.txt  # development
 
 pip install -r requirements/prod.txt # production
@@ -24,7 +25,7 @@ pip install -r requirements/prod.txt # production
 
 ### 教程
 
-* [利用 Django 建站攻略 （一）安装](https://jiaxin.im/blog/li-yong-django-jian-zhan-gong/)
-* [利用 Django 建站攻略 （二）建模](https://jiaxin.im/blog/li-yong-django-jian-zhan-gon-1/)
-* [利用 Django 建站攻略 （三）视图](https://jiaxin.im/blog/li-yong-django-jian-zhan-gon-2/)
-* [利用 Django 建站攻略 （四）搜索](https://jiaxin.im/blog/li-yong-django-jian-zhan-gon-3/)
+- [利用 Django 建站攻略 （一）安装](https://www.jiaxin.im/li-yong-django-jian-zhan-gong/)
+- [利用 Django 建站攻略 （二）建模](https://www.jiaxin.im/li-yong-django-jian-zhan-gon-1/)
+- [利用 Django 建站攻略 （三）视图](https://www.jiaxin.im/li-yong-django-jian-zhan-gon-2/)
+- [利用 Django 建站攻略 （四）搜索](https://www.jiaxin.im/li-yong-django-jian-zhan-gon-3/)
