@@ -16,7 +16,7 @@ django-redis==5.3.0
 
 # redis
 redis==4.5.4
-msgpack==1.0.4
+msgpack==1.2.1
 
 docopt==0.6.2
 html5lib==1.1
